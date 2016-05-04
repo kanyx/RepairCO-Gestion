@@ -8,7 +8,7 @@ Module PGSQL_General
                                   ByVal Password As String, ByVal NameBD As String) As Boolean
         Try
             Dim Resultado As ArrayList
-            ConnectorPGSQL = New NpgsqlConnection("Host=" & Server & ";Username=" & Username & ";Password=" & Password & _
+            ConnectorPGSQL = New NpgsqlConnection("Host=" & Server & ";Port= " & Port & " ;Username=" & Username & ";Password=" & Password & _
                                                   ";Database=" & NameBD)
             ConnectorPGSQL.Open()
             CommandPGSQL = New NpgsqlCommand

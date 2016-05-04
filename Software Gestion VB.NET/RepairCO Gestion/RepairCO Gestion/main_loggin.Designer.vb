@@ -77,7 +77,7 @@ Partial Class main_loggin
         Me.loggin_password_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.loggin_password_txt.Location = New System.Drawing.Point(32, 157)
         Me.loggin_password_txt.Name = "loggin_password_txt"
-        Me.loggin_password_txt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(88)
+        Me.loggin_password_txt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.loggin_password_txt.Size = New System.Drawing.Size(194, 26)
         Me.loggin_password_txt.TabIndex = 4
         '
