@@ -1,0 +1,16 @@
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.dll
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.pdb
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.xml
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.Resources.resources
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.vbproj.GenerateResource.Cache
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.dll
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.xml
+C:\Users\mortiz\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.pdb
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.dll
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.pdb
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.xml
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.Resources.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.vbproj.GenerateResource.Cache
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.dll
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.xml
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\GestorXML\obj\Debug\GestorXML.pdb

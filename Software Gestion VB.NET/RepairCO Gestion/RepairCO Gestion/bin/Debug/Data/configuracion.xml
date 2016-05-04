@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RepairCo>
+  <db>
+    <server>192.168.0.2</server>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>kanmc267</password>
+    <nombre>repairco</nombre>
+  </db>
+</RepairCo>

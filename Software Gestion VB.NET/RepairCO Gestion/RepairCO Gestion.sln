@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RepairCO Gestion", "RepairCO Gestion\RepairCO Gestion.vbproj", "{9221DC0D-DAED-4769-ABF7-5185916D439B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GestorXML", "GestorXML\GestorXML.vbproj", "{2D425868-818A-41BE-ABE3-4257350A00C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9221DC0D-DAED-4769-ABF7-5185916D439B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9221DC0D-DAED-4769-ABF7-5185916D439B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9221DC0D-DAED-4769-ABF7-5185916D439B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9221DC0D-DAED-4769-ABF7-5185916D439B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D425868-818A-41BE-ABE3-4257350A00C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D425868-818A-41BE-ABE3-4257350A00C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D425868-818A-41BE-ABE3-4257350A00C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D425868-818A-41BE-ABE3-4257350A00C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
