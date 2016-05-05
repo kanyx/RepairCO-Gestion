@@ -15,6 +15,14 @@
             ' # Seleccion de recepcion
         ElseIf e.Node.Name = "menu_recepcioneslista" Then
             ' # Seleccion Ingresar
+        ElseIf e.Node.Name = "menu_recepcioningresar" Then
+            ' # Formulario de ingreso de formulario.
+            Dim Frm_RecepcionIngreso As New form_ingreso
+            Frm_RecepcionIngreso.MdiParent = main_application
+            Frm_RecepcionIngreso.ShowInTaskbar = False
+            Frm_RecepcionIngreso.StartPosition = FormStartPosition.Manual
+            Frm_RecepcionIngreso.Left += 300
+            Frm_RecepcionIngreso.Show()
         End If
     End Sub
 End Class
