@@ -9,11 +9,11 @@
         mainmenu_iconlist.Images.Add(3, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/ingreso.png"))
     End Sub
     Private Sub mainmenu_container_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles mainmenu_container.AfterSelect
-        If e.Node.Name = "PLANIFICACION" Then
+        If e.Node.Name = "menu_planificacion" Then
             ' # Cuando seleccionan planificacion
-        ElseIf e.Node.Name = "RECEPCION" Then
+        ElseIf e.Node.Name = "menu_recepcion" Then
             ' # Seleccion de recepcion
-        ElseIf e.Node.Name = "INGRESAR" Then
+        ElseIf e.Node.Name = "menu_recepcioneslista" Then
             ' # Seleccion Ingresar
         End If
     End Sub
