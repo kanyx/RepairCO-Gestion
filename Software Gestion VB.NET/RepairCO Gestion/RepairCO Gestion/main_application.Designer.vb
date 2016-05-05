@@ -69,7 +69,7 @@ Partial Class main_application
         'mainapp_help_aboutme
         '
         Me.mainapp_help_aboutme.Name = "mainapp_help_aboutme"
-        Me.mainapp_help_aboutme.Size = New System.Drawing.Size(152, 22)
+        Me.mainapp_help_aboutme.Size = New System.Drawing.Size(135, 22)
         Me.mainapp_help_aboutme.Text = "&Acerca de..."
         '
         'mainapp_statusStrip
@@ -91,6 +91,7 @@ Partial Class main_application
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(768, 465)
         Me.Controls.Add(Me.mainapp_menuStrip)
         Me.Controls.Add(Me.mainapp_statusStrip)

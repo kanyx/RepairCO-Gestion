@@ -28,7 +28,7 @@ Partial Class form_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(750, 302)
+        Me.ClientSize = New System.Drawing.Size(746, 488)
         Me.Name = "form_ingreso"
         Me.Text = "Ingreso"
         Me.ResumeLayout(False)

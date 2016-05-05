@@ -102,6 +102,8 @@ Public Class main_application
         Form_MidiMenu.Show()
         ' # Cargamos los controles basicos de la aplicacion
         mainapp_status_text.Text = Application.ProductName & " - " & Application.ProductVersion
+        Me.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/main_background.png")
+        Me.BackgroundImageLayout = ImageLayout.Stretch
     End Sub
     Private Sub mainapp_help_aboutme_MouseLeave(sender As Object, e As EventArgs) Handles mainapp_help_aboutme.MouseLeave
         mainapp_status_text.Text = Application.ProductName & " - " & Application.ProductVersion

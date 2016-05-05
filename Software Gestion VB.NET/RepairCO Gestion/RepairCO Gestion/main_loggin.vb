@@ -2,6 +2,7 @@
 Public Class main_loggin
     Private LectorXML As RepairCoXml
     Public ParametrosConfiguracion As ArrayList
+    Public VersionPrefix As String = "Trunk"
     Private Sub main_loggin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' # Proceso de carga del formulario principal.
         Me.loggin_logo.Image = Image.FromFile(Application.StartupPath & "\Data\grafica\logo.jpg")
@@ -37,5 +38,8 @@ Public Class main_loggin
     Private Sub loggin_config_btn_Click(sender As Object, e As EventArgs) Handles loggin_config_btn.Click
         main_configuration.Show()
         Me.Hide()
+    End Sub
+    Private Sub loggin_enter_btn_Click(sender As Object, e As EventArgs) Handles loggin_enter_btn.Click
+        Login_ExecuteLogin(loggin_username_txt, loggin_password_txt)
     End Sub
 End Class
