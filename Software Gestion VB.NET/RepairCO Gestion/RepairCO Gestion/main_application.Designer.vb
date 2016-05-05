@@ -95,8 +95,10 @@ Partial Class main_application
         Me.ClientSize = New System.Drawing.Size(768, 465)
         Me.Controls.Add(Me.mainapp_menuStrip)
         Me.Controls.Add(Me.mainapp_statusStrip)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.mainapp_menuStrip
+        Me.MaximizeBox = False
         Me.Name = "main_application"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RepairCo Gestion"

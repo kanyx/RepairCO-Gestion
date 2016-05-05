@@ -17,12 +17,26 @@
             ' # Seleccion Ingresar
         ElseIf e.Node.Name = "menu_recepcioningresar" Then
             ' # Formulario de ingreso de formulario.
+            If CheckForm(form_ingreso) = True Then
+                Exit Sub
+            End If
             Dim Frm_RecepcionIngreso As New form_ingreso
             Frm_RecepcionIngreso.MdiParent = main_application
             Frm_RecepcionIngreso.ShowInTaskbar = False
             Frm_RecepcionIngreso.StartPosition = FormStartPosition.Manual
-            Frm_RecepcionIngreso.Left += 300
+            Frm_RecepcionIngreso.Left += 260
+            Frm_RecepcionIngreso.Height = main_application.ClientSize.Height * 0.929
+            Frm_RecepcionIngreso.Width = main_application.ClientSize.Width * 0.8
             Frm_RecepcionIngreso.Show()
         End If
     End Sub
+    ' # Funcion que comprueba si un formulario ya se encuentra abierto.
+    Private Function CheckForm(_form As Form) As Boolean
+        For Each f As Form In Application.OpenForms
+            If f.Name = _form.Name Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 End Class
