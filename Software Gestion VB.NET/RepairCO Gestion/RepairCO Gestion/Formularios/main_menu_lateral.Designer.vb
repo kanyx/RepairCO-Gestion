@@ -46,6 +46,7 @@ Partial Class main_menu_lateral
         'mainmenu_container
         '
         Me.mainmenu_container.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mainmenu_container.Cursor = System.Windows.Forms.Cursors.Default
         Me.mainmenu_container.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mainmenu_container.ImageIndex = 0
         Me.mainmenu_container.ImageList = Me.mainmenu_iconlist
