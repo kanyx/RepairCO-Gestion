@@ -51,6 +51,9 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addtipo = New System.Windows.Forms.LinkLabel()
         Me.ingreso_lbl_addmarca = New System.Windows.Forms.LinkLabel()
         Me.ingreso_lbl_addmodelo = New System.Windows.Forms.LinkLabel()
+        Me.ingreso_lbl_nserie = New System.Windows.Forms.Label()
+        Me.ingreso_txt_nserie = New System.Windows.Forms.TextBox()
+        Me.ingreso_gp_imgcontainer = New System.Windows.Forms.GroupBox()
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingresot_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_ot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,6 +62,8 @@ Partial Class form_ingreso
         '
         'ingreso_gp_datos
         '
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_nserie)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_nserie)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_addmodelo)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_addmarca)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_addtipo)
@@ -84,7 +89,7 @@ Partial Class form_ingreso
         Me.ingreso_gp_datos.ForeColor = System.Drawing.Color.DarkOrange
         Me.ingreso_gp_datos.Location = New System.Drawing.Point(31, 56)
         Me.ingreso_gp_datos.Name = "ingreso_gp_datos"
-        Me.ingreso_gp_datos.Size = New System.Drawing.Size(805, 185)
+        Me.ingreso_gp_datos.Size = New System.Drawing.Size(805, 225)
         Me.ingreso_gp_datos.TabIndex = 0
         Me.ingreso_gp_datos.TabStop = False
         Me.ingreso_gp_datos.Text = "DATOS OT"
@@ -347,12 +352,39 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addmodelo.TabStop = True
         Me.ingreso_lbl_addmodelo.Text = "AGREGAR MODELO"
         '
+        'ingreso_lbl_nserie
+        '
+        Me.ingreso_lbl_nserie.AutoSize = True
+        Me.ingreso_lbl_nserie.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_nserie.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_nserie.Location = New System.Drawing.Point(6, 175)
+        Me.ingreso_lbl_nserie.Name = "ingreso_lbl_nserie"
+        Me.ingreso_lbl_nserie.Size = New System.Drawing.Size(54, 12)
+        Me.ingreso_lbl_nserie.TabIndex = 21
+        Me.ingreso_lbl_nserie.Text = "N° SERIE"
+        '
+        'ingreso_txt_nserie
+        '
+        Me.ingreso_txt_nserie.Location = New System.Drawing.Point(8, 190)
+        Me.ingreso_txt_nserie.Name = "ingreso_txt_nserie"
+        Me.ingreso_txt_nserie.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_txt_nserie.TabIndex = 22
+        '
+        'ingreso_gp_imgcontainer
+        '
+        Me.ingreso_gp_imgcontainer.Location = New System.Drawing.Point(31, 317)
+        Me.ingreso_gp_imgcontainer.Name = "ingreso_gp_imgcontainer"
+        Me.ingreso_gp_imgcontainer.Size = New System.Drawing.Size(805, 184)
+        Me.ingreso_gp_imgcontainer.TabIndex = 4
+        Me.ingreso_gp_imgcontainer.TabStop = False
+        '
         'form_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(889, 535)
+        Me.Controls.Add(Me.ingreso_gp_imgcontainer)
         Me.Controls.Add(Me.ingreso_txt_not)
         Me.Controls.Add(Me.ingresot_pic_ot)
         Me.Controls.Add(Me.ingresot_pic_title)
@@ -398,4 +430,7 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_lbl_addtipo As System.Windows.Forms.LinkLabel
     Friend WithEvents ingreso_lbl_addmodelo As System.Windows.Forms.LinkLabel
     Friend WithEvents ingreso_lbl_addmarca As System.Windows.Forms.LinkLabel
+    Friend WithEvents ingreso_txt_nserie As System.Windows.Forms.TextBox
+    Friend WithEvents ingreso_lbl_nserie As System.Windows.Forms.Label
+    Friend WithEvents ingreso_gp_imgcontainer As System.Windows.Forms.GroupBox
 End Class

@@ -104,8 +104,15 @@ Public Class main_application
         mainapp_status_text.Text = Application.ProductName & " - " & Application.ProductVersion
         Me.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/main_background.png")
         Me.BackgroundImageLayout = ImageLayout.Stretch
+        ' # ESTABLECEMOS LOS VAORES DEL TIMMER QUE CONTROLA EL RELOJ DE LA PANTALLA PRINCIPAL DE LA APLICACION.
+        Me.mainapp_tm_clock.Interval = 1000
+        Me.mainapp_lbl_clock.Text = Date.Now
+        Me.mainapp_tm_clock.Enabled = True
     End Sub
     Private Sub mainapp_help_aboutme_MouseLeave(sender As Object, e As EventArgs) Handles mainapp_help_aboutme.MouseLeave
         mainapp_status_text.Text = Application.ProductName & " - " & Application.ProductVersion
+    End Sub
+    Private Sub mainapp_tm_clock_Tick(sender As Object, e As EventArgs) Handles mainapp_tm_clock.Tick
+        Me.mainapp_lbl_clock.Text = Date.Now
     End Sub
 End Class

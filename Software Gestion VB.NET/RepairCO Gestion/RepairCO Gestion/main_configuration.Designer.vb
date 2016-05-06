@@ -26,23 +26,23 @@ Partial Class main_configuration
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_configuration))
         Me.configuration_tabcontrol = New System.Windows.Forms.TabControl()
         Me.configuration_tab_bd = New System.Windows.Forms.TabPage()
+        Me.configuration_btn_testconex = New System.Windows.Forms.Button()
+        Me.configuration_lbl_ssl = New System.Windows.Forms.Label()
+        Me.configuration_cmb_dbssl = New System.Windows.Forms.ComboBox()
+        Me.configuration_txt_dbname = New System.Windows.Forms.TextBox()
+        Me.configuration_lbl_db = New System.Windows.Forms.Label()
+        Me.configuration_txt_dbpass = New System.Windows.Forms.TextBox()
+        Me.configuration_txt_dbuser = New System.Windows.Forms.TextBox()
+        Me.configuration_lbl_pass = New System.Windows.Forms.Label()
+        Me.configuration_lbl_user = New System.Windows.Forms.Label()
+        Me.configuration_lbl_port = New System.Windows.Forms.Label()
+        Me.configuration_lbl_server = New System.Windows.Forms.Label()
+        Me.configuration_txt_dbport = New System.Windows.Forms.TextBox()
+        Me.configuration_txt_dbserver = New System.Windows.Forms.TextBox()
+        Me.configuration_pic_logo = New System.Windows.Forms.PictureBox()
         Me.configuration_lbl_warning = New System.Windows.Forms.Label()
         Me.configuration_btn_cancel = New System.Windows.Forms.Button()
         Me.configuration_btn_save = New System.Windows.Forms.Button()
-        Me.configuration_pic_logo = New System.Windows.Forms.PictureBox()
-        Me.configuration_txt_dbserver = New System.Windows.Forms.TextBox()
-        Me.configuration_txt_dbport = New System.Windows.Forms.TextBox()
-        Me.configuration_lbl_server = New System.Windows.Forms.Label()
-        Me.configuration_lbl_port = New System.Windows.Forms.Label()
-        Me.configuration_lbl_user = New System.Windows.Forms.Label()
-        Me.configuration_lbl_pass = New System.Windows.Forms.Label()
-        Me.configuration_txt_dbuser = New System.Windows.Forms.TextBox()
-        Me.configuration_txt_dbpass = New System.Windows.Forms.TextBox()
-        Me.configuration_lbl_db = New System.Windows.Forms.Label()
-        Me.configuration_txt_dbname = New System.Windows.Forms.TextBox()
-        Me.configuration_cmb_dbssl = New System.Windows.Forms.ComboBox()
-        Me.configuration_lbl_ssl = New System.Windows.Forms.Label()
-        Me.configuration_btn_testconex = New System.Windows.Forms.Button()
         Me.configuration_lbl_appversion = New System.Windows.Forms.Label()
         Me.configuration_tooltip = New System.Windows.Forms.ToolTip(Me.components)
         Me.configuration_tabcontrol.SuspendLayout()
@@ -83,6 +83,122 @@ Partial Class main_configuration
         Me.configuration_tab_bd.Text = "Base de Datos"
         Me.configuration_tab_bd.UseVisualStyleBackColor = True
         '
+        'configuration_btn_testconex
+        '
+        Me.configuration_btn_testconex.Location = New System.Drawing.Point(151, 138)
+        Me.configuration_btn_testconex.Name = "configuration_btn_testconex"
+        Me.configuration_btn_testconex.Size = New System.Drawing.Size(112, 23)
+        Me.configuration_btn_testconex.TabIndex = 13
+        Me.configuration_btn_testconex.Text = "Probar Conexion"
+        Me.configuration_btn_testconex.UseVisualStyleBackColor = True
+        '
+        'configuration_lbl_ssl
+        '
+        Me.configuration_lbl_ssl.AutoSize = True
+        Me.configuration_lbl_ssl.Location = New System.Drawing.Point(139, 95)
+        Me.configuration_lbl_ssl.Name = "configuration_lbl_ssl"
+        Me.configuration_lbl_ssl.Size = New System.Drawing.Size(27, 13)
+        Me.configuration_lbl_ssl.TabIndex = 12
+        Me.configuration_lbl_ssl.Text = "SSL"
+        '
+        'configuration_cmb_dbssl
+        '
+        Me.configuration_cmb_dbssl.FormattingEnabled = True
+        Me.configuration_cmb_dbssl.Items.AddRange(New Object() {"Si", "No"})
+        Me.configuration_cmb_dbssl.Location = New System.Drawing.Point(142, 111)
+        Me.configuration_cmb_dbssl.Name = "configuration_cmb_dbssl"
+        Me.configuration_cmb_dbssl.Size = New System.Drawing.Size(121, 21)
+        Me.configuration_cmb_dbssl.TabIndex = 11
+        '
+        'configuration_txt_dbname
+        '
+        Me.configuration_txt_dbname.Location = New System.Drawing.Point(6, 111)
+        Me.configuration_txt_dbname.Name = "configuration_txt_dbname"
+        Me.configuration_txt_dbname.Size = New System.Drawing.Size(130, 20)
+        Me.configuration_txt_dbname.TabIndex = 10
+        '
+        'configuration_lbl_db
+        '
+        Me.configuration_lbl_db.AutoSize = True
+        Me.configuration_lbl_db.Location = New System.Drawing.Point(6, 95)
+        Me.configuration_lbl_db.Name = "configuration_lbl_db"
+        Me.configuration_lbl_db.Size = New System.Drawing.Size(77, 13)
+        Me.configuration_lbl_db.TabIndex = 9
+        Me.configuration_lbl_db.Text = "Base de Datos"
+        '
+        'configuration_txt_dbpass
+        '
+        Me.configuration_txt_dbpass.Location = New System.Drawing.Point(142, 72)
+        Me.configuration_txt_dbpass.Name = "configuration_txt_dbpass"
+        Me.configuration_txt_dbpass.Size = New System.Drawing.Size(115, 20)
+        Me.configuration_txt_dbpass.TabIndex = 8
+        '
+        'configuration_txt_dbuser
+        '
+        Me.configuration_txt_dbuser.Location = New System.Drawing.Point(6, 72)
+        Me.configuration_txt_dbuser.Name = "configuration_txt_dbuser"
+        Me.configuration_txt_dbuser.Size = New System.Drawing.Size(130, 20)
+        Me.configuration_txt_dbuser.TabIndex = 7
+        '
+        'configuration_lbl_pass
+        '
+        Me.configuration_lbl_pass.AutoSize = True
+        Me.configuration_lbl_pass.Location = New System.Drawing.Point(139, 55)
+        Me.configuration_lbl_pass.Name = "configuration_lbl_pass"
+        Me.configuration_lbl_pass.Size = New System.Drawing.Size(71, 13)
+        Me.configuration_lbl_pass.TabIndex = 6
+        Me.configuration_lbl_pass.Text = "Password BD"
+        '
+        'configuration_lbl_user
+        '
+        Me.configuration_lbl_user.AutoSize = True
+        Me.configuration_lbl_user.Location = New System.Drawing.Point(6, 55)
+        Me.configuration_lbl_user.Name = "configuration_lbl_user"
+        Me.configuration_lbl_user.Size = New System.Drawing.Size(61, 13)
+        Me.configuration_lbl_user.TabIndex = 5
+        Me.configuration_lbl_user.Text = "Usuario BD"
+        '
+        'configuration_lbl_port
+        '
+        Me.configuration_lbl_port.AutoSize = True
+        Me.configuration_lbl_port.Location = New System.Drawing.Point(171, 16)
+        Me.configuration_lbl_port.Name = "configuration_lbl_port"
+        Me.configuration_lbl_port.Size = New System.Drawing.Size(38, 13)
+        Me.configuration_lbl_port.TabIndex = 4
+        Me.configuration_lbl_port.Text = "Puerto"
+        '
+        'configuration_lbl_server
+        '
+        Me.configuration_lbl_server.AutoSize = True
+        Me.configuration_lbl_server.Location = New System.Drawing.Point(6, 16)
+        Me.configuration_lbl_server.Name = "configuration_lbl_server"
+        Me.configuration_lbl_server.Size = New System.Drawing.Size(46, 13)
+        Me.configuration_lbl_server.TabIndex = 3
+        Me.configuration_lbl_server.Text = "Servidor"
+        '
+        'configuration_txt_dbport
+        '
+        Me.configuration_txt_dbport.Location = New System.Drawing.Point(174, 32)
+        Me.configuration_txt_dbport.Name = "configuration_txt_dbport"
+        Me.configuration_txt_dbport.Size = New System.Drawing.Size(83, 20)
+        Me.configuration_txt_dbport.TabIndex = 2
+        '
+        'configuration_txt_dbserver
+        '
+        Me.configuration_txt_dbserver.Location = New System.Drawing.Point(6, 32)
+        Me.configuration_txt_dbserver.Name = "configuration_txt_dbserver"
+        Me.configuration_txt_dbserver.Size = New System.Drawing.Size(162, 20)
+        Me.configuration_txt_dbserver.TabIndex = 1
+        '
+        'configuration_pic_logo
+        '
+        Me.configuration_pic_logo.Location = New System.Drawing.Point(432, 21)
+        Me.configuration_pic_logo.Name = "configuration_pic_logo"
+        Me.configuration_pic_logo.Size = New System.Drawing.Size(250, 229)
+        Me.configuration_pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.configuration_pic_logo.TabIndex = 0
+        Me.configuration_pic_logo.TabStop = False
+        '
         'configuration_lbl_warning
         '
         Me.configuration_lbl_warning.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -111,122 +227,6 @@ Partial Class main_configuration
         Me.configuration_btn_save.Text = "Guardar"
         Me.configuration_btn_save.UseVisualStyleBackColor = True
         '
-        'configuration_pic_logo
-        '
-        Me.configuration_pic_logo.Location = New System.Drawing.Point(432, 21)
-        Me.configuration_pic_logo.Name = "configuration_pic_logo"
-        Me.configuration_pic_logo.Size = New System.Drawing.Size(250, 229)
-        Me.configuration_pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.configuration_pic_logo.TabIndex = 0
-        Me.configuration_pic_logo.TabStop = False
-        '
-        'configuration_txt_dbserver
-        '
-        Me.configuration_txt_dbserver.Location = New System.Drawing.Point(6, 32)
-        Me.configuration_txt_dbserver.Name = "configuration_txt_dbserver"
-        Me.configuration_txt_dbserver.Size = New System.Drawing.Size(162, 20)
-        Me.configuration_txt_dbserver.TabIndex = 1
-        '
-        'configuration_txt_dbport
-        '
-        Me.configuration_txt_dbport.Location = New System.Drawing.Point(174, 32)
-        Me.configuration_txt_dbport.Name = "configuration_txt_dbport"
-        Me.configuration_txt_dbport.Size = New System.Drawing.Size(83, 20)
-        Me.configuration_txt_dbport.TabIndex = 2
-        '
-        'configuration_lbl_server
-        '
-        Me.configuration_lbl_server.AutoSize = True
-        Me.configuration_lbl_server.Location = New System.Drawing.Point(6, 16)
-        Me.configuration_lbl_server.Name = "configuration_lbl_server"
-        Me.configuration_lbl_server.Size = New System.Drawing.Size(46, 13)
-        Me.configuration_lbl_server.TabIndex = 3
-        Me.configuration_lbl_server.Text = "Servidor"
-        '
-        'configuration_lbl_port
-        '
-        Me.configuration_lbl_port.AutoSize = True
-        Me.configuration_lbl_port.Location = New System.Drawing.Point(171, 16)
-        Me.configuration_lbl_port.Name = "configuration_lbl_port"
-        Me.configuration_lbl_port.Size = New System.Drawing.Size(38, 13)
-        Me.configuration_lbl_port.TabIndex = 4
-        Me.configuration_lbl_port.Text = "Puerto"
-        '
-        'configuration_lbl_user
-        '
-        Me.configuration_lbl_user.AutoSize = True
-        Me.configuration_lbl_user.Location = New System.Drawing.Point(6, 55)
-        Me.configuration_lbl_user.Name = "configuration_lbl_user"
-        Me.configuration_lbl_user.Size = New System.Drawing.Size(61, 13)
-        Me.configuration_lbl_user.TabIndex = 5
-        Me.configuration_lbl_user.Text = "Usuario BD"
-        '
-        'configuration_lbl_pass
-        '
-        Me.configuration_lbl_pass.AutoSize = True
-        Me.configuration_lbl_pass.Location = New System.Drawing.Point(139, 55)
-        Me.configuration_lbl_pass.Name = "configuration_lbl_pass"
-        Me.configuration_lbl_pass.Size = New System.Drawing.Size(71, 13)
-        Me.configuration_lbl_pass.TabIndex = 6
-        Me.configuration_lbl_pass.Text = "Password BD"
-        '
-        'configuration_txt_dbuser
-        '
-        Me.configuration_txt_dbuser.Location = New System.Drawing.Point(6, 72)
-        Me.configuration_txt_dbuser.Name = "configuration_txt_dbuser"
-        Me.configuration_txt_dbuser.Size = New System.Drawing.Size(130, 20)
-        Me.configuration_txt_dbuser.TabIndex = 7
-        '
-        'configuration_txt_dbpass
-        '
-        Me.configuration_txt_dbpass.Location = New System.Drawing.Point(142, 72)
-        Me.configuration_txt_dbpass.Name = "configuration_txt_dbpass"
-        Me.configuration_txt_dbpass.Size = New System.Drawing.Size(115, 20)
-        Me.configuration_txt_dbpass.TabIndex = 8
-        '
-        'configuration_lbl_db
-        '
-        Me.configuration_lbl_db.AutoSize = True
-        Me.configuration_lbl_db.Location = New System.Drawing.Point(6, 95)
-        Me.configuration_lbl_db.Name = "configuration_lbl_db"
-        Me.configuration_lbl_db.Size = New System.Drawing.Size(77, 13)
-        Me.configuration_lbl_db.TabIndex = 9
-        Me.configuration_lbl_db.Text = "Base de Datos"
-        '
-        'configuration_txt_dbname
-        '
-        Me.configuration_txt_dbname.Location = New System.Drawing.Point(6, 111)
-        Me.configuration_txt_dbname.Name = "configuration_txt_dbname"
-        Me.configuration_txt_dbname.Size = New System.Drawing.Size(130, 20)
-        Me.configuration_txt_dbname.TabIndex = 10
-        '
-        'configuration_cmb_dbssl
-        '
-        Me.configuration_cmb_dbssl.FormattingEnabled = True
-        Me.configuration_cmb_dbssl.Items.AddRange(New Object() {"Si", "No"})
-        Me.configuration_cmb_dbssl.Location = New System.Drawing.Point(142, 111)
-        Me.configuration_cmb_dbssl.Name = "configuration_cmb_dbssl"
-        Me.configuration_cmb_dbssl.Size = New System.Drawing.Size(121, 21)
-        Me.configuration_cmb_dbssl.TabIndex = 11
-        '
-        'configuration_lbl_ssl
-        '
-        Me.configuration_lbl_ssl.AutoSize = True
-        Me.configuration_lbl_ssl.Location = New System.Drawing.Point(139, 95)
-        Me.configuration_lbl_ssl.Name = "configuration_lbl_ssl"
-        Me.configuration_lbl_ssl.Size = New System.Drawing.Size(27, 13)
-        Me.configuration_lbl_ssl.TabIndex = 12
-        Me.configuration_lbl_ssl.Text = "SSL"
-        '
-        'configuration_btn_testconex
-        '
-        Me.configuration_btn_testconex.Location = New System.Drawing.Point(151, 138)
-        Me.configuration_btn_testconex.Name = "configuration_btn_testconex"
-        Me.configuration_btn_testconex.Size = New System.Drawing.Size(112, 23)
-        Me.configuration_btn_testconex.TabIndex = 13
-        Me.configuration_btn_testconex.Text = "Probar Conexion"
-        Me.configuration_btn_testconex.UseVisualStyleBackColor = True
-        '
         'configuration_lbl_appversion
         '
         Me.configuration_lbl_appversion.AutoSize = True
@@ -250,6 +250,7 @@ Partial Class main_configuration
         Me.Controls.Add(Me.configuration_lbl_warning)
         Me.Controls.Add(Me.configuration_tabcontrol)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "main_configuration"

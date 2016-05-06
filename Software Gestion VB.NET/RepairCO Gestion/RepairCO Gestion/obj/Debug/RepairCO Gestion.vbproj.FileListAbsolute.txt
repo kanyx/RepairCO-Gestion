@@ -36,3 +36,4 @@ C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.aboutme.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.main_application.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.main_menu_lateral.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.add_cliente.resources

@@ -23,6 +23,7 @@ Partial Class main_loggin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_loggin))
         Me.loggin_logo = New System.Windows.Forms.PictureBox()
         Me.loggin_username_txt = New System.Windows.Forms.TextBox()
         Me.loggin_username_lbl = New System.Windows.Forms.Label()
@@ -118,6 +119,7 @@ Partial Class main_loggin
         Me.Controls.Add(Me.loggin_logo)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "main_loggin"

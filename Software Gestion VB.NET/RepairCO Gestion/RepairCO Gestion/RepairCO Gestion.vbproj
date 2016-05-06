@@ -45,6 +45,12 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rc.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Npgsql, Version=3.0.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -78,6 +84,12 @@
       <DependentUpon>aboutme.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\aboutme.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\add_cliente.Designer.vb">
+      <DependentUpon>add_cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\add_cliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\form_ingreso.Designer.vb">
@@ -133,6 +145,9 @@
     <EmbeddedResource Include="Formularios\aboutme.resx">
       <DependentUpon>aboutme.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\add_cliente.resx">
+      <DependentUpon>add_cliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_ingreso.resx">
       <DependentUpon>form_ingreso.vb</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +171,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -174,7 +190,9 @@
       <Name>GestorXML</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="rc.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

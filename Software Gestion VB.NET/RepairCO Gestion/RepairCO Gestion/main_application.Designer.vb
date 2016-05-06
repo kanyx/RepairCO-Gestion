@@ -24,6 +24,7 @@ Partial Class main_application
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_application))
         Me.mainapp_menuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,6 +33,8 @@ Partial Class main_application
         Me.mainapp_statusStrip = New System.Windows.Forms.StatusStrip()
         Me.mainapp_status_text = New System.Windows.Forms.ToolStripStatusLabel()
         Me.mainapp_tooltip_help = New System.Windows.Forms.ToolTip(Me.components)
+        Me.mainapp_tm_clock = New System.Windows.Forms.Timer(Me.components)
+        Me.mainapp_lbl_clock = New System.Windows.Forms.ToolStripStatusLabel()
         Me.mainapp_menuStrip.SuspendLayout()
         Me.mainapp_statusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -74,7 +77,7 @@ Partial Class main_application
         '
         'mainapp_statusStrip
         '
-        Me.mainapp_statusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mainapp_status_text})
+        Me.mainapp_statusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mainapp_status_text, Me.mainapp_lbl_clock})
         Me.mainapp_statusStrip.Location = New System.Drawing.Point(0, 443)
         Me.mainapp_statusStrip.Name = "mainapp_statusStrip"
         Me.mainapp_statusStrip.Size = New System.Drawing.Size(768, 22)
@@ -87,6 +90,20 @@ Partial Class main_application
         Me.mainapp_status_text.Size = New System.Drawing.Size(42, 17)
         Me.mainapp_status_text.Text = "Estado"
         '
+        'mainapp_tm_clock
+        '
+        Me.mainapp_tm_clock.Interval = 1000
+        '
+        'mainapp_lbl_clock
+        '
+        Me.mainapp_lbl_clock.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mainapp_lbl_clock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.mainapp_lbl_clock.Name = "mainapp_lbl_clock"
+        Me.mainapp_lbl_clock.Size = New System.Drawing.Size(55, 17)
+        Me.mainapp_lbl_clock.Text = "00:00:00"
+        Me.mainapp_lbl_clock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.mainapp_lbl_clock.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        '
         'main_application
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -96,6 +113,7 @@ Partial Class main_application
         Me.Controls.Add(Me.mainapp_menuStrip)
         Me.Controls.Add(Me.mainapp_statusStrip)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.mainapp_menuStrip
         Me.MaximizeBox = False
@@ -119,5 +137,7 @@ Partial Class main_application
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FileMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mainapp_menuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents mainapp_tm_clock As System.Windows.Forms.Timer
+    Friend WithEvents mainapp_lbl_clock As System.Windows.Forms.ToolStripStatusLabel
 
 End Class
