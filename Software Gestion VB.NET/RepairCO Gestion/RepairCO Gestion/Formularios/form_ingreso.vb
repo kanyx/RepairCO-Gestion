@@ -15,4 +15,7 @@
     Private Sub ingreso_lbl_addcliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addcliente.LinkClicked
         add_cliente.ShowDialog()
     End Sub
+    Private Sub ingreso_lbl_addmarca_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addmarca.LinkClicked
+        add_marca.ShowDialog()
+    End Sub
 End Class

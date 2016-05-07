@@ -92,6 +92,12 @@
     <Compile Include="Formularios\add_cliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\add_marca.Designer.vb">
+      <DependentUpon>add_marca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\add_marca.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\form_ingreso.Designer.vb">
       <DependentUpon>form_ingreso.vb</DependentUpon>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\add_cliente.resx">
       <DependentUpon>add_cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\add_marca.resx">
+      <DependentUpon>add_marca.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_ingreso.resx">
       <DependentUpon>form_ingreso.vb</DependentUpon>
