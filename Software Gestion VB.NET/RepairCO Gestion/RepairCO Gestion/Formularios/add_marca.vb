@@ -5,12 +5,15 @@
         Me.addmarca_pic_close.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/close.png")
         Me.addmarca_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_addmarca_title.png")
         Me.addmarca_pic_btnadd.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
+        Me.addmarca_pic_ico.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/marca.png")
         Me.addmarca_pic_btnadd.SizeMode = PictureBoxSizeMode.StretchImage
         Me.addmarca_pic_close.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.addmarca_pic_ico.SizeMode = PictureBoxSizeMode.StretchImage
         Me.addmarca_pic_close.BackColor = Color.Transparent
         Me.addmarca_gb_datos.BackColor = Color.White
         Me.addmarca_pic_btnadd.BackColor = Color.Transparent
         Me.addmarca_pic_title.BackColor = Color.Transparent
+        Me.addmarca_pic_ico.BackColor = Color.Transparent
         Me.addmarca_pic_close.Cursor = Cursors.Hand
         Me.addmarca_pic_btnadd.Cursor = Cursors.Hand
         Me.addmarca_tp_help.SetToolTip(Me.addmarca_cmb_tipo, "Seleccione  el tipo de producto al cual se asociara la marca.")

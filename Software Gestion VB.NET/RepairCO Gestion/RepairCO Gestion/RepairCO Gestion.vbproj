@@ -98,6 +98,18 @@
     <Compile Include="Formularios\add_marca.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\add_modelo.Designer.vb">
+      <DependentUpon>add_modelo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\add_modelo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\add_tipo.Designer.vb">
+      <DependentUpon>add_tipo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\add_tipo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\form_ingreso.Designer.vb">
       <DependentUpon>form_ingreso.vb</DependentUpon>
     </Compile>
@@ -156,6 +168,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\add_marca.resx">
       <DependentUpon>add_marca.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\add_modelo.resx">
+      <DependentUpon>add_modelo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\add_tipo.resx">
+      <DependentUpon>add_tipo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_ingreso.resx">
       <DependentUpon>form_ingreso.vb</DependentUpon>
