@@ -55,12 +55,16 @@ Partial Class form_ingreso
         Me.ingreso_txt_not = New System.Windows.Forms.TextBox()
         Me.ingreso_tp_help = New System.Windows.Forms.ToolTip(Me.components)
         Me.ingresot_pn_imgcontainer = New System.Windows.Forms.Panel()
+        Me.ingresot_lv_imagenes = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ingresot_pic_saveimages = New System.Windows.Forms.PictureBox()
+        Me.ingresot_il_fotos = New System.Windows.Forms.ImageList(Me.components)
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ingreso_gp_tproceso.SuspendLayout()
         CType(Me.ingresot_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_ot, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ingresot_pn_imgcontainer.SuspendLayout()
         CType(Me.ingresot_pic_saveimages, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -385,10 +389,27 @@ Partial Class form_ingreso
         '
         'ingresot_pn_imgcontainer
         '
+        Me.ingresot_pn_imgcontainer.Controls.Add(Me.ingresot_lv_imagenes)
         Me.ingresot_pn_imgcontainer.Location = New System.Drawing.Point(31, 287)
         Me.ingresot_pn_imgcontainer.Name = "ingresot_pn_imgcontainer"
         Me.ingresot_pn_imgcontainer.Size = New System.Drawing.Size(805, 248)
         Me.ingresot_pn_imgcontainer.TabIndex = 4
+        '
+        'ingresot_lv_imagenes
+        '
+        Me.ingresot_lv_imagenes.AutoArrange = False
+        Me.ingresot_lv_imagenes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1})
+        Me.ingresot_lv_imagenes.Location = New System.Drawing.Point(0, 0)
+        Me.ingresot_lv_imagenes.MultiSelect = False
+        Me.ingresot_lv_imagenes.Name = "ingresot_lv_imagenes"
+        Me.ingresot_lv_imagenes.Size = New System.Drawing.Size(805, 248)
+        Me.ingresot_lv_imagenes.TabIndex = 0
+        Me.ingresot_lv_imagenes.UseCompatibleStateImageBehavior = False
+        Me.ingresot_lv_imagenes.View = System.Windows.Forms.View.SmallIcon
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Width = 70
         '
         'ingresot_pic_saveimages
         '
@@ -397,6 +418,12 @@ Partial Class form_ingreso
         Me.ingresot_pic_saveimages.Size = New System.Drawing.Size(137, 36)
         Me.ingresot_pic_saveimages.TabIndex = 24
         Me.ingresot_pic_saveimages.TabStop = False
+        '
+        'ingresot_il_fotos
+        '
+        Me.ingresot_il_fotos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ingresot_il_fotos.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ingresot_il_fotos.TransparentColor = System.Drawing.Color.Transparent
         '
         'form_ingreso
         '
@@ -420,6 +447,7 @@ Partial Class form_ingreso
         Me.ingreso_gp_tproceso.PerformLayout()
         CType(Me.ingresot_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ingresot_pic_ot, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ingresot_pn_imgcontainer.ResumeLayout(False)
         CType(Me.ingresot_pic_saveimages, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -458,4 +486,7 @@ Partial Class form_ingreso
     Friend WithEvents ingresot_pn_imgcontainer As System.Windows.Forms.Panel
     Friend WithEvents ingresot_pic_saveot As System.Windows.Forms.PictureBox
     Friend WithEvents ingresot_pic_saveimages As System.Windows.Forms.PictureBox
+    Friend WithEvents ingresot_il_fotos As System.Windows.Forms.ImageList
+    Friend WithEvents ingresot_lv_imagenes As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
 End Class

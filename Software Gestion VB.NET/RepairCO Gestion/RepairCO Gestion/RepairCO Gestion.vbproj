@@ -116,6 +116,12 @@
     <Compile Include="Formularios\form_ingreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\imagen_visualizer.Designer.vb">
+      <DependentUpon>imagen_visualizer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\imagen_visualizer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\main_menu_lateral.Designer.vb">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_ingreso.resx">
       <DependentUpon>form_ingreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\imagen_visualizer.resx">
+      <DependentUpon>imagen_visualizer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\main_menu_lateral.resx">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
