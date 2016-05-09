@@ -96,7 +96,19 @@ Module PGSQL_Loggin
             Login_CommandPGSQL.CommandText = "SELECT * FROM personal WHERE username=@usuario LIMIT 1"
             Login_CommandPGSQL.Parameters.AddWithValue("@usuario", UserName)
             Dim rd = Login_CommandPGSQL.ExecuteReader
+            _globalUserData = New ArrayList
             While rd.Read
+                _globalUserData.Add(rd.Item("id").ToString)
+                _globalUserData.Add(rd.Item("nombres").ToString)
+                _globalUserData.Add(rd.Item("apellido_p").ToString)
+                _globalUserData.Add(rd.Item("apellido_m").ToString)
+                _globalUserData.Add(rd.Item("rut").ToString)
+                _globalUserData.Add(rd.Item("idcargo").ToString)
+                _globalUserData.Add(rd.Item("direccion").ToString)
+                _globalUserData.Add(rd.Item("idpermiso").ToString)
+                _globalUserData.Add(rd.Item("imagenperfil").ToString)
+                _globalUserData.Add(rd.Item("username").ToString)
+                _globalUserData.Add(rd.Item("password").ToString)
             End While
             Login_ConnectorPGSQL.Close()
         Catch ex As Exception
