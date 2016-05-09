@@ -72,6 +72,7 @@ Partial Class add_marca
         Me.addmarca_cmb_pais.Name = "addmarca_cmb_pais"
         Me.addmarca_cmb_pais.Size = New System.Drawing.Size(174, 20)
         Me.addmarca_cmb_pais.TabIndex = 5
+        Me.addmarca_cmb_pais.Text = "SELECCIONE PAIS"
         '
         'addmarca_lbl_pais
         '
@@ -86,9 +87,10 @@ Partial Class add_marca
         '
         'addmarca_txt_nombre
         '
+        Me.addmarca_txt_nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.addmarca_txt_nombre.Location = New System.Drawing.Point(207, 35)
         Me.addmarca_txt_nombre.Name = "addmarca_txt_nombre"
-        Me.addmarca_txt_nombre.Size = New System.Drawing.Size(234, 20)
+        Me.addmarca_txt_nombre.Size = New System.Drawing.Size(234, 18)
         Me.addmarca_txt_nombre.TabIndex = 3
         '
         'addmarca_lbl_nombre
@@ -110,6 +112,7 @@ Partial Class add_marca
         Me.addmarca_cmb_tipo.Name = "addmarca_cmb_tipo"
         Me.addmarca_cmb_tipo.Size = New System.Drawing.Size(174, 20)
         Me.addmarca_cmb_tipo.TabIndex = 1
+        Me.addmarca_cmb_tipo.Text = "SELECCIONE TIPO"
         '
         'addmarca_lbl_tipo
         '

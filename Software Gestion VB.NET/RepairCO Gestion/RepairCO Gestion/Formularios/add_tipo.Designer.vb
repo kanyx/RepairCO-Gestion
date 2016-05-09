@@ -24,12 +24,12 @@ Partial Class add_tipo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.addtipo_gb_datos = New System.Windows.Forms.GroupBox()
+        Me.addtipo_txt_tipo = New System.Windows.Forms.TextBox()
+        Me.addtipo_lbl_tipo = New System.Windows.Forms.Label()
         Me.addtipo_pic_close = New System.Windows.Forms.PictureBox()
         Me.addtipo_pic_title = New System.Windows.Forms.PictureBox()
         Me.addtipo_pic_add = New System.Windows.Forms.PictureBox()
         Me.addtipo_tp_help = New System.Windows.Forms.ToolTip(Me.components)
-        Me.addtipo_lbl_tipo = New System.Windows.Forms.Label()
-        Me.addtipo_txt_tipo = New System.Windows.Forms.TextBox()
         Me.addtipo_pic_ico = New System.Windows.Forms.PictureBox()
         Me.addtipo_gb_datos.SuspendLayout()
         CType(Me.addtipo_pic_close, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +47,25 @@ Partial Class add_tipo
         Me.addtipo_gb_datos.Size = New System.Drawing.Size(469, 121)
         Me.addtipo_gb_datos.TabIndex = 0
         Me.addtipo_gb_datos.TabStop = False
+        '
+        'addtipo_txt_tipo
+        '
+        Me.addtipo_txt_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addtipo_txt_tipo.Location = New System.Drawing.Point(111, 53)
+        Me.addtipo_txt_tipo.Name = "addtipo_txt_tipo"
+        Me.addtipo_txt_tipo.Size = New System.Drawing.Size(251, 18)
+        Me.addtipo_txt_tipo.TabIndex = 1
+        '
+        'addtipo_lbl_tipo
+        '
+        Me.addtipo_lbl_tipo.AutoSize = True
+        Me.addtipo_lbl_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addtipo_lbl_tipo.ForeColor = System.Drawing.Color.DarkOrange
+        Me.addtipo_lbl_tipo.Location = New System.Drawing.Point(109, 38)
+        Me.addtipo_lbl_tipo.Name = "addtipo_lbl_tipo"
+        Me.addtipo_lbl_tipo.Size = New System.Drawing.Size(112, 12)
+        Me.addtipo_lbl_tipo.TabIndex = 0
+        Me.addtipo_lbl_tipo.Text = "TIPO DE PRODUCTO"
         '
         'addtipo_pic_close
         '
@@ -71,25 +90,6 @@ Partial Class add_tipo
         Me.addtipo_pic_add.Size = New System.Drawing.Size(137, 36)
         Me.addtipo_pic_add.TabIndex = 3
         Me.addtipo_pic_add.TabStop = False
-        '
-        'addtipo_lbl_tipo
-        '
-        Me.addtipo_lbl_tipo.AutoSize = True
-        Me.addtipo_lbl_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addtipo_lbl_tipo.ForeColor = System.Drawing.Color.DarkOrange
-        Me.addtipo_lbl_tipo.Location = New System.Drawing.Point(109, 38)
-        Me.addtipo_lbl_tipo.Name = "addtipo_lbl_tipo"
-        Me.addtipo_lbl_tipo.Size = New System.Drawing.Size(112, 12)
-        Me.addtipo_lbl_tipo.TabIndex = 0
-        Me.addtipo_lbl_tipo.Text = "TIPO DE PRODUCTO"
-        '
-        'addtipo_txt_tipo
-        '
-        Me.addtipo_txt_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addtipo_txt_tipo.Location = New System.Drawing.Point(111, 53)
-        Me.addtipo_txt_tipo.Name = "addtipo_txt_tipo"
-        Me.addtipo_txt_tipo.Size = New System.Drawing.Size(251, 18)
-        Me.addtipo_txt_tipo.TabIndex = 1
         '
         'addtipo_pic_ico
         '

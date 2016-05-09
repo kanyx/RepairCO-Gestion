@@ -1,57 +1,9 @@
 ﻿Imports System.Windows.Forms
 
 Public Class main_application
-
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
-        ' Cree una nueva instancia del formulario secundario.
-        Dim ChildForm As New System.Windows.Forms.Form
-        ' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
-        ChildForm.MdiParent = Me
-
-        m_ChildFormNumber += 1
-        ChildForm.Text = "Ventana " & m_ChildFormNumber
-
-        ChildForm.Show()
-    End Sub
-
-    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs)
-        Dim OpenFileDialog As New OpenFileDialog
-        OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        OpenFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
-        If (OpenFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
-            Dim FileName As String = OpenFileDialog.FileName
-            ' TODO: agregue código aquí para abrir el archivo.
-        End If
-    End Sub
-
-    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Dim SaveFileDialog As New SaveFileDialog
-        SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        SaveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
-
-        If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
-            Dim FileName As String = SaveFileDialog.FileName
-            ' TODO: agregue código aquí para guardar el contenido actual del formulario en un archivo.
-        End If
-    End Sub
-
-
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        ' Utilice My.Computer.Clipboard para insertar el texto o las imágenes seleccionadas en el Portapapeles
-    End Sub
-
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        ' Utilice My.Computer.Clipboard para insertar el texto o las imágenes seleccionadas en el Portapapeles
-    End Sub
-
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        'Utilice My.Computer.Clipboard.GetText() o My.Computer.Clipboard.GetData para recuperar la información del Portapapeles.
-    End Sub
-
     Private Sub CascadeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.LayoutMdi(MdiLayout.Cascade)
     End Sub
@@ -67,19 +19,9 @@ Public Class main_application
     Private Sub ArrangeIconsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         Me.LayoutMdi(MdiLayout.ArrangeIcons)
     End Sub
-
-    Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        ' Cierre todos los formularios secundarios del principal.
-        For Each ChildForm As Form In Me.MdiChildren
-            ChildForm.Close()
-        Next
-    End Sub
-
-    Private m_ChildFormNumber As Integer
     Private Sub mainapp_help_aboutme_Click(sender As Object, e As EventArgs) Handles mainapp_help_aboutme.Click
         aboutme.ShowDialog()
     End Sub
-
     Private Sub main_application_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MessageBox.Show("Está a punto de cerrar la aplicación. ¿Está seguro que desea continuar?", _
                            Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.YesNo, _
@@ -93,6 +35,9 @@ Public Class main_application
         mainapp_status_text.Text = "Información sobre la aplicación."
     End Sub
     Private Sub main_application_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call Login_CargarUserData(main_loggin.loggin_username_txt.Text)
+        Call PGSQL_CargaTipos()
+        Call PGSQL_CargaClientes()
         Dim Form_MidiMenu As New main_menu_lateral
         Form_MidiMenu.MdiParent = Me
         ' # Redimencionamos el formulario.

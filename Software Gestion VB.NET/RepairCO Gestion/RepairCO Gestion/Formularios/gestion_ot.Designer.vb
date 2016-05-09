@@ -22,6 +22,7 @@ Partial Class gestion_ot
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.gestionot_gb_resultados = New System.Windows.Forms.GroupBox()
         Me.gestionot_dg_resultados = New System.Windows.Forms.DataGridView()
         Me.gestionot_lbl_resultados = New System.Windows.Forms.Label()
@@ -35,6 +36,7 @@ Partial Class gestion_ot
         Me.gestionot_cmb_tipo = New System.Windows.Forms.ComboBox()
         Me.gestionot_lbl_rfilter = New System.Windows.Forms.LinkLabel()
         Me.gestionot_pic_title = New System.Windows.Forms.PictureBox()
+        Me.gestionot_tp_help = New System.Windows.Forms.ToolTip(Me.components)
         Me.gestionot_gb_resultados.SuspendLayout()
         CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gestionot_gb_filtros.SuspendLayout()
@@ -203,4 +205,5 @@ Partial Class gestion_ot
     Friend WithEvents gestionot_lbl_tipo As System.Windows.Forms.Label
     Friend WithEvents gestionot_lbl_rfilter As System.Windows.Forms.LinkLabel
     Friend WithEvents gestionot_pic_title As System.Windows.Forms.PictureBox
+    Friend WithEvents gestionot_tp_help As System.Windows.Forms.ToolTip
 End Class

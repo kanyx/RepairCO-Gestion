@@ -2,6 +2,8 @@
 Public Class form_ingreso
     Public imagenes_cargar As New ArrayList
     Private OTguardada As Boolean = False
+    Private ValueSource_Prioridad As New Dictionary(Of String, String)()
+    Private ValueSource_Tipo As New Dictionary(Of String, String)()
     Private Sub form_ingreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
         Me.ingresot_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ingreso_ot_title.png")
@@ -27,6 +29,26 @@ Public Class form_ingreso
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmarca, "Presione aquí para ingresar una nueva marca.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmodelo, "Presione aquí para agregar un nuevo modelo.")
+        ' # SETEO DE VALORES Y PARAMETROS DE BASE DE DATOS.
+        Me.ingreso_txt_rservicio.Text = _globalUserData(1).ToString.ToUpper & " " & _globalUserData(2).ToString.ToUpper & _
+            " " & _globalUserData(3).ToString.ToUpper
+        ' # SETEO DE RELLENO DE COMBOBOX.
+        ValueSource_Prioridad.Add("", "ESTABLECER PRIORIDAD")
+        ValueSource_Prioridad.Add("1", "BAJA")
+        ValueSource_Prioridad.Add("2", "MEDIA")
+        ValueSource_Prioridad.Add("3", "ALTA")
+        Me.ingresot_cmb_prioridad.DataSource = New BindingSource(ValueSource_Prioridad, Nothing)
+        Me.ingresot_cmb_prioridad.DisplayMember = "Value"
+        Me.ingresot_cmb_prioridad.ValueMember = "Key"
+        ValueSource_Tipo.Add("", "SELECCIONE TIPO")
+        If _globalTipos.Count > 0 Then
+            For Each TipoValue As KeyValuePair(Of String, String) In _globalTipos
+                ValueSource_Tipo.Add(TipoValue.Key, TipoValue.Value)
+            Next
+        End If
+        Me.ingreso_cmb_tipo.DataSource = New BindingSource(ValueSource_Tipo, Nothing)
+        Me.ingreso_cmb_tipo.DisplayMember = "Value"
+        Me.ingreso_cmb_tipo.ValueMember = "Key"
     End Sub
     Private Sub ingreso_lbl_addcliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addcliente.LinkClicked
         add_cliente.ShowDialog()
@@ -88,7 +110,6 @@ Public Class form_ingreso
         Me.ingresot_lv_imagenes.Cursor = Cursors.Hand
     End Sub
     Private Sub ingresot_lv_imagenes_KeyDown(sender As Object, e As KeyEventArgs) Handles ingresot_lv_imagenes.KeyDown
-        MsgBox(Me.ingresot_lv_imagenes.SelectedItems(0).Index)
         If e.KeyCode = Keys.Delete Then
             imagenes_cargar.Remove(imagenes_cargar(Me.ingresot_lv_imagenes.SelectedItems(0).Index))
             Call RefreshImageVisualizer()
@@ -155,5 +176,29 @@ Public Class form_ingreso
             Me.ingresot_lv_imagenes.Items.Add("", "", i)
             i += 1
         Next
+    End Sub
+    Public Sub RefreshTipos()
+        ' # ACTUALIZAR LA LISTA DE TIPOS DE PRODUCTOS
+    End Sub
+    Private Sub ingresot_cmb_prioridad_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ingresot_cmb_prioridad.SelectedIndexChanged
+        'Dim key As String = DirectCast(Me.ingresot_cmb_prioridad.SelectedItem, KeyValuePair(Of String, String)).Key
+        'Dim value As String = DirectCast(Me.ingresot_cmb_prioridad.SelectedItem, KeyValuePair(Of String, String)).Value
+        'MessageBox.Show(key & "   " & value)
+    End Sub
+    Private Sub ingreso_cmb_tipo_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_tipo.SelectedValueChanged
+        ' # AL CAMBIAR EL TIPO DE PRODUCTO HABILITAMOS LA SECCION DE MARCAS DEL FORMULARIO.
+        If Me.ingreso_cmb_tipo.SelectedIndex > 0 Then
+            Call PGSQL_CargaMarcas(Me.ingreso_cmb_tipo.SelectedValue)
+            Dim ValueSource_Marcas As New Dictionary(Of String, String)()
+            ValueSource_Marcas.Add("", "SELECCIONE MARCA")
+            If _globalMarcas.Count > 0 Then
+                For Each TipoValue As KeyValuePair(Of String, String) In _globalMarcas
+                    ValueSource_Marcas.Add(TipoValue.Key, TipoValue.Value.ToUpper)
+                Next
+            End If
+            Me.ingreso_cmb_marca.DataSource = New BindingSource(ValueSource_Marcas, Nothing)
+            Me.ingreso_cmb_marca.DisplayMember = "Value"
+            Me.ingreso_cmb_marca.ValueMember = "Key"
+        End If
     End Sub
 End Class

@@ -155,6 +155,8 @@
     </Compile>
     <Compile Include="Modulos\PGSQL_General.vb" />
     <Compile Include="Modulos\PGSQL_Loggin.vb" />
+    <Compile Include="Modulos\PGSQL_Ingreso.vb" />
+    <Compile Include="Modulos\variables_globales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

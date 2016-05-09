@@ -27,4 +27,22 @@
     Private Sub addtipo_pic_add_MouseLeave(sender As Object, e As EventArgs) Handles addtipo_pic_add.MouseLeave
         Me.addtipo_pic_add.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
     End Sub
+    Private Sub addtipo_pic_add_Click(sender As Object, e As EventArgs) Handles addtipo_pic_add.Click
+        ' # FUNCION QUE AGREGA UN TIPO DE PRODUCTO A LA BASE DE DATOS.
+        If Me.addtipo_txt_tipo.Text = "" Or Me.addtipo_txt_tipo.TextLength < 4 Then
+            Me.addtipo_txt_tipo.BackColor = Color.DarkRed
+            Me.addtipo_txt_tipo.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.addtipo_txt_tipo.BackColor = Color.DarkGreen
+            Me.addtipo_txt_tipo.ForeColor = Color.White
+        End If
+        If PGSQL_INGRESO_TIPO(Me.addtipo_txt_tipo.Text) = True Then
+            MessageBox.Show("Tipo de producto agregado exitosamente.", Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+        Else
+            ' # EN CASO QUE OCURRA UN ERROR AL INGRESAR EL TIPO DE PRODUCTO.
+        End If
+    End Sub
 End Class

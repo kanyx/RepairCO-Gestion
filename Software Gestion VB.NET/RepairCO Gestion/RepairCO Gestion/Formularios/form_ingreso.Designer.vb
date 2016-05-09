@@ -24,6 +24,12 @@ Partial Class form_ingreso
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ingreso_gp_datos = New System.Windows.Forms.GroupBox()
+        Me.ingresot_cmb_prioridad = New System.Windows.Forms.ComboBox()
+        Me.ingresot_lbl_prioridad = New System.Windows.Forms.Label()
+        Me.ingresot_txt_ncontrato = New System.Windows.Forms.TextBox()
+        Me.ingresot_lbl_ncontrato = New System.Windows.Forms.Label()
+        Me.ingresot_txt_nseriefat = New System.Windows.Forms.TextBox()
+        Me.ingresot_lbl_nseriefat = New System.Windows.Forms.Label()
         Me.ingresot_pic_saveot = New System.Windows.Forms.PictureBox()
         Me.ingreso_txt_nserie = New System.Windows.Forms.TextBox()
         Me.ingreso_lbl_nserie = New System.Windows.Forms.Label()
@@ -70,6 +76,12 @@ Partial Class form_ingreso
         '
         'ingreso_gp_datos
         '
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_cmb_prioridad)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_lbl_prioridad)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_txt_ncontrato)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_lbl_ncontrato)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_txt_nseriefat)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingresot_lbl_nseriefat)
         Me.ingreso_gp_datos.Controls.Add(Me.ingresot_pic_saveot)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_nserie)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_nserie)
@@ -103,9 +115,68 @@ Partial Class form_ingreso
         Me.ingreso_gp_datos.TabStop = False
         Me.ingreso_gp_datos.Text = "DATOS OT"
         '
+        'ingresot_cmb_prioridad
+        '
+        Me.ingresot_cmb_prioridad.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_cmb_prioridad.FormattingEnabled = True
+        Me.ingresot_cmb_prioridad.Location = New System.Drawing.Point(418, 188)
+        Me.ingresot_cmb_prioridad.Name = "ingresot_cmb_prioridad"
+        Me.ingresot_cmb_prioridad.Size = New System.Drawing.Size(140, 20)
+        Me.ingresot_cmb_prioridad.TabIndex = 29
+        Me.ingresot_cmb_prioridad.Text = "ESTABLECER PRIORIDAD"
+        '
+        'ingresot_lbl_prioridad
+        '
+        Me.ingresot_lbl_prioridad.AutoSize = True
+        Me.ingresot_lbl_prioridad.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_lbl_prioridad.ForeColor = System.Drawing.Color.Black
+        Me.ingresot_lbl_prioridad.Location = New System.Drawing.Point(416, 175)
+        Me.ingresot_lbl_prioridad.Name = "ingresot_lbl_prioridad"
+        Me.ingresot_lbl_prioridad.Size = New System.Drawing.Size(68, 12)
+        Me.ingresot_lbl_prioridad.TabIndex = 28
+        Me.ingresot_lbl_prioridad.Text = "PRIORIDAD"
+        '
+        'ingresot_txt_ncontrato
+        '
+        Me.ingresot_txt_ncontrato.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_txt_ncontrato.Location = New System.Drawing.Point(284, 190)
+        Me.ingresot_txt_ncontrato.Name = "ingresot_txt_ncontrato"
+        Me.ingresot_txt_ncontrato.Size = New System.Drawing.Size(128, 18)
+        Me.ingresot_txt_ncontrato.TabIndex = 27
+        '
+        'ingresot_lbl_ncontrato
+        '
+        Me.ingresot_lbl_ncontrato.AutoSize = True
+        Me.ingresot_lbl_ncontrato.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_lbl_ncontrato.ForeColor = System.Drawing.Color.Black
+        Me.ingresot_lbl_ncontrato.Location = New System.Drawing.Point(282, 175)
+        Me.ingresot_lbl_ncontrato.Name = "ingresot_lbl_ncontrato"
+        Me.ingresot_lbl_ncontrato.Size = New System.Drawing.Size(81, 12)
+        Me.ingresot_lbl_ncontrato.TabIndex = 26
+        Me.ingresot_lbl_ncontrato.Text = "N° CONTRATO"
+        '
+        'ingresot_txt_nseriefat
+        '
+        Me.ingresot_txt_nseriefat.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_txt_nseriefat.Location = New System.Drawing.Point(150, 190)
+        Me.ingresot_txt_nseriefat.Name = "ingresot_txt_nseriefat"
+        Me.ingresot_txt_nseriefat.Size = New System.Drawing.Size(128, 18)
+        Me.ingresot_txt_nseriefat.TabIndex = 25
+        '
+        'ingresot_lbl_nseriefat
+        '
+        Me.ingresot_lbl_nseriefat.AutoSize = True
+        Me.ingresot_lbl_nseriefat.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingresot_lbl_nseriefat.ForeColor = System.Drawing.Color.Black
+        Me.ingresot_lbl_nseriefat.Location = New System.Drawing.Point(148, 175)
+        Me.ingresot_lbl_nseriefat.Name = "ingresot_lbl_nseriefat"
+        Me.ingresot_lbl_nseriefat.Size = New System.Drawing.Size(78, 12)
+        Me.ingresot_lbl_nseriefat.TabIndex = 24
+        Me.ingresot_lbl_nseriefat.Text = "N° SERIE FAT"
+        '
         'ingresot_pic_saveot
         '
-        Me.ingresot_pic_saveot.Location = New System.Drawing.Point(571, 175)
+        Me.ingresot_pic_saveot.Location = New System.Drawing.Point(580, 175)
         Me.ingresot_pic_saveot.Name = "ingresot_pic_saveot"
         Me.ingresot_pic_saveot.Size = New System.Drawing.Size(137, 36)
         Me.ingresot_pic_saveot.TabIndex = 23
@@ -113,9 +184,10 @@ Partial Class form_ingreso
         '
         'ingreso_txt_nserie
         '
+        Me.ingreso_txt_nserie.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_nserie.Location = New System.Drawing.Point(8, 190)
         Me.ingreso_txt_nserie.Name = "ingreso_txt_nserie"
-        Me.ingreso_txt_nserie.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_txt_nserie.Size = New System.Drawing.Size(136, 18)
         Me.ingreso_txt_nserie.TabIndex = 22
         '
         'ingreso_lbl_nserie
@@ -133,7 +205,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_lbl_addmodelo.AutoSize = True
         Me.ingreso_lbl_addmodelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addmodelo.Location = New System.Drawing.Point(612, 126)
+        Me.ingreso_lbl_addmodelo.Location = New System.Drawing.Point(621, 126)
         Me.ingreso_lbl_addmodelo.Name = "ingreso_lbl_addmodelo"
         Me.ingreso_lbl_addmodelo.Size = New System.Drawing.Size(96, 12)
         Me.ingreso_lbl_addmodelo.TabIndex = 20
@@ -175,10 +247,11 @@ Partial Class form_ingreso
         '
         'ingreso_cmb_modelo
         '
+        Me.ingreso_cmb_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_modelo.FormattingEnabled = True
         Me.ingreso_cmb_modelo.Location = New System.Drawing.Point(508, 141)
         Me.ingreso_cmb_modelo.Name = "ingreso_cmb_modelo"
-        Me.ingreso_cmb_modelo.Size = New System.Drawing.Size(200, 21)
+        Me.ingreso_cmb_modelo.Size = New System.Drawing.Size(212, 20)
         Me.ingreso_cmb_modelo.TabIndex = 16
         '
         'ingreso_lbl_modelo
@@ -194,11 +267,13 @@ Partial Class form_ingreso
         '
         'ingreso_cmb_marca
         '
+        Me.ingreso_cmb_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_marca.FormattingEnabled = True
         Me.ingreso_cmb_marca.Location = New System.Drawing.Point(275, 141)
         Me.ingreso_cmb_marca.Name = "ingreso_cmb_marca"
-        Me.ingreso_cmb_marca.Size = New System.Drawing.Size(200, 21)
+        Me.ingreso_cmb_marca.Size = New System.Drawing.Size(200, 20)
         Me.ingreso_cmb_marca.TabIndex = 14
+        Me.ingreso_cmb_marca.Text = "SELECCIONE MARCA"
         '
         'ingreso_lbl_marca
         '
@@ -213,11 +288,13 @@ Partial Class form_ingreso
         '
         'ingreso_cmb_tipo
         '
+        Me.ingreso_cmb_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_tipo.FormattingEnabled = True
         Me.ingreso_cmb_tipo.Location = New System.Drawing.Point(8, 141)
         Me.ingreso_cmb_tipo.Name = "ingreso_cmb_tipo"
-        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(231, 21)
+        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(231, 20)
         Me.ingreso_cmb_tipo.TabIndex = 12
+        Me.ingreso_cmb_tipo.Text = "SELECCIONE TIPO"
         '
         'ingreso_lbl_tipo
         '
@@ -232,9 +309,10 @@ Partial Class form_ingreso
         '
         'ingreso_txt_iequipo
         '
+        Me.ingreso_txt_iequipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_iequipo.Location = New System.Drawing.Point(508, 91)
         Me.ingreso_txt_iequipo.Name = "ingreso_txt_iequipo"
-        Me.ingreso_txt_iequipo.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_txt_iequipo.Size = New System.Drawing.Size(212, 18)
         Me.ingreso_txt_iequipo.TabIndex = 10
         '
         'ingreso_lbl_iequipo
@@ -250,9 +328,10 @@ Partial Class form_ingreso
         '
         'ingreso_txt_guia
         '
+        Me.ingreso_txt_guia.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_guia.Location = New System.Drawing.Point(275, 92)
         Me.ingreso_txt_guia.Name = "ingreso_txt_guia"
-        Me.ingreso_txt_guia.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_txt_guia.Size = New System.Drawing.Size(200, 18)
         Me.ingreso_txt_guia.TabIndex = 8
         '
         'ingreso_lbl_nguia
@@ -268,11 +347,13 @@ Partial Class form_ingreso
         '
         'ingreso_cmb_cliente
         '
+        Me.ingreso_cmb_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_cliente.FormattingEnabled = True
         Me.ingreso_cmb_cliente.Location = New System.Drawing.Point(8, 91)
         Me.ingreso_cmb_cliente.Name = "ingreso_cmb_cliente"
-        Me.ingreso_cmb_cliente.Size = New System.Drawing.Size(231, 21)
+        Me.ingreso_cmb_cliente.Size = New System.Drawing.Size(231, 20)
         Me.ingreso_cmb_cliente.TabIndex = 6
+        Me.ingreso_cmb_cliente.Text = "SELECCIONE CLIENTE"
         '
         'ingreso_lbl_cliente
         '
@@ -287,10 +368,12 @@ Partial Class form_ingreso
         '
         'ingreso_txt_fecha
         '
+        Me.ingreso_txt_fecha.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.ingreso_txt_fecha.Location = New System.Drawing.Point(275, 42)
         Me.ingreso_txt_fecha.Name = "ingreso_txt_fecha"
-        Me.ingreso_txt_fecha.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_txt_fecha.Size = New System.Drawing.Size(200, 18)
         Me.ingreso_txt_fecha.TabIndex = 4
         '
         'ingreso_lbl_fecha
@@ -306,10 +389,11 @@ Partial Class form_ingreso
         '
         'ingreso_txt_rservicio
         '
+        Me.ingreso_txt_rservicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_rservicio.Location = New System.Drawing.Point(8, 42)
         Me.ingreso_txt_rservicio.Name = "ingreso_txt_rservicio"
         Me.ingreso_txt_rservicio.ReadOnly = True
-        Me.ingreso_txt_rservicio.Size = New System.Drawing.Size(231, 20)
+        Me.ingreso_txt_rservicio.Size = New System.Drawing.Size(231, 18)
         Me.ingreso_txt_rservicio.TabIndex = 2
         '
         'ingreso_lbl_rservicio
@@ -329,7 +413,7 @@ Partial Class form_ingreso
         Me.ingreso_gp_tproceso.Controls.Add(Me.ingreso_rb_presupuesto)
         Me.ingreso_gp_tproceso.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_gp_tproceso.ForeColor = System.Drawing.Color.DarkOrange
-        Me.ingreso_gp_tproceso.Location = New System.Drawing.Point(567, 10)
+        Me.ingreso_gp_tproceso.Location = New System.Drawing.Point(508, 23)
         Me.ingreso_gp_tproceso.Name = "ingreso_gp_tproceso"
         Me.ingreso_gp_tproceso.Size = New System.Drawing.Size(212, 44)
         Me.ingreso_gp_tproceso.TabIndex = 0
@@ -489,4 +573,10 @@ Partial Class form_ingreso
     Friend WithEvents ingresot_il_fotos As System.Windows.Forms.ImageList
     Friend WithEvents ingresot_lv_imagenes As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ingresot_txt_nseriefat As System.Windows.Forms.TextBox
+    Friend WithEvents ingresot_lbl_nseriefat As System.Windows.Forms.Label
+    Friend WithEvents ingresot_txt_ncontrato As System.Windows.Forms.TextBox
+    Friend WithEvents ingresot_lbl_ncontrato As System.Windows.Forms.Label
+    Friend WithEvents ingresot_cmb_prioridad As System.Windows.Forms.ComboBox
+    Friend WithEvents ingresot_lbl_prioridad As System.Windows.Forms.Label
 End Class
