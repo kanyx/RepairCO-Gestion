@@ -116,6 +116,12 @@
     <Compile Include="Formularios\form_ingreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\gestion_ot.Designer.vb">
+      <DependentUpon>gestion_ot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\gestion_ot.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\imagen_visualizer.Designer.vb">
       <DependentUpon>imagen_visualizer.vb</DependentUpon>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_ingreso.resx">
       <DependentUpon>form_ingreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\gestion_ot.resx">
+      <DependentUpon>gestion_ot.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\imagen_visualizer.resx">
       <DependentUpon>imagen_visualizer.vb</DependentUpon>
