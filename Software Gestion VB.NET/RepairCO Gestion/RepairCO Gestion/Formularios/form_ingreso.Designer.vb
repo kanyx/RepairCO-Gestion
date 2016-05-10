@@ -69,7 +69,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_oc = New System.Windows.Forms.TextBox()
         Me.ingreso_pn_comentarios = New System.Windows.Forms.Panel()
         Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
-        Me.ingreso_lbl_commenotrc = New System.Windows.Forms.TextBox()
+        Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
         Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
         Me.ingreso_pic_comentarios = New System.Windows.Forms.PictureBox()
         Me.ingreso_pic_commenotclose = New System.Windows.Forms.PictureBox()
@@ -224,7 +224,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_lbl_addmodelo.AutoSize = True
         Me.ingreso_lbl_addmodelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addmodelo.Location = New System.Drawing.Point(621, 164)
+        Me.ingreso_lbl_addmodelo.Location = New System.Drawing.Point(621, 161)
         Me.ingreso_lbl_addmodelo.Name = "ingreso_lbl_addmodelo"
         Me.ingreso_lbl_addmodelo.Size = New System.Drawing.Size(96, 12)
         Me.ingreso_lbl_addmodelo.TabIndex = 20
@@ -235,7 +235,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_lbl_addmarca.AutoSize = True
         Me.ingreso_lbl_addmarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addmarca.Location = New System.Drawing.Point(383, 164)
+        Me.ingreso_lbl_addmarca.Location = New System.Drawing.Point(383, 161)
         Me.ingreso_lbl_addmarca.Name = "ingreso_lbl_addmarca"
         Me.ingreso_lbl_addmarca.Size = New System.Drawing.Size(92, 12)
         Me.ingreso_lbl_addmarca.TabIndex = 19
@@ -246,7 +246,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_lbl_addtipo.AutoSize = True
         Me.ingreso_lbl_addtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(163, 164)
+        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(163, 161)
         Me.ingreso_lbl_addtipo.Name = "ingreso_lbl_addtipo"
         Me.ingreso_lbl_addtipo.Size = New System.Drawing.Size(76, 12)
         Me.ingreso_lbl_addtipo.TabIndex = 18
@@ -268,7 +268,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_cmb_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_modelo.FormattingEnabled = True
-        Me.ingreso_cmb_modelo.Location = New System.Drawing.Point(508, 179)
+        Me.ingreso_cmb_modelo.Location = New System.Drawing.Point(508, 176)
         Me.ingreso_cmb_modelo.Name = "ingreso_cmb_modelo"
         Me.ingreso_cmb_modelo.Size = New System.Drawing.Size(212, 20)
         Me.ingreso_cmb_modelo.TabIndex = 16
@@ -278,7 +278,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_modelo.AutoSize = True
         Me.ingreso_lbl_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_modelo.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_modelo.Location = New System.Drawing.Point(506, 164)
+        Me.ingreso_lbl_modelo.Location = New System.Drawing.Point(506, 161)
         Me.ingreso_lbl_modelo.Name = "ingreso_lbl_modelo"
         Me.ingreso_lbl_modelo.Size = New System.Drawing.Size(52, 12)
         Me.ingreso_lbl_modelo.TabIndex = 15
@@ -288,7 +288,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_cmb_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_marca.FormattingEnabled = True
-        Me.ingreso_cmb_marca.Location = New System.Drawing.Point(275, 179)
+        Me.ingreso_cmb_marca.Location = New System.Drawing.Point(275, 176)
         Me.ingreso_cmb_marca.Name = "ingreso_cmb_marca"
         Me.ingreso_cmb_marca.Size = New System.Drawing.Size(200, 20)
         Me.ingreso_cmb_marca.TabIndex = 14
@@ -299,7 +299,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_marca.AutoSize = True
         Me.ingreso_lbl_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_marca.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_marca.Location = New System.Drawing.Point(273, 164)
+        Me.ingreso_lbl_marca.Location = New System.Drawing.Point(273, 161)
         Me.ingreso_lbl_marca.Name = "ingreso_lbl_marca"
         Me.ingreso_lbl_marca.Size = New System.Drawing.Size(47, 12)
         Me.ingreso_lbl_marca.TabIndex = 13
@@ -309,7 +309,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_cmb_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_tipo.FormattingEnabled = True
-        Me.ingreso_cmb_tipo.Location = New System.Drawing.Point(8, 179)
+        Me.ingreso_cmb_tipo.Location = New System.Drawing.Point(8, 176)
         Me.ingreso_cmb_tipo.Name = "ingreso_cmb_tipo"
         Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(231, 20)
         Me.ingreso_cmb_tipo.TabIndex = 12
@@ -320,7 +320,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_tipo.AutoSize = True
         Me.ingreso_lbl_tipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_tipo.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_tipo.Location = New System.Drawing.Point(6, 164)
+        Me.ingreso_lbl_tipo.Location = New System.Drawing.Point(6, 161)
         Me.ingreso_lbl_tipo.Name = "ingreso_lbl_tipo"
         Me.ingreso_lbl_tipo.Size = New System.Drawing.Size(30, 12)
         Me.ingreso_lbl_tipo.TabIndex = 11
@@ -554,9 +554,9 @@ Partial Class form_ingreso
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_lbl_commenotcomm)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_pic_commenotclose)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_lbl_commenotrserv)
-        Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_lbl_commenotrc)
+        Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_txt_commenotrc)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_pic_commenotitle)
-        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(343, 37)
+        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(852, 17)
         Me.ingreso_pn_comentarios.Name = "ingreso_pn_comentarios"
         Me.ingreso_pn_comentarios.Size = New System.Drawing.Size(561, 204)
         Me.ingreso_pn_comentarios.TabIndex = 32
@@ -569,12 +569,13 @@ Partial Class form_ingreso
         Me.ingreso_pic_commenotitle.TabIndex = 0
         Me.ingreso_pic_commenotitle.TabStop = False
         '
-        'ingreso_lbl_commenotrc
+        'ingreso_txt_commenotrc
         '
-        Me.ingreso_lbl_commenotrc.Location = New System.Drawing.Point(229, 25)
-        Me.ingreso_lbl_commenotrc.Name = "ingreso_lbl_commenotrc"
-        Me.ingreso_lbl_commenotrc.Size = New System.Drawing.Size(244, 20)
-        Me.ingreso_lbl_commenotrc.TabIndex = 1
+        Me.ingreso_txt_commenotrc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_commenotrc.Location = New System.Drawing.Point(229, 25)
+        Me.ingreso_txt_commenotrc.Name = "ingreso_txt_commenotrc"
+        Me.ingreso_txt_commenotrc.Size = New System.Drawing.Size(244, 18)
+        Me.ingreso_txt_commenotrc.TabIndex = 1
         '
         'ingreso_lbl_commenotrserv
         '
@@ -710,7 +711,7 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_pn_comentarios As System.Windows.Forms.Panel
     Friend WithEvents ingreso_pic_commenotitle As System.Windows.Forms.PictureBox
     Friend WithEvents ingreso_lbl_commenotrserv As System.Windows.Forms.Label
-    Friend WithEvents ingreso_lbl_commenotrc As System.Windows.Forms.TextBox
+    Friend WithEvents ingreso_txt_commenotrc As System.Windows.Forms.TextBox
     Friend WithEvents ingreso_pic_comentarios As System.Windows.Forms.PictureBox
     Friend WithEvents ingreso_pic_commenotclose As System.Windows.Forms.PictureBox
     Friend WithEvents ingreso_txt_commenotcomm As System.Windows.Forms.TextBox

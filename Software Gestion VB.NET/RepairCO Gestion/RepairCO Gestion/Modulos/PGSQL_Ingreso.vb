@@ -50,4 +50,45 @@ Module PGSQL_Ingreso
             Return False
         End Try
     End Function
+    Public Function PGSQL_INGRESO_ADDOT(ByVal FechaIngreso As Date, ByVal Prioridad As String, ByVal TipoOT As Integer, _
+                                        ByVal Cliente As String, ByVal GuiaDespacho As String, ByVal nOrdenCompra As String, _
+                                        ByVal IdentificaEquipo As String, ByVal NumeroSerie As String, ByVal NumeroSerieFabrica As String, _
+                                        ByVal NumeroContrato As String, ByVal TipoProducto As Integer, ByVal MarcaProducto As Integer, _
+                                        ByVal ModeloProducto As Integer, ByVal NumeroOrdenTrabajo As Integer) As Boolean
+        Try
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPGSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPGSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "INSERT INTO ordenestrabajo (not, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, idrespingreso, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, idestado, tipo, noc) VALUES (@notrabajo, @guiadespacho, @idcliente, @idtipo, @idmarca, @idmodelo, @iduseringreso, @nserie, @prioridad, @ncontrato, @fechaingreso, @nseriefab, @estado, @tipot, @noc)"
+            CommandPGSQL.Parameters.AddWithValue("@notrabajo", NumeroOrdenTrabajo)
+            CommandPGSQL.Parameters.AddWithValue("@guiadespacho", GuiaDespacho)
+            CommandPGSQL.Parameters.AddWithValue("@idcliente", Cliente)
+            CommandPGSQL.Parameters.AddWithValue("@idtipo", TipoProducto)
+            CommandPGSQL.Parameters.AddWithValue("@idmarca", MarcaProducto)
+            CommandPGSQL.Parameters.AddWithValue("@idmodelo", ModeloProducto)
+            CommandPGSQL.Parameters.AddWithValue("@iduseringreso", _globalClientes(0).ToString)
+            CommandPGSQL.Parameters.AddWithValue("@nserie", NumeroSerie)
+            CommandPGSQL.Parameters.AddWithValue("@prioridad", Prioridad)
+            CommandPGSQL.Parameters.AddWithValue("@ncontrato", NumeroContrato)
+            CommandPGSQL.Parameters.AddWithValue("@fechaingreso", FechaIngreso)
+            CommandPGSQL.Parameters.AddWithValue("@nseriefab", NumeroSerieFabrica)
+            CommandPGSQL.Parameters.AddWithValue("@estado", 1)
+            CommandPGSQL.Parameters.AddWithValue("@tipot", TipoOT)
+            CommandPGSQL.Parameters.AddWithValue("@noc", nOrdenCompra)
+            CommandPGSQL.ExecuteNonQuery()
+            ConexPGSQL.Close()
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al ingresar la orden de trabajo en la base de datos, por favor contacte al equipo de desarrollo de la aplicación." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
 End Module

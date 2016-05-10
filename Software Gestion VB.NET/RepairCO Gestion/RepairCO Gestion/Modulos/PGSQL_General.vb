@@ -44,10 +44,10 @@ Module PGSQL_General
             Dim CommPGSQL As New NpgsqlCommand
             CommPGSQL.Connection = ConexPGSQL
             CommPGSQL.CommandType = CommandType.Text
-            CommPGSQL.CommandText = "SELECT id FROM ordenestrabajo ORDER by id ASC LIMIT 20"
+            CommPGSQL.CommandText = "SELECT id, notrabajo FROM ordenestrabajo ORDER by id ASC LIMIT 20"
             Dim dr = CommPGSQL.ExecuteReader
             If dr.HasRows = True Then
-                NumeroOT = Integer.Parse(dr("id").ToString) + 1
+                NumeroOT = Integer.Parse(dr("notrabajo").ToString) + 1
             Else
                 NumeroOT = NumeroOT + 1
             End If
@@ -55,7 +55,7 @@ Module PGSQL_General
             Return NumeroOT.ToString
         Catch ex As Exception
             MessageBox.Show("Ocurrió un error inesperado al tratar de obtener el número de orden de trabajo a crear, no es" & _
-                            " recomendable que intente ingresar la orden, contacte al equipo de desarrollo de forma inmediata.",
+                            " recomendable que intente ingresar la orden, contacte al equipo de desarrollo de forma inmediata." & vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & ex.ToString,
                             Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return "Error.!"
         End Try

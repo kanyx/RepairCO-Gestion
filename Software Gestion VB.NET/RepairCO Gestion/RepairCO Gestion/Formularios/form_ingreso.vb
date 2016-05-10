@@ -8,6 +8,13 @@ Public Class form_ingreso
         Dim ValueSource_Clientes As New Dictionary(Of String, String)()
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
         Me.ingreso_txt_not.Text = PGSQL_GetNumeroOrdenNueva()
+        If Integer.Parse(Me.ingreso_txt_not.Text) < 1000 Then
+            Me.ingreso_txt_not.Text = "000" & Me.ingreso_txt_not.Text
+        ElseIf Integer.Parse(Me.ingreso_txt_not.Text) < 100 Then
+            Me.ingreso_txt_not.Text = "00" & Me.ingreso_txt_not.Text
+        ElseIf Integer.Parse(Me.ingreso_txt_not.Text) < 100 Then
+            Me.ingreso_txt_not.Text = "0" & Me.ingreso_txt_not.Text
+        End If
         Me.ingresot_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ingreso_ot_title.png")
         Me.ingresot_pic_ot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/not.png")
         Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_locked.png")
@@ -118,6 +125,77 @@ Public Class form_ingreso
             OTguardada = False
             Exit Sub
         End If
+        If Me.ingreso_cmb_cliente.SelectedValue = "" Then
+            Me.ingreso_cmb_cliente.BackColor = Color.Red
+            Me.ingreso_cmb_cliente.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_cmb_cliente.BackColor = Color.Green
+            Me.ingreso_cmb_cliente.ForeColor = Color.White
+        End If
+        If Me.ingreso_txt_guia.Text = "" Or Me.ingreso_txt_guia.TextLength < 4 Then
+            Me.ingreso_txt_guia.BackColor = Color.Red
+            Me.ingreso_txt_guia.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_txt_guia.BackColor = Color.Green
+            Me.ingreso_txt_guia.ForeColor = Color.White
+        End If
+        If Me.ingreso_txt_iequipo.Text = "" Or Me.ingreso_txt_iequipo.TextLength < 4 Then
+            Me.ingreso_txt_iequipo.BackColor = Color.Red
+            Me.ingreso_txt_iequipo.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_txt_iequipo.BackColor = Color.Green
+            Me.ingreso_txt_iequipo.ForeColor = Color.White
+        End If
+        If Me.ingreso_cmb_tipo.SelectedValue = "" Then
+            Me.ingreso_cmb_tipo.BackColor = Color.Red
+            Me.ingreso_cmb_tipo.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_cmb_tipo.BackColor = Color.Green
+            Me.ingreso_cmb_tipo.ForeColor = Color.White
+        End If
+        If Trim(Me.ingreso_cmb_tipo.SelectedText.ToLower) <> "valvula" Then
+            ' # COMPROBAMOS LOS CAMPOS MARCA Y MODELO EN CASO DE NO SER VALVULA
+            ' # SEGUN INTSTRUCCIONES EN CASO DE SELECCIONAR VALVULA ESTOS CAMPOS NO SON NECESARIOS.
+            If Me.ingreso_cmb_marca.SelectedValue = "" Then
+                Me.ingreso_cmb_marca.BackColor = Color.Red
+                Me.ingreso_cmb_marca.ForeColor = Color.White
+                Exit Sub
+            Else
+                Me.ingreso_cmb_marca.BackColor = Color.Green
+                Me.ingreso_cmb_marca.ForeColor = Color.White
+            End If
+            If Me.ingreso_cmb_modelo.SelectedValue = "" Then
+                Me.ingreso_cmb_modelo.BackColor = Color.Red
+                Me.ingreso_cmb_modelo.ForeColor = Color.White
+                Exit Sub
+            Else
+                Me.ingreso_cmb_modelo.BackColor = Color.Green
+                Me.ingreso_cmb_modelo.ForeColor = Color.White
+            End If
+            If Me.ingreso_txt_nserie.Text = "" Then
+                Me.ingreso_txt_nserie.BackColor = Color.Red
+                Me.ingreso_txt_nserie.ForeColor = Color.White
+                Exit Sub
+            Else
+                Me.ingreso_txt_nserie.BackColor = Color.Green
+                Me.ingreso_txt_nserie.ForeColor = Color.White
+            End If
+        End If
+        If Me.ingresot_cmb_prioridad.SelectedValue = "" Then
+            Me.ingresot_cmb_prioridad.BackColor = Color.Red
+            Me.ingresot_cmb_prioridad.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingresot_cmb_prioridad.BackColor = Color.Green
+            Me.ingresot_cmb_prioridad.ForeColor = Color.White
+        End If
+        'If PGSQL_INGRESO_ADDOT() Then
+
+        'End If
         OTguardada = True
         Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
         Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
@@ -231,6 +309,10 @@ Public Class form_ingreso
             Call PGSQL_CargaMarcas(Me.ingreso_cmb_tipo.SelectedValue)
             Dim ValueSource_Marcas As New Dictionary(Of String, String)()
             ValueSource_Marcas.Add("", "SELECCIONE MARCA")
+            If _globalMarcas Is Nothing Then
+                Me.ingreso_cmb_marca.Enabled = False
+                Exit Sub
+            End If
             If _globalMarcas.Count > 0 Then
                 For Each TipoValue As KeyValuePair(Of String, String) In _globalMarcas
                     ValueSource_Marcas.Add(TipoValue.Key, TipoValue.Value.ToUpper)
@@ -247,6 +329,10 @@ Public Class form_ingreso
             Call PGSQL_CargaModelos(Me.ingreso_cmb_tipo.SelectedValue, Me.ingreso_cmb_marca.SelectedValue)
             Dim ValueSource_Modelos As New Dictionary(Of String, String)()
             ValueSource_Modelos.Add("", "SELECCIONE MODELO")
+            If _globalModelos Is Nothing Then
+                Me.ingreso_cmb_modelo.Enabled = False
+                Exit Sub
+            End If
             If _globalModelos.Count > 0 Then
                 For Each TipoValue As KeyValuePair(Of String, String) In _globalModelos
                     ValueSource_Modelos.Add(TipoValue.Key, TipoValue.Value.ToUpper)
@@ -264,6 +350,8 @@ Public Class form_ingreso
         Me.ingreso_pic_comentarios.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comentarios_normal.png")
     End Sub
     Private Sub ingreso_pic_comentarios_Click(sender As Object, e As EventArgs) Handles ingreso_pic_comentarios.Click
+        Me.ingreso_txt_commenotrc.ReadOnly = True
+        Me.ingreso_txt_commenotrc.Text = Me.ingreso_txt_rservicio.Text
         Me.ingreso_pn_comentarios.Location = New Point(110, 90)
         Me.ingreso_pn_comentarios.Visible = True
     End Sub
@@ -277,6 +365,14 @@ Public Class form_ingreso
         Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
     End Sub
     Private Sub ingreso_pic_commenotaccept_Click(sender As Object, e As EventArgs) Handles ingreso_pic_commenotaccept.Click
+        If ingreso_txt_commenotcomm.Text = "" Or Me.ingreso_txt_commenotcomm.TextLength < 7 Then
+            Me.ingreso_txt_commenotcomm.BackColor = Color.Red
+            Me.ingreso_txt_commenotcomm.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_txt_commenotcomm.BackColor = Color.Green
+            Me.ingreso_txt_commenotcomm.ForeColor = Color.White
+        End If
         MessageBox.Show("Comentario almacenado exitosamente, este será guardado una vez que guarde la orden de trabajo.", _
                         Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.ingreso_pn_comentarios.Visible = False
