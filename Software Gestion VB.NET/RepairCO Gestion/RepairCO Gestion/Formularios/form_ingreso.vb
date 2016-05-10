@@ -5,34 +5,56 @@ Public Class form_ingreso
     Private ValueSource_Prioridad As New Dictionary(Of String, String)()
     Private ValueSource_Tipo As New Dictionary(Of String, String)()
     Private Sub form_ingreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim ValueSource_Clientes As New Dictionary(Of String, String)()
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
+        Me.ingreso_txt_not.Text = PGSQL_GetNumeroOrdenNueva()
         Me.ingresot_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ingreso_ot_title.png")
         Me.ingresot_pic_ot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/not.png")
         Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_locked.png")
         Me.ingresot_pic_saveot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardar_normal.png")
         Me.ingresot_pic_saveimages.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardar_normal.png")
+        Me.ingreso_pic_comentarios.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comentarios_normal.png")
+        Me.ingreso_pic_commenotitle.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_commenot.png")
+        Me.ingreso_pn_comentarios.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingresocommentario_background.png")
+        Me.ingreso_pic_commenotclose.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/close.png")
+        Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
         Me.ingreso_lbl_addcliente.Cursor = Cursors.Hand
         Me.ingreso_lbl_addtipo.Cursor = Cursors.Hand
         Me.ingreso_lbl_addmarca.Cursor = Cursors.Hand
         Me.ingreso_lbl_addmodelo.Cursor = Cursors.Hand
         Me.ingresot_pic_saveot.Cursor = Cursors.Hand
         Me.ingresot_pic_saveimages.Cursor = Cursors.Hand
+        Me.ingreso_pic_comentarios.Cursor = Cursors.Hand
+        Me.ingreso_pic_commenotclose.Cursor = Cursors.Hand
+        Me.ingreso_pic_commenotaccept.Cursor = Cursors.Hand
         Me.ingreso_txt_not.ReadOnly = True
         Me.ingresot_pn_imgcontainer.Cursor = Cursors.No
         Me.ingresot_pic_saveot.BackColor = Color.Transparent
         Me.ingresot_pic_saveimages.BackColor = Color.Transparent
+        Me.ingreso_pic_commenotclose.BackColor = Color.Transparent
+        Me.ingreso_pic_commenotaccept.BackColor = Color.Transparent
         Me.ingresot_pic_saveot.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.ingreso_pic_commenotitle.BackColor = Color.Transparent
         Me.ingresot_pic_saveimages.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.ingreso_pic_comentarios.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.ingreso_pic_commenotclose.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.ingreso_pic_commenotitle.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.ingreso_pic_commenotaccept.SizeMode = PictureBoxSizeMode.StretchImage
         Me.ingresot_pic_saveimages.Visible = False
         Me.ingresot_lv_imagenes.Visible = False
+        Me.ingreso_cmb_marca.Enabled = False
+        Me.ingreso_cmb_modelo.Enabled = False
+        Me.ingreso_pn_comentarios.Visible = False
         ' # SETEAMOS VALORES DEL TOOLTIP
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmarca, "Presione aquí para ingresar una nueva marca.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmodelo, "Presione aquí para agregar un nuevo modelo.")
+        Me.ingreso_tp_help.SetToolTip(Me.ingreso_pic_comentarios, "Presione aquí para poder añadir un comentario a la orden de trabajo.")
         ' # SETEO DE VALORES Y PARAMETROS DE BASE DE DATOS.
         Me.ingreso_txt_rservicio.Text = _globalUserData(1).ToString.ToUpper & " " & _globalUserData(2).ToString.ToUpper & _
             " " & _globalUserData(3).ToString.ToUpper
         ' # SETEO DE RELLENO DE COMBOBOX.
+        ' # -> COMBO BOX PRIORIDAD
         ValueSource_Prioridad.Add("", "ESTABLECER PRIORIDAD")
         ValueSource_Prioridad.Add("1", "BAJA")
         ValueSource_Prioridad.Add("2", "MEDIA")
@@ -40,15 +62,27 @@ Public Class form_ingreso
         Me.ingresot_cmb_prioridad.DataSource = New BindingSource(ValueSource_Prioridad, Nothing)
         Me.ingresot_cmb_prioridad.DisplayMember = "Value"
         Me.ingresot_cmb_prioridad.ValueMember = "Key"
+        ' # -> COMBO BOX TIPO DE PRODUCTO
         ValueSource_Tipo.Add("", "SELECCIONE TIPO")
         If _globalTipos.Count > 0 Then
             For Each TipoValue As KeyValuePair(Of String, String) In _globalTipos
-                ValueSource_Tipo.Add(TipoValue.Key, TipoValue.Value)
+                ValueSource_Tipo.Add(TipoValue.Key, TipoValue.Value.ToUpper)
             Next
         End If
         Me.ingreso_cmb_tipo.DataSource = New BindingSource(ValueSource_Tipo, Nothing)
         Me.ingreso_cmb_tipo.DisplayMember = "Value"
         Me.ingreso_cmb_tipo.ValueMember = "Key"
+        ' # COMBOBOX CLIENTES
+        Call PGSQL_CargaClientes()
+        ValueSource_Clientes.Add("", "SELECCIONE CLIENTE")
+        If _globalClientes.Count > 0 Then
+            For Each TipoValue As KeyValuePair(Of String, String) In _globalClientes
+                ValueSource_Clientes.Add(TipoValue.Key, TipoValue.Value.ToUpper)
+            Next
+        End If
+        Me.ingreso_cmb_cliente.DataSource = New BindingSource(ValueSource_Clientes, Nothing)
+        Me.ingreso_cmb_cliente.DisplayMember = "Value"
+        Me.ingreso_cmb_cliente.ValueMember = "Key"
     End Sub
     Private Sub ingreso_lbl_addcliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addcliente.LinkClicked
         add_cliente.ShowDialog()
@@ -79,6 +113,11 @@ Public Class form_ingreso
         Me.ingresot_pic_saveimages.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardar_normal.png")
     End Sub
     Private Sub ingresot_pic_saveot_Click(sender As Object, e As EventArgs) Handles ingresot_pic_saveot.Click
+        ' # CONTINUAMOS CON EL PROCEDIMIENTO DE CARGA DE LA APLICACION.
+        If Me.ingreso_rb_presupuesto.Checked = False And Me.ingreso_rb_garantia.Checked = False Then
+            OTguardada = False
+            Exit Sub
+        End If
         OTguardada = True
         Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
         Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
@@ -188,6 +227,7 @@ Public Class form_ingreso
     Private Sub ingreso_cmb_tipo_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_tipo.SelectedValueChanged
         ' # AL CAMBIAR EL TIPO DE PRODUCTO HABILITAMOS LA SECCION DE MARCAS DEL FORMULARIO.
         If Me.ingreso_cmb_tipo.SelectedIndex > 0 Then
+            Me.ingreso_cmb_marca.Enabled = True
             Call PGSQL_CargaMarcas(Me.ingreso_cmb_tipo.SelectedValue)
             Dim ValueSource_Marcas As New Dictionary(Of String, String)()
             ValueSource_Marcas.Add("", "SELECCIONE MARCA")
@@ -200,5 +240,45 @@ Public Class form_ingreso
             Me.ingreso_cmb_marca.DisplayMember = "Value"
             Me.ingreso_cmb_marca.ValueMember = "Key"
         End If
+    End Sub
+    Private Sub ingreso_cmb_marca_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_marca.SelectedValueChanged
+        If Me.ingreso_cmb_marca.SelectedIndex > 0 Then
+            Me.ingreso_cmb_modelo.Enabled = True
+            Call PGSQL_CargaModelos(Me.ingreso_cmb_tipo.SelectedValue, Me.ingreso_cmb_marca.SelectedValue)
+            Dim ValueSource_Modelos As New Dictionary(Of String, String)()
+            ValueSource_Modelos.Add("", "SELECCIONE MODELO")
+            If _globalModelos.Count > 0 Then
+                For Each TipoValue As KeyValuePair(Of String, String) In _globalModelos
+                    ValueSource_Modelos.Add(TipoValue.Key, TipoValue.Value.ToUpper)
+                Next
+            End If
+            Me.ingreso_cmb_modelo.DataSource = New BindingSource(ValueSource_Modelos, Nothing)
+            Me.ingreso_cmb_modelo.DisplayMember = "Value"
+            Me.ingreso_cmb_modelo.ValueMember = "Key"
+        End If
+    End Sub
+    Private Sub ingreso_pic_comentarios_MouseMove(sender As Object, e As MouseEventArgs) Handles ingreso_pic_comentarios.MouseMove
+        Me.ingreso_pic_comentarios.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comentarios_hover.png")
+    End Sub
+    Private Sub ingreso_pic_comentarios_MouseLeave(sender As Object, e As EventArgs) Handles ingreso_pic_comentarios.MouseLeave
+        Me.ingreso_pic_comentarios.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comentarios_normal.png")
+    End Sub
+    Private Sub ingreso_pic_comentarios_Click(sender As Object, e As EventArgs) Handles ingreso_pic_comentarios.Click
+        Me.ingreso_pn_comentarios.Location = New Point(110, 90)
+        Me.ingreso_pn_comentarios.Visible = True
+    End Sub
+    Private Sub ingreso_pic_commenotclose_Click(sender As Object, e As EventArgs) Handles ingreso_pic_commenotclose.Click
+        Me.ingreso_pn_comentarios.Visible = False
+    End Sub
+    Private Sub ingreso_pic_commenotaccept_MouseHover(sender As Object, e As EventArgs) Handles ingreso_pic_commenotaccept.MouseHover
+        Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_hover.png")
+    End Sub
+    Private Sub ingreso_pic_commenotaccept_MouseLeave(sender As Object, e As EventArgs) Handles ingreso_pic_commenotaccept.MouseLeave
+        Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
+    End Sub
+    Private Sub ingreso_pic_commenotaccept_Click(sender As Object, e As EventArgs) Handles ingreso_pic_commenotaccept.Click
+        MessageBox.Show("Comentario almacenado exitosamente, este será guardado una vez que guarde la orden de trabajo.", _
+                        Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Me.ingreso_pn_comentarios.Visible = False
     End Sub
 End Class

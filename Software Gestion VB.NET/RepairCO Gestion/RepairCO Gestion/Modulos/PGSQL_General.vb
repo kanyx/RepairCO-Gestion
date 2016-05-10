@@ -30,8 +30,63 @@ Module PGSQL_General
             Return False
         End Try
     End Function
+    Public Function PGSQL_GetNumeroOrdenNueva() As String
+        ' # FUNCION PARA OBTENER EL NUMERO DE ORDEN SIGUENTE
+        ' # NUMERO ACTUAL + 1
+        Try
+            Dim NumeroOT As Integer = 0
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPGSQL.Open()
+            Dim CommPGSQL As New NpgsqlCommand
+            CommPGSQL.Connection = ConexPGSQL
+            CommPGSQL.CommandType = CommandType.Text
+            CommPGSQL.CommandText = "SELECT id FROM ordenestrabajo ORDER by id ASC LIMIT 20"
+            Dim dr = CommPGSQL.ExecuteReader
+            If dr.HasRows = True Then
+                NumeroOT = Integer.Parse(dr("id").ToString) + 1
+            Else
+                NumeroOT = NumeroOT + 1
+            End If
+            ConexPGSQL.Close()
+            Return NumeroOT.ToString
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error inesperado al tratar de obtener el número de orden de trabajo a crear, no es" & _
+                            " recomendable que intente ingresar la orden, contacte al equipo de desarrollo de forma inmediata.",
+                            Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return "Error.!"
+        End Try
+    End Function
     Public Sub PGSQL_CargaClientes()
         ' # CARGA AL INICIAR MAINAPPLICATION
+        Try
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPGSQL.Open()
+            Dim CommPGSQL As New NpgsqlCommand
+            CommPGSQL.Connection = ConexPGSQL
+            CommPGSQL.CommandType = CommandType.Text
+            CommPGSQL.CommandText = "SELECT id, razonsocial FROM clientes"
+            Dim dr = CommPGSQL.ExecuteReader
+            If dr.HasRows = False Then
+                Exit Sub
+            End If
+            _globalClientes = New List(Of KeyValuePair(Of String, String))
+            While dr.Read
+                _globalClientes.Add(New KeyValuePair(Of String, String)(dr.Item("id"), dr.Item("razonsocial").ToString))
+            End While
+            ConexPGSQL.Close()
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al obtener los clientes desde la base de datos, si el problema persiste contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
     Public Sub PGSQL_CargaTipos()
         ' # CARGA AL INICIAR MAINAPPLICATION
@@ -89,8 +144,36 @@ Module PGSQL_General
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-    Public Sub PGSQL_CargaModelos()
+    Public Sub PGSQL_CargaModelos(ByVal idTipo As String, ByVal idMarca As String)
         ' # CARGA CUANDO SE SELECCIONA UNA MARCA
+        ' # OBTIENE LOS VALORES POR TIPO Y MARCA DEL PRODUCTO.
+        Try
+            Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPostgreSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPostgreSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "SELECT id, nombre, idmarca, idtipo FROM modelos WHERE idmarca=@marca AND idtipo=@tipo"
+            CommandPGSQL.Parameters.AddWithValue("@marca", Integer.Parse(idMarca))
+            CommandPGSQL.Parameters.AddWithValue("@tipo", Integer.Parse(idTipo))
+            Dim dr = CommandPGSQL.ExecuteReader
+            If dr.HasRows = False Then
+                Exit Sub
+            End If
+            _globalModelos = New List(Of KeyValuePair(Of String, String))
+            While dr.Read
+                _globalModelos.Add(New KeyValuePair(Of String, String)(dr.Item("id"), dr.Item("nombre").ToString))
+            End While
+            ConexPostgreSQL.Close()
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al momento de obtener los modelos desde la base de datos." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Question)
+        End Try
     End Sub
     Public Sub PGSQL_CargaEstados()
         ' # CARGA AL INICIAR MAINAPPLICATION
