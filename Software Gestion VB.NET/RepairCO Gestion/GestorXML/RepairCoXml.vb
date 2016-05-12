@@ -11,6 +11,7 @@ Public Class RepairCoXml
     Private ConfigUserDB As String = ""
     Private ConfigPassDB As String = ""
     Private ConfigNameDB As String = ""
+    Private ConfigPathServer As String = ""
     Public Sub New(ByVal Archivo As String)
         ArchivoXML = Archivo
     End Sub
@@ -33,6 +34,7 @@ Public Class RepairCoXml
                     ConfigUserDB = LectorXML.ReadElementString("username")
                     ConfigPassDB = LectorXML.ReadElementString("password")
                     ConfigNameDB = LectorXML.ReadElementString("nombre")
+                    ConfigPathServer = LectorXML.ReadElementString("pathserver")
                 End While
                 If DevolverArray = True Then
                     RetornoArray = New ArrayList
@@ -41,6 +43,7 @@ Public Class RepairCoXml
                     RetornoArray.Add(ConfigUserDB)
                     RetornoArray.Add(ConfigPassDB)
                     RetornoArray.Add(ConfigNameDB)
+                    RetornoArray.Add(ConfigPathServer)
                     Return RetornoArray
                 Else
                     RetornoString = ConfigHostDB & "#" & ConfigPortDB & "#" & ConfigUserDB & "#" & ConfigPassDB & _

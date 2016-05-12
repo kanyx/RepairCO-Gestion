@@ -54,7 +54,8 @@ Module PGSQL_Ingreso
                                         ByVal Cliente As String, ByVal GuiaDespacho As String, ByVal nOrdenCompra As String, _
                                         ByVal IdentificaEquipo As String, ByVal NumeroSerie As String, ByVal NumeroSerieFabrica As String, _
                                         ByVal NumeroContrato As String, ByVal TipoProducto As Integer, ByVal MarcaProducto As Integer, _
-                                        ByVal ModeloProducto As Integer, ByVal NumeroOrdenTrabajo As Integer, ByVal Agendamiento As String, ByVal Comentario As String) As Boolean
+                                        ByVal ModeloProducto As Integer, ByVal NumeroOrdenTrabajo As Integer, ByVal Agendamiento As String, _
+                                        ByVal Comentario As String, ByVal TAG As String) As Boolean
         Try
             ' # AGREGAMOS NUEVA ORDEN AL SISTEMAS
             Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
@@ -66,7 +67,7 @@ Module PGSQL_Ingreso
             Dim CommandPGSQL As New NpgsqlCommand
             CommandPGSQL.Connection = ConexPGSQL
             CommandPGSQL.CommandType = CommandType.Text
-            CommandPGSQL.CommandText = "INSERT INTO ordenestrabajo (notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, idrespingreso, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, idestado, tipo, noc, nagendamiento) VALUES (@notrabajo, @guiadespacho, @idcliente, @idtipo, @idmarca, @idmodelo, @iduseringreso, @nserie, @prioridad, @ncontrato, @fechaingreso, @nseriefab, @estado, @tipot, @noc, @agendamiento)"
+            CommandPGSQL.CommandText = "INSERT INTO ordenestrabajo (notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, idrespingreso, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, idestado, tipo, noc, nagendamiento, tag) VALUES (@notrabajo, @guiadespacho, @idcliente, @idtipo, @idmarca, @idmodelo, @iduseringreso, @nserie, @prioridad, @ncontrato, @fechaingreso, @nseriefab, @estado, @tipot, @noc, @agendamiento, @tag)"
             CommandPGSQL.Parameters.AddWithValue("@notrabajo", NumeroOrdenTrabajo)
             CommandPGSQL.Parameters.AddWithValue("@guiadespacho", GuiaDespacho.ToLower)
             CommandPGSQL.Parameters.AddWithValue("@idcliente", Integer.Parse(Cliente))
@@ -83,6 +84,7 @@ Module PGSQL_Ingreso
             CommandPGSQL.Parameters.AddWithValue("@tipot", TipoOT)
             CommandPGSQL.Parameters.AddWithValue("@noc", nOrdenCompra)
             CommandPGSQL.Parameters.AddWithValue("@agendamiento", Agendamiento.ToLower)
+            CommandPGSQL.Parameters.AddWithValue("@tag", TAG)
             CommandPGSQL.ExecuteNonQuery()
             ConexPGSQL.Close()
             ' # AGREGAMOS COMENTARIO A LA BASE DE DATOS.

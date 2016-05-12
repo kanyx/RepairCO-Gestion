@@ -8,13 +8,6 @@ Public Class form_ingreso
         Dim ValueSource_Clientes As New Dictionary(Of String, String)()
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
         Me.ingreso_txt_not.Text = PGSQL_GetNumeroOrdenNueva()
-        If Integer.Parse(Me.ingreso_txt_not.Text) < 1000 Then
-            Me.ingreso_txt_not.Text = "000" & Me.ingreso_txt_not.Text
-        ElseIf Integer.Parse(Me.ingreso_txt_not.Text) < 100 Then
-            Me.ingreso_txt_not.Text = "00" & Me.ingreso_txt_not.Text
-        ElseIf Integer.Parse(Me.ingreso_txt_not.Text) < 100 Then
-            Me.ingreso_txt_not.Text = "0" & Me.ingreso_txt_not.Text
-        End If
         Me.ingresot_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ingreso_ot_title.png")
         Me.ingresot_pic_ot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/not.png")
         Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_locked.png")
@@ -222,7 +215,7 @@ Public Class form_ingreso
         If PGSQL_INGRESO_ADDOT(Date.Parse(Me.ingreso_txt_fecha.Text), Me.ingresot_cmb_prioridad.SelectedText, TipoOT, Me.ingreso_cmb_cliente.SelectedValue.ToString, Me.ingreso_txt_guia.Text, _
                                Me.ingreso_txt_oc.Text, Me.ingreso_txt_iequipo.Text, Me.ingreso_txt_nserie.Text, Me.ingresot_txt_nseriefat.Text, Me.ingresot_txt_ncontrato.Text, _
                                Integer.Parse(Me.ingreso_cmb_tipo.SelectedValue), Integer.Parse(Me.ingreso_cmb_marca.SelectedValue), Integer.Parse(Me.ingreso_cmb_modelo.SelectedValue), _
-                               Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text) = True Then
+                               Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text, Me.ingreso_txt_iequipo.Text) = True Then
             OTguardada = True
             Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
             Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
@@ -328,6 +321,15 @@ Public Class form_ingreso
     End Sub
     Private Sub NewFormulario()
         ' # CUANDO SE TERMINA DE INGRESAR UNA ORDEN DE TRABAJO LIMPIA EL FORMULARIO.
+        Dim Frm_RecepcionIngreso As New form_ingreso
+        Frm_RecepcionIngreso.MdiParent = main_application
+        Frm_RecepcionIngreso.ShowInTaskbar = False
+        Frm_RecepcionIngreso.StartPosition = FormStartPosition.Manual
+        Frm_RecepcionIngreso.Left += 260
+        Frm_RecepcionIngreso.Height = main_application.ClientSize.Height * 0.929
+        Frm_RecepcionIngreso.Width = main_application.ClientSize.Width * 0.8
+        Frm_RecepcionIngreso.Show()
+        Me.Close()
     End Sub
     Public Sub RefreshTipos()
         ' # ACTUALIZAR LA LISTA DE TIPOS DE PRODUCTOS
@@ -421,8 +423,14 @@ Public Class form_ingreso
                 ' # MENSAJE CUANDO LAS FOTOS SE CARGAN EXITOSAMENTE
                 If MessageBox.Show("Fotografías de la orden de trabajo ingresadas exitosamente, finalizo el proceso de ingreso de orden de trabajo." & vbNewLine & "¿Desea la orden de trabajo en PDF para su impresión?", _
                                 Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
-                    'REPORTES_GENERAOT(Me.ingreso_txt_not.Text)
-                    ' # COMPROBAMOS QUE EL ARCHIVO HAYA SIDO CREADO Y PROCEDEMOS A ABRIRLO
+
+                    If REPORTES_GENERAOT(Me.ingreso_txt_not.Text) = True Then
+                        ' # COMPROBAMOS QUE EL ARCHIVO HAYA SIDO CREADO Y PROCEDEMOS A ABRIRLO
+                        If File.Exists(Application.StartupPath & "/Data/_temp/" & Me.ingreso_txt_not.Text & ".pdf") Then
+                            Process.Start(Application.StartupPath & "/Data/_temp/" & Me.ingreso_txt_not.Text & ".pdf")
+                        End If
+                    End If
+                    NewFormulario()
                 Else
                     NewFormulario()
                 End If

@@ -6,7 +6,4 @@
     Public _globalModelos As List(Of KeyValuePair(Of String, String))  ' # ARREGLO QUE CONTIENE TODOS LOS MODELOS DE LAS MARCAS (CARGA DE LA BASE DE DATOS)
     Public _globalEstados As ArrayList ' # ARREGLO QUE CONTIENE LOS ESTADOS USADOS PARA LAS ORDENES DE TRABAJO. (CARGA DESDE LA BASE DE DATOS).
     Public _globalPaises As List(Of KeyValuePair(Of String, String)) ' # CARGA LA LISTA DE PAISES. (CARGA DESDE BASE DE DATOS).
-    Public Function Validate_InresOT() As Boolean
-
-    End Function
 End Module

@@ -206,4 +206,65 @@ Module PGSQL_General
                             Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK)
         End Try
     End Sub
+    Public Function PGSQL_CargaComentariosOT(ByVal NumeroOT As String) As String
+        Dim Comentario As String = ""
+        Try
+            Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPostgreSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPostgreSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "SELECT id, iduser, comentario, idot FROM otcomentarios WHERE idot=@numerot"
+            CommandPGSQL.Parameters.AddWithValue("@numerot", Integer.Parse(NumeroOT))
+            Dim rd = CommandPGSQL.ExecuteReader()
+            If rd.HasRows = False Then
+                Return ""
+            End If
+            rd.Read()
+            Comentario = rd(2).ToString
+            ConexPostgreSQL.Close()
+            Return Comentario
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al tratar de cargar los comentarios desde la base de datos, por favor intente nuevamente. Si el problema persiste contacte al equipo de desarrollo." & _
+                            vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return "ERROR...."
+        End Try
+    End Function
+    Public Function PGSQL_CargaImagenesOT(ByVal NumeroOrden As String, ByVal MaxImages As Integer) As ArrayList
+        Dim Imagenes As New ArrayList
+        Try
+            Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPostgreSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPostgreSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "SELECT id, nimagen, idot FROM otimages WHERE idot=@norden LIMIT @limite"
+            CommandPGSQL.Parameters.AddWithValue("@norden", Integer.Parse(NumeroOrden))
+            CommandPGSQL.Parameters.AddWithValue("@limite", MaxImages)
+            Dim rd = CommandPGSQL.ExecuteReader()
+            If rd.HasRows = False Then
+                Return Imagenes
+            End If
+            While rd.Read
+                Imagenes.Add(rd(1).ToString)
+            End While
+            ConexPostgreSQL.Close()
+            Return Imagenes
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al tratar de cargar las imágenes de la orden de trabajo, por favor vuelta a inténtalo, si el problema persiste contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Imagenes.Add("ERROR!")
+            Return Imagenes
+        End Try
+    End Function
 End Module

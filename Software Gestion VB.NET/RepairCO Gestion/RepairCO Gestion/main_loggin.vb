@@ -22,6 +22,7 @@ Public Class main_loggin
         LectorXML = New RepairCoXml(Application.StartupPath & "/Data/configuracion.xml")
         ParametrosConfiguracion = New ArrayList()
         ParametrosConfiguracion = LectorXML.LeerDocumentoConfiguration(True)
+        'MsgBox(ParametrosConfiguracion(5).ToString)
         ' # Prueba de la conexion con el servidor postgresql
         If PGSQL_ProbarConexion(ParametrosConfiguracion(0).ToString, ParametrosConfiguracion(1).ToString, _
                                 ParametrosConfiguracion(2).ToString, ParametrosConfiguracion(3).ToString, _
@@ -34,6 +35,7 @@ Public Class main_loggin
         Else
             Me.loggin_enter_btn.Enabled = True
         End If
+        'REPORTES_GENERAOT("2")
     End Sub
     Private Sub loggin_enter_btn_MouseMove(sender As Object, e As MouseEventArgs) Handles loggin_enter_btn.MouseMove
         Me.loggin_enter_btn.Cursor = Cursors.Hand
