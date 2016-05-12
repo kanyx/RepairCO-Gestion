@@ -42,3 +42,8 @@ C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.add_modelo.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.imagen_visualizer.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.gestion_ot.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\itextsharp.xml
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x86.Native.dll
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x64.Native.dll
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x64.dll
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x64.xml

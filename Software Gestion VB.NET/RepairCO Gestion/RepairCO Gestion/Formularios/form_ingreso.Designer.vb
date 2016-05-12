@@ -24,6 +24,9 @@ Partial Class form_ingreso
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ingreso_gp_datos = New System.Windows.Forms.GroupBox()
+        Me.ingreso_pic_comentarios = New System.Windows.Forms.PictureBox()
+        Me.ingreso_txt_oc = New System.Windows.Forms.TextBox()
+        Me.ingreso_lbl_oc = New System.Windows.Forms.Label()
         Me.ingresot_cmb_prioridad = New System.Windows.Forms.ComboBox()
         Me.ingresot_lbl_prioridad = New System.Windows.Forms.Label()
         Me.ingresot_txt_ncontrato = New System.Windows.Forms.TextBox()
@@ -65,18 +68,18 @@ Partial Class form_ingreso
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ingresot_pic_saveimages = New System.Windows.Forms.PictureBox()
         Me.ingresot_il_fotos = New System.Windows.Forms.ImageList(Me.components)
-        Me.ingreso_lbl_oc = New System.Windows.Forms.Label()
-        Me.ingreso_txt_oc = New System.Windows.Forms.TextBox()
         Me.ingreso_pn_comentarios = New System.Windows.Forms.Panel()
-        Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
-        Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
-        Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
-        Me.ingreso_pic_comentarios = New System.Windows.Forms.PictureBox()
-        Me.ingreso_pic_commenotclose = New System.Windows.Forms.PictureBox()
-        Me.ingreso_lbl_commenotcomm = New System.Windows.Forms.Label()
-        Me.ingreso_txt_commenotcomm = New System.Windows.Forms.TextBox()
         Me.ingreso_pic_commenotaccept = New System.Windows.Forms.PictureBox()
+        Me.ingreso_txt_commenotcomm = New System.Windows.Forms.TextBox()
+        Me.ingreso_lbl_commenotcomm = New System.Windows.Forms.Label()
+        Me.ingreso_pic_commenotclose = New System.Windows.Forms.PictureBox()
+        Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
+        Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
+        Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
+        Me.ingreso_lbl_agendamiento = New System.Windows.Forms.Label()
+        Me.ingreso_txt_agendamiento = New System.Windows.Forms.TextBox()
         Me.ingreso_gp_datos.SuspendLayout()
+        CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ingreso_gp_tproceso.SuspendLayout()
         CType(Me.ingresot_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,14 +87,15 @@ Partial Class form_ingreso
         Me.ingresot_pn_imgcontainer.SuspendLayout()
         CType(Me.ingresot_pic_saveimages, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ingreso_pn_comentarios.SuspendLayout()
-        CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingreso_pic_commenotaccept, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ingreso_gp_datos
         '
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_agendamiento)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_agendamiento)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_pic_comentarios)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_oc)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_oc)
@@ -133,6 +137,33 @@ Partial Class form_ingreso
         Me.ingreso_gp_datos.TabIndex = 0
         Me.ingreso_gp_datos.TabStop = False
         Me.ingreso_gp_datos.Text = "DATOS OT"
+        '
+        'ingreso_pic_comentarios
+        '
+        Me.ingreso_pic_comentarios.Location = New System.Drawing.Point(436, 208)
+        Me.ingreso_pic_comentarios.Name = "ingreso_pic_comentarios"
+        Me.ingreso_pic_comentarios.Size = New System.Drawing.Size(141, 36)
+        Me.ingreso_pic_comentarios.TabIndex = 32
+        Me.ingreso_pic_comentarios.TabStop = False
+        '
+        'ingreso_txt_oc
+        '
+        Me.ingreso_txt_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_oc.Location = New System.Drawing.Point(394, 90)
+        Me.ingreso_txt_oc.Name = "ingreso_txt_oc"
+        Me.ingreso_txt_oc.Size = New System.Drawing.Size(148, 18)
+        Me.ingreso_txt_oc.TabIndex = 31
+        '
+        'ingreso_lbl_oc
+        '
+        Me.ingreso_lbl_oc.AutoSize = True
+        Me.ingreso_lbl_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_oc.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_oc.Location = New System.Drawing.Point(392, 75)
+        Me.ingreso_lbl_oc.Name = "ingreso_lbl_oc"
+        Me.ingreso_lbl_oc.Size = New System.Drawing.Size(130, 12)
+        Me.ingreso_lbl_oc.TabIndex = 30
+        Me.ingreso_lbl_oc.Text = "N° ORDEN DE COMPRA"
         '
         'ingresot_cmb_prioridad
         '
@@ -350,7 +381,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_guia.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_guia.Location = New System.Drawing.Point(249, 90)
         Me.ingreso_txt_guia.Name = "ingreso_txt_guia"
-        Me.ingreso_txt_guia.Size = New System.Drawing.Size(200, 18)
+        Me.ingreso_txt_guia.Size = New System.Drawing.Size(139, 18)
         Me.ingreso_txt_guia.TabIndex = 8
         '
         'ingreso_lbl_nguia
@@ -457,10 +488,10 @@ Partial Class form_ingreso
         Me.ingreso_rb_presupuesto.ForeColor = System.Drawing.Color.Black
         Me.ingreso_rb_presupuesto.Location = New System.Drawing.Point(6, 17)
         Me.ingreso_rb_presupuesto.Name = "ingreso_rb_presupuesto"
-        Me.ingreso_rb_presupuesto.Size = New System.Drawing.Size(103, 16)
+        Me.ingreso_rb_presupuesto.Size = New System.Drawing.Size(97, 16)
         Me.ingreso_rb_presupuesto.TabIndex = 0
         Me.ingreso_rb_presupuesto.TabStop = True
-        Me.ingreso_rb_presupuesto.Text = "PRESUPUESTO"
+        Me.ingreso_rb_presupuesto.Text = "REPARACION"
         Me.ingreso_rb_presupuesto.UseVisualStyleBackColor = True
         '
         'ingresot_pic_title
@@ -528,25 +559,6 @@ Partial Class form_ingreso
         Me.ingresot_il_fotos.ImageSize = New System.Drawing.Size(16, 16)
         Me.ingresot_il_fotos.TransparentColor = System.Drawing.Color.Transparent
         '
-        'ingreso_lbl_oc
-        '
-        Me.ingreso_lbl_oc.AutoSize = True
-        Me.ingreso_lbl_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_oc.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_oc.Location = New System.Drawing.Point(460, 75)
-        Me.ingreso_lbl_oc.Name = "ingreso_lbl_oc"
-        Me.ingreso_lbl_oc.Size = New System.Drawing.Size(130, 12)
-        Me.ingreso_lbl_oc.TabIndex = 30
-        Me.ingreso_lbl_oc.Text = "N° ORDEN DE COMPRA"
-        '
-        'ingreso_txt_oc
-        '
-        Me.ingreso_txt_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_oc.Location = New System.Drawing.Point(462, 90)
-        Me.ingreso_txt_oc.Name = "ingreso_txt_oc"
-        Me.ingreso_txt_oc.Size = New System.Drawing.Size(255, 18)
-        Me.ingreso_txt_oc.TabIndex = 31
-        '
         'ingreso_pn_comentarios
         '
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_pic_commenotaccept)
@@ -561,47 +573,21 @@ Partial Class form_ingreso
         Me.ingreso_pn_comentarios.Size = New System.Drawing.Size(561, 204)
         Me.ingreso_pn_comentarios.TabIndex = 32
         '
-        'ingreso_pic_commenotitle
+        'ingreso_pic_commenotaccept
         '
-        Me.ingreso_pic_commenotitle.Location = New System.Drawing.Point(11, 16)
-        Me.ingreso_pic_commenotitle.Name = "ingreso_pic_commenotitle"
-        Me.ingreso_pic_commenotitle.Size = New System.Drawing.Size(211, 27)
-        Me.ingreso_pic_commenotitle.TabIndex = 0
-        Me.ingreso_pic_commenotitle.TabStop = False
+        Me.ingreso_pic_commenotaccept.Location = New System.Drawing.Point(207, 156)
+        Me.ingreso_pic_commenotaccept.Name = "ingreso_pic_commenotaccept"
+        Me.ingreso_pic_commenotaccept.Size = New System.Drawing.Size(137, 36)
+        Me.ingreso_pic_commenotaccept.TabIndex = 6
+        Me.ingreso_pic_commenotaccept.TabStop = False
         '
-        'ingreso_txt_commenotrc
+        'ingreso_txt_commenotcomm
         '
-        Me.ingreso_txt_commenotrc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_commenotrc.Location = New System.Drawing.Point(229, 25)
-        Me.ingreso_txt_commenotrc.Name = "ingreso_txt_commenotrc"
-        Me.ingreso_txt_commenotrc.Size = New System.Drawing.Size(244, 18)
-        Me.ingreso_txt_commenotrc.TabIndex = 1
-        '
-        'ingreso_lbl_commenotrserv
-        '
-        Me.ingreso_lbl_commenotrserv.AutoSize = True
-        Me.ingreso_lbl_commenotrserv.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_commenotrserv.Location = New System.Drawing.Point(227, 10)
-        Me.ingreso_lbl_commenotrserv.Name = "ingreso_lbl_commenotrserv"
-        Me.ingreso_lbl_commenotrserv.Size = New System.Drawing.Size(163, 12)
-        Me.ingreso_lbl_commenotrserv.TabIndex = 2
-        Me.ingreso_lbl_commenotrserv.Text = "RESPONSABLE COMENTARIO"
-        '
-        'ingreso_pic_comentarios
-        '
-        Me.ingreso_pic_comentarios.Location = New System.Drawing.Point(436, 208)
-        Me.ingreso_pic_comentarios.Name = "ingreso_pic_comentarios"
-        Me.ingreso_pic_comentarios.Size = New System.Drawing.Size(141, 36)
-        Me.ingreso_pic_comentarios.TabIndex = 32
-        Me.ingreso_pic_comentarios.TabStop = False
-        '
-        'ingreso_pic_commenotclose
-        '
-        Me.ingreso_pic_commenotclose.Location = New System.Drawing.Point(512, 11)
-        Me.ingreso_pic_commenotclose.Name = "ingreso_pic_commenotclose"
-        Me.ingreso_pic_commenotclose.Size = New System.Drawing.Size(32, 32)
-        Me.ingreso_pic_commenotclose.TabIndex = 3
-        Me.ingreso_pic_commenotclose.TabStop = False
+        Me.ingreso_txt_commenotcomm.Location = New System.Drawing.Point(24, 70)
+        Me.ingreso_txt_commenotcomm.Multiline = True
+        Me.ingreso_txt_commenotcomm.Name = "ingreso_txt_commenotcomm"
+        Me.ingreso_txt_commenotcomm.Size = New System.Drawing.Size(497, 80)
+        Me.ingreso_txt_commenotcomm.TabIndex = 5
         '
         'ingreso_lbl_commenotcomm
         '
@@ -613,21 +599,58 @@ Partial Class form_ingreso
         Me.ingreso_lbl_commenotcomm.TabIndex = 4
         Me.ingreso_lbl_commenotcomm.Text = "COMENTARIO"
         '
-        'ingreso_txt_commenotcomm
+        'ingreso_pic_commenotclose
         '
-        Me.ingreso_txt_commenotcomm.Location = New System.Drawing.Point(24, 70)
-        Me.ingreso_txt_commenotcomm.Multiline = True
-        Me.ingreso_txt_commenotcomm.Name = "ingreso_txt_commenotcomm"
-        Me.ingreso_txt_commenotcomm.Size = New System.Drawing.Size(497, 80)
-        Me.ingreso_txt_commenotcomm.TabIndex = 5
+        Me.ingreso_pic_commenotclose.Location = New System.Drawing.Point(512, 11)
+        Me.ingreso_pic_commenotclose.Name = "ingreso_pic_commenotclose"
+        Me.ingreso_pic_commenotclose.Size = New System.Drawing.Size(32, 32)
+        Me.ingreso_pic_commenotclose.TabIndex = 3
+        Me.ingreso_pic_commenotclose.TabStop = False
         '
-        'ingreso_pic_commenotaccept
+        'ingreso_lbl_commenotrserv
         '
-        Me.ingreso_pic_commenotaccept.Location = New System.Drawing.Point(207, 156)
-        Me.ingreso_pic_commenotaccept.Name = "ingreso_pic_commenotaccept"
-        Me.ingreso_pic_commenotaccept.Size = New System.Drawing.Size(137, 36)
-        Me.ingreso_pic_commenotaccept.TabIndex = 6
-        Me.ingreso_pic_commenotaccept.TabStop = False
+        Me.ingreso_lbl_commenotrserv.AutoSize = True
+        Me.ingreso_lbl_commenotrserv.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_commenotrserv.Location = New System.Drawing.Point(227, 10)
+        Me.ingreso_lbl_commenotrserv.Name = "ingreso_lbl_commenotrserv"
+        Me.ingreso_lbl_commenotrserv.Size = New System.Drawing.Size(163, 12)
+        Me.ingreso_lbl_commenotrserv.TabIndex = 2
+        Me.ingreso_lbl_commenotrserv.Text = "RESPONSABLE COMENTARIO"
+        '
+        'ingreso_txt_commenotrc
+        '
+        Me.ingreso_txt_commenotrc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_commenotrc.Location = New System.Drawing.Point(229, 25)
+        Me.ingreso_txt_commenotrc.Name = "ingreso_txt_commenotrc"
+        Me.ingreso_txt_commenotrc.Size = New System.Drawing.Size(244, 18)
+        Me.ingreso_txt_commenotrc.TabIndex = 1
+        '
+        'ingreso_pic_commenotitle
+        '
+        Me.ingreso_pic_commenotitle.Location = New System.Drawing.Point(11, 16)
+        Me.ingreso_pic_commenotitle.Name = "ingreso_pic_commenotitle"
+        Me.ingreso_pic_commenotitle.Size = New System.Drawing.Size(211, 27)
+        Me.ingreso_pic_commenotitle.TabIndex = 0
+        Me.ingreso_pic_commenotitle.TabStop = False
+        '
+        'ingreso_lbl_agendamiento
+        '
+        Me.ingreso_lbl_agendamiento.AutoSize = True
+        Me.ingreso_lbl_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_agendamiento.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(552, 75)
+        Me.ingreso_lbl_agendamiento.Name = "ingreso_lbl_agendamiento"
+        Me.ingreso_lbl_agendamiento.Size = New System.Drawing.Size(95, 12)
+        Me.ingreso_lbl_agendamiento.TabIndex = 33
+        Me.ingreso_lbl_agendamiento.Text = "AGENDAMIENTO"
+        '
+        'ingreso_txt_agendamiento
+        '
+        Me.ingreso_txt_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(554, 90)
+        Me.ingreso_txt_agendamiento.Name = "ingreso_txt_agendamiento"
+        Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(148, 18)
+        Me.ingreso_txt_agendamiento.TabIndex = 34
         '
         'form_ingreso
         '
@@ -647,6 +670,7 @@ Partial Class form_ingreso
         Me.Text = "Ingreso"
         Me.ingreso_gp_datos.ResumeLayout(False)
         Me.ingreso_gp_datos.PerformLayout()
+        CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ingreso_gp_tproceso.ResumeLayout(False)
         Me.ingreso_gp_tproceso.PerformLayout()
@@ -656,10 +680,9 @@ Partial Class form_ingreso
         CType(Me.ingresot_pic_saveimages, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ingreso_pn_comentarios.ResumeLayout(False)
         Me.ingreso_pn_comentarios.PerformLayout()
-        CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ingreso_pic_commenotaccept, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -717,4 +740,6 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_txt_commenotcomm As System.Windows.Forms.TextBox
     Friend WithEvents ingreso_lbl_commenotcomm As System.Windows.Forms.Label
     Friend WithEvents ingreso_pic_commenotaccept As System.Windows.Forms.PictureBox
+    Friend WithEvents ingreso_txt_agendamiento As System.Windows.Forms.TextBox
+    Friend WithEvents ingreso_lbl_agendamiento As System.Windows.Forms.Label
 End Class

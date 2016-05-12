@@ -1,0 +1,88 @@
+-----------------------
+Impersonation Libraries
+-----------------------
+Description:  Impersonation is when .Net executes code in the context of an authenticated and 
+authorized client.  Using this in this implementation will allow you to run single lines of code
+or code blocks at heightened permissions (based on who you login as).  This is handy for instance
+if you need to have an Asp.Net web-site write a file out to a network share (you can then
+authenticate as a domain account that has access) or if you need to establish a trusted database
+connection to a database in a ADOMD application (which can only connect with a trusted 
+connection... and when ADOMD runs from a web-site ).
+
+First, I want to describe why I have these libraries seperate.  One is COM visible and the other
+isn't.  I've been asked in the past by those using functionality like this in .Net to leave the
+COM classes out of libraries so here you go, two seperate .DLL files based on whether you want
+the .Net assembly for any CLR language or the COM visible assembly for Vb6, Classic ASP, VbScript,
+Visual Basic for Applications, etc.  The COM version of the project simply has a COM Class wrapper
+around the functionality in Impersonation.vb.
+
+Each project includes a documentation text file that has example usage of how to use this code if
+included in any number of languages.
+
+As noted in the code files, parts of this code based on Microsoft support article:  
+
+	http://support.microsoft.com/kb/306158	
+
+-----------------------------------------------------------------
+Sample Usage for Impersonation .Net Assembly (Impersonation.dll):
+-----------------------------------------------------------------
+
+Visual Basic.Net
+----------------
+
+	 Dim Auth As New Iuf.Network.Authentication.Impersonation("testuser", "testuserPassword", "domain")
+	 Auth.ImpersonateUser()
+	 ' Code goes here to execute at heightened permission
+	 Auth.UndoImpersonation()
+
+C# (if reference is added to .DLL)
+----------------------------------
+
+    Iuf.Network.Authentication.Impersonation auth = new Iuf.Network.Authentication.Impersonation("testuser", "testuserPassword", "domain");
+    auth.ImpersonateUser();
+    // Code goes here to execute at heightened permission
+    auth.UndoImpersonation();
+
+---------------------------------------------------------------------------------------
+Sample Usage and Installation Information for Com Visible Assembly (ComImpersonate.dll) 
+---------------------------------------------------------------------------------------                    
+
+ComImpersonate is a COM visible library so that impersonation can be used from anything that
+can access COM (Visual Basic 6, Classic ASP, VbScript, Visual Basic for Applications, etc.)
+
+Visual Basic 6 / VBA
+--------------------
+    Dim Auth As Object
+    Set Auth = CreateObject("Iuf.Network.Authentication.ComImpersonate")
+    
+    Call Auth.Impersonate("your username", "your password", "the domain name")
+
+	' Code goes here to execute at heightened permission
+    
+    Call Auth.UndoImpersonation
+    
+Classic ASP
+-----------
+	' The Iuf.Network.Authentication.ComImpersonate is a .Net class library that has been exposed to COM.  The class library
+	' project is called ComImpersonate and is in the Source Vault.  The clas library was installed on the server using the
+	' gacutil utility (.Net Framework 3.5's version at the time of this comment) and then had the type registered with
+	' regasm.exe from the .Net Framework 2.0.  This impersonate object let's us run a select set of code at heightened permissions.
+	Dim Auth 
+	Set Auth = CreateObject("Iuf.Network.Authentication.ComImpersonate")    
+	Call Auth.Impersonate(PROXY_USERNAME, PROXY_PASSWORD, PROXY_DOMAIN)
+												
+	' Code goes here to execute at heightened permission
+
+    Call Auth.UndoImpersonation
+				    
+Server Installation Instructions
+--------------------------------				   
+
+1.)  Run the .Net Framework 'gacutil.exe' on the library file.  The gacutil.exe must be the version that is associated with 
+	 the version of the framework that you compiled the library under:
+	 
+	 gacutil /i ComImpersonate.dll
+	
+2.)  Run the assembly for COM.  I had to use the .Net Framework 2.0's version which worked for the 3.5 library:
+
+	 regasm /tlb ComImpersonate.dll

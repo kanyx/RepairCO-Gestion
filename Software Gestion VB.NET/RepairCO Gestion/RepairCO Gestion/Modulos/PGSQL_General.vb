@@ -44,9 +44,10 @@ Module PGSQL_General
             Dim CommPGSQL As New NpgsqlCommand
             CommPGSQL.Connection = ConexPGSQL
             CommPGSQL.CommandType = CommandType.Text
-            CommPGSQL.CommandText = "SELECT id, notrabajo FROM ordenestrabajo ORDER by id ASC LIMIT 20"
+            CommPGSQL.CommandText = "SELECT id, notrabajo FROM ordenestrabajo ORDER by id DESC LIMIT 20"
             Dim dr = CommPGSQL.ExecuteReader
             If dr.HasRows = True Then
+                dr.Read()
                 NumeroOT = Integer.Parse(dr("notrabajo").ToString) + 1
             Else
                 NumeroOT = NumeroOT + 1

@@ -121,6 +121,7 @@ Public Class form_ingreso
     End Sub
     Private Sub ingresot_pic_saveot_Click(sender As Object, e As EventArgs) Handles ingresot_pic_saveot.Click
         ' # CONTINUAMOS CON EL PROCEDIMIENTO DE CARGA DE LA APLICACION.
+        Dim TipoOT As Integer
         If Me.ingreso_rb_presupuesto.Checked = False And Me.ingreso_rb_garantia.Checked = False Then
             OTguardada = False
             Exit Sub
@@ -133,7 +134,7 @@ Public Class form_ingreso
             Me.ingreso_cmb_cliente.BackColor = Color.Green
             Me.ingreso_cmb_cliente.ForeColor = Color.White
         End If
-        If Me.ingreso_txt_guia.Text = "" Or Me.ingreso_txt_guia.TextLength < 4 Then
+        If Me.ingreso_txt_guia.Text = "" Or Me.ingreso_txt_guia.TextLength < 3 Then
             Me.ingreso_txt_guia.BackColor = Color.Red
             Me.ingreso_txt_guia.ForeColor = Color.White
             Exit Sub
@@ -156,6 +157,16 @@ Public Class form_ingreso
         Else
             Me.ingreso_cmb_tipo.BackColor = Color.Green
             Me.ingreso_cmb_tipo.ForeColor = Color.White
+        End If
+        If Me.ingreso_cmb_cliente.SelectedValue = 21 Then
+            If Me.ingreso_txt_agendamiento.Text = "" Or Me.ingreso_txt_agendamiento.TextLength > 3 Then
+                Me.ingreso_txt_agendamiento.BackColor = Color.Red
+                Me.ingreso_txt_agendamiento.ForeColor = Color.White
+                Exit Sub
+            Else
+                Me.ingreso_txt_agendamiento.BackColor = Color.Green
+                Me.ingreso_txt_agendamiento.ForeColor = Color.White
+            End If
         End If
         If Trim(Me.ingreso_cmb_tipo.SelectedText.ToLower) <> "valvula" Then
             ' # COMPROBAMOS LOS CAMPOS MARCA Y MODELO EN CASO DE NO SER VALVULA
@@ -193,14 +204,35 @@ Public Class form_ingreso
             Me.ingresot_cmb_prioridad.BackColor = Color.Green
             Me.ingresot_cmb_prioridad.ForeColor = Color.White
         End If
-        'If PGSQL_INGRESO_ADDOT() Then
-
-        'End If
-        OTguardada = True
-        Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
-        Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
-        Me.ingresot_pic_saveot.Enabled = False
-        Me.ingresot_pic_saveot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardado.png")
+        If Me.ingreso_rb_garantia.Checked = True Then
+            TipoOT = 2
+        ElseIf Me.ingreso_rb_presupuesto.Checked = True Then
+            TipoOT = 1
+        End If
+        If Me.ingreso_txt_commenotcomm.Text = "" Or Me.ingreso_txt_commenotcomm.TextLength < 3 Then
+            If MessageBox.Show("¿Está seguro que desea generar la orden de trabajo sin ningún tipo de comentario adicional?", _
+                            Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+                Me.ingreso_txt_commenotrc.ReadOnly = True
+                Me.ingreso_txt_commenotrc.Text = Me.ingreso_txt_rservicio.Text
+                Me.ingreso_pn_comentarios.Location = New Point(110, 90)
+                Me.ingreso_pn_comentarios.Visible = True
+                Exit Sub
+            End If
+        End If
+        If PGSQL_INGRESO_ADDOT(Date.Parse(Me.ingreso_txt_fecha.Text), Me.ingresot_cmb_prioridad.SelectedText, TipoOT, Me.ingreso_cmb_cliente.SelectedValue.ToString, Me.ingreso_txt_guia.Text, _
+                               Me.ingreso_txt_oc.Text, Me.ingreso_txt_iequipo.Text, Me.ingreso_txt_nserie.Text, Me.ingresot_txt_nseriefat.Text, Me.ingresot_txt_ncontrato.Text, _
+                               Integer.Parse(Me.ingreso_cmb_tipo.SelectedValue), Integer.Parse(Me.ingreso_cmb_marca.SelectedValue), Integer.Parse(Me.ingreso_cmb_modelo.SelectedValue), _
+                               Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text) = True Then
+            OTguardada = True
+            Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
+            Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
+            Me.ingresot_pic_saveot.Enabled = False
+            Me.ingresot_pic_saveot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardado.png")
+            MessageBox.Show("Orden de trabajo ingresada al sistema exitosamente.", Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            Exit Sub
+        End If
     End Sub
     Private Sub ingresot_pn_imgcontainer_Click(sender As Object, e As EventArgs) Handles ingresot_pn_imgcontainer.Click
         ' # FUNCION QUE ABRE EL DIALOGO DE ARCHIVOS PARA LA CARGA DE IMAGENES
@@ -294,6 +326,9 @@ Public Class form_ingreso
             i += 1
         Next
     End Sub
+    Private Sub NewFormulario()
+        ' # CUANDO SE TERMINA DE INGRESAR UNA ORDEN DE TRABAJO LIMPIA EL FORMULARIO.
+    End Sub
     Public Sub RefreshTipos()
         ' # ACTUALIZAR LA LISTA DE TIPOS DE PRODUCTOS
     End Sub
@@ -376,5 +411,22 @@ Public Class form_ingreso
         MessageBox.Show("Comentario almacenado exitosamente, este será guardado una vez que guarde la orden de trabajo.", _
                         Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.ingreso_pn_comentarios.Visible = False
+    End Sub
+    Private Sub ingresot_pic_saveimages_Click(sender As Object, e As EventArgs) Handles ingresot_pic_saveimages.Click
+        ' # FUNCION PARA GUARDAR LAS IMAGENES DE LA ORDEN DE TRABAJO
+        ' # IMPORTANTE: ES IMPORTANTE COMPROBAR QUE EXISTA LA IMAGEN Y VERIFICAR BIEN EL CONTENIDO DEL ARRAYLIST ANTES DE 
+        ' # PROCEDER A LAS FUNCIONES DE TRATAMIENTO DE IMAGENES PARA PODER EVITAR UNA FALLA EN LA EJECUCION DEL SOFTWARE.
+        If imagenes_cargar.Count <> 0 Then
+            If IMAGE_SAVEOT(imagenes_cargar, Me.ingreso_txt_not.Text) = True Then
+                ' # MENSAJE CUANDO LAS FOTOS SE CARGAN EXITOSAMENTE
+                If MessageBox.Show("Fotografías de la orden de trabajo ingresadas exitosamente, finalizo el proceso de ingreso de orden de trabajo." & vbNewLine & "¿Desea la orden de trabajo en PDF para su impresión?", _
+                                Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
+                    'REPORTES_GENERAOT(Me.ingreso_txt_not.Text)
+                    ' # COMPROBAMOS QUE EL ARCHIVO HAYA SIDO CREADO Y PROCEDEMOS A ABRIRLO
+                Else
+                    NewFormulario()
+                End If
+            End If
+        End If
     End Sub
 End Class

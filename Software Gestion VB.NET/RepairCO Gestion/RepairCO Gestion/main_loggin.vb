@@ -4,6 +4,12 @@ Public Class main_loggin
     Public ParametrosConfiguracion As ArrayList
     Public VersionPrefix As String = "Trunk"
     Private Sub main_loggin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'REPORTES_GENERAOT("1000000")
+        'Dim TestImage As New ArrayList
+        ' TestImage.Add("C:\Users\Public\Pictures\Sample Pictures\Crisantemo.jpg")
+        'IMAGE_SAVEOT(TestImage, "1000")
+        ' # ACCESO A LA CARPETA EN RED DE USO ESPECIAL DEL PROGRAMA.
+        Shell("Net Use \\192.168.0.10\Servidor\Desarrollo\ /user:software gestion2016", AppWinStyle.Hide, True, 10000)
         ' # Proceso de carga del formulario principal.
         Me.loggin_logo.Image = Image.FromFile(Application.StartupPath & "\Data\grafica\logo.jpg")
         Me.loggin_username_txt.ForeColor = Color.DarkOrange
