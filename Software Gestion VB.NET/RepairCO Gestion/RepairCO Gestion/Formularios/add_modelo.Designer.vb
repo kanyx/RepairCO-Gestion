@@ -24,14 +24,14 @@ Partial Class add_modelo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.addmodelo_gb_datos = New System.Windows.Forms.GroupBox()
+        Me.addmodelo_txt_modelo = New System.Windows.Forms.TextBox()
+        Me.addmodelo_lbl_modelo = New System.Windows.Forms.Label()
+        Me.addmodelo_cmb_marca = New System.Windows.Forms.ComboBox()
+        Me.addmodelo_lbl_marca = New System.Windows.Forms.Label()
         Me.addmodelo_pic_close = New System.Windows.Forms.PictureBox()
         Me.addmodelo_pic_title = New System.Windows.Forms.PictureBox()
         Me.addmodelo_pic_ico = New System.Windows.Forms.PictureBox()
         Me.addmodelo_pic_add = New System.Windows.Forms.PictureBox()
-        Me.addmodelo_lbl_marca = New System.Windows.Forms.Label()
-        Me.addmodelo_cmb_marca = New System.Windows.Forms.ComboBox()
-        Me.addmodelo_lbl_modelo = New System.Windows.Forms.Label()
-        Me.addmodelo_txt_modelo = New System.Windows.Forms.TextBox()
         Me.addmodelo_tp_help = New System.Windows.Forms.ToolTip(Me.components)
         Me.addmodelo_gb_datos.SuspendLayout()
         CType(Me.addmodelo_pic_close, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,6 +51,45 @@ Partial Class add_modelo
         Me.addmodelo_gb_datos.Size = New System.Drawing.Size(469, 122)
         Me.addmodelo_gb_datos.TabIndex = 0
         Me.addmodelo_gb_datos.TabStop = False
+        '
+        'addmodelo_txt_modelo
+        '
+        Me.addmodelo_txt_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addmodelo_txt_modelo.Location = New System.Drawing.Point(237, 48)
+        Me.addmodelo_txt_modelo.Name = "addmodelo_txt_modelo"
+        Me.addmodelo_txt_modelo.Size = New System.Drawing.Size(223, 18)
+        Me.addmodelo_txt_modelo.TabIndex = 3
+        '
+        'addmodelo_lbl_modelo
+        '
+        Me.addmodelo_lbl_modelo.AutoSize = True
+        Me.addmodelo_lbl_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addmodelo_lbl_modelo.ForeColor = System.Drawing.Color.DarkOrange
+        Me.addmodelo_lbl_modelo.Location = New System.Drawing.Point(235, 32)
+        Me.addmodelo_lbl_modelo.Name = "addmodelo_lbl_modelo"
+        Me.addmodelo_lbl_modelo.Size = New System.Drawing.Size(52, 12)
+        Me.addmodelo_lbl_modelo.TabIndex = 2
+        Me.addmodelo_lbl_modelo.Text = "MODELO"
+        '
+        'addmodelo_cmb_marca
+        '
+        Me.addmodelo_cmb_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addmodelo_cmb_marca.FormattingEnabled = True
+        Me.addmodelo_cmb_marca.Location = New System.Drawing.Point(8, 47)
+        Me.addmodelo_cmb_marca.Name = "addmodelo_cmb_marca"
+        Me.addmodelo_cmb_marca.Size = New System.Drawing.Size(203, 20)
+        Me.addmodelo_cmb_marca.TabIndex = 1
+        '
+        'addmodelo_lbl_marca
+        '
+        Me.addmodelo_lbl_marca.AutoSize = True
+        Me.addmodelo_lbl_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.addmodelo_lbl_marca.ForeColor = System.Drawing.Color.DarkOrange
+        Me.addmodelo_lbl_marca.Location = New System.Drawing.Point(6, 32)
+        Me.addmodelo_lbl_marca.Name = "addmodelo_lbl_marca"
+        Me.addmodelo_lbl_marca.Size = New System.Drawing.Size(47, 12)
+        Me.addmodelo_lbl_marca.TabIndex = 0
+        Me.addmodelo_lbl_marca.Text = "MARCA"
         '
         'addmodelo_pic_close
         '
@@ -83,45 +122,6 @@ Partial Class add_modelo
         Me.addmodelo_pic_add.Size = New System.Drawing.Size(137, 36)
         Me.addmodelo_pic_add.TabIndex = 4
         Me.addmodelo_pic_add.TabStop = False
-        '
-        'addmodelo_lbl_marca
-        '
-        Me.addmodelo_lbl_marca.AutoSize = True
-        Me.addmodelo_lbl_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addmodelo_lbl_marca.ForeColor = System.Drawing.Color.DarkOrange
-        Me.addmodelo_lbl_marca.Location = New System.Drawing.Point(6, 32)
-        Me.addmodelo_lbl_marca.Name = "addmodelo_lbl_marca"
-        Me.addmodelo_lbl_marca.Size = New System.Drawing.Size(47, 12)
-        Me.addmodelo_lbl_marca.TabIndex = 0
-        Me.addmodelo_lbl_marca.Text = "MARCA"
-        '
-        'addmodelo_cmb_marca
-        '
-        Me.addmodelo_cmb_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addmodelo_cmb_marca.FormattingEnabled = True
-        Me.addmodelo_cmb_marca.Location = New System.Drawing.Point(8, 47)
-        Me.addmodelo_cmb_marca.Name = "addmodelo_cmb_marca"
-        Me.addmodelo_cmb_marca.Size = New System.Drawing.Size(203, 20)
-        Me.addmodelo_cmb_marca.TabIndex = 1
-        '
-        'addmodelo_lbl_modelo
-        '
-        Me.addmodelo_lbl_modelo.AutoSize = True
-        Me.addmodelo_lbl_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addmodelo_lbl_modelo.ForeColor = System.Drawing.Color.DarkOrange
-        Me.addmodelo_lbl_modelo.Location = New System.Drawing.Point(235, 32)
-        Me.addmodelo_lbl_modelo.Name = "addmodelo_lbl_modelo"
-        Me.addmodelo_lbl_modelo.Size = New System.Drawing.Size(52, 12)
-        Me.addmodelo_lbl_modelo.TabIndex = 2
-        Me.addmodelo_lbl_modelo.Text = "MODELO"
-        '
-        'addmodelo_txt_modelo
-        '
-        Me.addmodelo_txt_modelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addmodelo_txt_modelo.Location = New System.Drawing.Point(237, 48)
-        Me.addmodelo_txt_modelo.Name = "addmodelo_txt_modelo"
-        Me.addmodelo_txt_modelo.Size = New System.Drawing.Size(223, 18)
-        Me.addmodelo_txt_modelo.TabIndex = 3
         '
         'add_modelo
         '

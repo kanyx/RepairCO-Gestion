@@ -28,4 +28,8 @@
     Private Sub addmodelo_pic_add_MouseLeave(sender As Object, e As EventArgs) Handles addmodelo_pic_add.MouseLeave
         Me.addmodelo_pic_add.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
     End Sub
+
+    Private Sub addmodelo_pic_add_Click(sender As Object, e As EventArgs) Handles addmodelo_pic_add.Click
+
+    End Sub
 End Class

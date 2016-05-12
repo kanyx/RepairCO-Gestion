@@ -152,7 +152,7 @@ Public Class form_ingreso
             Me.ingreso_cmb_tipo.ForeColor = Color.White
         End If
         If Me.ingreso_cmb_cliente.SelectedValue = 21 Then
-            If Me.ingreso_txt_agendamiento.Text = "" Or Me.ingreso_txt_agendamiento.TextLength > 3 Then
+            If Me.ingreso_txt_agendamiento.Text = "" Or Me.ingreso_txt_agendamiento.TextLength < 3 Then
                 Me.ingreso_txt_agendamiento.BackColor = Color.Red
                 Me.ingreso_txt_agendamiento.ForeColor = Color.White
                 Exit Sub
