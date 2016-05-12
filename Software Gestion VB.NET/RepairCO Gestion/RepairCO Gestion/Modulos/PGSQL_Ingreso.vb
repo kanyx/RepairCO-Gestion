@@ -73,7 +73,7 @@ Module PGSQL_Ingreso
             CommandPGSQL.Parameters.AddWithValue("@idtipo", TipoProducto)
             CommandPGSQL.Parameters.AddWithValue("@idmarca", MarcaProducto)
             CommandPGSQL.Parameters.AddWithValue("@idmodelo", ModeloProducto)
-            CommandPGSQL.Parameters.AddWithValue("@iduseringreso", _globalUserData(0).ToString)
+            CommandPGSQL.Parameters.AddWithValue("@iduseringreso", Integer.Parse(_globalUserData(0).ToString))
             CommandPGSQL.Parameters.AddWithValue("@nserie", NumeroSerie.ToLower)
             CommandPGSQL.Parameters.AddWithValue("@prioridad", Prioridad.ToLower)
             CommandPGSQL.Parameters.AddWithValue("@ncontrato", NumeroContrato.ToLower)

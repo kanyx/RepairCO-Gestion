@@ -18,6 +18,8 @@ Module PGSQL_Reportes
             Retorno.Add(dr("id").ToString)
             Retorno.Add(dr("notrabajo").ToString)
             Retorno.Add(dr("nguiadespacho").ToString)
+            Retorno.Add(dr("idcliente").ToString)
+
         Catch ex As Exception
 
         End Try
