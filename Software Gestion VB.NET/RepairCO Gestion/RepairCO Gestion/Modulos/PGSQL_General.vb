@@ -100,7 +100,7 @@ Module PGSQL_General
             ConnectorPGSQL.Open()
             CommandPGSQL = New NpgsqlCommand
             CommandPGSQL.Connection = ConnectorPGSQL
-            CommandPGSQL.CommandText = "SELECT id, nombre FROM tipos_productos"
+            CommandPGSQL.CommandText = "SELECT id, nombre FROM tipos_productos ORDER by nombre ASC"
             Dim rd = CommandPGSQL.ExecuteReader
             If rd.HasRows = False Then
                 Exit Sub
@@ -128,7 +128,7 @@ Module PGSQL_General
             Dim CommPGSQL As New NpgsqlCommand
             CommPGSQL.Connection = ConexPGSQL
             CommPGSQL.CommandType = CommandType.Text
-            CommPGSQL.CommandText = "SELECT id, nombre FROM marcas WHERE idtipo=@tipo"
+            CommPGSQL.CommandText = "SELECT id, nombre FROM marcas WHERE idtipo=@tipo ORDER by nombre ASC"
             CommPGSQL.Parameters.AddWithValue("@tipo", Integer.Parse(IdTipo))
             Dim rd = CommPGSQL.ExecuteReader
             If rd.HasRows = False Then
@@ -158,7 +158,7 @@ Module PGSQL_General
             Dim CommandPGSQL As New NpgsqlCommand
             CommandPGSQL.Connection = ConexPostgreSQL
             CommandPGSQL.CommandType = CommandType.Text
-            CommandPGSQL.CommandText = "SELECT id, nombre, idmarca, idtipo FROM modelos WHERE idmarca=@marca AND idtipo=@tipo"
+            CommandPGSQL.CommandText = "SELECT id, nombre, idmarca, idtipo FROM modelos WHERE idmarca=@marca AND idtipo=@tipo ORDER by nombre ASC"
             CommandPGSQL.Parameters.AddWithValue("@marca", Integer.Parse(idMarca))
             CommandPGSQL.Parameters.AddWithValue("@tipo", Integer.Parse(idTipo))
             Dim dr = CommandPGSQL.ExecuteReader

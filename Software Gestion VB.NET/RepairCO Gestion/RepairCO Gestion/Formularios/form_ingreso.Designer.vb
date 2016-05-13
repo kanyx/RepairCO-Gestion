@@ -24,6 +24,8 @@ Partial Class form_ingreso
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ingreso_gp_datos = New System.Windows.Forms.GroupBox()
+        Me.ingreso_txt_agendamiento = New System.Windows.Forms.TextBox()
+        Me.ingreso_lbl_agendamiento = New System.Windows.Forms.Label()
         Me.ingreso_pic_comentarios = New System.Windows.Forms.PictureBox()
         Me.ingreso_txt_oc = New System.Windows.Forms.TextBox()
         Me.ingreso_lbl_oc = New System.Windows.Forms.Label()
@@ -76,8 +78,6 @@ Partial Class form_ingreso
         Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
         Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
         Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
-        Me.ingreso_lbl_agendamiento = New System.Windows.Forms.Label()
-        Me.ingreso_txt_agendamiento = New System.Windows.Forms.TextBox()
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +137,25 @@ Partial Class form_ingreso
         Me.ingreso_gp_datos.TabIndex = 0
         Me.ingreso_gp_datos.TabStop = False
         Me.ingreso_gp_datos.Text = "DATOS OT"
+        '
+        'ingreso_txt_agendamiento
+        '
+        Me.ingreso_txt_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(554, 90)
+        Me.ingreso_txt_agendamiento.Name = "ingreso_txt_agendamiento"
+        Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(148, 18)
+        Me.ingreso_txt_agendamiento.TabIndex = 34
+        '
+        'ingreso_lbl_agendamiento
+        '
+        Me.ingreso_lbl_agendamiento.AutoSize = True
+        Me.ingreso_lbl_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_agendamiento.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(552, 75)
+        Me.ingreso_lbl_agendamiento.Name = "ingreso_lbl_agendamiento"
+        Me.ingreso_lbl_agendamiento.Size = New System.Drawing.Size(95, 12)
+        Me.ingreso_lbl_agendamiento.TabIndex = 33
+        Me.ingreso_lbl_agendamiento.Text = "AGENDAMIENTO"
         '
         'ingreso_pic_comentarios
         '
@@ -277,7 +296,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_lbl_addtipo.AutoSize = True
         Me.ingreso_lbl_addtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(163, 161)
+        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(68, 161)
         Me.ingreso_lbl_addtipo.Name = "ingreso_lbl_addtipo"
         Me.ingreso_lbl_addtipo.Size = New System.Drawing.Size(76, 12)
         Me.ingreso_lbl_addtipo.TabIndex = 18
@@ -342,7 +361,7 @@ Partial Class form_ingreso
         Me.ingreso_cmb_tipo.FormattingEnabled = True
         Me.ingreso_cmb_tipo.Location = New System.Drawing.Point(8, 176)
         Me.ingreso_cmb_tipo.Name = "ingreso_cmb_tipo"
-        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(231, 20)
+        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(136, 20)
         Me.ingreso_cmb_tipo.TabIndex = 12
         Me.ingreso_cmb_tipo.Text = "SELECCIONE TIPO"
         '
@@ -632,25 +651,6 @@ Partial Class form_ingreso
         Me.ingreso_pic_commenotitle.Size = New System.Drawing.Size(211, 27)
         Me.ingreso_pic_commenotitle.TabIndex = 0
         Me.ingreso_pic_commenotitle.TabStop = False
-        '
-        'ingreso_lbl_agendamiento
-        '
-        Me.ingreso_lbl_agendamiento.AutoSize = True
-        Me.ingreso_lbl_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_agendamiento.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(552, 75)
-        Me.ingreso_lbl_agendamiento.Name = "ingreso_lbl_agendamiento"
-        Me.ingreso_lbl_agendamiento.Size = New System.Drawing.Size(95, 12)
-        Me.ingreso_lbl_agendamiento.TabIndex = 33
-        Me.ingreso_lbl_agendamiento.Text = "AGENDAMIENTO"
-        '
-        'ingreso_txt_agendamiento
-        '
-        Me.ingreso_txt_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(554, 90)
-        Me.ingreso_txt_agendamiento.Name = "ingreso_txt_agendamiento"
-        Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(148, 18)
-        Me.ingreso_txt_agendamiento.TabIndex = 34
         '
         'form_ingreso
         '
