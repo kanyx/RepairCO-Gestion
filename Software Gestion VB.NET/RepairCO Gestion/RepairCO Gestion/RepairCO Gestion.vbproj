@@ -94,6 +94,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\UserImpersonation.vb" />
+    <Compile Include="Formulariostouch\form_bcentrifuga.Designer.vb">
+      <DependentUpon>form_bcentrifuga.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulariostouch\form_bcentrifuga.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\aboutme.Designer.vb">
       <DependentUpon>aboutme.vb</DependentUpon>
     </Compile>
@@ -191,6 +198,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formulariostouch\form_bcentrifuga.resx">
+      <DependentUpon>form_bcentrifuga.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\aboutme.resx">
       <DependentUpon>aboutme.vb</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +267,7 @@
   <ItemGroup>
     <Content Include="rc.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Magick.NET-Q16-x86.7.0.1.101\build\net40-client\Magick.NET-Q16-x86.targets" Condition="Exists('..\packages\Magick.NET-Q16-x86.7.0.1.101\build\net40-client\Magick.NET-Q16-x86.targets')" />
   <Import Project="..\packages\Magick.NET-Q16-x64.7.0.1.101\build\net40-client\Magick.NET-Q16-x64.targets" Condition="Exists('..\packages\Magick.NET-Q16-x64.7.0.1.101\build\net40-client\Magick.NET-Q16-x64.targets')" />

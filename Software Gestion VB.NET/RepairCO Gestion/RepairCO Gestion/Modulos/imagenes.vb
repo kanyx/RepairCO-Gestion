@@ -15,7 +15,6 @@ Module imagenes
                 Dim infoFoto As FileInfo
                 infoFoto = My.Computer.FileSystem.GetFileInfo(foto)
                 If infoFoto.Name <> "ingresoot_add_foto.png" Then
-
                     ' # COMENZAMOS EL TRATAMIENTO DE LA IMAGEN.
                     Dim resized As Image = ResizeImage(Image.FromFile(foto), New Size(640, 480))
                     resized.Save(Application.StartupPath & "/Data/_temp/" & NumeroOrden & "/" & infoFoto.Name, ImageFormat.Jpeg)
@@ -39,12 +38,15 @@ Module imagenes
     Private Function IMG_COPYIMGOT(ByVal ArchivoImagen As String, ByVal NumeroOrden As String) As Boolean
         Try
             If File.Exists(ArchivoImagen) = True Then
+                Dim impersonateUser As New UserImpersonation
+                impersonateUser.impersonateUser("software", "", "gestion2016")
                 If Directory.Exists("\\192.168.0.10\Servidor\Desarrollo\" & NumeroOrden) = False Then
                     Directory.CreateDirectory("\\192.168.0.10\Servidor\Desarrollo\" & NumeroOrden)
                 End If
                 Dim infoFoto As FileInfo
                 infoFoto = My.Computer.FileSystem.GetFileInfo(ArchivoImagen)
                 File.Copy(ArchivoImagen, "\\192.168.0.10\Servidor\Desarrollo\" & NumeroOrden & "\" & infoFoto.Name, True)
+                impersonateUser.undoimpersonateUser()
                 Return True
             Else
                 Return False
