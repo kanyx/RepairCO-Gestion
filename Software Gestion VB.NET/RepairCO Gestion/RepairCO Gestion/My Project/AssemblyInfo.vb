@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("RepairCo Gestion")> 
-<Assembly: AssemblyDescription("Software de gestion integral")> 
+<Assembly: AssemblyTitle("S.G.O")> 
+<Assembly: AssemblyDescription("Software Gestion Operaciones")> 
 <Assembly: AssemblyCompany("RepairCo LTDA")> 
-<Assembly: AssemblyProduct("RepairCo Gestion")> 
+<Assembly: AssemblyProduct("S.G.O")> 
 <Assembly: AssemblyCopyright("Copyright © RepairCo 2016")> 
 <Assembly: AssemblyTrademark("")> 
 

@@ -4,10 +4,13 @@ Public Class main_loggin
     Public ParametrosConfiguracion As ArrayList
     Public VersionPrefix As String = "Trunk"
     Private Sub main_loggin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CleanTempFiles()
+        ' # --> CODIGO PARA GENERAR PRUEBAS
         'REPORTES_GENERAOT("1000000")
         'Dim TestImage As New ArrayList
         ' TestImage.Add("C:\Users\Public\Pictures\Sample Pictures\Crisantemo.jpg")
         'IMAGE_SAVEOT(TestImage, "1000")
+        ' # FIN CODIGO GENERADOR DE PRUEBAS <--
         ' # ACCESO A LA CARPETA EN RED DE USO ESPECIAL DEL PROGRAMA.
         Shell("Net Use \\192.168.0.10\Servidor\Desarrollo\ /user:software gestion2016", AppWinStyle.Hide, True, 10000)
         ' # Proceso de carga del formulario principal.
@@ -35,7 +38,7 @@ Public Class main_loggin
         Else
             Me.loggin_enter_btn.Enabled = True
         End If
-        'REPORTES_GENERAOT("2")
+
     End Sub
     Private Sub loggin_enter_btn_MouseMove(sender As Object, e As MouseEventArgs) Handles loggin_enter_btn.MouseMove
         Me.loggin_enter_btn.Cursor = Cursors.Hand

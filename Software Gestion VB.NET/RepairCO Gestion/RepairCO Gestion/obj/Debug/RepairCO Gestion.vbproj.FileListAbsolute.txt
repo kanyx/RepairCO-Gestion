@@ -16,13 +16,6 @@ C:\Users\sguajardo\Desktop\Respaldo\RepairCO SG\Software Gestion VB.NET\RepairCO
 C:\Users\sguajardo\Desktop\Respaldo\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.exe
 C:\Users\sguajardo\Desktop\Respaldo\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.xml
 C:\Users\sguajardo\Desktop\Respaldo\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.pdb
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\RepairCo Gestion.exe.config
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.exe
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.xml
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCo Gestion.pdb
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\RepairCo Gestion.exe
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\RepairCo Gestion.pdb
-C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\RepairCo Gestion.xml
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.pdb
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\GestorXML.xml
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO Gestion.vbprojResolveAssemblyReference.cache
@@ -48,3 +41,10 @@ C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x64.dll
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\Magick.NET-Q16-x64.xml
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.form_bcentrifuga.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\S.G.O.exe.config
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\S.G.O.exe
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\S.G.O.pdb
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\bin\Debug\S.G.O.xml
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.exe
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.xml
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.pdb

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>RepairCO_Gestion.My.MyApplication</StartupObject>
     <RootNamespace>RepairCO_Gestion</RootNamespace>
-    <AssemblyName>RepairCo Gestion</AssemblyName>
+    <AssemblyName>S.G.O</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>RepairCo Gestion.xml</DocumentationFile>
+    <DocumentationFile>S.G.O.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>RepairCo Gestion.xml</DocumentationFile>
+    <DocumentationFile>S.G.O.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -174,6 +174,7 @@
     <Compile Include="main_application.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulos\FILE_Manager.vb" />
     <Compile Include="Modulos\imagenes.vb" />
     <Compile Include="Modulos\PGSQL_General.vb" />
     <Compile Include="Modulos\PGSQL_Loggin.vb" />
