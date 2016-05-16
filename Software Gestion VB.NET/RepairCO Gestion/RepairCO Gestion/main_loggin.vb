@@ -12,7 +12,7 @@ Public Class main_loggin
         'IMAGE_SAVEOT(TestImage, "1000")
         ' # FIN CODIGO GENERADOR DE PRUEBAS <--
         ' # ACCESO A LA CARPETA EN RED DE USO ESPECIAL DEL PROGRAMA.
-        Shell("Net Use \\192.168.0.10\Servidor\Desarrollo\ /user:software gestion2016", AppWinStyle.Hide, True, 10000)
+        '("Net Use \\192.168.0.10\Servidor\Desarrollo\ /user:software gestion2016", AppWinStyle.Hide, True, 10000) (COD. SOMETIDO A INVESTIGACION POSIBLE BUG 15/05/2016)
         ' # Proceso de carga del formulario principal.
         Me.loggin_logo.Image = Image.FromFile(Application.StartupPath & "\Data\grafica\logo.jpg")
         Me.loggin_username_txt.ForeColor = Color.DarkOrange

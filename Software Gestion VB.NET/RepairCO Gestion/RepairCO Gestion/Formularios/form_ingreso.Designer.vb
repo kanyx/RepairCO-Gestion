@@ -144,7 +144,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(554, 90)
         Me.ingreso_txt_agendamiento.Name = "ingreso_txt_agendamiento"
         Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(148, 18)
-        Me.ingreso_txt_agendamiento.TabIndex = 34
+        Me.ingreso_txt_agendamiento.TabIndex = 8
         '
         'ingreso_lbl_agendamiento
         '
@@ -154,7 +154,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(552, 75)
         Me.ingreso_lbl_agendamiento.Name = "ingreso_lbl_agendamiento"
         Me.ingreso_lbl_agendamiento.Size = New System.Drawing.Size(95, 12)
-        Me.ingreso_lbl_agendamiento.TabIndex = 33
+        Me.ingreso_lbl_agendamiento.TabIndex = 0
         Me.ingreso_lbl_agendamiento.Text = "AGENDAMIENTO"
         '
         'ingreso_pic_comentarios
@@ -171,7 +171,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_oc.Location = New System.Drawing.Point(394, 90)
         Me.ingreso_txt_oc.Name = "ingreso_txt_oc"
         Me.ingreso_txt_oc.Size = New System.Drawing.Size(148, 18)
-        Me.ingreso_txt_oc.TabIndex = 31
+        Me.ingreso_txt_oc.TabIndex = 7
         '
         'ingreso_lbl_oc
         '
@@ -181,7 +181,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_oc.Location = New System.Drawing.Point(392, 75)
         Me.ingreso_lbl_oc.Name = "ingreso_lbl_oc"
         Me.ingreso_lbl_oc.Size = New System.Drawing.Size(130, 12)
-        Me.ingreso_lbl_oc.TabIndex = 30
+        Me.ingreso_lbl_oc.TabIndex = 0
         Me.ingreso_lbl_oc.Text = "N° ORDEN DE COMPRA"
         '
         'ingresot_cmb_prioridad
@@ -191,7 +191,7 @@ Partial Class form_ingreso
         Me.ingresot_cmb_prioridad.Location = New System.Drawing.Point(383, 40)
         Me.ingresot_cmb_prioridad.Name = "ingresot_cmb_prioridad"
         Me.ingresot_cmb_prioridad.Size = New System.Drawing.Size(140, 20)
-        Me.ingresot_cmb_prioridad.TabIndex = 29
+        Me.ingresot_cmb_prioridad.TabIndex = 2
         Me.ingresot_cmb_prioridad.Text = "ESTABLECER PRIORIDAD"
         '
         'ingresot_lbl_prioridad
@@ -202,7 +202,7 @@ Partial Class form_ingreso
         Me.ingresot_lbl_prioridad.Location = New System.Drawing.Point(381, 27)
         Me.ingresot_lbl_prioridad.Name = "ingresot_lbl_prioridad"
         Me.ingresot_lbl_prioridad.Size = New System.Drawing.Size(68, 12)
-        Me.ingresot_lbl_prioridad.TabIndex = 28
+        Me.ingresot_lbl_prioridad.TabIndex = 0
         Me.ingresot_lbl_prioridad.Text = "PRIORIDAD"
         '
         'ingresot_txt_ncontrato
@@ -211,7 +211,7 @@ Partial Class form_ingreso
         Me.ingresot_txt_ncontrato.Location = New System.Drawing.Point(502, 134)
         Me.ingresot_txt_ncontrato.Name = "ingresot_txt_ncontrato"
         Me.ingresot_txt_ncontrato.Size = New System.Drawing.Size(215, 18)
-        Me.ingresot_txt_ncontrato.TabIndex = 27
+        Me.ingresot_txt_ncontrato.TabIndex = 12
         '
         'ingresot_lbl_ncontrato
         '
@@ -221,7 +221,7 @@ Partial Class form_ingreso
         Me.ingresot_lbl_ncontrato.Location = New System.Drawing.Point(500, 119)
         Me.ingresot_lbl_ncontrato.Name = "ingresot_lbl_ncontrato"
         Me.ingresot_lbl_ncontrato.Size = New System.Drawing.Size(81, 12)
-        Me.ingresot_lbl_ncontrato.TabIndex = 26
+        Me.ingresot_lbl_ncontrato.TabIndex = 0
         Me.ingresot_lbl_ncontrato.Text = "N° CONTRATO"
         '
         'ingresot_txt_nseriefat
@@ -230,7 +230,7 @@ Partial Class form_ingreso
         Me.ingresot_txt_nseriefat.Location = New System.Drawing.Point(368, 134)
         Me.ingresot_txt_nseriefat.Name = "ingresot_txt_nseriefat"
         Me.ingresot_txt_nseriefat.Size = New System.Drawing.Size(128, 18)
-        Me.ingresot_txt_nseriefat.TabIndex = 25
+        Me.ingresot_txt_nseriefat.TabIndex = 11
         '
         'ingresot_lbl_nseriefat
         '
@@ -240,7 +240,7 @@ Partial Class form_ingreso
         Me.ingresot_lbl_nseriefat.Location = New System.Drawing.Point(366, 119)
         Me.ingresot_lbl_nseriefat.Name = "ingresot_lbl_nseriefat"
         Me.ingresot_lbl_nseriefat.Size = New System.Drawing.Size(128, 12)
-        Me.ingresot_lbl_nseriefat.TabIndex = 24
+        Me.ingresot_lbl_nseriefat.TabIndex = 0
         Me.ingresot_lbl_nseriefat.Text = "N° SERIE FABRICANTE"
         '
         'ingresot_pic_saveot
@@ -257,7 +257,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_nserie.Location = New System.Drawing.Point(226, 134)
         Me.ingreso_txt_nserie.Name = "ingreso_txt_nserie"
         Me.ingreso_txt_nserie.Size = New System.Drawing.Size(136, 18)
-        Me.ingreso_txt_nserie.TabIndex = 22
+        Me.ingreso_txt_nserie.TabIndex = 10
         '
         'ingreso_lbl_nserie
         '
@@ -267,7 +267,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_nserie.Location = New System.Drawing.Point(224, 119)
         Me.ingreso_lbl_nserie.Name = "ingreso_lbl_nserie"
         Me.ingreso_lbl_nserie.Size = New System.Drawing.Size(54, 12)
-        Me.ingreso_lbl_nserie.TabIndex = 21
+        Me.ingreso_lbl_nserie.TabIndex = 0
         Me.ingreso_lbl_nserie.Text = "N° SERIE"
         '
         'ingreso_lbl_addmodelo
@@ -277,8 +277,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addmodelo.Location = New System.Drawing.Point(621, 161)
         Me.ingreso_lbl_addmodelo.Name = "ingreso_lbl_addmodelo"
         Me.ingreso_lbl_addmodelo.Size = New System.Drawing.Size(96, 12)
-        Me.ingreso_lbl_addmodelo.TabIndex = 20
-        Me.ingreso_lbl_addmodelo.TabStop = True
+        Me.ingreso_lbl_addmodelo.TabIndex = 0
         Me.ingreso_lbl_addmodelo.Text = "AGREGAR MODELO"
         '
         'ingreso_lbl_addmarca
@@ -288,19 +287,17 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addmarca.Location = New System.Drawing.Point(383, 161)
         Me.ingreso_lbl_addmarca.Name = "ingreso_lbl_addmarca"
         Me.ingreso_lbl_addmarca.Size = New System.Drawing.Size(92, 12)
-        Me.ingreso_lbl_addmarca.TabIndex = 19
-        Me.ingreso_lbl_addmarca.TabStop = True
+        Me.ingreso_lbl_addmarca.TabIndex = 0
         Me.ingreso_lbl_addmarca.Text = "AGREGAR MARCA"
         '
         'ingreso_lbl_addtipo
         '
         Me.ingreso_lbl_addtipo.AutoSize = True
         Me.ingreso_lbl_addtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(68, 161)
+        Me.ingreso_lbl_addtipo.Location = New System.Drawing.Point(144, 161)
         Me.ingreso_lbl_addtipo.Name = "ingreso_lbl_addtipo"
         Me.ingreso_lbl_addtipo.Size = New System.Drawing.Size(76, 12)
-        Me.ingreso_lbl_addtipo.TabIndex = 18
-        Me.ingreso_lbl_addtipo.TabStop = True
+        Me.ingreso_lbl_addtipo.TabIndex = 0
         Me.ingreso_lbl_addtipo.Text = "AGREGAR TIPO"
         '
         'ingreso_lbl_addcliente
@@ -310,8 +307,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addcliente.Location = New System.Drawing.Point(145, 75)
         Me.ingreso_lbl_addcliente.Name = "ingreso_lbl_addcliente"
         Me.ingreso_lbl_addcliente.Size = New System.Drawing.Size(94, 12)
-        Me.ingreso_lbl_addcliente.TabIndex = 17
-        Me.ingreso_lbl_addcliente.TabStop = True
+        Me.ingreso_lbl_addcliente.TabIndex = 0
         Me.ingreso_lbl_addcliente.Text = "AGREGAR CLIENTE"
         '
         'ingreso_cmb_modelo
@@ -321,7 +317,7 @@ Partial Class form_ingreso
         Me.ingreso_cmb_modelo.Location = New System.Drawing.Point(508, 176)
         Me.ingreso_cmb_modelo.Name = "ingreso_cmb_modelo"
         Me.ingreso_cmb_modelo.Size = New System.Drawing.Size(212, 20)
-        Me.ingreso_cmb_modelo.TabIndex = 16
+        Me.ingreso_cmb_modelo.TabIndex = 15
         '
         'ingreso_lbl_modelo
         '
@@ -331,16 +327,16 @@ Partial Class form_ingreso
         Me.ingreso_lbl_modelo.Location = New System.Drawing.Point(506, 161)
         Me.ingreso_lbl_modelo.Name = "ingreso_lbl_modelo"
         Me.ingreso_lbl_modelo.Size = New System.Drawing.Size(52, 12)
-        Me.ingreso_lbl_modelo.TabIndex = 15
+        Me.ingreso_lbl_modelo.TabIndex = 0
         Me.ingreso_lbl_modelo.Text = "MODELO"
         '
         'ingreso_cmb_marca
         '
         Me.ingreso_cmb_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_cmb_marca.FormattingEnabled = True
-        Me.ingreso_cmb_marca.Location = New System.Drawing.Point(275, 176)
+        Me.ingreso_cmb_marca.Location = New System.Drawing.Point(249, 176)
         Me.ingreso_cmb_marca.Name = "ingreso_cmb_marca"
-        Me.ingreso_cmb_marca.Size = New System.Drawing.Size(200, 20)
+        Me.ingreso_cmb_marca.Size = New System.Drawing.Size(226, 20)
         Me.ingreso_cmb_marca.TabIndex = 14
         Me.ingreso_cmb_marca.Text = "SELECCIONE MARCA"
         '
@@ -349,10 +345,10 @@ Partial Class form_ingreso
         Me.ingreso_lbl_marca.AutoSize = True
         Me.ingreso_lbl_marca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_marca.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_marca.Location = New System.Drawing.Point(273, 161)
+        Me.ingreso_lbl_marca.Location = New System.Drawing.Point(251, 161)
         Me.ingreso_lbl_marca.Name = "ingreso_lbl_marca"
         Me.ingreso_lbl_marca.Size = New System.Drawing.Size(47, 12)
-        Me.ingreso_lbl_marca.TabIndex = 13
+        Me.ingreso_lbl_marca.TabIndex = 0
         Me.ingreso_lbl_marca.Text = "MARCA"
         '
         'ingreso_cmb_tipo
@@ -361,8 +357,8 @@ Partial Class form_ingreso
         Me.ingreso_cmb_tipo.FormattingEnabled = True
         Me.ingreso_cmb_tipo.Location = New System.Drawing.Point(8, 176)
         Me.ingreso_cmb_tipo.Name = "ingreso_cmb_tipo"
-        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(136, 20)
-        Me.ingreso_cmb_tipo.TabIndex = 12
+        Me.ingreso_cmb_tipo.Size = New System.Drawing.Size(212, 20)
+        Me.ingreso_cmb_tipo.TabIndex = 13
         Me.ingreso_cmb_tipo.Text = "SELECCIONE TIPO"
         '
         'ingreso_lbl_tipo
@@ -373,7 +369,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_tipo.Location = New System.Drawing.Point(6, 161)
         Me.ingreso_lbl_tipo.Name = "ingreso_lbl_tipo"
         Me.ingreso_lbl_tipo.Size = New System.Drawing.Size(30, 12)
-        Me.ingreso_lbl_tipo.TabIndex = 11
+        Me.ingreso_lbl_tipo.TabIndex = 0
         Me.ingreso_lbl_tipo.Text = "TIPO"
         '
         'ingreso_txt_iequipo
@@ -382,7 +378,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_iequipo.Location = New System.Drawing.Point(8, 134)
         Me.ingreso_txt_iequipo.Name = "ingreso_txt_iequipo"
         Me.ingreso_txt_iequipo.Size = New System.Drawing.Size(212, 18)
-        Me.ingreso_txt_iequipo.TabIndex = 10
+        Me.ingreso_txt_iequipo.TabIndex = 9
         '
         'ingreso_lbl_iequipo
         '
@@ -392,7 +388,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_iequipo.Location = New System.Drawing.Point(6, 119)
         Me.ingreso_lbl_iequipo.Name = "ingreso_lbl_iequipo"
         Me.ingreso_lbl_iequipo.Size = New System.Drawing.Size(199, 12)
-        Me.ingreso_lbl_iequipo.TabIndex = 9
+        Me.ingreso_lbl_iequipo.TabIndex = 0
         Me.ingreso_lbl_iequipo.Text = "IDENTIFICACION DEL EQUIPO (TAG)"
         '
         'ingreso_txt_guia
@@ -401,7 +397,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_guia.Location = New System.Drawing.Point(249, 90)
         Me.ingreso_txt_guia.Name = "ingreso_txt_guia"
         Me.ingreso_txt_guia.Size = New System.Drawing.Size(139, 18)
-        Me.ingreso_txt_guia.TabIndex = 8
+        Me.ingreso_txt_guia.TabIndex = 6
         '
         'ingreso_lbl_nguia
         '
@@ -411,7 +407,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_nguia.Location = New System.Drawing.Point(251, 75)
         Me.ingreso_lbl_nguia.Name = "ingreso_lbl_nguia"
         Me.ingreso_lbl_nguia.Size = New System.Drawing.Size(113, 12)
-        Me.ingreso_lbl_nguia.TabIndex = 7
+        Me.ingreso_lbl_nguia.TabIndex = 0
         Me.ingreso_lbl_nguia.Text = "N° GUIA DESPACHO"
         '
         'ingreso_cmb_cliente
@@ -421,7 +417,7 @@ Partial Class form_ingreso
         Me.ingreso_cmb_cliente.Location = New System.Drawing.Point(8, 90)
         Me.ingreso_cmb_cliente.Name = "ingreso_cmb_cliente"
         Me.ingreso_cmb_cliente.Size = New System.Drawing.Size(231, 20)
-        Me.ingreso_cmb_cliente.TabIndex = 6
+        Me.ingreso_cmb_cliente.TabIndex = 5
         Me.ingreso_cmb_cliente.Text = "SELECCIONE CLIENTE"
         '
         'ingreso_lbl_cliente
@@ -432,7 +428,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_cliente.Location = New System.Drawing.Point(6, 75)
         Me.ingreso_lbl_cliente.Name = "ingreso_lbl_cliente"
         Me.ingreso_lbl_cliente.Size = New System.Drawing.Size(51, 12)
-        Me.ingreso_lbl_cliente.TabIndex = 5
+        Me.ingreso_lbl_cliente.TabIndex = 0
         Me.ingreso_lbl_cliente.Text = "CLIENTE"
         '
         'ingreso_txt_fecha
@@ -443,7 +439,7 @@ Partial Class form_ingreso
         Me.ingreso_txt_fecha.Location = New System.Drawing.Point(251, 42)
         Me.ingreso_txt_fecha.Name = "ingreso_txt_fecha"
         Me.ingreso_txt_fecha.Size = New System.Drawing.Size(111, 18)
-        Me.ingreso_txt_fecha.TabIndex = 4
+        Me.ingreso_txt_fecha.TabIndex = 1
         '
         'ingreso_lbl_fecha
         '
@@ -453,7 +449,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_fecha.Location = New System.Drawing.Point(251, 27)
         Me.ingreso_lbl_fecha.Name = "ingreso_lbl_fecha"
         Me.ingreso_lbl_fecha.Size = New System.Drawing.Size(111, 12)
-        Me.ingreso_lbl_fecha.TabIndex = 3
+        Me.ingreso_lbl_fecha.TabIndex = 0
         Me.ingreso_lbl_fecha.Text = "FECHA RECEPCION"
         '
         'ingreso_txt_rservicio
@@ -463,7 +459,8 @@ Partial Class form_ingreso
         Me.ingreso_txt_rservicio.Name = "ingreso_txt_rservicio"
         Me.ingreso_txt_rservicio.ReadOnly = True
         Me.ingreso_txt_rservicio.Size = New System.Drawing.Size(231, 18)
-        Me.ingreso_txt_rservicio.TabIndex = 2
+        Me.ingreso_txt_rservicio.TabIndex = 0
+        Me.ingreso_txt_rservicio.TabStop = False
         '
         'ingreso_lbl_rservicio
         '
@@ -473,7 +470,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_rservicio.Location = New System.Drawing.Point(6, 27)
         Me.ingreso_lbl_rservicio.Name = "ingreso_lbl_rservicio"
         Me.ingreso_lbl_rservicio.Size = New System.Drawing.Size(138, 12)
-        Me.ingreso_lbl_rservicio.TabIndex = 1
+        Me.ingreso_lbl_rservicio.TabIndex = 0
         Me.ingreso_lbl_rservicio.Text = "RESPONSABLE INGRESO"
         '
         'ingreso_gp_tproceso
@@ -496,7 +493,7 @@ Partial Class form_ingreso
         Me.ingreso_rb_garantia.Location = New System.Drawing.Point(115, 17)
         Me.ingreso_rb_garantia.Name = "ingreso_rb_garantia"
         Me.ingreso_rb_garantia.Size = New System.Drawing.Size(81, 16)
-        Me.ingreso_rb_garantia.TabIndex = 1
+        Me.ingreso_rb_garantia.TabIndex = 4
         Me.ingreso_rb_garantia.TabStop = True
         Me.ingreso_rb_garantia.Text = "GARANTIA"
         Me.ingreso_rb_garantia.UseVisualStyleBackColor = True
@@ -508,7 +505,7 @@ Partial Class form_ingreso
         Me.ingreso_rb_presupuesto.Location = New System.Drawing.Point(6, 17)
         Me.ingreso_rb_presupuesto.Name = "ingreso_rb_presupuesto"
         Me.ingreso_rb_presupuesto.Size = New System.Drawing.Size(97, 16)
-        Me.ingreso_rb_presupuesto.TabIndex = 0
+        Me.ingreso_rb_presupuesto.TabIndex = 3
         Me.ingreso_rb_presupuesto.TabStop = True
         Me.ingreso_rb_presupuesto.Text = "REPARACION"
         Me.ingreso_rb_presupuesto.UseVisualStyleBackColor = True
@@ -537,7 +534,8 @@ Partial Class form_ingreso
         Me.ingreso_txt_not.Location = New System.Drawing.Point(708, 7)
         Me.ingreso_txt_not.Name = "ingreso_txt_not"
         Me.ingreso_txt_not.Size = New System.Drawing.Size(128, 47)
-        Me.ingreso_txt_not.TabIndex = 3
+        Me.ingreso_txt_not.TabIndex = 0
+        Me.ingreso_txt_not.TabStop = False
         Me.ingreso_txt_not.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ingresot_pn_imgcontainer

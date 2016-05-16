@@ -267,4 +267,33 @@ Module PGSQL_General
             Return Imagenes
         End Try
     End Function
+    Public Sub PGSQL_CargarOTDataView(ByVal DTGW As DataGridView, Optional ByVal Filtros As Boolean = False)
+        Try
+            ' # MOSTRAR LA INFORMACION EN EL DATAGRID.
+            ' # DTGW : CONTROL DATAGRID QUE MUESTRA EL RECUADRO PAA CARGAR LA INFORMACION.
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim PGSQLrd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            If Filtros = False Then
+                PGSQLCommand.CommandText = "SELECT notrabajo, fecha_ingreso, razonsocial, nombretipo, nombremarca, nombremodelo, nestado FROM vista_otreporte ORDER BY notrabajo DESC"
+            End If
+            PGSQLrd = PGSQLCommand.ExecuteReader
+            PGSQLDataTable.Load(PGSQLrd)
+            DTGW.DataSource = PGSQLDataTable
+        Catch ex As Exception
+            ' # EN CASO DE ERROR AL GUARDAR LA INFORMACION.
+            MessageBox.Show("Ocurrió un error al cargar las ordenes de trabajo desde la base de datos, por favor contacte al equipo de desarrollo.", _
+                            Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+    End Sub
 End Module

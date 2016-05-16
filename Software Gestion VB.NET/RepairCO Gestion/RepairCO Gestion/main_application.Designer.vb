@@ -32,9 +32,9 @@ Partial Class main_application
         Me.mainapp_help_aboutme = New System.Windows.Forms.ToolStripMenuItem()
         Me.mainapp_statusStrip = New System.Windows.Forms.StatusStrip()
         Me.mainapp_status_text = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.mainapp_lbl_clock = New System.Windows.Forms.ToolStripStatusLabel()
         Me.mainapp_tooltip_help = New System.Windows.Forms.ToolTip(Me.components)
         Me.mainapp_tm_clock = New System.Windows.Forms.Timer(Me.components)
-        Me.mainapp_lbl_clock = New System.Windows.Forms.ToolStripStatusLabel()
         Me.mainapp_menuStrip.SuspendLayout()
         Me.mainapp_statusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -90,10 +90,6 @@ Partial Class main_application
         Me.mainapp_status_text.Size = New System.Drawing.Size(42, 17)
         Me.mainapp_status_text.Text = "Estado"
         '
-        'mainapp_tm_clock
-        '
-        Me.mainapp_tm_clock.Interval = 1000
-        '
         'mainapp_lbl_clock
         '
         Me.mainapp_lbl_clock.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -103,6 +99,10 @@ Partial Class main_application
         Me.mainapp_lbl_clock.Text = "00:00:00"
         Me.mainapp_lbl_clock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mainapp_lbl_clock.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        '
+        'mainapp_tm_clock
+        '
+        Me.mainapp_tm_clock.Interval = 1000
         '
         'main_application
         '
@@ -119,7 +119,7 @@ Partial Class main_application
         Me.MaximizeBox = False
         Me.Name = "main_application"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "RepairCo Gestion"
+        Me.Text = "S.G.O"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mainapp_menuStrip.ResumeLayout(False)
         Me.mainapp_menuStrip.PerformLayout()
