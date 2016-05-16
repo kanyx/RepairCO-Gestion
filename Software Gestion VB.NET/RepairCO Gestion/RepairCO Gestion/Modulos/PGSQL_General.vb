@@ -176,6 +176,40 @@ Module PGSQL_General
                             MessageBoxButtons.OK, MessageBoxIcon.Question)
         End Try
     End Sub
+    Public Function PGSQL_CargaIngReparable(ByVal idCliente As String, Optional ByVal ForComboBox As Boolean = False) As Dictionary(Of String, String)
+        ' # OBTENEMOS LA LISTA DE INGENIEROS REPARABLES DESDE LA BASE DE DATOS.
+        Dim ValueReturn As New Dictionary(Of String, String)()
+        Try
+            Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPostgreSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPostgreSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "SELECT id, idcliente, nombre FROM ingrepar WHERE idcliente=@clienteid"
+            CommandPGSQL.Parameters.AddWithValue("@clienteid", Integer.Parse(idCliente))
+            Dim dr As NpgsqlDataReader = CommandPGSQL.ExecuteReader
+            If ForComboBox = True Then
+                ValueReturn.Add("", "SELECCIONE ING. REPARABLE")
+            End If
+            If dr.HasRows = False Then
+                ValueReturn.Add("0", "SIN ING. REPARABLE")
+            End If
+            While dr.Read
+                ValueReturn.Add(dr(0).ToString, dr(2).ToString.ToUpper)
+            End While
+            Return ValueReturn
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al momento de cargar la lista de ing. reparables desde la base de datos." & _
+                            vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & ex.ToString, _
+                            Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK)
+            ValueReturn.Add("", "ERROR....")
+            Return ValueReturn
+        End Try
+    End Function
     Public Sub PGSQL_CargaEstados()
         ' # CARGA AL INICIAR MAINAPPLICATION
     End Sub

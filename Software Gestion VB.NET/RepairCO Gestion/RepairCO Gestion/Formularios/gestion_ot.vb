@@ -21,9 +21,22 @@
         Me.gestionot_dg_resultados.ColumnHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#b88d00")
         Me.gestionot_dg_resultados.ColumnHeadersDefaultCellStyle.Font = New System.Drawing.Font("Calibri", 8, FontStyle.Bold)
         Me.gestionot_dg_resultados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.gestionot_dg_resultados.AllowUserToResizeColumns = False
         Me.gestionot_dg_resultados.ColumnHeadersHeight = 25
         Me.gestionot_dg_resultados.Columns(0).HeaderText = "N° OT"
         Me.gestionot_dg_resultados.Columns(0).Width = 65
+        Me.gestionot_dg_resultados.Columns(1).HeaderText = "FECHA INGRESO"
+        Me.gestionot_dg_resultados.Columns(1).Width = 100
+        Me.gestionot_dg_resultados.Columns(2).HeaderText = "NOMBRE CLIENTE"
+        Me.gestionot_dg_resultados.Columns(2).Width = 230
+        Me.gestionot_dg_resultados.Columns(3).HeaderText = "TIPO"
+        Me.gestionot_dg_resultados.Columns(3).Width = 120
+        Me.gestionot_dg_resultados.Columns(4).HeaderText = "MARCA"
+        Me.gestionot_dg_resultados.Columns(4).Width = 120
+        Me.gestionot_dg_resultados.Columns(5).HeaderText = "MODELO"
+        Me.gestionot_dg_resultados.Columns(5).Width = 230
+        Me.gestionot_dg_resultados.Columns(6).HeaderText = "ESTADO OT"
+        Me.gestionot_dg_resultados.Columns(6).Width = 150
         Me.gestionot_lbl_rfilter.Visible = False
     End Sub
 End Class

@@ -12,7 +12,7 @@ Module PGSQL_Reportes
             Dim CommandPGSQL As New NpgsqlCommand
             CommandPGSQL.Connection = ConexPGSQL
             CommandPGSQL.CommandType = CommandType.Text
-            CommandPGSQL.CommandText = "SELECT id, notrabajo, nguiadespacho, razonsocial, rut, nombretipo, nombremarca, nombremodelo, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, nestado, tipo, noc, nagendamiento, nombres, apellido_p, apellido_m, dempresa, tag FROM vista_otreporte WHERE notrabajo=@nordentrabajo LIMIT 1"
+            CommandPGSQL.CommandText = "SELECT id, notrabajo, nguiadespacho, razonsocial, rut, nombretipo, nombremarca, nombremodelo, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, nestado, tipo, noc, nagendamiento, nombres, apellido_p, apellido_m, dempresa, tag, ingernombre FROM vista_otreporte WHERE notrabajo=@nordentrabajo LIMIT 1"
             CommandPGSQL.Parameters.AddWithValue("@nordentrabajo", NumeroOrden)
             Dim dr = CommandPGSQL.ExecuteReader()
             dr.Read()
@@ -36,6 +36,7 @@ Module PGSQL_Reportes
             Retorno.Add(dr(17).ToString & " " & dr(18).ToString & " " & dr(19).ToString) ' # nombre responsable orden de trabajo (17)
             Retorno.Add(dr(20).ToString) ' # direccion de empresa. (18)
             Retorno.Add(dr(21).ToString) ' # identificacion del equipo. (19)
+            Retorno.Add(dr(22).ToString) ' # ingeniero reparable. (20)
             ConexPGSQL.Close()
             Return Retorno
         Catch ex As Exception

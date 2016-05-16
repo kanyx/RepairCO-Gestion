@@ -78,6 +78,8 @@ Partial Class form_ingreso
         Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
         Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
         Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
+        Me.ingreso_lbl_ireparable = New System.Windows.Forms.Label()
+        Me.ingreso_cmb_ireparable = New System.Windows.Forms.ComboBox()
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,6 +96,8 @@ Partial Class form_ingreso
         '
         'ingreso_gp_datos
         '
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_cmb_ireparable)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_ireparable)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_agendamiento)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_agendamiento)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_pic_comentarios)
@@ -141,9 +145,9 @@ Partial Class form_ingreso
         'ingreso_txt_agendamiento
         '
         Me.ingreso_txt_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(554, 90)
+        Me.ingreso_txt_agendamiento.Location = New System.Drawing.Point(547, 90)
         Me.ingreso_txt_agendamiento.Name = "ingreso_txt_agendamiento"
-        Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(148, 18)
+        Me.ingreso_txt_agendamiento.Size = New System.Drawing.Size(170, 18)
         Me.ingreso_txt_agendamiento.TabIndex = 8
         '
         'ingreso_lbl_agendamiento
@@ -151,7 +155,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_agendamiento.AutoSize = True
         Me.ingreso_lbl_agendamiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_agendamiento.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(552, 75)
+        Me.ingreso_lbl_agendamiento.Location = New System.Drawing.Point(545, 75)
         Me.ingreso_lbl_agendamiento.Name = "ingreso_lbl_agendamiento"
         Me.ingreso_lbl_agendamiento.Size = New System.Drawing.Size(95, 12)
         Me.ingreso_lbl_agendamiento.TabIndex = 0
@@ -168,7 +172,7 @@ Partial Class form_ingreso
         'ingreso_txt_oc
         '
         Me.ingreso_txt_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_oc.Location = New System.Drawing.Point(394, 90)
+        Me.ingreso_txt_oc.Location = New System.Drawing.Point(393, 90)
         Me.ingreso_txt_oc.Name = "ingreso_txt_oc"
         Me.ingreso_txt_oc.Size = New System.Drawing.Size(148, 18)
         Me.ingreso_txt_oc.TabIndex = 7
@@ -178,7 +182,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_oc.AutoSize = True
         Me.ingreso_lbl_oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_oc.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_oc.Location = New System.Drawing.Point(392, 75)
+        Me.ingreso_lbl_oc.Location = New System.Drawing.Point(391, 75)
         Me.ingreso_lbl_oc.Name = "ingreso_lbl_oc"
         Me.ingreso_lbl_oc.Size = New System.Drawing.Size(130, 12)
         Me.ingreso_lbl_oc.TabIndex = 0
@@ -278,6 +282,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addmodelo.Name = "ingreso_lbl_addmodelo"
         Me.ingreso_lbl_addmodelo.Size = New System.Drawing.Size(96, 12)
         Me.ingreso_lbl_addmodelo.TabIndex = 0
+        Me.ingreso_lbl_addmodelo.TabStop = True
         Me.ingreso_lbl_addmodelo.Text = "AGREGAR MODELO"
         '
         'ingreso_lbl_addmarca
@@ -288,6 +293,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addmarca.Name = "ingreso_lbl_addmarca"
         Me.ingreso_lbl_addmarca.Size = New System.Drawing.Size(92, 12)
         Me.ingreso_lbl_addmarca.TabIndex = 0
+        Me.ingreso_lbl_addmarca.TabStop = True
         Me.ingreso_lbl_addmarca.Text = "AGREGAR MARCA"
         '
         'ingreso_lbl_addtipo
@@ -298,6 +304,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addtipo.Name = "ingreso_lbl_addtipo"
         Me.ingreso_lbl_addtipo.Size = New System.Drawing.Size(76, 12)
         Me.ingreso_lbl_addtipo.TabIndex = 0
+        Me.ingreso_lbl_addtipo.TabStop = True
         Me.ingreso_lbl_addtipo.Text = "AGREGAR TIPO"
         '
         'ingreso_lbl_addcliente
@@ -308,6 +315,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_addcliente.Name = "ingreso_lbl_addcliente"
         Me.ingreso_lbl_addcliente.Size = New System.Drawing.Size(94, 12)
         Me.ingreso_lbl_addcliente.TabIndex = 0
+        Me.ingreso_lbl_addcliente.TabStop = True
         Me.ingreso_lbl_addcliente.Text = "AGREGAR CLIENTE"
         '
         'ingreso_cmb_modelo
@@ -318,6 +326,7 @@ Partial Class form_ingreso
         Me.ingreso_cmb_modelo.Name = "ingreso_cmb_modelo"
         Me.ingreso_cmb_modelo.Size = New System.Drawing.Size(212, 20)
         Me.ingreso_cmb_modelo.TabIndex = 15
+        Me.ingreso_cmb_modelo.Text = "SELECCIONE MODELO"
         '
         'ingreso_lbl_modelo
         '
@@ -394,7 +403,7 @@ Partial Class form_ingreso
         'ingreso_txt_guia
         '
         Me.ingreso_txt_guia.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_guia.Location = New System.Drawing.Point(249, 90)
+        Me.ingreso_txt_guia.Location = New System.Drawing.Point(248, 90)
         Me.ingreso_txt_guia.Name = "ingreso_txt_guia"
         Me.ingreso_txt_guia.Size = New System.Drawing.Size(139, 18)
         Me.ingreso_txt_guia.TabIndex = 6
@@ -404,7 +413,7 @@ Partial Class form_ingreso
         Me.ingreso_lbl_nguia.AutoSize = True
         Me.ingreso_lbl_nguia.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_lbl_nguia.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_nguia.Location = New System.Drawing.Point(251, 75)
+        Me.ingreso_lbl_nguia.Location = New System.Drawing.Point(250, 75)
         Me.ingreso_lbl_nguia.Name = "ingreso_lbl_nguia"
         Me.ingreso_lbl_nguia.Size = New System.Drawing.Size(113, 12)
         Me.ingreso_lbl_nguia.TabIndex = 0
@@ -435,7 +444,7 @@ Partial Class form_ingreso
         '
         Me.ingreso_txt_fecha.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ingreso_txt_fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_txt_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.ingreso_txt_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.ingreso_txt_fecha.Location = New System.Drawing.Point(251, 42)
         Me.ingreso_txt_fecha.Name = "ingreso_txt_fecha"
         Me.ingreso_txt_fecha.Size = New System.Drawing.Size(111, 18)
@@ -650,6 +659,27 @@ Partial Class form_ingreso
         Me.ingreso_pic_commenotitle.TabIndex = 0
         Me.ingreso_pic_commenotitle.TabStop = False
         '
+        'ingreso_lbl_ireparable
+        '
+        Me.ingreso_lbl_ireparable.AutoSize = True
+        Me.ingreso_lbl_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_ireparable.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_ireparable.Location = New System.Drawing.Point(6, 208)
+        Me.ingreso_lbl_ireparable.Name = "ingreso_lbl_ireparable"
+        Me.ingreso_lbl_ireparable.Size = New System.Drawing.Size(136, 12)
+        Me.ingreso_lbl_ireparable.TabIndex = 33
+        Me.ingreso_lbl_ireparable.Text = "INGENIERO REPARABLE"
+        '
+        'ingreso_cmb_ireparable
+        '
+        Me.ingreso_cmb_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_cmb_ireparable.FormattingEnabled = True
+        Me.ingreso_cmb_ireparable.Location = New System.Drawing.Point(8, 224)
+        Me.ingreso_cmb_ireparable.Name = "ingreso_cmb_ireparable"
+        Me.ingreso_cmb_ireparable.Size = New System.Drawing.Size(231, 20)
+        Me.ingreso_cmb_ireparable.TabIndex = 34
+        Me.ingreso_cmb_ireparable.Text = "SELECCIONE ING. REPARABLE"
+        '
         'form_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -740,4 +770,6 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_pic_commenotaccept As System.Windows.Forms.PictureBox
     Friend WithEvents ingreso_txt_agendamiento As System.Windows.Forms.TextBox
     Friend WithEvents ingreso_lbl_agendamiento As System.Windows.Forms.Label
+    Friend WithEvents ingreso_lbl_ireparable As System.Windows.Forms.Label
+    Friend WithEvents ingreso_cmb_ireparable As System.Windows.Forms.ComboBox
 End Class

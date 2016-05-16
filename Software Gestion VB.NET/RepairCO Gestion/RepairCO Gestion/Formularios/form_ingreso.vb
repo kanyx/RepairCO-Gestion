@@ -18,6 +18,7 @@ Public Class form_ingreso
         Me.ingreso_pn_comentarios.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingresocommentario_background.png")
         Me.ingreso_pic_commenotclose.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/close.png")
         Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
+        Me.ingreso_txt_fecha.CustomFormat = "dd-MM-yyyy hh:mm:ss"
         Me.ingreso_lbl_addcliente.Cursor = Cursors.Hand
         Me.ingreso_lbl_addtipo.Cursor = Cursors.Hand
         Me.ingreso_lbl_addmarca.Cursor = Cursors.Hand
@@ -45,6 +46,7 @@ Public Class form_ingreso
         Me.ingreso_cmb_marca.Enabled = False
         Me.ingreso_cmb_modelo.Enabled = False
         Me.ingreso_pn_comentarios.Visible = False
+        Me.ingreso_cmb_ireparable.Enabled = False
         ' # SETEAMOS VALORES DEL TOOLTIP
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmarca, "Presione aquí para ingresar una nueva marca.")
@@ -212,10 +214,18 @@ Public Class form_ingreso
                 Exit Sub
             End If
         End If
+        If Me.ingreso_cmb_ireparable.SelectedValue = "" Then
+            Me.ingreso_cmb_ireparable.BackColor = Color.Red
+            Me.ingreso_cmb_ireparable.ForeColor = Color.White
+            Exit Sub
+        Else
+            Me.ingreso_cmb_ireparable.BackColor = Color.Green
+            Me.ingreso_cmb_ireparable.ForeColor = Color.White
+        End If
         If PGSQL_INGRESO_ADDOT(Date.Parse(Me.ingreso_txt_fecha.Text), Me.ingresot_cmb_prioridad.SelectedText, TipoOT, Me.ingreso_cmb_cliente.SelectedValue.ToString, Me.ingreso_txt_guia.Text, _
                                Me.ingreso_txt_oc.Text, Me.ingreso_txt_iequipo.Text, Me.ingreso_txt_nserie.Text, Me.ingresot_txt_nseriefat.Text, Me.ingresot_txt_ncontrato.Text, _
                                Integer.Parse(Me.ingreso_cmb_tipo.SelectedValue), Integer.Parse(Me.ingreso_cmb_marca.SelectedValue), Integer.Parse(Me.ingreso_cmb_modelo.SelectedValue), _
-                               Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text, Me.ingreso_txt_iequipo.Text) = True Then
+                               Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text, Me.ingreso_txt_iequipo.Text, Me.ingreso_cmb_ireparable.SelectedValue) = True Then
             OTguardada = True
             Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
             Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
@@ -378,6 +388,22 @@ Public Class form_ingreso
             Me.ingreso_cmb_modelo.DataSource = New BindingSource(ValueSource_Modelos, Nothing)
             Me.ingreso_cmb_modelo.DisplayMember = "Value"
             Me.ingreso_cmb_modelo.ValueMember = "Key"
+        End If
+    End Sub
+    Private Sub ingreso_cmb_cliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_cliente.SelectedValueChanged
+        ' # ING. REPARABLE, AQUI SE CARGARAN LOS VALORES CORRESPONDIENTES AL INGENIERO REPARABLE UMA VEZ QUE SE HA 
+        ' # SELECCIONADO EL CLIENTE.
+        If Me.ingreso_cmb_cliente.SelectedIndex > 0 Then
+            Me.ingreso_cmb_ireparable.Enabled = True
+            Dim ValueSource_IngReparable As New Dictionary(Of String, String)()
+            ValueSource_IngReparable = PGSQL_CargaIngReparable(Me.ingreso_cmb_cliente.SelectedValue.ToString, True)
+            If ValueSource_IngReparable Is Nothing Then
+                Me.ingreso_cmb_ireparable.Enabled = False
+                Exit Sub
+            End If
+            Me.ingreso_cmb_ireparable.DataSource = New BindingSource(ValueSource_IngReparable, Nothing)
+            Me.ingreso_cmb_ireparable.DisplayMember = "Value"
+            Me.ingreso_cmb_ireparable.ValueMember = "Key"
         End If
     End Sub
     Private Sub ingreso_pic_comentarios_MouseMove(sender As Object, e As MouseEventArgs) Handles ingreso_pic_comentarios.MouseMove

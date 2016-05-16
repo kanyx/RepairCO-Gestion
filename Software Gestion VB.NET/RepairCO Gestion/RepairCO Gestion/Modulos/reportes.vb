@@ -50,7 +50,8 @@ Module reportes
                 .Replace("@GDNUMBER", DatosOrdenesTrabajo(2).ToString.ToUpper).Replace("@DIRECCION", DatosOrdenesTrabajo(18).ToString.ToUpper) _
                 .Replace("@NOC", DatosOrdenesTrabajo(15).ToString.ToUpper).Replace("@TIPO", DatosOrdenesTrabajo(5).ToString.ToUpper).Replace("@MARCA", DatosOrdenesTrabajo(6).ToString.ToUpper) _
                 .Replace("@MODELO", DatosOrdenesTrabajo(7).ToString.ToUpper).Replace("@NSERIE", DatosOrdenesTrabajo(8).ToString.ToUpper).Replace("@TAG", DatosOrdenesTrabajo(19).ToString.ToUpper) _
-                .Replace("@NONE", " ").Replace("@FOTO1", Foto1).Replace("@FOTO2", Foto2).Replace("@FOTO3", Foto3).Replace("@FOTO4", Foto4).Replace("@COMENTARIO", Comentario.ToUpper)
+                .Replace("@NONE", " ").Replace("@FOTO1", Foto1).Replace("@FOTO2", Foto2).Replace("@FOTO3", Foto3).Replace("@FOTO4", Foto4).Replace("@COMENTARIO", Comentario.ToUpper) _
+                .Replace("@ING.REPARABLE", DatosOrdenesTrabajo(20).ToString.ToUpper)
             ' # CRAMOS Y CONVERTIMOS EL ARCHIVO A PDF
             Dim doc As New Document(PageSize.LETTER, 80, 50, 30, 65)
             Dim fsNew As New StringReader(line)
