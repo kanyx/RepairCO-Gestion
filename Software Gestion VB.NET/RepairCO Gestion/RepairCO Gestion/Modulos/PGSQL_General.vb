@@ -241,6 +241,7 @@ Module PGSQL_General
         End Try
     End Sub
     Public Function PGSQL_CargaComentariosOT(ByVal NumeroOT As String) As String
+        ' # CARGA LOS COMENTARIOS DE LA ORDEN DE TRABAJO DESDE LA BASE DE DATOS.
         Dim Comentario As String = ""
         Try
             Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
@@ -270,6 +271,7 @@ Module PGSQL_General
         End Try
     End Function
     Public Function PGSQL_CargaImagenesOT(ByVal NumeroOrden As String, ByVal MaxImages As Integer) As ArrayList
+        ' # CARGA LAS IMAGENES DE LA ORDEN DESDE LA BASE DE DATOS.
         Dim Imagenes As New ArrayList
         Try
             Dim ConexPostgreSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
@@ -299,6 +301,61 @@ Module PGSQL_General
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
             Imagenes.Add("ERROR!")
             Return Imagenes
+        End Try
+    End Function
+    Public Function PGSQL_CargaOT(ByVal NumeroOT As String) As ArrayList
+        ' ########################################################################
+        ' # CARGAMOS LA ORDEN DE TRABAJO DESDE LA BASE DE DATOS.
+        ' # LISTA DE VALORES:
+        ' # (0) -> Numero de Orden de TRabajo.
+        ' # (1) -> Numero guia de despacho.
+        ' # (2) -> Identificador unico de cliente.
+        ' # (3) -> Identificador del tipo de producto.
+        ' # (4) -> Identificador de la marca del producto.
+        ' # (5) -> Identificador del modelo del producto.
+        ' # (6) -> Numero de serie equipo.
+        ' # (7) -> Prioridad de la orden.
+        ' # (8) -> Numero contrato (cliente de la orden de trabajo).
+        ' # (9) -> Fecha de ingreso de la orden de trabajo.
+        ' # (10) -> Numero de serie de fabricante.
+        ' # (11) -> Fecha de cierre de la orden de trabajo.
+        ' # (12) -> Identificador de la orden del estado de la orden.
+        ' # (13) -> Tipom de orden de trabajo.
+        ' # (14) -> Numero de orden de compra.
+        ' # (15) -> Numero de agendamiento.
+        ' # (16) -> Identificador del responsable del ingreso.
+        ' # (17) -> Identificador del equipo / cliente (TAG)
+        ' # (18) -> Ingeniero reparable.
+        ' ########################################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim CommandPGSQL As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            ConexPGSQL.Open()
+            CommandPGSQL = New NpgsqlCommand
+            ConexPGSQL.Open()
+            CommandPGSQL.Connection = ConexPGSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "SELECT notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, fecha_cierre, idestado, tipo, noc, nagendamiento, idrespingreso, tag, ingrepaid FROM ordenestrabajo WHERE notrabajo=@NumeroOrden LIMIT 1"
+            CommandPGSQL.Parameters.AddWithValue("@NumeroOrden", Integer.Parse(NumeroOT))
+            rd = CommandPGSQL.ExecuteReader
+            If rd.HasRows = True Then
+                ReturnArray.Add("")
+            End If
+            While rd.Read
+
+            End While
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error cargar los datos de la orden de trabajo desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR")
+            Return ReturnArray
         End Try
     End Function
     Public Sub PGSQL_CargarOTDataView(ByVal DTGW As DataGridView, Optional ByVal Filtros As Boolean = False)

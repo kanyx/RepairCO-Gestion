@@ -24,6 +24,7 @@ Partial Class gestion_ot
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.gestionot_gb_resultados = New System.Windows.Forms.GroupBox()
+        Me.gestionot_dg_resultados = New System.Windows.Forms.DataGridView()
         Me.gestionot_lbl_resultados = New System.Windows.Forms.Label()
         Me.gestionot_gb_filtros = New System.Windows.Forms.GroupBox()
         Me.gestionot_cmb_tipo = New System.Windows.Forms.ComboBox()
@@ -36,12 +37,11 @@ Partial Class gestion_ot
         Me.gestionot_lbl_rfilter = New System.Windows.Forms.LinkLabel()
         Me.gestionot_pic_title = New System.Windows.Forms.PictureBox()
         Me.gestionot_tp_help = New System.Windows.Forms.ToolTip(Me.components)
-        Me.gestionot_dg_resultados = New System.Windows.Forms.DataGridView()
         Me.gestionot_gb_resultados.SuspendLayout()
+        CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gestionot_gb_filtros.SuspendLayout()
         CType(Me.gestionot_pic_buscar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gestionot_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gestionot_gb_resultados
@@ -52,6 +52,18 @@ Partial Class gestion_ot
         Me.gestionot_gb_resultados.Size = New System.Drawing.Size(833, 316)
         Me.gestionot_gb_resultados.TabIndex = 0
         Me.gestionot_gb_resultados.TabStop = False
+        '
+        'gestionot_dg_resultados
+        '
+        Me.gestionot_dg_resultados.AllowUserToAddRows = False
+        Me.gestionot_dg_resultados.AllowUserToDeleteRows = False
+        Me.gestionot_dg_resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.gestionot_dg_resultados.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.gestionot_dg_resultados.Location = New System.Drawing.Point(3, 16)
+        Me.gestionot_dg_resultados.Name = "gestionot_dg_resultados"
+        Me.gestionot_dg_resultados.ReadOnly = True
+        Me.gestionot_dg_resultados.Size = New System.Drawing.Size(827, 297)
+        Me.gestionot_dg_resultados.TabIndex = 0
         '
         'gestionot_lbl_resultados
         '
@@ -159,18 +171,6 @@ Partial Class gestion_ot
         Me.gestionot_pic_title.TabIndex = 4
         Me.gestionot_pic_title.TabStop = False
         '
-        'gestionot_dg_resultados
-        '
-        Me.gestionot_dg_resultados.AllowUserToAddRows = False
-        Me.gestionot_dg_resultados.AllowUserToDeleteRows = False
-        Me.gestionot_dg_resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.gestionot_dg_resultados.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gestionot_dg_resultados.Location = New System.Drawing.Point(3, 16)
-        Me.gestionot_dg_resultados.Name = "gestionot_dg_resultados"
-        Me.gestionot_dg_resultados.ReadOnly = True
-        Me.gestionot_dg_resultados.Size = New System.Drawing.Size(827, 297)
-        Me.gestionot_dg_resultados.TabIndex = 0
-        '
         'gestion_ot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -187,11 +187,11 @@ Partial Class gestion_ot
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "gestion_ot"
         Me.gestionot_gb_resultados.ResumeLayout(False)
+        CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gestionot_gb_filtros.ResumeLayout(False)
         Me.gestionot_gb_filtros.PerformLayout()
         CType(Me.gestionot_pic_buscar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gestionot_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

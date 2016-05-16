@@ -39,4 +39,15 @@
         Me.gestionot_dg_resultados.Columns(6).Width = 150
         Me.gestionot_lbl_rfilter.Visible = False
     End Sub
+    Private Sub gestionot_dg_resultados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles gestionot_dg_resultados.CellDoubleClick
+        ' # AL HACER DOBLE CLICK CARGA EL VALOR DE LA (CELDA 0) QUE CONTIENE EL NUMERO DE OT
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim RegistroSeleccionado = gestionot_dg_resultados.Rows(e.RowIndex)
+            'MsgBox(RegistroSeleccionado.Cells(0).Value)
+            Dim frm_viewot As New view_ot
+            frm_viewot.ShowInTaskbar = False
+            frm_viewot.StartPosition = FormStartPosition.CenterScreen
+            frm_viewot.ShowDialog()
+        End If
+    End Sub
 End Class
