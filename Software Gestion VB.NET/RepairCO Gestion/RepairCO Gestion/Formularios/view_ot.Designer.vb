@@ -51,7 +51,7 @@ Partial Class view_ot
         Me.viewot_lbl_oc = New System.Windows.Forms.Label()
         Me.viewot_txt_gdespacho = New System.Windows.Forms.TextBox()
         Me.viewot_lbl_gdespacho = New System.Windows.Forms.Label()
-        Me.viewot_txt_cliente = New System.Windows.Forms.ComboBox()
+        Me.viewot_cmb_cliente = New System.Windows.Forms.ComboBox()
         Me.viewot_lbl_cliente = New System.Windows.Forms.Label()
         Me.viewot_gb_tipoot = New System.Windows.Forms.GroupBox()
         Me.viewot_rb_garantia = New System.Windows.Forms.RadioButton()
@@ -143,7 +143,7 @@ Partial Class view_ot
         Me.viewot_gb_datos.Controls.Add(Me.viewot_lbl_oc)
         Me.viewot_gb_datos.Controls.Add(Me.viewot_txt_gdespacho)
         Me.viewot_gb_datos.Controls.Add(Me.viewot_lbl_gdespacho)
-        Me.viewot_gb_datos.Controls.Add(Me.viewot_txt_cliente)
+        Me.viewot_gb_datos.Controls.Add(Me.viewot_cmb_cliente)
         Me.viewot_gb_datos.Controls.Add(Me.viewot_lbl_cliente)
         Me.viewot_gb_datos.Controls.Add(Me.viewot_gb_tipoot)
         Me.viewot_gb_datos.Controls.Add(Me.viewot_cmb_prioridad)
@@ -381,15 +381,15 @@ Partial Class view_ot
         Me.viewot_lbl_gdespacho.TabIndex = 9
         Me.viewot_lbl_gdespacho.Text = "N° GUIA DESPACHO"
         '
-        'viewot_txt_cliente
+        'viewot_cmb_cliente
         '
-        Me.viewot_txt_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.viewot_txt_cliente.FormattingEnabled = True
-        Me.viewot_txt_cliente.ItemHeight = 12
-        Me.viewot_txt_cliente.Location = New System.Drawing.Point(8, 76)
-        Me.viewot_txt_cliente.Name = "viewot_txt_cliente"
-        Me.viewot_txt_cliente.Size = New System.Drawing.Size(236, 20)
-        Me.viewot_txt_cliente.TabIndex = 8
+        Me.viewot_cmb_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.viewot_cmb_cliente.FormattingEnabled = True
+        Me.viewot_cmb_cliente.ItemHeight = 12
+        Me.viewot_cmb_cliente.Location = New System.Drawing.Point(8, 76)
+        Me.viewot_cmb_cliente.Name = "viewot_cmb_cliente"
+        Me.viewot_cmb_cliente.Size = New System.Drawing.Size(236, 20)
+        Me.viewot_cmb_cliente.TabIndex = 8
         '
         'viewot_lbl_cliente
         '
@@ -558,7 +558,7 @@ Partial Class view_ot
     Friend WithEvents viewot_gb_tipoot As System.Windows.Forms.GroupBox
     Friend WithEvents viewot_rb_garantia As System.Windows.Forms.RadioButton
     Friend WithEvents viewot_rb_reparacion As System.Windows.Forms.RadioButton
-    Friend WithEvents viewot_txt_cliente As System.Windows.Forms.ComboBox
+    Friend WithEvents viewot_cmb_cliente As System.Windows.Forms.ComboBox
     Friend WithEvents viewot_lbl_cliente As System.Windows.Forms.Label
     Friend WithEvents viewot_txt_gdespacho As System.Windows.Forms.TextBox
     Friend WithEvents viewot_lbl_gdespacho As System.Windows.Forms.Label

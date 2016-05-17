@@ -45,6 +45,7 @@
             Dim RegistroSeleccionado = gestionot_dg_resultados.Rows(e.RowIndex)
             'MsgBox(RegistroSeleccionado.Cells(0).Value)
             Dim frm_viewot As New view_ot
+            frm_viewot.NumeroOrdenTrabajo = RegistroSeleccionado.Cells(0).Value
             frm_viewot.ShowInTaskbar = False
             frm_viewot.StartPosition = FormStartPosition.CenterScreen
             frm_viewot.ShowDialog()

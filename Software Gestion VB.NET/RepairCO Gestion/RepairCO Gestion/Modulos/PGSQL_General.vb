@@ -307,7 +307,7 @@ Module PGSQL_General
         ' ########################################################################
         ' # CARGAMOS LA ORDEN DE TRABAJO DESDE LA BASE DE DATOS.
         ' # LISTA DE VALORES:
-        ' # (0) -> Numero de Orden de TRabajo.
+        ' # (0) -> Numero de Orden de Trabajo.
         ' # (1) -> Numero guia de despacho.
         ' # (2) -> Identificador unico de cliente.
         ' # (3) -> Identificador del tipo de producto.
@@ -320,11 +320,11 @@ Module PGSQL_General
         ' # (10) -> Numero de serie de fabricante.
         ' # (11) -> Fecha de cierre de la orden de trabajo.
         ' # (12) -> Identificador de la orden del estado de la orden.
-        ' # (13) -> Tipom de orden de trabajo.
+        ' # (13) -> Tipo de orden de trabajo.
         ' # (14) -> Numero de orden de compra.
         ' # (15) -> Numero de agendamiento.
         ' # (16) -> Identificador del responsable del ingreso.
-        ' # (17) -> Identificador del equipo / cliente (TAG)
+        ' # (17) -> Identificador del equipo / cliente (TAG).
         ' # (18) -> Ingeniero reparable.
         ' ########################################################################
         Dim ReturnArray As New ArrayList
@@ -338,23 +338,341 @@ Module PGSQL_General
             Dim rd As NpgsqlDataReader
             ConexPGSQL.Open()
             CommandPGSQL = New NpgsqlCommand
-            ConexPGSQL.Open()
             CommandPGSQL.Connection = ConexPGSQL
             CommandPGSQL.CommandType = CommandType.Text
             CommandPGSQL.CommandText = "SELECT notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, nserie, prioridad, numerocontrato, fecha_ingreso, nseriefabricante, fecha_cierre, idestado, tipo, noc, nagendamiento, idrespingreso, tag, ingrepaid FROM ordenestrabajo WHERE notrabajo=@NumeroOrden LIMIT 1"
-            CommandPGSQL.Parameters.AddWithValue("@NumeroOrden", Integer.Parse(NumeroOT))
+            CommandPGSQL.Parameters.AddWithValue("@NumeroOrden", NumeroOT)
             rd = CommandPGSQL.ExecuteReader
-            If rd.HasRows = True Then
+            If rd.HasRows = False Then
                 ReturnArray.Add("")
+                Return ReturnArray
             End If
-            While rd.Read
-
-            End While
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            ReturnArray.Add(rd(4).ToString)
+            ReturnArray.Add(rd(5).ToString)
+            ReturnArray.Add(rd(6).ToString)
+            ReturnArray.Add(rd(7).ToString)
+            ReturnArray.Add(rd(8).ToString)
+            ReturnArray.Add(rd(9).ToString)
+            ReturnArray.Add(rd(10).ToString)
+            ReturnArray.Add(rd(11).ToString)
+            ReturnArray.Add(rd(12).ToString)
+            ReturnArray.Add(rd(13).ToString)
+            ReturnArray.Add(rd(14).ToString)
+            ReturnArray.Add(rd(15).ToString)
+            ReturnArray.Add(rd(16).ToString)
+            ReturnArray.Add(rd(17).ToString)
+            ReturnArray.Add(rd(18).ToString)
+            ConexPGSQL.Close()
+            Return ReturnArray
         Catch ex As Exception
             MessageBox.Show("Ocurrió un error cargar los datos de la orden de trabajo desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
                             "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
             ReturnArray.Add("ERROR")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETPERSONALDATES(ByVal idPersona As String) As ArrayList
+        ' #####################################################
+        ' # FUNCION PARA OBTENER DATOS DEL PERSONAL
+        ' # VALORES DEL ARRAYLIST:
+        ' # (0)  : Identificador unico.[ID]
+        ' # (1)  : Nombres.
+        ' # (2)  : Apellido paterno.
+        ' # (3)  : Apellido materno.
+        ' # (4)  : Rut. (DNI/NIF)
+        ' # (5)  : ID Cargo.
+        ' # (6)  : Direccion.
+        ' # (7)  : ID tabla de permisos usuario.
+        ' # (8)  : Imagen de perfil del usuario.
+        ' # (9) : Nombre de usuario.
+        ' # (10) : Contraseña (MD5) String.
+        ' #####################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombres, apellido_p, apellido_m, rut, idcargo, direccion, idpermiso, imagenperfil, username, password FROM personal WHERE id=@idpersona LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idpersona", Integer.Parse(idPersona.ToString))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            ReturnArray.Add(rd(4).ToString)
+            ReturnArray.Add(rd(5).ToString)
+            ReturnArray.Add(rd(6).ToString)
+            ReturnArray.Add(rd(7).ToString)
+            ReturnArray.Add(rd(8).ToString)
+            ReturnArray.Add(rd(9).ToString)
+            ReturnArray.Add(rd(10).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al intentar obtener datos del personal desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR..")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETCLIENTINFO(ByVal idCliente As String) As ArrayList
+        ' ########################################################
+        ' # FUNCION PARA OBTENER INFORMACION DEL CLIENTE
+        ' # DESC: ESTA FUNCION OBTIENE TODOS LOS PARAMETROS DE
+        ' #       LA TABLA CLIENTES DE LA BASE DE DATOS.
+        ' # DESC. PARAMETROS:
+        ' # (0)  : Identificador del cliente.
+        ' # (1)  : Razon social.
+        ' # (2)  : Nombre contacto.
+        ' # (3)  : Apellidos contacto.
+        ' # (4)  : Fono contacto.
+        ' # (5)  : M@il contacto.
+        ' # (6)  : Fono empresa.
+        ' # (7)  : M@il empresa.
+        ' # (8)  : Direccion empresa.
+        ' # (9)  : Identificador unico ciudad.
+        ' # (10) : Apellido Materno cotacto.
+        ' # (11) : Giro.
+        ' # (12) : Rut.
+        ' ########################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                 ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                 ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                 ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                 ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, razonsocial, ncontacto, apcontacto, fcontacto, mcontacto, fempresa, mempresa, dempresa, idciudad, amcontacto, giroempresa, rut FROM clientes WHERE id=@idcliente LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idcliente", Integer.Parse(idCliente))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            ReturnArray.Add(rd(4).ToString)
+            ReturnArray.Add(rd(5).ToString)
+            ReturnArray.Add(rd(6).ToString)
+            ReturnArray.Add(rd(7).ToString)
+            ReturnArray.Add(rd(8).ToString)
+            ReturnArray.Add(rd(9).ToString)
+            ReturnArray.Add(rd(10).ToString)
+            ReturnArray.Add(rd(11).ToString)
+            ReturnArray.Add(rd(12).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información del cliente desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR...")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETTIPOINFO(ByVal idTipo As String) As ArrayList
+        ' ############################################################
+        ' # FUNCION QUE OBTIENE INFORMACION DE LOS TIPOS DESDE LA BD
+        ' # DESC. VALORES ARRAY:
+        ' # (0) : Identificador unico del tipo.
+        ' # (1) : Nombre.
+        ' # (2) : Comentario.
+        ' # (3) : Identificador del usuario que ingreso el tipo.
+        ' #############################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombre, comentario, iduseradd FROM tipos_productos WHERE id=@idproducto LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idproducto", Integer.Parse(idTipo))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información del tipo de producto desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR..")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETMARCAINFO(ByVal idMarca As String) As ArrayList
+        ' ###########################################################
+        ' # FUNCION QUE OBTIENE LA INFORMACION ACERCA DE LA MARCA
+        ' # DESC. VALORES ARRAY:
+        ' # (0) : Identificador unico.
+        ' # (1) : Nombre.
+        ' # (2) : Identificador del pais.
+        ' # (3) : Identificador del proovedor.
+        ' # (4) : Identificador del usuario que agrego la marca.
+        ' ###########################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombre, idtipo, idpais, idproovedor, iduseradd FROM marcas WHERE id=@idMarca LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idMarca", Integer.Parse(idMarca))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            ReturnArray.Add(rd(4).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información de la marca del producto desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                           "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR..")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETMODELOINFO(ByVal idModelo As String) As ArrayList
+        ' ########################################################
+        ' # FUNCION QUE OBTIENE INFORMACION SOBRE UN MODELO
+        ' # DESC. DE VALORES DEL ARRAY.
+        ' # (0) : Identificador unico.
+        ' # (1) : Nombre.
+        ' # (2) : Identificador de la marca.
+        ' # (3) : Identificador del tipo.
+        ' # (4) : Identificador del usuario que agrego el registro.
+        ' #########################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombre, idmarca, idtipo, iduseradd FROM modelos WHERE id=@idModelo LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idModelo", Integer.Parse(idModelo))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            ReturnArray.Add(rd(3).ToString)
+            ReturnArray.Add(rd(4).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información del modelo del producto desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                           "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR..")
+            Return ReturnArray
+        End Try
+    End Function
+    Public Function PGSQL_GETINGREPAINFO(ByVal idIngeniero As String) As ArrayList
+        ' #######################################################
+        ' # FUNCION QYE OBTIENE LOS DATOS DEL ING. REPARABLE
+        ' # DESC. VALORES DEL ARRAY.
+        ' # (0) : Identificador unico.
+        ' # (1) : Nombre.
+        ' # (2) : Identificador del cliente.
+        ' #######################################################
+        Dim ReturnArray As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLCommand As NpgsqlCommand
+            Dim rd As NpgsqlDataReader
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombre, idcliente FROM ingrepar WHERE id=@idING LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@idING", Integer.Parse(idIngeniero))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                ReturnArray.Add("")
+                Return ReturnArray
+            End If
+            rd.Read()
+            ReturnArray.Add(rd(0).ToString)
+            ReturnArray.Add(rd(1).ToString)
+            ReturnArray.Add(rd(2).ToString)
+            PGSQLConex.Close()
+            Return ReturnArray
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información del ingeniero reparable desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                          "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                          MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ReturnArray.Add("ERROR..")
             Return ReturnArray
         End Try
     End Function
