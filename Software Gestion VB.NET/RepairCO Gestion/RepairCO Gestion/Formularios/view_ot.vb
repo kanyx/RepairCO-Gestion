@@ -1,4 +1,5 @@
 ﻿Public Class view_ot
+    Dim ImagesOrdenes As New ArrayList
     Public NumeroOrdenTrabajo As String
     Private Sub view_ot_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim DatosOT As New ArrayList
@@ -29,6 +30,8 @@
         Me.viewot_pic_close.Cursor = Cursors.Hand
         Me.viewot_pic_save.Cursor = Cursors.Hand
         Me.viewot_pic_save.Visible = False
+        Me.viewot_lw_imagenes.Visible = False
+        Me.viewot_dg_comentarios.EnableHeadersVisualStyles = False
         ' # LLAMAMOS LOS DATOS DE LA ORDEN LA INTRODUCIMOS A UN ARRAY Y LLENAMOS LOS VALORES DEL FORMULARIO.
         DatosOT = PGSQL_CargaOT(NumeroOrdenTrabajo)
         DatosPersonal = PGSQL_GETPERSONALDATES(DatosOT(16).ToString)
@@ -131,8 +134,46 @@
         Else
             Me.viewot_cmb_ireparable.Text = "SELECCIONE ING. REPARABLE."
         End If
+        ' # VERIFICAMOS SI LA ORDEN DE TRABAJO INCLUYE IMAGENES, SI ES ASI CARAGMOS EL MODULO DE IMAGENES.
+        ' # EN CASO CONTRARIO DESPLEGAMOS UN AVISO DE NO EXISTENCIA DE IMAGENES.
+        ImagesOrdenes = PGSQL_CargaImagenesOT(NumeroOrdenTrabajo, 100)
+        If ImagesOrdenes.Count > 0 Then
+            ' # SI EXISTEN IMAGENES.
+            Me.viewot_lw_imagenes.Visible = True
+            Dim i As Integer = 0
+            Me.viewot_il_imagelist.ColorDepth = ColorDepth.Depth32Bit
+            For Each foto In ImagesOrdenes
+                Me.viewot_il_imagelist.Images.Add(i, Image.FromFile(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "\" & foto))
+                Me.viewot_lw_imagenes.Items.Add("", "", i)
+                i += 1
+            Next
+            Me.viewot_il_imagelist.ImageSize = New Size(70, 70)
+            Me.viewot_lw_imagenes.LargeImageList = Me.viewot_il_imagelist
+            Me.viewot_lw_imagenes.View = View.LargeIcon
+            Me.viewot_lw_imagenes.Refresh()
+        Else
+            ' # SI NO EXISTEN IMAGENES.
+            Me.viewot_tabpage_foto.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/viewot_nofoto.png")
+        End If
+        ' # CARGAMOS LOS COMENTARIOS DE LA ORDEN DE TRABAJO.
+        Call PGSQL_GETCOMENTARIOSOT(NumeroOrdenTrabajo, Me.viewot_dg_comentarios)
+        Me.viewot_dg_comentarios.Columns("id").Width = 30
+        Me.viewot_dg_comentarios.Columns("fecha").Width = 60
+        Me.viewot_dg_comentarios.Columns("hora").Width = 60
+        Me.viewot_dg_comentarios.Columns("comentario").Width = 360
+        Me.viewot_dg_comentarios.Columns("usuario").Width = 240
     End Sub
     Private Sub viewot_pic_close_Click(sender As Object, e As EventArgs) Handles viewot_pic_close.Click
         Me.Close()
+    End Sub
+    Private Sub viewot_lw_imagenes_DoubleClick(sender As Object, e As EventArgs) Handles viewot_lw_imagenes.DoubleClick
+        If IO.File.Exists(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "\" & ImagesOrdenes(Me.viewot_lw_imagenes.SelectedItems(0).Index).ToString) Then
+            Dim VisualizadorImagenes As New imagen_visualizer
+            VisualizadorImagenes.visorimagen_pic_image.Image = Image.FromFile(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "\" & ImagesOrdenes(Me.viewot_lw_imagenes.SelectedItems(0).Index).ToString)
+            VisualizadorImagenes.ShowDialog()
+        Else
+            MessageBox.Show("No se puede encontrar el archivo de imagen en la ruta especificada.", Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Class

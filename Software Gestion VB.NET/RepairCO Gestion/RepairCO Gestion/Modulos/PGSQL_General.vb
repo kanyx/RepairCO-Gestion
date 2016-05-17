@@ -19,6 +19,7 @@ Module PGSQL_General
             While rd.Read()
                 Resultado.Add(rd.Item(1))
             End While
+            ConnectorPGSQL.Close()
             If Resultado.Count <= 0 Then
                 Return False
             Else
@@ -76,6 +77,7 @@ Module PGSQL_General
             CommPGSQL.CommandText = "SELECT id, razonsocial FROM clientes"
             Dim dr = CommPGSQL.ExecuteReader
             If dr.HasRows = False Then
+                ConexPGSQL.Close()
                 Exit Sub
             End If
             _globalClientes = New List(Of KeyValuePair(Of String, String))
@@ -103,6 +105,7 @@ Module PGSQL_General
             CommandPGSQL.CommandText = "SELECT id, nombre FROM tipos_productos ORDER by nombre ASC"
             Dim rd = CommandPGSQL.ExecuteReader
             If rd.HasRows = False Then
+                ConnectorPGSQL.Close()
                 Exit Sub
             End If
             _globalTipos = New List(Of KeyValuePair(Of String, String))
@@ -132,6 +135,7 @@ Module PGSQL_General
             CommPGSQL.Parameters.AddWithValue("@tipo", Integer.Parse(IdTipo))
             Dim rd = CommPGSQL.ExecuteReader
             If rd.HasRows = False Then
+                ConexPGSQL.Close()
                 Exit Sub
             End If
             _globalMarcas = New List(Of KeyValuePair(Of String, String))
@@ -163,6 +167,7 @@ Module PGSQL_General
             CommandPGSQL.Parameters.AddWithValue("@tipo", Integer.Parse(idTipo))
             Dim dr = CommandPGSQL.ExecuteReader
             If dr.HasRows = False Then
+                ConexPostgreSQL.Close()
                 Exit Sub
             End If
             _globalModelos = New List(Of KeyValuePair(Of String, String))
@@ -201,6 +206,7 @@ Module PGSQL_General
             While dr.Read
                 ValueReturn.Add(dr(0).ToString, dr(2).ToString.ToUpper)
             End While
+            ConexPostgreSQL.Close()
             Return ValueReturn
         Catch ex As Exception
             MessageBox.Show("Ocurrió un error al momento de cargar la lista de ing. reparables desde la base de datos." & _
@@ -227,6 +233,7 @@ Module PGSQL_General
             CommandPGSQL.CommandText = "SELECT id, nombre FROM paises"
             Dim dr = CommandPGSQL.ExecuteReader
             If dr.HasRows = False Then
+                ConexPostgreSQL.Close()
                 Exit Sub
             End If
             _globalPaises = New List(Of KeyValuePair(Of String, String))
@@ -257,6 +264,7 @@ Module PGSQL_General
             CommandPGSQL.Parameters.AddWithValue("@numerot", Integer.Parse(NumeroOT))
             Dim rd = CommandPGSQL.ExecuteReader()
             If rd.HasRows = False Then
+                ConexPostgreSQL.Close()
                 Return ""
             End If
             rd.Read()
@@ -288,6 +296,7 @@ Module PGSQL_General
             CommandPGSQL.Parameters.AddWithValue("@limite", MaxImages)
             Dim rd = CommandPGSQL.ExecuteReader()
             If rd.HasRows = False Then
+                ConexPostgreSQL.Close()
                 Return Imagenes
             End If
             While rd.Read
@@ -345,6 +354,7 @@ Module PGSQL_General
             rd = CommandPGSQL.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                ConexPGSQL.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -411,6 +421,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -472,6 +483,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -525,6 +537,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -570,6 +583,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -616,6 +630,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -660,6 +675,7 @@ Module PGSQL_General
             rd = PGSQLCommand.ExecuteReader
             If rd.HasRows = False Then
                 ReturnArray.Add("")
+                PGSQLConex.Close()
                 Return ReturnArray
             End If
             rd.Read()
@@ -698,11 +714,45 @@ Module PGSQL_General
             PGSQLrd = PGSQLCommand.ExecuteReader
             PGSQLDataTable.Load(PGSQLrd)
             DTGW.DataSource = PGSQLDataTable
+            PGSQLConex.Close()
         Catch ex As Exception
             ' # EN CASO DE ERROR AL GUARDAR LA INFORMACION.
             MessageBox.Show("Ocurrió un error al cargar las ordenes de trabajo desde la base de datos, por favor contacte al equipo de desarrollo.", _
                             Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
+        End Try
+    End Sub
+    Public Sub PGSQL_GETCOMENTARIOSOT(ByVal NumeroOrden As String, ByVal DGW As DataGridView)
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, fecha, hora, comentario, idot, concat(nombres, ' ', apellido_p, ' ', apellido_m) AS USUARIO FROM view_comentarios WHERE idot=@OT ORDER BY ID DESC"
+            PGSQLCommand.Parameters.AddWithValue("@OT", Integer.Parse(NumeroOrden))
+            rd = PGSQLCommand.ExecuteReader
+            PGSQLDataTable.Load(rd)
+            DGW.DataSource = PGSQLDataTable
+            ' # MODIFICACION DATAGRID
+            DGW.Columns("idot").Visible = False
+            DGW.Columns("id").HeaderText = "ID"
+            DGW.Columns("fecha").HeaderText = "FECHA"
+            DGW.Columns("hora").HeaderText = "HORA"
+            DGW.Columns("comentario").HeaderText = "COMENTARIO"
+            DGW.Columns("usuario").HeaderText = "USUARIO"
+            PGSQLConex.Close()
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar la información del ingeniero reparable desde la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                         "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                         MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 End Module

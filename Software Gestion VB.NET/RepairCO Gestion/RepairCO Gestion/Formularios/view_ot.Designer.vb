@@ -22,6 +22,7 @@ Partial Class view_ot
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.viewot_tab_ot = New System.Windows.Forms.TabControl()
         Me.viewot_tabpage_foto = New System.Windows.Forms.TabPage()
         Me.viewot_tabpage_comentarios = New System.Windows.Forms.TabPage()
@@ -65,13 +66,19 @@ Partial Class view_ot
         Me.viewot_lbl_ot = New System.Windows.Forms.Label()
         Me.viewot_pic_title = New System.Windows.Forms.PictureBox()
         Me.viewot_pic_close = New System.Windows.Forms.PictureBox()
+        Me.viewot_lw_imagenes = New System.Windows.Forms.ListView()
+        Me.viewot_il_imagelist = New System.Windows.Forms.ImageList(Me.components)
+        Me.viewot_dg_comentarios = New System.Windows.Forms.DataGridView()
         Me.viewot_tab_ot.SuspendLayout()
+        Me.viewot_tabpage_foto.SuspendLayout()
+        Me.viewot_tabpage_comentarios.SuspendLayout()
         Me.viewot_gb_datos.SuspendLayout()
         CType(Me.viewot_pic_save, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.viewot_gb_tipoot.SuspendLayout()
         CType(Me.viewot_pic_ot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.viewot_dg_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'viewot_tab_ot
@@ -88,6 +95,7 @@ Partial Class view_ot
         '
         'viewot_tabpage_foto
         '
+        Me.viewot_tabpage_foto.Controls.Add(Me.viewot_lw_imagenes)
         Me.viewot_tabpage_foto.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.viewot_tabpage_foto.Location = New System.Drawing.Point(4, 21)
         Me.viewot_tabpage_foto.Name = "viewot_tabpage_foto"
@@ -99,6 +107,7 @@ Partial Class view_ot
         '
         'viewot_tabpage_comentarios
         '
+        Me.viewot_tabpage_comentarios.Controls.Add(Me.viewot_dg_comentarios)
         Me.viewot_tabpage_comentarios.Location = New System.Drawing.Point(4, 21)
         Me.viewot_tabpage_comentarios.Name = "viewot_tabpage_comentarios"
         Me.viewot_tabpage_comentarios.Padding = New System.Windows.Forms.Padding(3)
@@ -516,6 +525,29 @@ Partial Class view_ot
         Me.viewot_pic_close.TabIndex = 6
         Me.viewot_pic_close.TabStop = False
         '
+        'viewot_lw_imagenes
+        '
+        Me.viewot_lw_imagenes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.viewot_lw_imagenes.Location = New System.Drawing.Point(3, 3)
+        Me.viewot_lw_imagenes.Name = "viewot_lw_imagenes"
+        Me.viewot_lw_imagenes.Size = New System.Drawing.Size(803, 231)
+        Me.viewot_lw_imagenes.TabIndex = 0
+        Me.viewot_lw_imagenes.UseCompatibleStateImageBehavior = False
+        '
+        'viewot_il_imagelist
+        '
+        Me.viewot_il_imagelist.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.viewot_il_imagelist.ImageSize = New System.Drawing.Size(16, 16)
+        Me.viewot_il_imagelist.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'viewot_dg_comentarios
+        '
+        Me.viewot_dg_comentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.viewot_dg_comentarios.Location = New System.Drawing.Point(3, 25)
+        Me.viewot_dg_comentarios.Name = "viewot_dg_comentarios"
+        Me.viewot_dg_comentarios.Size = New System.Drawing.Size(803, 209)
+        Me.viewot_dg_comentarios.TabIndex = 0
+        '
         'view_ot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -533,6 +565,8 @@ Partial Class view_ot
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "view_ot"
         Me.viewot_tab_ot.ResumeLayout(False)
+        Me.viewot_tabpage_foto.ResumeLayout(False)
+        Me.viewot_tabpage_comentarios.ResumeLayout(False)
         Me.viewot_gb_datos.ResumeLayout(False)
         Me.viewot_gb_datos.PerformLayout()
         CType(Me.viewot_pic_save, System.ComponentModel.ISupportInitialize).EndInit()
@@ -541,6 +575,7 @@ Partial Class view_ot
         CType(Me.viewot_pic_ot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.viewot_dg_comentarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -587,4 +622,7 @@ Partial Class view_ot
     Friend WithEvents viewot_pic_close As System.Windows.Forms.PictureBox
     Friend WithEvents viewot_pic_save As System.Windows.Forms.PictureBox
     Friend WithEvents viewot_txt_fecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents viewot_lw_imagenes As System.Windows.Forms.ListView
+    Friend WithEvents viewot_il_imagelist As System.Windows.Forms.ImageList
+    Friend WithEvents viewot_dg_comentarios As System.Windows.Forms.DataGridView
 End Class

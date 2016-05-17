@@ -47,6 +47,7 @@ Public Class form_ingreso
         Me.ingreso_cmb_modelo.Enabled = False
         Me.ingreso_pn_comentarios.Visible = False
         Me.ingreso_cmb_ireparable.Enabled = False
+        Me.ingresot_il_fotos.ColorDepth = ColorDepth.Depth32Bit
         ' # SETEAMOS VALORES DEL TOOLTIP
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addmarca, "Presione aquí para ingresar una nueva marca.")

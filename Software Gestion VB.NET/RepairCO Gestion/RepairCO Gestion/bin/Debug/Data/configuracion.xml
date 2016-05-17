@@ -6,6 +6,6 @@
     <username>postgres</username>
     <password>kanmc267</password>
     <nombre>repairco</nombre>
-	<pathserver>\\192.168.0.10\Servidor\Desarrollo\</pathserver>
+    <pathserver>\\192.168.0.10\Servidor\Desarrollo\</pathserver>
   </db>
 </RepairCo>

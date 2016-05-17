@@ -4,9 +4,11 @@
         Me.BackColor = Color.White
         Me.gestionot_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_gestionot_title.png")
         Me.gestionot_pic_buscar.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/buscar32.png")
+        Me.gestionot_pn_loadot.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/cargando_small.png")
         Me.gestionot_pic_title.SizeMode = PictureBoxSizeMode.StretchImage
         Me.gestionot_pic_buscar.SizeMode = PictureBoxSizeMode.StretchImage
         Me.gestionot_pic_buscar.Cursor = Cursors.Hand
+        Me.gestionot_pn_loadot.Visible = False
         Me.gestionot_tp_help.SetToolTip(Me.gestionot_pic_buscar, "Presione aquí para aplicar los filtros de búsqueda.")
         Me.gestionot_tp_help.SetToolTip(Me.gestionot_cmb_cliente, "Seleccione nombre del cliente.")
         Me.gestionot_tp_help.SetToolTip(Me.gestionot_cmb_tipo, "Seleccione el tipo de producto.")
@@ -42,6 +44,7 @@
     Private Sub gestionot_dg_resultados_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles gestionot_dg_resultados.CellDoubleClick
         ' # AL HACER DOBLE CLICK CARGA EL VALOR DE LA (CELDA 0) QUE CONTIENE EL NUMERO DE OT
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Me.gestionot_pn_loadot.Visible = True
             Dim RegistroSeleccionado = gestionot_dg_resultados.Rows(e.RowIndex)
             'MsgBox(RegistroSeleccionado.Cells(0).Value)
             Dim frm_viewot As New view_ot
@@ -49,6 +52,7 @@
             frm_viewot.ShowInTaskbar = False
             frm_viewot.StartPosition = FormStartPosition.CenterScreen
             frm_viewot.ShowDialog()
+            Me.gestionot_pn_loadot.Visible = False
         End If
     End Sub
 End Class

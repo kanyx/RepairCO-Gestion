@@ -37,6 +37,7 @@ Partial Class gestion_ot
         Me.gestionot_lbl_rfilter = New System.Windows.Forms.LinkLabel()
         Me.gestionot_pic_title = New System.Windows.Forms.PictureBox()
         Me.gestionot_tp_help = New System.Windows.Forms.ToolTip(Me.components)
+        Me.gestionot_pn_loadot = New System.Windows.Forms.Panel()
         Me.gestionot_gb_resultados.SuspendLayout()
         CType(Me.gestionot_dg_resultados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gestionot_gb_filtros.SuspendLayout()
@@ -171,12 +172,20 @@ Partial Class gestion_ot
         Me.gestionot_pic_title.TabIndex = 4
         Me.gestionot_pic_title.TabStop = False
         '
+        'gestionot_pn_loadot
+        '
+        Me.gestionot_pn_loadot.Location = New System.Drawing.Point(187, 148)
+        Me.gestionot_pn_loadot.Name = "gestionot_pn_loadot"
+        Me.gestionot_pn_loadot.Size = New System.Drawing.Size(449, 158)
+        Me.gestionot_pn_loadot.TabIndex = 5
+        '
         'gestion_ot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(887, 492)
+        Me.Controls.Add(Me.gestionot_pn_loadot)
         Me.Controls.Add(Me.gestionot_pic_title)
         Me.Controls.Add(Me.gestionot_lbl_rfilter)
         Me.Controls.Add(Me.gestionot_gb_filtros)
@@ -210,4 +219,5 @@ Partial Class gestion_ot
     Friend WithEvents gestionot_pic_title As System.Windows.Forms.PictureBox
     Friend WithEvents gestionot_tp_help As System.Windows.Forms.ToolTip
     Friend WithEvents gestionot_dg_resultados As System.Windows.Forms.DataGridView
+    Public WithEvents gestionot_pn_loadot As System.Windows.Forms.Panel
 End Class

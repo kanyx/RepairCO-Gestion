@@ -24,6 +24,8 @@ Partial Class form_ingreso
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ingreso_gp_datos = New System.Windows.Forms.GroupBox()
+        Me.ingreso_cmb_ireparable = New System.Windows.Forms.ComboBox()
+        Me.ingreso_lbl_ireparable = New System.Windows.Forms.Label()
         Me.ingreso_txt_agendamiento = New System.Windows.Forms.TextBox()
         Me.ingreso_lbl_agendamiento = New System.Windows.Forms.Label()
         Me.ingreso_pic_comentarios = New System.Windows.Forms.PictureBox()
@@ -78,8 +80,6 @@ Partial Class form_ingreso
         Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
         Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
         Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
-        Me.ingreso_lbl_ireparable = New System.Windows.Forms.Label()
-        Me.ingreso_cmb_ireparable = New System.Windows.Forms.ComboBox()
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,6 +141,27 @@ Partial Class form_ingreso
         Me.ingreso_gp_datos.TabIndex = 0
         Me.ingreso_gp_datos.TabStop = False
         Me.ingreso_gp_datos.Text = "DATOS OT"
+        '
+        'ingreso_cmb_ireparable
+        '
+        Me.ingreso_cmb_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_cmb_ireparable.FormattingEnabled = True
+        Me.ingreso_cmb_ireparable.Location = New System.Drawing.Point(8, 224)
+        Me.ingreso_cmb_ireparable.Name = "ingreso_cmb_ireparable"
+        Me.ingreso_cmb_ireparable.Size = New System.Drawing.Size(231, 20)
+        Me.ingreso_cmb_ireparable.TabIndex = 34
+        Me.ingreso_cmb_ireparable.Text = "SELECCIONE ING. REPARABLE"
+        '
+        'ingreso_lbl_ireparable
+        '
+        Me.ingreso_lbl_ireparable.AutoSize = True
+        Me.ingreso_lbl_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ingreso_lbl_ireparable.ForeColor = System.Drawing.Color.Black
+        Me.ingreso_lbl_ireparable.Location = New System.Drawing.Point(6, 208)
+        Me.ingreso_lbl_ireparable.Name = "ingreso_lbl_ireparable"
+        Me.ingreso_lbl_ireparable.Size = New System.Drawing.Size(136, 12)
+        Me.ingreso_lbl_ireparable.TabIndex = 33
+        Me.ingreso_lbl_ireparable.Text = "INGENIERO REPARABLE"
         '
         'ingreso_txt_agendamiento
         '
@@ -658,27 +679,6 @@ Partial Class form_ingreso
         Me.ingreso_pic_commenotitle.Size = New System.Drawing.Size(211, 27)
         Me.ingreso_pic_commenotitle.TabIndex = 0
         Me.ingreso_pic_commenotitle.TabStop = False
-        '
-        'ingreso_lbl_ireparable
-        '
-        Me.ingreso_lbl_ireparable.AutoSize = True
-        Me.ingreso_lbl_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_lbl_ireparable.ForeColor = System.Drawing.Color.Black
-        Me.ingreso_lbl_ireparable.Location = New System.Drawing.Point(6, 208)
-        Me.ingreso_lbl_ireparable.Name = "ingreso_lbl_ireparable"
-        Me.ingreso_lbl_ireparable.Size = New System.Drawing.Size(136, 12)
-        Me.ingreso_lbl_ireparable.TabIndex = 33
-        Me.ingreso_lbl_ireparable.Text = "INGENIERO REPARABLE"
-        '
-        'ingreso_cmb_ireparable
-        '
-        Me.ingreso_cmb_ireparable.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingreso_cmb_ireparable.FormattingEnabled = True
-        Me.ingreso_cmb_ireparable.Location = New System.Drawing.Point(8, 224)
-        Me.ingreso_cmb_ireparable.Name = "ingreso_cmb_ireparable"
-        Me.ingreso_cmb_ireparable.Size = New System.Drawing.Size(231, 20)
-        Me.ingreso_cmb_ireparable.TabIndex = 34
-        Me.ingreso_cmb_ireparable.Text = "SELECCIONE ING. REPARABLE"
         '
         'form_ingreso
         '
