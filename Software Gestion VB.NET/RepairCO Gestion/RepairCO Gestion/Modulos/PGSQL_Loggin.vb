@@ -33,7 +33,7 @@ Module PGSQL_Loggin
             Login_ConnectorPGSQL.Open()
             Login_CommandPGSQL = New NpgsqlCommand
             Login_CommandPGSQL.Connection = Login_ConnectorPGSQL
-            Login_CommandPGSQL.CommandText = "SELECT * FROM personal WHERE username=@usuario LIMIT 1"
+            Login_CommandPGSQL.CommandText = "SELECT id, username, password, isMec FROM personal WHERE username=@usuario AND isMec=0 LIMIT 1"
             Login_CommandPGSQL.Parameters.AddWithValue("@usuario", Usuario.Text)
             Dim rd = Login_CommandPGSQL.ExecuteReader()
             If rd.HasRows = False Then

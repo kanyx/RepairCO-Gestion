@@ -48,3 +48,5 @@ C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.exe
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.xml
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\S.G.O.pdb
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.mec_loggin.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.mec_keyboard.resources

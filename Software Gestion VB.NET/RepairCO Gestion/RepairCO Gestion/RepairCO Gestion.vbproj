@@ -22,6 +22,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>S.G.O.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -94,6 +95,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Clases\UserImpersonation.vb" />
     <Compile Include="Formularios\Tactil\form_bcentrifuga.Designer.vb">
       <DependentUpon>form_bcentrifuga.vb</DependentUpon>
@@ -155,6 +157,18 @@
     <Compile Include="Formularios\main_menu_lateral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Tactil\mec_keyboard.Designer.vb">
+      <DependentUpon>mec_keyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_keyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_loggin.Designer.vb">
+      <DependentUpon>mec_loggin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_loggin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\view_ot.Designer.vb">
       <DependentUpon>view_ot.vb</DependentUpon>
     </Compile>
@@ -181,10 +195,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos\FILE_Manager.vb" />
+    <Compile Include="Modulos\FUNC_Keyboard.vb" />
     <Compile Include="Modulos\imagenes.vb" />
     <Compile Include="Modulos\PGSQL_General.vb" />
     <Compile Include="Modulos\PGSQL_Loggin.vb" />
     <Compile Include="Modulos\PGSQL_Ingreso.vb" />
+    <Compile Include="Modulos\PGSQL_MECSTA.vb" />
     <Compile Include="Modulos\PGSQL_Reportes.vb" />
     <Compile Include="Modulos\reportes.vb" />
     <Compile Include="Modulos\variables_globales.vb" />
@@ -234,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\main_menu_lateral.resx">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_keyboard.resx">
+      <DependentUpon>mec_keyboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_loggin.resx">
+      <DependentUpon>mec_loggin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\view_ot.resx">
       <DependentUpon>view_ot.vb</DependentUpon>
