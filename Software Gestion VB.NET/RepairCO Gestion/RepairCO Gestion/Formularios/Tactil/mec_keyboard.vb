@@ -1,8 +1,12 @@
 ﻿Public Class mec_keyboard
     Public Control As TextBox
+    Public MaxChar As Integer
+    Public CursorPosition As Integer
+    Private TextChange As Boolean = False
     Private Sub mec_keyboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Control.Focus()
         Control.BackColor = ColorTranslator.FromHtml("#4d8bd4")
+        Control.ForeColor = ColorTranslator.FromHtml("#ffffff")
         ' # CARGA DE ELEMENTOS GRAFICOS DE LA APLICACION.
         ' # CARGAMOS TODAS LAS IMAGENES A UN CONTROL IMAGELIST.
         Me.key_img_List.ColorDepth = ColorDepth.Depth32Bit
@@ -59,57 +63,80 @@
         ' # SETEAMOS ALGUNOS PARAMETROS DE LOS CONTROLES.
         Me.key_pic_close.SizeMode = PictureBoxSizeMode.StretchImage
         Me.key_pic_close.BackColor = Color.Transparent
+        Me.key_sender.Visible = True
+        Me.key_sender.Location = New Point(200, 300)
+        If MaxChar <> 0 Then
+            Me.key_sender.MaxLength = MaxChar
+        End If
+        Me.key_sender.Focus()
+        Me.key_sender.SelectionStart = CursorPosition
     End Sub
     Private Sub key_pic_1_Click(sender As Object, e As EventArgs) Handles key_pic_1.Click
-        Control.Text = Control.Text & "1"
+        TextChange = True
+        SendKeys.Send("1")
     End Sub
     Private Sub key_pic_2_Click(sender As Object, e As EventArgs) Handles key_pic_2.Click
-        Control.Text = Control.Text & "2"
+        TextChange = True
+        SendKeys.Send("2")
     End Sub
     Private Sub key_pic_3_Click(sender As Object, e As EventArgs) Handles key_pic_3.Click
-        Control.Text = Control.Text & "3"
+        TextChange = True
+        SendKeys.Send("3")
     End Sub
     Private Sub key_pic_4_Click(sender As Object, e As EventArgs) Handles key_pic_4.Click
-        Control.Text = Control.Text & "4"
+        TextChange = True
+        SendKeys.Send("4")
     End Sub
     Private Sub key_pic_5_Click(sender As Object, e As EventArgs) Handles key_pic_5.Click
-        Control.Text = Control.Text & "5"
+        TextChange = True
+        SendKeys.Send("5")
     End Sub
     Private Sub key_pic_6_Click(sender As Object, e As EventArgs) Handles key_pic_6.Click
-        Control.Text = Control.Text & "6"
+        TextChange = True
+        SendKeys.Send("6")
     End Sub
     Private Sub key_pic_7_Click(sender As Object, e As EventArgs) Handles key_pic_7.Click
-        Control.Text = Control.Text & "7"
+        TextChange = True
+        SendKeys.Send("7")
     End Sub
     Private Sub key_pic_8_Click(sender As Object, e As EventArgs) Handles key_pic_8.Click
-        Control.Text = Control.Text & "8"
+        TextChange = True
+        SendKeys.Send("8")
     End Sub
     Private Sub key_pic_9_Click(sender As Object, e As EventArgs) Handles key_pic_9.Click
-        Control.Text = Control.Text & "9"
+        TextChange = True
+        SendKeys.Send("9")
     End Sub
     Private Sub key_pic_0_Click(sender As Object, e As EventArgs) Handles key_pic_0.Click
-        Control.Text = Control.Text & "0"
+        TextChange = True
+        SendKeys.Send("0")
     End Sub
     Private Sub key_pic_delete_Click(sender As Object, e As EventArgs) Handles key_pic_delete.Click
-        If Control.Text < " " Then
-            Control.Text = Mid(Control.Text, 1, Len(Control.Text) - 1 + 1)
-        Else
-            Control.Text = Mid(Control.Text, 1, Len(Control.Text) - 1)
-        End If
+        TextChange = True
+        SendKeys.Send("{BACKSPACE}")
     End Sub
     Private Sub key_pic_space_Click(sender As Object, e As EventArgs) Handles key_pic_space.Click
-        Control.Text = Control.Text & " "
+        TextChange = True
+        SendKeys.Send(" ")
     End Sub
     Private Sub key_pic_dot_Click(sender As Object, e As EventArgs) Handles key_pic_dot.Click
-        Control.Text = Control.Text & "."
+        TextChange = True
+        SendKeys.Send(".")
     End Sub
     Private Sub key_pic_coma_Click(sender As Object, e As EventArgs) Handles key_pic_coma.Click
-        Control.Text = Control.Text & ","
+        TextChange = True
+        SendKeys.Send(",")
     End Sub
     Private Sub key_pic_guion_Click(sender As Object, e As EventArgs) Handles key_pic_guion.Click
-        Control.Text = Control.Text & "-"
+        TextChange = True
+        SendKeys.Send("-")
     End Sub
     Private Sub key_pic_close_Click(sender As Object, e As EventArgs) Handles key_pic_close.Click
         Me.Close()
+    End Sub
+    Private Sub key_sender_TextChanged(sender As Object, e As EventArgs) Handles key_sender.TextChanged
+        If TextChange = True Then
+            Control.Text = Me.key_sender.Text
+        End If
     End Sub
 End Class

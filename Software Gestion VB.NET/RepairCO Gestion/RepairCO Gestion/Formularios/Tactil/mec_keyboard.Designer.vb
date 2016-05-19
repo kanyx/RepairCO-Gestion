@@ -41,6 +41,7 @@ Partial Class mec_keyboard
         Me.key_pic_1 = New System.Windows.Forms.PictureBox()
         Me.key_img_List = New System.Windows.Forms.ImageList(Me.components)
         Me.key_pic_close = New System.Windows.Forms.PictureBox()
+        Me.key_sender = New System.Windows.Forms.TextBox()
         Me.keyboard_pn_numerico.SuspendLayout()
         CType(Me.key_pic_guion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.key_pic_coma, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -218,11 +219,19 @@ Partial Class mec_keyboard
         Me.key_pic_close.TabIndex = 1
         Me.key_pic_close.TabStop = False
         '
+        'key_sender
+        '
+        Me.key_sender.Location = New System.Drawing.Point(92, 12)
+        Me.key_sender.Name = "key_sender"
+        Me.key_sender.Size = New System.Drawing.Size(100, 20)
+        Me.key_sender.TabIndex = 2
+        '
         'mec_keyboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(415, 283)
+        Me.Controls.Add(Me.key_sender)
         Me.Controls.Add(Me.key_pic_close)
         Me.Controls.Add(Me.keyboard_pn_numerico)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -247,6 +256,7 @@ Partial Class mec_keyboard
         CType(Me.key_pic_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.key_pic_close, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents keyboard_pn_numerico As System.Windows.Forms.Panel
@@ -267,4 +277,5 @@ Partial Class mec_keyboard
     Friend WithEvents key_pic_coma As System.Windows.Forms.PictureBox
     Friend WithEvents key_pic_dot As System.Windows.Forms.PictureBox
     Friend WithEvents key_pic_close As System.Windows.Forms.PictureBox
+    Friend WithEvents key_sender As System.Windows.Forms.TextBox
 End Class

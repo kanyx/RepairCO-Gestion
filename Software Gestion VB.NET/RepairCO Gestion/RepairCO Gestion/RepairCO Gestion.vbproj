@@ -97,12 +97,6 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Clases\UserImpersonation.vb" />
-    <Compile Include="Formularios\Tactil\form_bcentrifuga.Designer.vb">
-      <DependentUpon>form_bcentrifuga.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Tactil\form_bcentrifuga.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\aboutme.Designer.vb">
       <DependentUpon>aboutme.vb</DependentUpon>
     </Compile>
@@ -157,6 +151,18 @@
     <Compile Include="Formularios\main_menu_lateral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Tactil\mec_dashboard.Designer.vb">
+      <DependentUpon>mec_dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_home.Designer.vb">
+      <DependentUpon>mec_home.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_home.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Tactil\mec_keyboard.Designer.vb">
       <DependentUpon>mec_keyboard.vb</DependentUpon>
     </Compile>
@@ -196,6 +202,7 @@
     </Compile>
     <Compile Include="Modulos\FILE_Manager.vb" />
     <Compile Include="Modulos\FUNC_Keyboard.vb" />
+    <Compile Include="Modulos\FUNC_MISC.vb" />
     <Compile Include="Modulos\imagenes.vb" />
     <Compile Include="Modulos\PGSQL_General.vb" />
     <Compile Include="Modulos\PGSQL_Loggin.vb" />
@@ -221,9 +228,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\Tactil\form_bcentrifuga.resx">
-      <DependentUpon>form_bcentrifuga.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\aboutme.resx">
       <DependentUpon>aboutme.vb</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\main_menu_lateral.resx">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_dashboard.resx">
+      <DependentUpon>mec_dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_home.resx">
+      <DependentUpon>mec_home.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\mec_keyboard.resx">
       <DependentUpon>mec_keyboard.vb</DependentUpon>

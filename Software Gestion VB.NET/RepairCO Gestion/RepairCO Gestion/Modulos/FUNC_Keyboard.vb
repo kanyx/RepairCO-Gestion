@@ -27,12 +27,18 @@
     '                                                                  y:::::y                                    
     '                                                                 yyyyyyy            
     ' ##############################################################################################################
-    Public Sub KEYBOARDRC_SHOW(ByVal Control As TextBox, ByVal Numerico As Boolean, ByVal MainContenedor As Panel, ByVal AjustarPantalla As Boolean)
+    Public Sub KEYBOARDRC_SHOW(ByVal Control As TextBox, ByVal Numerico As Boolean, ByVal MainContenedor As Panel, ByVal AjustarPantalla As Boolean, _
+                               ByVal MaxChars As Integer, Optional ByVal Fixed As Boolean = False)
         Call KEYBOARD_ISOPEN(mec_keyboard)
         Dim keyboardRC As New mec_keyboard
         keyboardRC.Top = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height - keyboardRC.Height
         keyboardRC.Left = (My.Computer.Screen.WorkingArea.Width \ 2) - (keyboardRC.Width \ 2)
         keyboardRC.Opacity = 0.8
+        If MaxChars <> 0 Then
+            keyboardRC.key_sender.MaxLength = MaxChars
+        End If
+        keyboardRC.CursorPosition = Control.SelectionStart
+        keyboardRC.key_sender.Text = Control.Text
         If Numerico = True Then
             ' # SI SE REQUIERE EL TECLADO NUMERICO.
             keyboardRC.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/keyboard/background_numerico.png")
@@ -46,7 +52,12 @@
         keyboardRC.ShowInTaskbar = False
         keyboardRC.ShowIcon = False
         keyboardRC.Control = Control
-        keyboardRC.ShowDialog()
+        If Fixed = True Then
+            keyboardRC.ShowDialog()
+            Exit Sub
+        End If
+        keyboardRC.Show()
+        Exit Sub
     End Sub
     Private Sub KEYBOARD_ISOPEN(ByVal KeyBoard As Form)
         For Each f As Form In Application.OpenForms

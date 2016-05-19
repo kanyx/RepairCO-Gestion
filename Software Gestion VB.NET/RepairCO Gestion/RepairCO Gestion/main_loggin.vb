@@ -64,6 +64,7 @@ Public Class main_loggin
             Me.Hide()
             Dim frm_mecloggin As New mec_loggin
             frm_mecloggin.Show()
+            'mec_dashboard.Show()
         End If
     End Sub
 End Class
