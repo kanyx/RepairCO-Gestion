@@ -81,24 +81,65 @@ Module PGSQL_MECSTA
             Return ReturnArray
         End Try
     End Function
-    Public Sub PGSQL_TACTIL_LOADOT(ByVal idEstacion As String)
-        ' # CARGA LAS ORDENES DE TRABAJO.
+    Public Sub PGSQL_TACTIL_LOADOT(ByVal idEstacion As String, ByVal DGV As DataGridView)
+        ' # FUNNCION QUE CARGA LAS ORDENES DE TRABAJO ASIGANADAS A LA ESTACION.
         Try
             Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
             Dim CommandPGSQL As NpgsqlCommand
             Dim rd As NpgsqlDataReader
             ConexPGSQL.Open()
             CommandPGSQL = New NpgsqlCommand
             CommandPGSQL.Connection = ConexPGSQL
             CommandPGSQL.CommandType = CommandType.Text
-            CommandPGSQL.CommandText = "notrabajo, nombretipo, nombremarca, nombremodelo, idmechanicstation FROM vista_lista_mechstation WHERE idmechanicstation=@NumStation"
+            CommandPGSQL.CommandText = "SELECT notrabajo, nombretipo, concat(nombremarca, ' ', nombremodelo) AS equipo, idmechanicstation, estsadoid, estadonombre, idtipo FROM vista_lista_mechstation WHERE idmechanicstation=@NumStation AND estsadoid !=8"
             CommandPGSQL.Parameters.AddWithValue("@NumStation", Integer.Parse(idEstacion))
+            rd = CommandPGSQL.ExecuteReader
+            PGSQLDataTable.Load(rd)
+            DGV.DataSource = PGSQLDataTable
+            ConexPGSQL.Close()
         Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al cargar las órdenes de trabajo de la estación desde la base de datos, por favor contacte al equipo de desarrollo." & _
+                            vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End Try
     End Sub
+    Public Function PGSQL_TACTIL_MEDSAVE(ByVal NumeroOT As String, ByVal idComponente As String, ByVal Zona As String, ByVal Pos As Integer, ByVal g45 As String, _
+                                         ByVal g90 As String, ByVal g135 As String, ByVal g180 As String, ByVal Promedio As String) As Boolean
+        Try
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                                ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                                ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                                ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                                ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim CommandPGSQL As NpgsqlCommand
+            ConexPGSQL.Open()
+            CommandPGSQL = New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPGSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "INSERT INTO med_ots (notrabajo, idcomponente, g45, g90, g135, g180, apromedio, pos, zona) VALUES (@ot, @componente, @g45, @g90, @g135, @g180, @promedio, @pos, @zona)"
+            CommandPGSQL.Parameters.AddWithValue("@ot", Integer.Parse(NumeroOT))
+            CommandPGSQL.Parameters.AddWithValue("@componente", Integer.Parse(idComponente))
+            CommandPGSQL.Parameters.AddWithValue("@g45", Val(g45))
+            CommandPGSQL.Parameters.AddWithValue("@g90", Val(g90))
+            CommandPGSQL.Parameters.AddWithValue("@g135", Val(g135))
+            CommandPGSQL.Parameters.AddWithValue("@g180", Val(g180))
+            CommandPGSQL.Parameters.AddWithValue("@promedio", Val(Promedio))
+            CommandPGSQL.Parameters.AddWithValue("@pos", Val(Pos))
+            CommandPGSQL.Parameters.AddWithValue("@zona", Val(Zona))
+            CommandPGSQL.ExecuteNonQuery()
+            ConexPGSQL.Close()
+            Return True
+        Catch exe As Exception
+            MessageBox.Show("Ocurrió un error al grabar las medidas del componente en la base de datos, por favor contacte al equipo de desarrollo." & _
+                           vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exe.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
 End Module

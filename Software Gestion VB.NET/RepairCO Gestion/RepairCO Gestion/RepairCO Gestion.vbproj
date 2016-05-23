@@ -151,10 +151,22 @@
     <Compile Include="Formularios\main_menu_lateral.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.Designer.vb">
+      <DependentUpon>eje-imp-cerrado-generico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Tactil\mec_dashboard.Designer.vb">
       <DependentUpon>mec_dashboard.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tactil\mec_dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_desarme.Designer.vb">
+      <DependentUpon>mec_desarme.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_desarme.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Tactil\mec_home.Designer.vb">
@@ -173,6 +185,12 @@
       <DependentUpon>mec_loggin.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tactil\mec_loggin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_med_form.Designer.vb">
+      <DependentUpon>mec_med_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\mec_med_form.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\view_ot.Designer.vb">
@@ -255,8 +273,14 @@
     <EmbeddedResource Include="Formularios\main_menu_lateral.resx">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.resx">
+      <DependentUpon>eje-imp-cerrado-generico.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\mec_dashboard.resx">
       <DependentUpon>mec_dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_desarme.resx">
+      <DependentUpon>mec_desarme.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\mec_home.resx">
       <DependentUpon>mec_home.vb</DependentUpon>
@@ -266,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\mec_loggin.resx">
       <DependentUpon>mec_loggin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\mec_med_form.resx">
+      <DependentUpon>mec_med_form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\view_ot.resx">
       <DependentUpon>view_ot.vb</DependentUpon>

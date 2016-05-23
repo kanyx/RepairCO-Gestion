@@ -22,27 +22,37 @@ Partial Class mec_home
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.mechome_lbl_ico = New System.Windows.Forms.PictureBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.mechome_lbl_ico, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mechome_dg_ot = New System.Windows.Forms.DataGridView()
+        Me.mechome_pic_icot = New System.Windows.Forms.PictureBox()
+        Me.mechome_pic_otasignadas = New System.Windows.Forms.PictureBox()
+        CType(Me.mechome_dg_ot, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mechome_pic_icot, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mechome_pic_otasignadas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'mechome_dg_ot
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(31, 92)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(761, 437)
-        Me.DataGridView1.TabIndex = 0
+        Me.mechome_dg_ot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.mechome_dg_ot.Location = New System.Drawing.Point(31, 92)
+        Me.mechome_dg_ot.Name = "mechome_dg_ot"
+        Me.mechome_dg_ot.Size = New System.Drawing.Size(947, 437)
+        Me.mechome_dg_ot.TabIndex = 0
         '
-        'mechome_lbl_ico
+        'mechome_pic_icot
         '
-        Me.mechome_lbl_ico.Location = New System.Drawing.Point(31, 38)
-        Me.mechome_lbl_ico.Name = "mechome_lbl_ico"
-        Me.mechome_lbl_ico.Size = New System.Drawing.Size(48, 48)
-        Me.mechome_lbl_ico.TabIndex = 1
-        Me.mechome_lbl_ico.TabStop = False
+        Me.mechome_pic_icot.Location = New System.Drawing.Point(31, 38)
+        Me.mechome_pic_icot.Name = "mechome_pic_icot"
+        Me.mechome_pic_icot.Size = New System.Drawing.Size(48, 48)
+        Me.mechome_pic_icot.TabIndex = 1
+        Me.mechome_pic_icot.TabStop = False
+        '
+        'mechome_pic_otasignadas
+        '
+        Me.mechome_pic_otasignadas.Location = New System.Drawing.Point(83, 46)
+        Me.mechome_pic_otasignadas.Name = "mechome_pic_otasignadas"
+        Me.mechome_pic_otasignadas.Size = New System.Drawing.Size(329, 32)
+        Me.mechome_pic_otasignadas.TabIndex = 2
+        Me.mechome_pic_otasignadas.TabStop = False
         '
         'mec_home
         '
@@ -50,16 +60,19 @@ Partial Class mec_home
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1363, 593)
-        Me.Controls.Add(Me.mechome_lbl_ico)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.mechome_pic_otasignadas)
+        Me.Controls.Add(Me.mechome_pic_icot)
+        Me.Controls.Add(Me.mechome_dg_ot)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "mec_home"
         Me.Text = "mec_home"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.mechome_lbl_ico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mechome_dg_ot, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mechome_pic_icot, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mechome_pic_otasignadas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents mechome_lbl_ico As System.Windows.Forms.PictureBox
+    Friend WithEvents mechome_dg_ot As System.Windows.Forms.DataGridView
+    Friend WithEvents mechome_pic_icot As System.Windows.Forms.PictureBox
+    Friend WithEvents mechome_pic_otasignadas As System.Windows.Forms.PictureBox
 End Class
