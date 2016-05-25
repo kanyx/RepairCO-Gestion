@@ -28,6 +28,14 @@
             frm_bomba_impulsorcerrado_camisa.MecTipoProducto = MecTipoProducto
             Me.mecdesarme_pn_camisa.Controls.Add(frm_bomba_impulsorcerrado_camisa)
             frm_bomba_impulsorcerrado_camisa.Show()
+            ' # CUERPO DE RODAMIENTO.
+            Dim frm_bomba_impulsorcerrado_cporod As New cporod_imp_cerrado_generico
+            frm_bomba_impulsorcerrado_cporod.TopLevel = False
+            frm_bomba_impulsorcerrado_cporod.Dock = DockStyle.Fill
+            frm_bomba_impulsorcerrado_cporod.MecOT = MecDesaOT
+            frm_bomba_impulsorcerrado_cporod.MecTipoProducto = MecTipoProducto
+            Me.mecdesarme_pn_cporod.Controls.Add(frm_bomba_impulsorcerrado_cporod)
+            frm_bomba_impulsorcerrado_cporod.Show()
             ' # RESUMEN DEL DESARME DE BOMBA DE IMPULSOR CERRADO.
             Dim frm_bomba_impulsorcerrado_resumen As New mec_desarme_resumen_generic_ic
             frm_bomba_impulsorcerrado_resumen.TopLevel = False

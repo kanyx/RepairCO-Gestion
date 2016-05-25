@@ -239,7 +239,7 @@ Module PGSQL_MECSTA
                 Return ReturnArray
             End If
             While rd.Read
-                Dim Promedio As Long = Val(rd(1)) / Val(rd(2))
+                Dim Promedio As Single = Single.Parse(rd(1)) / Single.Parse(rd(2))
                 ReturnArray.Add(rd(0), Promedio)
             End While
             ConexPGSQL.Close()

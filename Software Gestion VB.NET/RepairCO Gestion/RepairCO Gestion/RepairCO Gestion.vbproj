@@ -151,16 +151,22 @@
     <Compile Include="Formularios\main_menu_lateral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Tactil\frm_desar_tipos\camisa\camisa-imp-cerrado-generico.Designer.vb">
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\camisas\camisa-imp-cerrado-generico.Designer.vb">
       <DependentUpon>camisa-imp-cerrado-generico.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Tactil\frm_desar_tipos\camisa\camisa-imp-cerrado-generico.vb">
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\camisas\camisa-imp-cerrado-generico.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa-imp-cerrado-generico.Designer.vb">
       <DependentUpon>carcasa-imp-cerrado-generico.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa-imp-cerrado-generico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.Designer.vb">
+      <DependentUpon>cporod-imp-cerrado-generico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.Designer.vb">
@@ -297,11 +303,14 @@
     <EmbeddedResource Include="Formularios\main_menu_lateral.resx">
       <DependentUpon>main_menu_lateral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\camisa\camisa-imp-cerrado-generico.resx">
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\camisas\camisa-imp-cerrado-generico.resx">
       <DependentUpon>camisa-imp-cerrado-generico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa-imp-cerrado-generico.resx">
       <DependentUpon>carcasa-imp-cerrado-generico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.resx">
+      <DependentUpon>cporod-imp-cerrado-generico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.resx">
       <DependentUpon>eje-imp-cerrado-generico.vb</DependentUpon>

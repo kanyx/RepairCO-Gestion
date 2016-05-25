@@ -101,9 +101,9 @@
         frm_med_z3.ControlReturn = Me.camisa_txt_z3
         frm_med_z3.PanelCarga = Me.camisa_pn_med
         frm_med_z3.ZoneControlPanel = Me.camisa_pn_z3
-        frm_med_z3.ZoneImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z2_normal.png")
-        frm_med_z3.ZoneImageSucces = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z2_sucess.png")
-        frm_med_z3.ZoneImageError = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z2_active.png")
+        frm_med_z3.ZoneImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z3_normal.png")
+        frm_med_z3.ZoneImageSucces = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z3_sucess.png")
+        frm_med_z3.ZoneImageError = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/camisas/generico_imp_cerrado/z3_active.png")
         Me.camisa_pn_med.Controls.Add(frm_med_z3)
         frm_med_z3.Show()
     End Sub

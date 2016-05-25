@@ -58,3 +58,4 @@ C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.mec_desarme_resumen_generic_ic.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.carcasa_imp_cerrado_generico.resources
 C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.camisa_imp_cerrado_generico.resources
+C:\Users\sguajardo\Desktop\RepairCO SG\Software Gestion VB.NET\RepairCO Gestion\RepairCO Gestion\obj\Debug\RepairCO_Gestion.cporod_imp_cerrado_generico.resources
