@@ -23,33 +23,33 @@ Partial Class eje_imp_cerrado_generico
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.eje_pn_vector = New System.Windows.Forms.Panel()
-        Me.eje_pic_z1 = New System.Windows.Forms.PictureBox()
-        Me.eje_pic_z2 = New System.Windows.Forms.PictureBox()
-        Me.eje_pic_z3 = New System.Windows.Forms.PictureBox()
-        Me.eje_pic_z4 = New System.Windows.Forms.PictureBox()
         Me.eje_pic_z5 = New System.Windows.Forms.PictureBox()
+        Me.eje_pic_z4 = New System.Windows.Forms.PictureBox()
+        Me.eje_pic_z3 = New System.Windows.Forms.PictureBox()
+        Me.eje_pic_z2 = New System.Windows.Forms.PictureBox()
+        Me.eje_pic_z1 = New System.Windows.Forms.PictureBox()
         Me.eje_pic_title = New System.Windows.Forms.PictureBox()
         Me.eje_lbl_z1 = New System.Windows.Forms.Label()
         Me.eje_txt_z1 = New System.Windows.Forms.TextBox()
         Me.eje_gb_datos = New System.Windows.Forms.GroupBox()
-        Me.eje_txt_z2 = New System.Windows.Forms.TextBox()
-        Me.eje_lbl_z2 = New System.Windows.Forms.Label()
-        Me.eje_txt_z3 = New System.Windows.Forms.TextBox()
-        Me.eje_lbl_z3 = New System.Windows.Forms.Label()
-        Me.eje_txt_z4 = New System.Windows.Forms.TextBox()
-        Me.eje_lbl_z4 = New System.Windows.Forms.Label()
-        Me.eje_txt_z5 = New System.Windows.Forms.TextBox()
-        Me.eje_lbl_z5 = New System.Windows.Forms.Label()
         Me.eje_txt_z6 = New System.Windows.Forms.TextBox()
         Me.eje_lbl_z6 = New System.Windows.Forms.Label()
+        Me.eje_txt_z5 = New System.Windows.Forms.TextBox()
+        Me.eje_lbl_z5 = New System.Windows.Forms.Label()
+        Me.eje_txt_z4 = New System.Windows.Forms.TextBox()
+        Me.eje_lbl_z4 = New System.Windows.Forms.Label()
+        Me.eje_txt_z3 = New System.Windows.Forms.TextBox()
+        Me.eje_lbl_z3 = New System.Windows.Forms.Label()
+        Me.eje_txt_z2 = New System.Windows.Forms.TextBox()
+        Me.eje_lbl_z2 = New System.Windows.Forms.Label()
         Me.eje_pic_z6 = New System.Windows.Forms.PictureBox()
         Me.eje_pn_med = New System.Windows.Forms.Panel()
         Me.eje_pn_vector.SuspendLayout()
-        CType(Me.eje_pic_z1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.eje_pic_z2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.eje_pic_z3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.eje_pic_z4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.eje_pic_z5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.eje_pic_z4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.eje_pic_z3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.eje_pic_z2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.eje_pic_z1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.eje_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.eje_gb_datos.SuspendLayout()
         CType(Me.eje_pic_z6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,29 +67,13 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_pn_vector.Size = New System.Drawing.Size(1200, 165)
         Me.eje_pn_vector.TabIndex = 0
         '
-        'eje_pic_z1
+        'eje_pic_z5
         '
-        Me.eje_pic_z1.Location = New System.Drawing.Point(67, 0)
-        Me.eje_pic_z1.Name = "eje_pic_z1"
-        Me.eje_pic_z1.Size = New System.Drawing.Size(125, 165)
-        Me.eje_pic_z1.TabIndex = 1
-        Me.eje_pic_z1.TabStop = False
-        '
-        'eje_pic_z2
-        '
-        Me.eje_pic_z2.Location = New System.Drawing.Point(303, 0)
-        Me.eje_pic_z2.Name = "eje_pic_z2"
-        Me.eje_pic_z2.Size = New System.Drawing.Size(54, 165)
-        Me.eje_pic_z2.TabIndex = 1
-        Me.eje_pic_z2.TabStop = False
-        '
-        'eje_pic_z3
-        '
-        Me.eje_pic_z3.Location = New System.Drawing.Point(719, 0)
-        Me.eje_pic_z3.Name = "eje_pic_z3"
-        Me.eje_pic_z3.Size = New System.Drawing.Size(56, 165)
-        Me.eje_pic_z3.TabIndex = 1
-        Me.eje_pic_z3.TabStop = False
+        Me.eje_pic_z5.Location = New System.Drawing.Point(1103, 0)
+        Me.eje_pic_z5.Name = "eje_pic_z5"
+        Me.eje_pic_z5.Size = New System.Drawing.Size(69, 165)
+        Me.eje_pic_z5.TabIndex = 1
+        Me.eje_pic_z5.TabStop = False
         '
         'eje_pic_z4
         '
@@ -99,13 +83,29 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_pic_z4.TabIndex = 1
         Me.eje_pic_z4.TabStop = False
         '
-        'eje_pic_z5
+        'eje_pic_z3
         '
-        Me.eje_pic_z5.Location = New System.Drawing.Point(1103, 0)
-        Me.eje_pic_z5.Name = "eje_pic_z5"
-        Me.eje_pic_z5.Size = New System.Drawing.Size(69, 165)
-        Me.eje_pic_z5.TabIndex = 1
-        Me.eje_pic_z5.TabStop = False
+        Me.eje_pic_z3.Location = New System.Drawing.Point(719, 0)
+        Me.eje_pic_z3.Name = "eje_pic_z3"
+        Me.eje_pic_z3.Size = New System.Drawing.Size(56, 165)
+        Me.eje_pic_z3.TabIndex = 1
+        Me.eje_pic_z3.TabStop = False
+        '
+        'eje_pic_z2
+        '
+        Me.eje_pic_z2.Location = New System.Drawing.Point(303, 0)
+        Me.eje_pic_z2.Name = "eje_pic_z2"
+        Me.eje_pic_z2.Size = New System.Drawing.Size(54, 165)
+        Me.eje_pic_z2.TabIndex = 1
+        Me.eje_pic_z2.TabStop = False
+        '
+        'eje_pic_z1
+        '
+        Me.eje_pic_z1.Location = New System.Drawing.Point(67, 0)
+        Me.eje_pic_z1.Name = "eje_pic_z1"
+        Me.eje_pic_z1.Size = New System.Drawing.Size(125, 165)
+        Me.eje_pic_z1.TabIndex = 1
+        Me.eje_pic_z1.TabStop = False
         '
         'eje_pic_title
         '
@@ -153,59 +153,23 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_gb_datos.TabIndex = 4
         Me.eje_gb_datos.TabStop = False
         '
-        'eje_txt_z2
+        'eje_txt_z6
         '
-        Me.eje_txt_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.eje_txt_z2.Location = New System.Drawing.Point(691, 19)
-        Me.eje_txt_z2.Name = "eje_txt_z2"
-        Me.eje_txt_z2.Size = New System.Drawing.Size(53, 21)
-        Me.eje_txt_z2.TabIndex = 5
+        Me.eje_txt_z6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.eje_txt_z6.Location = New System.Drawing.Point(691, 125)
+        Me.eje_txt_z6.Name = "eje_txt_z6"
+        Me.eje_txt_z6.Size = New System.Drawing.Size(53, 21)
+        Me.eje_txt_z6.TabIndex = 13
         '
-        'eje_lbl_z2
+        'eje_lbl_z6
         '
-        Me.eje_lbl_z2.AutoSize = True
-        Me.eje_lbl_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.eje_lbl_z2.Location = New System.Drawing.Point(356, 22)
-        Me.eje_lbl_z2.Name = "eje_lbl_z2"
-        Me.eje_lbl_z2.Size = New System.Drawing.Size(329, 15)
-        Me.eje_lbl_z2.TabIndex = 4
-        Me.eje_lbl_z2.Text = "Ø EXT. EJE ZONA ROD. LADO ACOPLAMIENTO (2)"
-        '
-        'eje_txt_z3
-        '
-        Me.eje_txt_z3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.eje_txt_z3.Location = New System.Drawing.Point(285, 74)
-        Me.eje_txt_z3.Name = "eje_txt_z3"
-        Me.eje_txt_z3.Size = New System.Drawing.Size(53, 21)
-        Me.eje_txt_z3.TabIndex = 7
-        '
-        'eje_lbl_z3
-        '
-        Me.eje_lbl_z3.AutoSize = True
-        Me.eje_lbl_z3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.eje_lbl_z3.Location = New System.Drawing.Point(15, 77)
-        Me.eje_lbl_z3.Name = "eje_lbl_z3"
-        Me.eje_lbl_z3.Size = New System.Drawing.Size(264, 15)
-        Me.eje_lbl_z3.TabIndex = 6
-        Me.eje_lbl_z3.Text = "Ø EXT. EJE ZONA ROD. LADO LIBRE (3)"
-        '
-        'eje_txt_z4
-        '
-        Me.eje_txt_z4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.eje_txt_z4.Location = New System.Drawing.Point(691, 74)
-        Me.eje_txt_z4.Name = "eje_txt_z4"
-        Me.eje_txt_z4.Size = New System.Drawing.Size(53, 21)
-        Me.eje_txt_z4.TabIndex = 9
-        '
-        'eje_lbl_z4
-        '
-        Me.eje_lbl_z4.AutoSize = True
-        Me.eje_lbl_z4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.eje_lbl_z4.Location = New System.Drawing.Point(356, 77)
-        Me.eje_lbl_z4.Name = "eje_lbl_z4"
-        Me.eje_lbl_z4.Size = New System.Drawing.Size(272, 15)
-        Me.eje_lbl_z4.TabIndex = 8
-        Me.eje_lbl_z4.Text = "Ø EXT. EJE ZONA CAMISA DESGASTE (4)"
+        Me.eje_lbl_z6.AutoSize = True
+        Me.eje_lbl_z6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eje_lbl_z6.Location = New System.Drawing.Point(356, 131)
+        Me.eje_lbl_z6.Name = "eje_lbl_z6"
+        Me.eje_lbl_z6.Size = New System.Drawing.Size(185, 15)
+        Me.eje_lbl_z6.TabIndex = 12
+        Me.eje_lbl_z6.Text = "CONTROL FLEXION EJE (6)"
         '
         'eje_txt_z5
         '
@@ -225,23 +189,59 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_lbl_z5.TabIndex = 10
         Me.eje_lbl_z5.Text = "Ø EXT. EJE ZONA IMPULSOR (5)"
         '
-        'eje_txt_z6
+        'eje_txt_z4
         '
-        Me.eje_txt_z6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.eje_txt_z6.Location = New System.Drawing.Point(691, 125)
-        Me.eje_txt_z6.Name = "eje_txt_z6"
-        Me.eje_txt_z6.Size = New System.Drawing.Size(53, 21)
-        Me.eje_txt_z6.TabIndex = 13
+        Me.eje_txt_z4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.eje_txt_z4.Location = New System.Drawing.Point(691, 74)
+        Me.eje_txt_z4.Name = "eje_txt_z4"
+        Me.eje_txt_z4.Size = New System.Drawing.Size(53, 21)
+        Me.eje_txt_z4.TabIndex = 9
         '
-        'eje_lbl_z6
+        'eje_lbl_z4
         '
-        Me.eje_lbl_z6.AutoSize = True
-        Me.eje_lbl_z6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.eje_lbl_z6.Location = New System.Drawing.Point(356, 131)
-        Me.eje_lbl_z6.Name = "eje_lbl_z6"
-        Me.eje_lbl_z6.Size = New System.Drawing.Size(185, 15)
-        Me.eje_lbl_z6.TabIndex = 12
-        Me.eje_lbl_z6.Text = "CONTROL FLEXION EJE (6)"
+        Me.eje_lbl_z4.AutoSize = True
+        Me.eje_lbl_z4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eje_lbl_z4.Location = New System.Drawing.Point(356, 77)
+        Me.eje_lbl_z4.Name = "eje_lbl_z4"
+        Me.eje_lbl_z4.Size = New System.Drawing.Size(272, 15)
+        Me.eje_lbl_z4.TabIndex = 8
+        Me.eje_lbl_z4.Text = "Ø EXT. EJE ZONA CAMISA DESGASTE (4)"
+        '
+        'eje_txt_z3
+        '
+        Me.eje_txt_z3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.eje_txt_z3.Location = New System.Drawing.Point(285, 74)
+        Me.eje_txt_z3.Name = "eje_txt_z3"
+        Me.eje_txt_z3.Size = New System.Drawing.Size(53, 21)
+        Me.eje_txt_z3.TabIndex = 7
+        '
+        'eje_lbl_z3
+        '
+        Me.eje_lbl_z3.AutoSize = True
+        Me.eje_lbl_z3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eje_lbl_z3.Location = New System.Drawing.Point(15, 77)
+        Me.eje_lbl_z3.Name = "eje_lbl_z3"
+        Me.eje_lbl_z3.Size = New System.Drawing.Size(264, 15)
+        Me.eje_lbl_z3.TabIndex = 6
+        Me.eje_lbl_z3.Text = "Ø EXT. EJE ZONA ROD. LADO LIBRE (3)"
+        '
+        'eje_txt_z2
+        '
+        Me.eje_txt_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.eje_txt_z2.Location = New System.Drawing.Point(691, 19)
+        Me.eje_txt_z2.Name = "eje_txt_z2"
+        Me.eje_txt_z2.Size = New System.Drawing.Size(53, 21)
+        Me.eje_txt_z2.TabIndex = 5
+        '
+        'eje_lbl_z2
+        '
+        Me.eje_lbl_z2.AutoSize = True
+        Me.eje_lbl_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eje_lbl_z2.Location = New System.Drawing.Point(356, 22)
+        Me.eje_lbl_z2.Name = "eje_lbl_z2"
+        Me.eje_lbl_z2.Size = New System.Drawing.Size(329, 15)
+        Me.eje_lbl_z2.TabIndex = 4
+        Me.eje_lbl_z2.Text = "Ø EXT. EJE ZONA ROD. LADO ACOPLAMIENTO (2)"
         '
         'eje_pic_z6
         '
@@ -255,7 +255,7 @@ Partial Class eje_imp_cerrado_generico
         '
         Me.eje_pn_med.Location = New System.Drawing.Point(378, 44)
         Me.eje_pn_med.Name = "eje_pn_med"
-        Me.eje_pn_med.Size = New System.Drawing.Size(518, 229)
+        Me.eje_pn_med.Size = New System.Drawing.Size(504, 319)
         Me.eje_pn_med.TabIndex = 6
         '
         'eje_imp_cerrado_generico
@@ -274,11 +274,11 @@ Partial Class eje_imp_cerrado_generico
         Me.Name = "eje_imp_cerrado_generico"
         Me.Text = "imp_cerrado_generico"
         Me.eje_pn_vector.ResumeLayout(False)
-        CType(Me.eje_pic_z1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.eje_pic_z2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.eje_pic_z3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.eje_pic_z4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.eje_pic_z5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.eje_pic_z4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.eje_pic_z3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.eje_pic_z2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.eje_pic_z1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.eje_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
         Me.eje_gb_datos.ResumeLayout(False)
         Me.eje_gb_datos.PerformLayout()

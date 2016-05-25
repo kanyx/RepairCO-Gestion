@@ -22,16 +22,22 @@ Partial Class mec_desarme
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.mecdesarme_tb_main = New System.Windows.Forms.TabControl()
         Me.mecdesarme_pn_eje = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_resumen = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_il_tab = New System.Windows.Forms.ImageList(Me.components)
+        Me.mecdesarme_pn_carcasa = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_camisa = New System.Windows.Forms.TabPage()
         Me.mecdesarme_tb_main.SuspendLayout()
         Me.SuspendLayout()
         '
         'mecdesarme_tb_main
         '
         Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_eje)
-        Me.mecdesarme_tb_main.Controls.Add(Me.TabPage2)
+        Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_camisa)
+        Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_carcasa)
+        Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_resumen)
         Me.mecdesarme_tb_main.Location = New System.Drawing.Point(-1, 63)
         Me.mecdesarme_tb_main.Name = "mecdesarme_tb_main"
         Me.mecdesarme_tb_main.SelectedIndex = 0
@@ -48,15 +54,39 @@ Partial Class mec_desarme
         Me.mecdesarme_pn_eje.Text = "EJE"
         Me.mecdesarme_pn_eje.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'mecdesarme_pn_resumen
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1361, 506)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.mecdesarme_pn_resumen.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_resumen.Name = "mecdesarme_pn_resumen"
+        Me.mecdesarme_pn_resumen.Padding = New System.Windows.Forms.Padding(3)
+        Me.mecdesarme_pn_resumen.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_resumen.TabIndex = 1
+        Me.mecdesarme_pn_resumen.Text = "RESUMEN"
+        Me.mecdesarme_pn_resumen.UseVisualStyleBackColor = True
+        '
+        'mecdesarme_il_tab
+        '
+        Me.mecdesarme_il_tab.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
+        Me.mecdesarme_il_tab.ImageSize = New System.Drawing.Size(16, 16)
+        Me.mecdesarme_il_tab.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'mecdesarme_pn_carcasa
+        '
+        Me.mecdesarme_pn_carcasa.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_carcasa.Name = "mecdesarme_pn_carcasa"
+        Me.mecdesarme_pn_carcasa.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_carcasa.TabIndex = 2
+        Me.mecdesarme_pn_carcasa.Text = "CARCASA"
+        Me.mecdesarme_pn_carcasa.UseVisualStyleBackColor = True
+        '
+        'mecdesarme_pn_camisa
+        '
+        Me.mecdesarme_pn_camisa.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_camisa.Name = "mecdesarme_pn_camisa"
+        Me.mecdesarme_pn_camisa.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_camisa.TabIndex = 3
+        Me.mecdesarme_pn_camisa.Text = "CAMISA"
+        Me.mecdesarme_pn_camisa.UseVisualStyleBackColor = True
         '
         'mec_desarme
         '
@@ -74,5 +104,8 @@ Partial Class mec_desarme
     End Sub
     Friend WithEvents mecdesarme_tb_main As System.Windows.Forms.TabControl
     Friend WithEvents mecdesarme_pn_eje As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents mecdesarme_pn_resumen As System.Windows.Forms.TabPage
+    Friend WithEvents mecdesarme_il_tab As System.Windows.Forms.ImageList
+    Friend WithEvents mecdesarme_pn_carcasa As System.Windows.Forms.TabPage
+    Friend WithEvents mecdesarme_pn_camisa As System.Windows.Forms.TabPage
 End Class

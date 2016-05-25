@@ -10,8 +10,32 @@
             frm_bomba_impulsorcerrado_eje.Dock = DockStyle.Fill
             frm_bomba_impulsorcerrado_eje.MecOT = MecDesaOT
             frm_bomba_impulsorcerrado_eje.MecTipoProducto = MecTipoProducto
-            mecdesarme_pn_eje.Controls.Add(frm_bomba_impulsorcerrado_eje)
+            Me.mecdesarme_pn_eje.Controls.Add(frm_bomba_impulsorcerrado_eje)
             frm_bomba_impulsorcerrado_eje.Show()
+            ' # CARCASA.
+            Dim frm_bomba_impulsorcerrado_carcasa As New carcasa_imp_cerrado_generico
+            frm_bomba_impulsorcerrado_carcasa.TopLevel = False
+            frm_bomba_impulsorcerrado_carcasa.Dock = DockStyle.Fill
+            frm_bomba_impulsorcerrado_carcasa.MecOT = MecDesaOT
+            frm_bomba_impulsorcerrado_carcasa.MecTipoProducto = MecTipoProducto
+            Me.mecdesarme_pn_carcasa.Controls.Add(frm_bomba_impulsorcerrado_carcasa)
+            frm_bomba_impulsorcerrado_carcasa.Show()
+            ' # CAMISA.
+            Dim frm_bomba_impulsorcerrado_camisa As New camisa_imp_cerrado_generico
+            frm_bomba_impulsorcerrado_camisa.TopLevel = False
+            frm_bomba_impulsorcerrado_camisa.Dock = DockStyle.Fill
+            frm_bomba_impulsorcerrado_camisa.MecOT = MecDesaOT
+            frm_bomba_impulsorcerrado_camisa.MecTipoProducto = MecTipoProducto
+            Me.mecdesarme_pn_camisa.Controls.Add(frm_bomba_impulsorcerrado_camisa)
+            frm_bomba_impulsorcerrado_camisa.Show()
+            ' # RESUMEN DEL DESARME DE BOMBA DE IMPULSOR CERRADO.
+            Dim frm_bomba_impulsorcerrado_resumen As New mec_desarme_resumen_generic_ic
+            frm_bomba_impulsorcerrado_resumen.TopLevel = False
+            frm_bomba_impulsorcerrado_resumen.Dock = DockStyle.Fill
+            frm_bomba_impulsorcerrado_resumen.MecOT = MecDesaOT
+            Me.mecdesarme_pn_resumen.Controls.Add(frm_bomba_impulsorcerrado_resumen)
+            frm_bomba_impulsorcerrado_resumen.Show()
         End If
+
     End Sub
 End Class

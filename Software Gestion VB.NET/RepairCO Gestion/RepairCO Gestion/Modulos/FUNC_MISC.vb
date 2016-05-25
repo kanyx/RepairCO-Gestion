@@ -26,10 +26,10 @@
         End Try
         Return validacion
     End Function
-    Public Function MISC_CALCULA_MEDIA(ByVal g45 As Integer, ByVal g90 As Integer, ByVal g135 As Integer, ByVal g180 As Integer) As Long
+    Public Function MISC_CALCULA_MEDIA(ByVal g45 As Single, ByVal g90 As Single, ByVal g135 As Single, ByVal g180 As Single) As Single
         Try
-            Dim SumaVolares As Integer = g45 + g90 + g135 + g180
-            Dim Media As Long = SumaVolares / 4
+            Dim SumaVolares As Single = g45 + g90 + g135 + g180
+            Dim Media As Single = SumaVolares / 4
             Return Media
         Catch exe As Exception
             MessageBox.Show("Ocurrio un error al calcular la media de las medidas." & vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & _
@@ -38,10 +38,13 @@
             Return 0.0
         End Try
     End Function
-    Public Function MISC_CALCULA_MEDIA_GENERAL(ByVal A As Integer, ByVal B As Integer, ByVal C As Integer) As Long
+    Public Function MISC_CALCULA_MEDIA_GENERAL(ByVal Valores As List(Of Single)) As Single
         Try
-            Dim SumaValores As Integer = A + B + C
-            Return SumaValores / 4
+            Dim SumaValores As Single = 0
+            For Each valor In Valores
+                SumaValores = Single.Parse(SumaValores) + Single.Parse(valor)
+            Next
+            Return Single.Parse(SumaValores) / Valores.Count
         Catch ex As Exception
             Return 0.0
         End Try
