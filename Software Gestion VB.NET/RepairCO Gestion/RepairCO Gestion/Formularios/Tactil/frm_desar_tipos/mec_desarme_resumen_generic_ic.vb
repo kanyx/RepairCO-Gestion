@@ -1,9 +1,110 @@
 ﻿Public Class mec_desarme_resumen_generic_ic
     Public MecOT As String = "" ' # Numero de orden de trabajo a la cual se necesita obener los resultados del desarme.
     Private Sub mec_desarme_resumen_generic_ic_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' # CARGA DE ELEMENTOS GRAFICOS DEL FORMULARIO
-        Me.resultados_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/resultado_title.png")
+        ' # CARGA DE ELEMENTOS GRAFICOS DEL FORMULARIO.
         Me.resultados_pic_adesgastetitle.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/anillodesgaste_title.png")
         Me.resultados_pic_ejezonarodamientostitle.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/ejezonarodamientos_title.png")
+        Me.resultados_pic_arodinterior.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/alojamientorodamientoexterior_title.png")
+        Me.resultados_pic_cdesgaste.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/camisadesgaste_title.png")
+        Me.resultados_pic_comprobar.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comprobar_hover.png")
+        ' # CARGA PARAMETRO DE CONTROLES.
+        Me.resultados_lbl_ad1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad5.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad6.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ad7.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari5.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ari6.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr5.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_ejezr6.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd5.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd6.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_lbl_cd7.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ads1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ads2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ads3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adsstatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adpstatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintacopla1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintacopla2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintacopla3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintacoplastatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintlibre1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintlibre2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintlibre3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_arodintlibrestatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdla1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdla2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdla3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdla4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdlastatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdll1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdll2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdll3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdll4.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_cdllstatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ejezrodacopla1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ejezrodacopla2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ejezrodacopla3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_ejezrodacoplastatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_txt_adp1.ReadOnly = True
+        Me.resultados_txt_adp2.ReadOnly = True
+        Me.resultados_txt_adp3.ReadOnly = True
+        Me.resultados_txt_adp4.ReadOnly = True
+        Me.resultados_txt_adpstatus.ReadOnly = True
+        Me.resultados_txt_ads1.ReadOnly = True
+        Me.resultados_txt_ads2.ReadOnly = True
+        Me.resultados_txt_ads3.ReadOnly = True
+        Me.resultados_txt_ads4.ReadOnly = True
+        Me.resultados_txt_adsstatus.ReadOnly = True
+        Me.resultados_txt_arodintacopla1.ReadOnly = True
+        Me.resultados_txt_arodintacopla2.ReadOnly = True
+        Me.resultados_txt_arodintacopla3.ReadOnly = True
+        Me.resultados_txt_arodintacoplastatus.ReadOnly = True
+        Me.resultados_txt_arodintlibre1.ReadOnly = True
+        Me.resultados_txt_arodintlibre2.ReadOnly = True
+        Me.resultados_txt_arodintlibre3.ReadOnly = True
+        Me.resultados_txt_arodintlibrestatus.ReadOnly = True
+        Me.resultados_txt_cdla1.ReadOnly = True
+        Me.resultados_txt_cdla2.ReadOnly = True
+        Me.resultados_txt_cdla3.ReadOnly = True
+        Me.resultados_txt_cdla4.ReadOnly = True
+        Me.resultados_txt_cdlastatus.ReadOnly = True
+        Me.resultados_txt_cdll1.ReadOnly = True
+        Me.resultados_txt_cdll2.ReadOnly = True
+        Me.resultados_txt_cdll3.ReadOnly = True
+        Me.resultados_txt_cdll4.ReadOnly = True
+        Me.resultados_txt_cdllstatus.ReadOnly = True
+        Me.resultados_txt_ejezrodacopla1.ReadOnly = True
+        Me.resultados_txt_ejezrodacopla2.ReadOnly = True
+        Me.resultados_txt_ejezrodacopla3.ReadOnly = True
+        Me.resultados_txt_ejezrodacoplastatus.ReadOnly = True
+        Me.resultados_txt_ejezrodlibre1.ReadOnly = True
+        Me.resultados_txt_ejezrodlibre2.ReadOnly = True
+        Me.resultados_txt_ejezrodlibre3.ReadOnly = True
+        Me.resultados_txt_ejezrodlibrestatus.ReadOnly = True
+    End Sub
+    Private Sub resultados_pic_comprobar_Click(sender As Object, e As EventArgs) Handles resultados_pic_comprobar.Click
+        ' # REALIZAMOS LA COMPILACION DE INFORMACION DE LOS FORMULARIOS Y LOS PARAMETROS DE LA BASE DE DATOS
+
     End Sub
 End Class

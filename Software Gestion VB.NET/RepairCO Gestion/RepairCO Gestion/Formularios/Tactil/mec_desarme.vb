@@ -3,8 +3,21 @@
     Public MecTipoProducto As String = "" ' # IDENTIDFICADOR UNICO (ID) DEL TIPO DE PRODUCTO A DESARMAR.
     Private Sub mec_desarme_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' # CARGA ELEMENTOS DEL FORMULARIO. (IMPORTANTE: EN LOS PANELES CARGA FORMULARIOS SEGUN TIPO)
+        ' # CARGA ELEMENTOS GRAFICOS DEL FORMULARIO.
+        Me.mecdesarme_il_tab.Images.Add(0, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_eje.png"))
+        Me.mecdesarme_il_tab.Images.Add(1, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_carcasa.png"))
+        Me.mecdesarme_il_tab.Images.Add(2, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_camisa.png"))
+        Me.mecdesarme_il_tab.Images.Add(3, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_cporod.png"))
+        Me.mecdesarme_il_tab.Images.Add(4, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_impulsor.png"))
+        Me.mecdesarme_il_tab.Images.Add(5, Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ico/icono_resumen.png"))
+        ' # PARAMETROS A LOS CONTROLES.
+        Me.mecdesarme_il_tab.ImageSize = New Size(48, 48)
+        Me.mecdesarme_il_tab.ColorDepth = ColorDepth.Depth32Bit
+        Me.mecdesarme_tb_main.ImageList = Me.mecdesarme_il_tab
+        ' # CARGA FORMULARIOS DE LAS ETAPAS DE DESARME.
         If MecTipoProducto = "27" Then
             ' # CARGAMOS FORMULARIOS DE BOMBA DE IMPULSOR CERRADO (TIP. PROD. 27)
+            ' # EJE.
             Dim frm_bomba_impulsorcerrado_eje As New eje_imp_cerrado_generico
             frm_bomba_impulsorcerrado_eje.TopLevel = False
             frm_bomba_impulsorcerrado_eje.Dock = DockStyle.Fill
