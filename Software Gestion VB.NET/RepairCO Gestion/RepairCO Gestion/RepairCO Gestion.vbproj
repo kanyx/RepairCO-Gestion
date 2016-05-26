@@ -181,6 +181,12 @@
     <Compile Include="Formularios\Tactil\frm_desar_tipos\ejes\mec_med_flexion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor-imp-cerrado-generico.Designer.vb">
+      <DependentUpon>impulsor-imp-cerrado-generico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor-imp-cerrado-generico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\mec_desarme_resumen_generic_ic.Designer.vb">
       <DependentUpon>mec_desarme_resumen_generic_ic.vb</DependentUpon>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\ejes\mec_med_flexion.resx">
       <DependentUpon>mec_med_flexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor-imp-cerrado-generico.resx">
+      <DependentUpon>impulsor-imp-cerrado-generico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\mec_desarme_resumen_generic_ic.resx">
       <DependentUpon>mec_desarme_resumen_generic_ic.vb</DependentUpon>

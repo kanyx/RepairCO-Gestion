@@ -25,11 +25,12 @@ Partial Class mec_desarme
         Me.components = New System.ComponentModel.Container()
         Me.mecdesarme_tb_main = New System.Windows.Forms.TabControl()
         Me.mecdesarme_pn_eje = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_camisa = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_carcasa = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_cporod = New System.Windows.Forms.TabPage()
         Me.mecdesarme_pn_resumen = New System.Windows.Forms.TabPage()
         Me.mecdesarme_il_tab = New System.Windows.Forms.ImageList(Me.components)
-        Me.mecdesarme_pn_carcasa = New System.Windows.Forms.TabPage()
-        Me.mecdesarme_pn_camisa = New System.Windows.Forms.TabPage()
-        Me.mecdesarme_pn_cporod = New System.Windows.Forms.TabPage()
+        Me.mecdesarme_pn_impulsor = New System.Windows.Forms.TabPage()
         Me.mecdesarme_tb_main.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,6 +40,7 @@ Partial Class mec_desarme
         Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_camisa)
         Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_carcasa)
         Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_cporod)
+        Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_impulsor)
         Me.mecdesarme_tb_main.Controls.Add(Me.mecdesarme_pn_resumen)
         Me.mecdesarme_tb_main.Location = New System.Drawing.Point(-1, 63)
         Me.mecdesarme_tb_main.Name = "mecdesarme_tb_main"
@@ -56,6 +58,33 @@ Partial Class mec_desarme
         Me.mecdesarme_pn_eje.Text = "EJE"
         Me.mecdesarme_pn_eje.UseVisualStyleBackColor = True
         '
+        'mecdesarme_pn_camisa
+        '
+        Me.mecdesarme_pn_camisa.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_camisa.Name = "mecdesarme_pn_camisa"
+        Me.mecdesarme_pn_camisa.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_camisa.TabIndex = 3
+        Me.mecdesarme_pn_camisa.Text = "CAMISA"
+        Me.mecdesarme_pn_camisa.UseVisualStyleBackColor = True
+        '
+        'mecdesarme_pn_carcasa
+        '
+        Me.mecdesarme_pn_carcasa.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_carcasa.Name = "mecdesarme_pn_carcasa"
+        Me.mecdesarme_pn_carcasa.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_carcasa.TabIndex = 2
+        Me.mecdesarme_pn_carcasa.Text = "CARCASA"
+        Me.mecdesarme_pn_carcasa.UseVisualStyleBackColor = True
+        '
+        'mecdesarme_pn_cporod
+        '
+        Me.mecdesarme_pn_cporod.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_cporod.Name = "mecdesarme_pn_cporod"
+        Me.mecdesarme_pn_cporod.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_cporod.TabIndex = 4
+        Me.mecdesarme_pn_cporod.Text = "CPO. ROD."
+        Me.mecdesarme_pn_cporod.UseVisualStyleBackColor = True
+        '
         'mecdesarme_pn_resumen
         '
         Me.mecdesarme_pn_resumen.Location = New System.Drawing.Point(4, 22)
@@ -72,32 +101,14 @@ Partial Class mec_desarme
         Me.mecdesarme_il_tab.ImageSize = New System.Drawing.Size(16, 16)
         Me.mecdesarme_il_tab.TransparentColor = System.Drawing.Color.Transparent
         '
-        'mecdesarme_pn_carcasa
+        'mecdesarme_pn_impulsor
         '
-        Me.mecdesarme_pn_carcasa.Location = New System.Drawing.Point(4, 22)
-        Me.mecdesarme_pn_carcasa.Name = "mecdesarme_pn_carcasa"
-        Me.mecdesarme_pn_carcasa.Size = New System.Drawing.Size(1361, 506)
-        Me.mecdesarme_pn_carcasa.TabIndex = 2
-        Me.mecdesarme_pn_carcasa.Text = "CARCASA"
-        Me.mecdesarme_pn_carcasa.UseVisualStyleBackColor = True
-        '
-        'mecdesarme_pn_camisa
-        '
-        Me.mecdesarme_pn_camisa.Location = New System.Drawing.Point(4, 22)
-        Me.mecdesarme_pn_camisa.Name = "mecdesarme_pn_camisa"
-        Me.mecdesarme_pn_camisa.Size = New System.Drawing.Size(1361, 506)
-        Me.mecdesarme_pn_camisa.TabIndex = 3
-        Me.mecdesarme_pn_camisa.Text = "CAMISA"
-        Me.mecdesarme_pn_camisa.UseVisualStyleBackColor = True
-        '
-        'mecdesarme_pn_cporod
-        '
-        Me.mecdesarme_pn_cporod.Location = New System.Drawing.Point(4, 22)
-        Me.mecdesarme_pn_cporod.Name = "mecdesarme_pn_cporod"
-        Me.mecdesarme_pn_cporod.Size = New System.Drawing.Size(1361, 506)
-        Me.mecdesarme_pn_cporod.TabIndex = 4
-        Me.mecdesarme_pn_cporod.Text = "CPO. ROD."
-        Me.mecdesarme_pn_cporod.UseVisualStyleBackColor = True
+        Me.mecdesarme_pn_impulsor.Location = New System.Drawing.Point(4, 22)
+        Me.mecdesarme_pn_impulsor.Name = "mecdesarme_pn_impulsor"
+        Me.mecdesarme_pn_impulsor.Size = New System.Drawing.Size(1361, 506)
+        Me.mecdesarme_pn_impulsor.TabIndex = 5
+        Me.mecdesarme_pn_impulsor.Text = "IMPULSOR"
+        Me.mecdesarme_pn_impulsor.UseVisualStyleBackColor = True
         '
         'mec_desarme
         '
@@ -120,4 +131,5 @@ Partial Class mec_desarme
     Friend WithEvents mecdesarme_pn_carcasa As System.Windows.Forms.TabPage
     Friend WithEvents mecdesarme_pn_camisa As System.Windows.Forms.TabPage
     Friend WithEvents mecdesarme_pn_cporod As System.Windows.Forms.TabPage
+    Friend WithEvents mecdesarme_pn_impulsor As System.Windows.Forms.TabPage
 End Class

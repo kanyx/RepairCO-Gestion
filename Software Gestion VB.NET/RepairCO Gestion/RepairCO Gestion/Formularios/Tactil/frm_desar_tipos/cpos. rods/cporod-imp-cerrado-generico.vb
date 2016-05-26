@@ -25,8 +25,10 @@
         If ValoresAnteriores.ContainsKey("0") = False Then
             For Each Valor In ValoresAnteriores
                 If Valor.Key = "1" And Valor.Value <> "" Then
+                    Me.cporod_pn_z1.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/z1_sucess.png")
                     Me.cporod_txt_z1.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
                 ElseIf (Valor.Key = "2" And Valor.Value) Then
+                    Me.cporod_pn_z2.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/z2_sucess.png")
                     Me.cporod_txt_z2.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
                 End If
             Next

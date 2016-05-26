@@ -36,6 +36,14 @@
             frm_bomba_impulsorcerrado_cporod.MecTipoProducto = MecTipoProducto
             Me.mecdesarme_pn_cporod.Controls.Add(frm_bomba_impulsorcerrado_cporod)
             frm_bomba_impulsorcerrado_cporod.Show()
+            ' # IMPULSOR.
+            Dim frm_bomba_impulsorcerrado_impulsor As New impulsor_imp_cerrado_generico
+            frm_bomba_impulsorcerrado_impulsor.TopLevel = False
+            frm_bomba_impulsorcerrado_impulsor.Dock = DockStyle.Fill
+            frm_bomba_impulsorcerrado_impulsor.MecOT = MecDesaOT
+            frm_bomba_impulsorcerrado_impulsor.MecTipoProducto = MecTipoProducto
+            Me.mecdesarme_pn_impulsor.Controls.Add(frm_bomba_impulsorcerrado_impulsor)
+            frm_bomba_impulsorcerrado_impulsor.Show()
             ' # RESUMEN DEL DESARME DE BOMBA DE IMPULSOR CERRADO.
             Dim frm_bomba_impulsorcerrado_resumen As New mec_desarme_resumen_generic_ic
             frm_bomba_impulsorcerrado_resumen.TopLevel = False
