@@ -43,6 +43,8 @@ Module reportes
             End If
             ' # CARGAMOS COMENTARIOS DESDE LA BASE DE DATOS.
             Dim Comentario As String = PGSQL_CargaComentariosOT(NumeroOT)
+            Dim impersonateUser As New UserImpersonation
+            impersonateUser.impersonateUser("software", "", "gestion2016")
             ' # HACEMOS UN PHARSE A LAS VARIABLES GENERALES.
             line = line.Replace("@RUTALOGO", Application.StartupPath & "/Data/grafica/Logo.jpg").Replace("@ICO_REPARACION", IcoReparacion) _
                 .Replace("@ICO_GARANTIA", IcoGarantia).Replace("@NUMEROORDEN", DatosOrdenesTrabajo(1)).Replace("@RSERVICIO", DatosOrdenesTrabajo(17).ToString.ToUpper) _
@@ -80,6 +82,7 @@ Module reportes
             Else
                 Return False
             End If
+            impersonateUser.undoimpersonateUser()
             Return True
         Catch ex As Exception
             MsgBox(ex.ToString)

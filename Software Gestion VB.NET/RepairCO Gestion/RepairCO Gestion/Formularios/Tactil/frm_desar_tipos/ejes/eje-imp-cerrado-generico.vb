@@ -58,16 +58,16 @@
                 If Valor.Key = "1" And Valor.Value <> "" Then
                     Me.eje_pic_z1.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z1_sucess.png")
                     Me.eje_txt_z1.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
-                ElseIf (Valor.Key = "2" And Valor.Value) Then
+                ElseIf Valor.Key = "2" And Valor.Value <> "" Then
                     Me.eje_pic_z2.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z2_sucess.png")
                     Me.eje_txt_z2.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
-                ElseIf (Valor.Key = "3" And Valor.Value) Then
+                ElseIf Valor.Key = "3" And Valor.Value <> "" Then
                     Me.eje_pic_z3.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z3_sucess.png")
                     Me.eje_txt_z3.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
-                ElseIf (Valor.Key = "4" And Valor.Value) Then
+                ElseIf Valor.Key = "4" And Valor.Value <> "" Then
                     Me.eje_pic_z4.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z4_sucess.png")
                     Me.eje_txt_z4.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
-                ElseIf (Valor.Key = "5" And Valor.Value) Then
+                ElseIf Valor.Key = "5" And Valor.Value <> "" Then
                     Me.eje_pic_z5.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z5_sucess.png")
                     Me.eje_txt_z5.Text = Format(Single.Parse(Valor.Value), "##,##0.0")
                 End If

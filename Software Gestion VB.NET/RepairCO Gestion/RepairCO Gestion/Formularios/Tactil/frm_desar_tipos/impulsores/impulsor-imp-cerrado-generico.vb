@@ -24,6 +24,7 @@
         Me.impulsor_txt_z1.ReadOnly = True
         Me.impulsor_txt_z2.ReadOnly = True
         Me.impulsor_txt_z3.ReadOnly = True
+        Me.impulsor_txt_z4.ReadOnly = True
         Me.impulsor_pn_z1.BackColor = Color.Transparent
         Me.impulsor_pn_z2.BackColor = Color.Transparent
         Me.impulsor_pn_z3.BackColor = Color.Transparent

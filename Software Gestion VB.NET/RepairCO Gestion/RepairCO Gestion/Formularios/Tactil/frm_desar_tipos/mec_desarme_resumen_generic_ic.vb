@@ -105,6 +105,70 @@
     End Sub
     Private Sub resultados_pic_comprobar_Click(sender As Object, e As EventArgs) Handles resultados_pic_comprobar.Click
         ' # REALIZAMOS LA COMPILACION DE INFORMACION DE LOS FORMULARIOS Y LOS PARAMETROS DE LA BASE DE DATOS
+        Dim vMedEJE As New Dictionary(Of String, String)
+        Dim vFlexEJE As New Dictionary(Of Integer, String)
+        Dim vMedCamisa As New Dictionary(Of String, String)
+        Dim vMedCarcasa As New Dictionary(Of String, String)
+        Dim vMedCpoRod As New Dictionary(Of String, String)
+        Dim vMedImpulsor As New Dictionary(Of String, String)
+        ' # CARGAMOS LOS PARAMETROS DE COMPARACION (AJUSTES) DESDE LA BASE DE DATOS.
 
+        ' # CARGAMOS LOS VALORES DE LAS MEDICIONES DEL EQUIPO A LOS CAMPOS DEL FORMULARIO.
+        vMedEJE = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "1")
+        vFlexEJE = PGSQL_TACTIL_FLEXLOAD(MecOT, 1)
+        vMedCamisa = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "3")
+        vMedCarcasa = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "2")
+        vMedCpoRod = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "4")
+        vMedImpulsor = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "5")
+        If vMedEJE.ContainsKey("0") = False Then
+            For Each Eje In vMedEJE
+                If Eje.Key = "1" And Eje.Value <> "" Then
+                    'Me.eje_txt_z1.Text = Format(Single.Parse(Eje.Value), "##,##0.0")
+                ElseIf Eje.Key = "2" And Eje.Value <> "" Then
+                    Me.resultados_txt_ejezrodacopla1.Text = Format(Single.Parse(Eje.Value), "##,##0.0")
+                ElseIf Eje.Key = "3" And Eje.Value <> "" Then
+                    Me.resultados_txt_ejezrodlibre1.Text = Format(Single.Parse(Eje.Value), "##,##0.0")
+                ElseIf Eje.Key = "4" And Eje.Value <> "" Then
+                    Me.resultados_txt_cdla2.Text = Format(Single.Parse(Eje.Value), "##,##0.0")
+                ElseIf Eje.Key = "5" And Eje.Value <> "" Then
+                    Me.resultados_txt_cdll2.Text = Format(Single.Parse(Eje.Value), "##,##0.0")
+                End If
+            Next
+        End If
+        If vMedCamisa.ContainsKey("0") = False Then
+            For Each Camisa In vMedCamisa
+                If Camisa.Key = "1" And Camisa.Value <> "" Then
+                    Me.resultados_txt_cdla1.Text = Format(Single.Parse(camisa.Value), "##,##0.0")
+                ElseIf Camisa.Key = "2" And Camisa.Value <> "" Then
+                    Me.resultados_txt_cdll1.Text = Format(Single.Parse(Camisa.Value), "##,##0.0")
+                ElseIf Camisa.Key = "3" And Camisa.Value <> "" Then
+                    'Me.resultados_txt_ejezrodlibre1.Text = Format(Single.Parse(Camisa.Value), "##,##0.0")
+                ElseIf Camisa.Key = "4" And Camisa.Value <> "" Then
+                    'Me.resultados_txt_cdla2.Text = Format(Single.Parse(Camisa.Value), "##,##0.0")
+                End If
+            Next
+        End If
+        If vMedImpulsor.ContainsKey("0") = False Then
+            For Each Impulsor In vMedImpulsor
+                If Impulsor.Key = "1" And Impulsor.Value <> "" Then
+                    Me.resultados_txt_adp2.Text = Format(Single.Parse(Impulsor.Value), "##,##0.0")
+                ElseIf Impulsor.Key = "2" And Impulsor.Value <> "" Then
+                    Me.resultados_txt_ads2.Text = Format(Single.Parse(Impulsor.Value), "##,##0.0")
+                ElseIf Impulsor.Key = "3" And Impulsor.Value <> "" Then
+                    Me.resultados_txt_ads1.Text = Format(Single.Parse(Impulsor.Value), "##,##0.0")
+                ElseIf Impulsor.Key = "4" And Impulsor.Value <> "" Then
+                    Me.resultados_txt_adp1.Text = Format(Single.Parse(Impulsor.Value), "##,##0.0")
+                End If
+            Next
+        End If
+        If vMedCpoRod.ContainsKey("0") = False Then
+            For Each CpoRod In vMedCpoRod
+                If CpoRod.Key = "1" And CpoRod.Value <> "" Then
+                    Me.resultados_txt_arodintlibre1.Text = Format(Single.Parse(CpoRod.Value), "##,##0.0")
+                ElseIf CpoRod.Key = "2" And CpoRod.Value <> "" Then
+                    Me.resultados_txt_arodintlibre1.Text = Format(Single.Parse(CpoRod.Value), "##,##0.0")
+                End If
+            Next
+        End If
     End Sub
 End Class
