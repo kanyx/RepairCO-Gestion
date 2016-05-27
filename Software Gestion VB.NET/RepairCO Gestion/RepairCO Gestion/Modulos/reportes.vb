@@ -29,17 +29,25 @@ Module reportes
             Dim Foto2 As String = ""
             Dim Foto3 As String = ""
             Dim Foto4 As String = ""
-            If ImagenesArrayReporte.Count > 0 Then
+            If IsNothing(ImagenesArrayReporte(0)) = False Then
                 Foto1 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(0)
+            Else
+                Foto1 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If ImagenesArrayReporte.Count > 1 Then
+            If IsNothing(ImagenesArrayReporte(1)) = False Then
                 Foto2 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(1)
+            Else
+                Foto2 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If ImagenesArrayReporte.Count > 2 Then
+            If IsNothing(ImagenesArrayReporte(2)) = False Then
                 Foto3 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(2)
+            Else
+                Foto3 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If ImagenesArrayReporte.Count > 3 Then
+            If IsNothing(ImagenesArrayReporte(3)) = False Then
                 Foto4 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(3)
+            Else
+                Foto4 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
             ' # CARGAMOS COMENTARIOS DESDE LA BASE DE DATOS.
             Dim Comentario As String = PGSQL_CargaComentariosOT(NumeroOT)
@@ -89,4 +97,16 @@ Module reportes
             Return False
         End Try
     End Function
+    Public Sub REPORTES_OPENOT(ByVal NumeroOT As String)
+        If File.Exists(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & NumeroOT & ".pdf") = True Then
+            Dim impersonateUser As New UserImpersonation
+            impersonateUser.impersonateUser("software", "", "gestion2016")
+            Process.Start(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & NumeroOT & ".pdf")
+            impersonateUser.undoimpersonateUser()
+        Else
+            If REPORTES_GENERAOT(NumeroOT) = True Then
+                Process.Start(Application.StartupPath & "/Data/_temp/" & NumeroOT & ".pdf")
+            End If
+        End If
+    End Sub
 End Module

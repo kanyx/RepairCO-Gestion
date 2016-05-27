@@ -86,6 +86,8 @@ Public Class form_ingreso
         Me.ingreso_cmb_cliente.DataSource = New BindingSource(ValueSource_Clientes, Nothing)
         Me.ingreso_cmb_cliente.DisplayMember = "Value"
         Me.ingreso_cmb_cliente.ValueMember = "Key"
+        Me.ingreso_cmb_cliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        Me.ingreso_cmb_cliente.AutoCompleteSource = AutoCompleteSource.ListItems
     End Sub
     Private Sub ingreso_lbl_addcliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addcliente.LinkClicked
         add_cliente.ShowDialog()
@@ -369,9 +371,12 @@ Public Class form_ingreso
             Me.ingreso_cmb_marca.DataSource = New BindingSource(ValueSource_Marcas, Nothing)
             Me.ingreso_cmb_marca.DisplayMember = "Value"
             Me.ingreso_cmb_marca.ValueMember = "Key"
+            Me.ingreso_cmb_marca.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            Me.ingreso_cmb_marca.AutoCompleteSource = AutoCompleteSource.ListItems
         End If
     End Sub
     Private Sub ingreso_cmb_marca_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_marca.SelectedValueChanged
+        ' # AL SELECCIONAR UNA MARCA DE UN PRODUCTO PROCEDEMOS A CARGAR LOS MODELOS ASOCIADOS AL PRODUCTO.
         If Me.ingreso_cmb_marca.SelectedIndex > 0 Then
             Me.ingreso_cmb_modelo.Enabled = True
             Call PGSQL_CargaModelos(Me.ingreso_cmb_tipo.SelectedValue, Me.ingreso_cmb_marca.SelectedValue)
@@ -389,6 +394,8 @@ Public Class form_ingreso
             Me.ingreso_cmb_modelo.DataSource = New BindingSource(ValueSource_Modelos, Nothing)
             Me.ingreso_cmb_modelo.DisplayMember = "Value"
             Me.ingreso_cmb_modelo.ValueMember = "Key"
+            Me.ingreso_cmb_modelo.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            Me.ingreso_cmb_modelo.AutoCompleteSource = AutoCompleteSource.ListItems
         End If
     End Sub
     Private Sub ingreso_cmb_cliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles ingreso_cmb_cliente.SelectedValueChanged
@@ -463,5 +470,10 @@ Public Class form_ingreso
                 End If
             End If
         End If
+    End Sub
+    Private Sub ingreso_rb_presupuesto_CheckedChanged(sender As Object, e As EventArgs) Handles ingreso_rb_presupuesto.CheckedChanged
+        ' # EN CASO QUE EL USUARIO MARQUE EL USUARIO MARQUE LA OPCION DE REPARACION AUTOMATICAMENTE SE PROCEDE
+        ' # A COMPLETAR EL CAMPO N° SERIE REPAIRCO CON OT - AÑO ACTUAL.
+        Me.ingreso_txt_nserie.Text = ingreso_txt_not.Text & "-" & Date.Now.Year
     End Sub
 End Class

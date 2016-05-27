@@ -291,9 +291,9 @@ Partial Class form_ingreso
         Me.ingreso_lbl_nserie.ForeColor = System.Drawing.Color.Black
         Me.ingreso_lbl_nserie.Location = New System.Drawing.Point(224, 119)
         Me.ingreso_lbl_nserie.Name = "ingreso_lbl_nserie"
-        Me.ingreso_lbl_nserie.Size = New System.Drawing.Size(54, 12)
+        Me.ingreso_lbl_nserie.Size = New System.Drawing.Size(115, 12)
         Me.ingreso_lbl_nserie.TabIndex = 0
-        Me.ingreso_lbl_nserie.Text = "N° SERIE"
+        Me.ingreso_lbl_nserie.Text = "N° SERIE REPAIRCO"
         '
         'ingreso_lbl_addmodelo
         '

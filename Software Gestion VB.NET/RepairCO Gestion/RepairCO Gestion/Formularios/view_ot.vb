@@ -19,6 +19,8 @@
         Me.viewot_pic_close.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/close.png")
         Me.viewot_pic_ot.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/not.png")
         Me.viewot_pic_save.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/guardar_normal.png")
+        Me.viewot_pic_edit.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/editar.png")
+        Me.viewot_pic_pdf.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/pdf.png")
         Me.viewot_cmb_prioridad.Items.Add("ALTA")
         Me.viewot_cmb_prioridad.Items.Add("MEDIA")
         Me.viewot_cmb_prioridad.Items.Add("BAJA")
@@ -27,6 +29,8 @@
         Me.viewot_pic_title.SizeMode = PictureBoxSizeMode.StretchImage
         Me.viewot_pic_close.SizeMode = PictureBoxSizeMode.StretchImage
         Me.viewot_pic_save.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.viewot_pic_pdf.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.viewot_pic_edit.SizeMode = PictureBoxSizeMode.StretchImage
         Me.viewot_pic_close.Cursor = Cursors.Hand
         Me.viewot_pic_save.Cursor = Cursors.Hand
         Me.viewot_pic_save.Visible = False
@@ -139,6 +143,8 @@
         ImagesOrdenes = PGSQL_CargaImagenesOT(NumeroOrdenTrabajo, 100)
         If ImagesOrdenes.Count > 0 Then
             ' # SI EXISTEN IMAGENES.
+            Dim impersonateUser As New UserImpersonation
+            impersonateUser.impersonateUser("software", "", "gestion2016")
             Me.viewot_lw_imagenes.Visible = True
             Dim i As Integer = 0
             Me.viewot_il_imagelist.ColorDepth = ColorDepth.Depth32Bit
@@ -151,6 +157,7 @@
             Me.viewot_lw_imagenes.LargeImageList = Me.viewot_il_imagelist
             Me.viewot_lw_imagenes.View = View.LargeIcon
             Me.viewot_lw_imagenes.Refresh()
+            impersonateUser.undoimpersonateUser()
         Else
             ' # SI NO EXISTEN IMAGENES.
             Me.viewot_tabpage_foto.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/viewot_nofoto.png")
@@ -175,5 +182,8 @@
             MessageBox.Show("No se puede encontrar el archivo de imagen en la ruta especificada.", Application.ProductName & " - " & Application.ProductVersion, _
                             MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+    Private Sub viewot_pic_pdf_Click(sender As Object, e As EventArgs) Handles viewot_pic_pdf.Click
+        Call REPORTES_OPENOT(NumeroOrdenTrabajo)
     End Sub
 End Class

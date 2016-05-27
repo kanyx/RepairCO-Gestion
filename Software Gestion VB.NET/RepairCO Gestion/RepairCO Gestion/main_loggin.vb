@@ -56,7 +56,7 @@ Public Class main_loggin
         Me.Hide()
     End Sub
     Private Sub loggin_enter_btn_Click(sender As Object, e As EventArgs) Handles loggin_enter_btn.Click
-        Login_ExecuteLogin(loggin_username_txt, loggin_password_txt)
+        Call Login_ExecuteLogin(loggin_username_txt, loggin_password_txt)
     End Sub
     Private Sub main_loggin_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         If MechanicStation = "mechanicstation" Then
@@ -65,6 +65,12 @@ Public Class main_loggin
             Dim frm_mecloggin As New mec_loggin
             'frm_mecloggin.Show()
             mec_dashboard.Show()
+        End If
+    End Sub
+    Private Sub loggin_password_txt_KeyDown(sender As Object, e As KeyEventArgs) Handles loggin_password_txt.KeyDown
+        ' # EJECUTAMOS RUTINA DE LOGEO EN EL SISTEMA AL PRESIONAR EL BOTON {ENTER}
+        If e.KeyCode = Keys.Enter Then
+            Call Login_ExecuteLogin(loggin_username_txt, loggin_password_txt)
         End If
     End Sub
 End Class
