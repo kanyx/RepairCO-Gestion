@@ -78,12 +78,15 @@ Module FUNC_MISC
             Return varReturn
         End Try
     End Function
-    Public Function MISC_FILECOPY(ByVal Source As String, ByVal Destiny As String) As Boolean
+    Public Function MISC_FILECOPY(ByVal Source As String, ByVal Destiny As String, ByVal OT As String) As Boolean
         ' # FUNCION PARA COPIAR CUALQUIER TIPO DE ARCHIVO.
         ' # Def. Variables: Source str(Archivo original), Destiny str(ruta mas nombre de archivo donde dejaremos).
         Try
             Dim impersonateUser As New UserImpersonation
             impersonateUser.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            If Directory.Exists(main_loggin.ParametrosConfiguracion(5).ToString & OT) = False Then
+                System.IO.Directory.CreateDirectory(main_loggin.ParametrosConfiguracion(5).ToString & OT)
+            End If
             File.Copy(Source, Destiny, True)
             impersonateUser.undoimpersonateUser()
             Return True

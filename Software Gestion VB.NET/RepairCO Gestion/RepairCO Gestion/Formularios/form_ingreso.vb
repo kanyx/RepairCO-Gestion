@@ -53,7 +53,7 @@ Public Class form_ingreso
         Me.ingreso_cmb_modelo.Enabled = False
         Me.ingreso_pn_comentarios.Visible = False
         Me.ingreso_cmb_ireparable.Enabled = False
-        Me.ingreso_tp_atach.Enabled = False
+        Me.ingreso_tp_atach.Enabled = True
         Me.ingresot_il_fotos.ColorDepth = ColorDepth.Depth32Bit
         ' # SETEAMOS VALORES DEL TOOLTIP
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
@@ -506,7 +506,7 @@ Public Class form_ingreso
                 Dim infoFile As FileInfo = New FileInfo(Archivo)
                 If infoFile.Extension = ".pdf" Or infoFile.Extension = ".PDF" Then
                     If ArchivosLista.Contains(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name) = False Then
-                        If MISC_FILECOPY(Archivo, main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name) Then
+                        If MISC_FILECOPY(Archivo, main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name, Me.ingreso_txt_not.Text) Then
                             ArchivosLista.Add(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name)
                         End If
                     End If
