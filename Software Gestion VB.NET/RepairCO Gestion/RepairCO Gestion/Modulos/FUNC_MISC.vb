@@ -82,13 +82,13 @@ Module FUNC_MISC
         ' # FUNCION PARA COPIAR CUALQUIER TIPO DE ARCHIVO.
         ' # Def. Variables: Source str(Archivo original), Destiny str(ruta mas nombre de archivo donde dejaremos).
         Try
-            Dim impersonateUser As New UserImpersonation
-            impersonateUser.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            Dim ElevateUSer As New UserImpersonation
+            ElevateUSer.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
             If Directory.Exists(main_loggin.ParametrosConfiguracion(5).ToString & OT) = False Then
-                System.IO.Directory.CreateDirectory(main_loggin.ParametrosConfiguracion(5).ToString & OT)
+                Directory.CreateDirectory(main_loggin.ParametrosConfiguracion(5).ToString & OT)
             End If
             File.Copy(Source, Destiny, True)
-            impersonateUser.undoimpersonateUser()
+            ElevateUSer.undoimpersonateUser()
             Return True
         Catch ex As Exception
             MessageBox.Show("Ocurrió un error al intentar copiar el archivo (" & Source & ") hasta ( " & Destiny & ")." & vbNewLine & vbNewLine & _
