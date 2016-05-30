@@ -66,6 +66,10 @@ Public Class UserImpersonation
     End Function
 
     Private Sub undoImpersonation()
-        impersonationContext.Undo()
+        Try
+            impersonationContext.Undo()
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

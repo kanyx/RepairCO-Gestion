@@ -114,6 +114,32 @@ Module PGSQL_Ingreso
             Return False
         End Try
     End Function
+    Public Function PGSQL_ADDCOMENTARIO(ByVal NumeroOT As String, ByVal Comentario As String) As Boolean
+        ' # FUNCION QUE GUARDA LOS COMENTARIOS EN LA BASE DE DATOS.
+        Try
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPGSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPGSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "INSERT INTO otcomentarios (idot, comentario, iduser) VALUES (@idot, @comentario, @user)"
+            CommandPGSQL.Parameters.AddWithValue("@idot", Integer.Parse(NumeroOT))
+            CommandPGSQL.Parameters.AddWithValue("@comentario", Comentario)
+            CommandPGSQL.Parameters.AddWithValue("@user", Integer.Parse(_globalUserData(0)))
+            CommandPGSQL.ExecuteNonQuery()
+            ConexPGSQL.Close()
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al ingresar las imágenes a la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                           "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
     Public Function PGSQL_ADDIMGOT(ByVal NumeroOrden As String, ByVal NombreImagen As String) As Boolean
         Try
             Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _

@@ -4,6 +4,7 @@ Public Class form_ingreso
     Private OTguardada As Boolean = False
     Private ValueSource_Prioridad As New Dictionary(Of String, String)()
     Private ValueSource_Tipo As New Dictionary(Of String, String)()
+    Private ArchivosLista As New ArrayList
     Private Sub form_ingreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ValueSource_Clientes As New Dictionary(Of String, String)()
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
@@ -18,6 +19,10 @@ Public Class form_ingreso
         Me.ingreso_pn_comentarios.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingresocommentario_background.png")
         Me.ingreso_pic_commenotclose.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/ico/close.png")
         Me.ingreso_pic_commenotaccept.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/agregar_normal.png")
+        Me.ingreso_pic_docadd.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_atachpdf_background.png")
+        Me.ingreso_il_docuico.ImageSize = New Size(48, 48)
+        Me.ingreso_il_docuico.Images.Add(0, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/pdf.png"))
+        Me.ingreso_il_docuico.ColorDepth = ColorDepth.Depth32Bit
         Me.ingreso_txt_fecha.CustomFormat = "dd-MM-yyyy hh:mm:ss"
         Me.ingreso_lbl_addcliente.Cursor = Cursors.Hand
         Me.ingreso_lbl_addtipo.Cursor = Cursors.Hand
@@ -34,6 +39,7 @@ Public Class form_ingreso
         Me.ingresot_pic_saveimages.BackColor = Color.Transparent
         Me.ingreso_pic_commenotclose.BackColor = Color.Transparent
         Me.ingreso_pic_commenotaccept.BackColor = Color.Transparent
+        Me.ingreso_pic_docadd.BackColor = Color.Transparent
         Me.ingresot_pic_saveot.SizeMode = PictureBoxSizeMode.StretchImage
         Me.ingreso_pic_commenotitle.BackColor = Color.Transparent
         Me.ingresot_pic_saveimages.SizeMode = PictureBoxSizeMode.StretchImage
@@ -47,6 +53,7 @@ Public Class form_ingreso
         Me.ingreso_cmb_modelo.Enabled = False
         Me.ingreso_pn_comentarios.Visible = False
         Me.ingreso_cmb_ireparable.Enabled = False
+        Me.ingreso_tp_atach.Enabled = False
         Me.ingresot_il_fotos.ColorDepth = ColorDepth.Depth32Bit
         ' # SETEAMOS VALORES DEL TOOLTIP
         Me.ingreso_tp_help.SetToolTip(Me.ingreso_lbl_addcliente, "Presione aquí para agregar un nuevo cliente.")
@@ -230,6 +237,7 @@ Public Class form_ingreso
                                Integer.Parse(Me.ingreso_cmb_tipo.SelectedValue), Integer.Parse(Me.ingreso_cmb_marca.SelectedValue), Integer.Parse(Me.ingreso_cmb_modelo.SelectedValue), _
                                Integer.Parse(Me.ingreso_txt_not.Text), Me.ingreso_txt_agendamiento.Text, Me.ingreso_txt_commenotcomm.Text, Me.ingreso_txt_iequipo.Text, Me.ingreso_cmb_ireparable.SelectedValue) = True Then
             OTguardada = True
+            Me.ingreso_tp_atach.Enabled = True
             Me.ingresot_pn_imgcontainer.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/frm_ingreso_images_background_normal.png")
             Me.ingresot_pn_imgcontainer.Cursor = Cursors.Default
             Me.ingresot_pic_saveot.Enabled = False
@@ -371,7 +379,7 @@ Public Class form_ingreso
             Me.ingreso_cmb_marca.DataSource = New BindingSource(ValueSource_Marcas, Nothing)
             Me.ingreso_cmb_marca.DisplayMember = "Value"
             Me.ingreso_cmb_marca.ValueMember = "Key"
-            Me.ingreso_cmb_marca.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            Me.ingreso_cmb_marca.AutoCompleteMode = AutoCompleteMode.Suggest
             Me.ingreso_cmb_marca.AutoCompleteSource = AutoCompleteSource.ListItems
         End If
     End Sub
@@ -444,8 +452,9 @@ Public Class form_ingreso
             Me.ingreso_txt_commenotcomm.BackColor = Color.Green
             Me.ingreso_txt_commenotcomm.ForeColor = Color.White
         End If
-        MessageBox.Show("Comentario almacenado exitosamente, este será guardado una vez que guarde la orden de trabajo.", _
-                        Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If PGSQL_CargaComentariosOT(Me.ingreso_txt_not.Text) = "" And PGSQL_ExisteOT(Me.ingreso_txt_not.Text) = True Then
+
+        End If
         Me.ingreso_pn_comentarios.Visible = False
     End Sub
     Private Sub ingresot_pic_saveimages_Click(sender As Object, e As EventArgs) Handles ingresot_pic_saveimages.Click
@@ -475,5 +484,51 @@ Public Class form_ingreso
         ' # EN CASO QUE EL USUARIO MARQUE EL USUARIO MARQUE LA OPCION DE REPARACION AUTOMATICAMENTE SE PROCEDE
         ' # A COMPLETAR EL CAMPO N° SERIE REPAIRCO CON OT - AÑO ACTUAL.
         Me.ingreso_txt_nserie.Text = ingreso_txt_not.Text & "-" & Date.Now.Year
+    End Sub
+    ' ##############################################################################################################
+    ' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FUNCION PARA EL MANEJO DE DOCUMENTOS ADJUNTOS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+    ' ##############################################################################################################
+    ' # FUNCIONES ENCARGADAS DE GESTIONAR EL ADJUNTAMIENTO DE ARCHIVOS A LA ORDEN DE TRABAJO.                      #
+    ' ##############################################################################################################
+    Private Sub ingreso_pic_docadd_Click(sender As Object, e As EventArgs) Handles ingreso_pic_docadd.Click
+        ' # ESTE PICTUREBOX SOLO ESTA PARA QUE EL USUARIO PUEDA HACER CLICK Y SE LE HABRA EL CUADRO DE DIALOGO DE ARCHIVOS.
+        Dim DialogoArchivos As New System.Windows.Forms.OpenFileDialog
+        Dim Archivos As String()
+        DialogoArchivos.Filter = "Documentos PDF (*.pdf)|*.pdf"
+        DialogoArchivos.Multiselect = True
+        DialogoArchivos.Title = "Adjuntar archivos a la OT!"
+        DialogoArchivos.ShowDialog()
+        If DialogoArchivos.FileName <> "" Then
+            ' # SI AGREGO ARCHIVOS PROCEDEMOS A OCULTAR EL PICTUREBOX INTERACTIVO.
+            Me.ingreso_pic_docadd.Visible = False
+            Archivos = DialogoArchivos.FileNames
+            For Each Archivo In Archivos
+                Dim infoFile As FileInfo = New FileInfo(Archivo)
+                If infoFile.Extension = ".pdf" Or infoFile.Extension = ".PDF" Then
+                    If ArchivosLista.Contains(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name) = False Then
+                        If MISC_FILECOPY(Archivo, main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name) Then
+                            ArchivosLista.Add(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "\" & infoFile.Name)
+                        End If
+                    End If
+                End If
+            Next
+            Dim Elevacion As New UserImpersonation
+            Elevacion.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            ' # PREPARAMOS EL LISTVIEW
+            Me.ingreso_lv_documentos.LargeImageList = Me.ingreso_il_docuico
+            Me.ingreso_lv_documentos.View = View.LargeIcon
+            If ArchivosLista.Count > 0 Then
+                ' # AÑADIMOS NUEVOS ARCHIVOS EN CASO QUE NO EXISTAN.
+                For Each pdf In ArchivosLista
+                    Dim infoFile As FileInfo = New FileInfo(pdf)
+                    Me.ingreso_lv_documentos.Items.Add(infoFile.Name, 0)
+                Next
+                Me.ingreso_lv_documentos.Refresh()
+            End If
+            Elevacion.undoimpersonateUser()
+        End If
+    End Sub
+    Private Sub ingreso_lv_documentos_DoubleClick(sender As Object, e As EventArgs) Handles ingreso_lv_documentos.DoubleClick
+        Call MISC_EXECUTEFILE(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "/" & ingreso_lv_documentos.SelectedItems(0).Text)
     End Sub
 End Class

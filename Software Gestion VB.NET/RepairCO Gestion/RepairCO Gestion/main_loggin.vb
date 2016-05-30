@@ -6,6 +6,13 @@ Public Class main_loggin
     Public MechanicStation As String = ""
     Private Sub main_loggin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CleanTempFiles()
+        'Dim Archivos As New Dictionary(Of String, String)
+        'Archivos = MISC_READFOLDER_DOCUMENTOS("780", "\\192.168.0.10\Servidor\Desarrollo\780\", "pdf")
+        'If Archivos.ContainsKey("0") = False Then
+        'For Each wea In Archivos
+        'MsgBox(wea.Value)
+        'Next
+        'End If
         ' # --> CODIGO PARA GENERAR PRUEBAS
         'REPORTES_GENERAOT("1000000")
         'Dim TestImage As New ArrayList

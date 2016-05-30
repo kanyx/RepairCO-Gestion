@@ -1,4 +1,5 @@
-﻿Module FUNC_MISC
+﻿Imports System.IO
+Module FUNC_MISC
     Public Function validarRut(ByVal rut As String) As Boolean
         Dim validacion As Boolean = False
         Try
@@ -49,4 +50,62 @@
             Return 0.0
         End Try
     End Function
+    Public Function MISC_READFOLDER_DOCUMENTOS(ByVal OT As String, ByVal Path As String, Optional ByVal ExtencionFilter As String = "*") _
+        As Dictionary(Of String, String)
+        Dim varReturn As New Dictionary(Of String, String) ' # Variable de retorno de la funcion.
+        Dim impersonateUser As New UserImpersonation
+        Try
+            impersonateUser.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            ' # REVISAMOS LA CARPETA DONDE SE DEBERAN BUSCAR LOS ARCHIVOS, ES IMPORTANTE ACOTAR QUE NO SE LEERAN LOS DOCUMENTOS
+            ' # QUE NO TERMINEN EN LA EXTENCION ESPECIFICADA. NI EL ARCHIVO DE SALIDA DE LA ORDEN DE TRABAJO.
+            If Directory.Exists(Path) = False Then
+                varReturn.Add("0", "")
+                Return varReturn
+            End If
+            Dim i = 1 ' # Key del numero de archivo que se esta agregando.
+            For Each Archivo As String In My.Computer.FileSystem.GetFiles(Path, FileIO.SearchOption.SearchAllSubDirectories, "*." & ExtencionFilter)
+                Dim infoFile As FileInfo = New FileInfo(Archivo)
+                If InStr(infoFile.Name, OT) < 1 Then
+                    varReturn.Add(i.ToString, Archivo)
+                    i = i + 1
+                End If
+            Next
+            Return varReturn
+            impersonateUser.undoimpersonateUser()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            varReturn.Add("0", "ERROR.")
+            Return varReturn
+        End Try
+    End Function
+    Public Function MISC_FILECOPY(ByVal Source As String, ByVal Destiny As String) As Boolean
+        ' # FUNCION PARA COPIAR CUALQUIER TIPO DE ARCHIVO.
+        ' # Def. Variables: Source str(Archivo original), Destiny str(ruta mas nombre de archivo donde dejaremos).
+        Try
+            Dim impersonateUser As New UserImpersonation
+            impersonateUser.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            File.Copy(Source, Destiny, True)
+            impersonateUser.undoimpersonateUser()
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al intentar copiar el archivo (" & Source & ") hasta ( " & Destiny & ")." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+    Public Sub MISC_EXECUTEFILE(ByVal Archivo As String)
+        Try
+            Dim elavateExecute As New UserImpersonation
+            elavateExecute.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
+            If File.Exists(Archivo) = True Then
+                Process.Start(Archivo)
+            Else
+                MessageBox.Show("No existe el archivo seleccionado en la carpeta de la OT.", Application.ProductName & " - " & Application.ProductVersion, _
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+            elavateExecute.undoimpersonateUser()
+        Catch ex As Exception
+        End Try
+    End Sub
 End Module

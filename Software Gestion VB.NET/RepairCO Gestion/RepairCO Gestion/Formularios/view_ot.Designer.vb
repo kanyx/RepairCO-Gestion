@@ -71,6 +71,9 @@ Partial Class view_ot
         Me.viewot_il_imagelist = New System.Windows.Forms.ImageList(Me.components)
         Me.viewot_pic_edit = New System.Windows.Forms.PictureBox()
         Me.viewot_pic_pdf = New System.Windows.Forms.PictureBox()
+        Me.viewot_tabpage_documentos = New System.Windows.Forms.TabPage()
+        Me.viewot_lv_documentos = New System.Windows.Forms.ListView()
+        Me.viewot_il_documentos = New System.Windows.Forms.ImageList(Me.components)
         Me.viewot_tab_ot.SuspendLayout()
         Me.viewot_tabpage_foto.SuspendLayout()
         Me.viewot_tabpage_comentarios.SuspendLayout()
@@ -83,11 +86,13 @@ Partial Class view_ot
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_edit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_pdf, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.viewot_tabpage_documentos.SuspendLayout()
         Me.SuspendLayout()
         '
         'viewot_tab_ot
         '
         Me.viewot_tab_ot.Controls.Add(Me.viewot_tabpage_foto)
+        Me.viewot_tab_ot.Controls.Add(Me.viewot_tabpage_documentos)
         Me.viewot_tab_ot.Controls.Add(Me.viewot_tabpage_comentarios)
         Me.viewot_tab_ot.Controls.Add(Me.viewot_tabpage_historic)
         Me.viewot_tab_ot.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -568,6 +573,31 @@ Partial Class view_ot
         Me.viewot_pic_pdf.TabIndex = 8
         Me.viewot_pic_pdf.TabStop = False
         '
+        'viewot_tabpage_documentos
+        '
+        Me.viewot_tabpage_documentos.Controls.Add(Me.viewot_lv_documentos)
+        Me.viewot_tabpage_documentos.Location = New System.Drawing.Point(4, 21)
+        Me.viewot_tabpage_documentos.Name = "viewot_tabpage_documentos"
+        Me.viewot_tabpage_documentos.Size = New System.Drawing.Size(809, 237)
+        Me.viewot_tabpage_documentos.TabIndex = 3
+        Me.viewot_tabpage_documentos.Text = "DOCUMENTOS"
+        Me.viewot_tabpage_documentos.UseVisualStyleBackColor = True
+        '
+        'viewot_lv_documentos
+        '
+        Me.viewot_lv_documentos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.viewot_lv_documentos.Location = New System.Drawing.Point(0, 0)
+        Me.viewot_lv_documentos.Name = "viewot_lv_documentos"
+        Me.viewot_lv_documentos.Size = New System.Drawing.Size(809, 237)
+        Me.viewot_lv_documentos.TabIndex = 0
+        Me.viewot_lv_documentos.UseCompatibleStateImageBehavior = False
+        '
+        'viewot_il_documentos
+        '
+        Me.viewot_il_documentos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.viewot_il_documentos.ImageSize = New System.Drawing.Size(16, 16)
+        Me.viewot_il_documentos.TransparentColor = System.Drawing.Color.Transparent
+        '
         'view_ot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -600,6 +630,7 @@ Partial Class view_ot
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_edit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_pdf, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.viewot_tabpage_documentos.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -651,4 +682,7 @@ Partial Class view_ot
     Friend WithEvents viewot_dg_comentarios As System.Windows.Forms.DataGridView
     Friend WithEvents viewot_pic_edit As System.Windows.Forms.PictureBox
     Friend WithEvents viewot_pic_pdf As System.Windows.Forms.PictureBox
+    Friend WithEvents viewot_tabpage_documentos As System.Windows.Forms.TabPage
+    Friend WithEvents viewot_lv_documentos As System.Windows.Forms.ListView
+    Friend WithEvents viewot_il_documentos As System.Windows.Forms.ImageList
 End Class

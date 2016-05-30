@@ -29,22 +29,22 @@ Module reportes
             Dim Foto2 As String = ""
             Dim Foto3 As String = ""
             Dim Foto4 As String = ""
-            If IsNothing(ImagenesArrayReporte(0)) = False Then
+            If ImagenesArrayReporte.Count > 0 Then
                 Foto1 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(0)
             Else
                 Foto1 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If IsNothing(ImagenesArrayReporte(1)) = False Then
+            If ImagenesArrayReporte.Count > 1 Then
                 Foto2 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(1)
             Else
                 Foto2 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If IsNothing(ImagenesArrayReporte(2)) = False Then
+            If ImagenesArrayReporte.Count > 2 Then
                 Foto3 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(2)
             Else
                 Foto3 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"
             End If
-            If IsNothing(ImagenesArrayReporte(3)) = False Then
+            If ImagenesArrayReporte.Count > 3 Then
                 Foto4 = main_loggin.ParametrosConfiguracion(5).ToString & NumeroOT & "\" & ImagenesArrayReporte(3)
             Else
                 Foto4 = Application.StartupPath & "/Data/grafica/noimagen_ot.png"

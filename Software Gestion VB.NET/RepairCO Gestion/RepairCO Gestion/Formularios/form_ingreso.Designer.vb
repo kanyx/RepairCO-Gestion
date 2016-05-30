@@ -80,6 +80,12 @@ Partial Class form_ingreso
         Me.ingreso_lbl_commenotrserv = New System.Windows.Forms.Label()
         Me.ingreso_txt_commenotrc = New System.Windows.Forms.TextBox()
         Me.ingreso_pic_commenotitle = New System.Windows.Forms.PictureBox()
+        Me.ingreso_tp_atach = New System.Windows.Forms.TabControl()
+        Me.ingreso_pn_image = New System.Windows.Forms.TabPage()
+        Me.ingreso_pn_docus = New System.Windows.Forms.TabPage()
+        Me.ingreso_pic_docadd = New System.Windows.Forms.PictureBox()
+        Me.ingreso_lv_documentos = New System.Windows.Forms.ListView()
+        Me.ingreso_il_docuico = New System.Windows.Forms.ImageList(Me.components)
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +98,10 @@ Partial Class form_ingreso
         CType(Me.ingreso_pic_commenotaccept, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ingreso_tp_atach.SuspendLayout()
+        Me.ingreso_pn_image.SuspendLayout()
+        Me.ingreso_pn_docus.SuspendLayout()
+        CType(Me.ingreso_pic_docadd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ingreso_gp_datos
@@ -571,7 +581,7 @@ Partial Class form_ingreso
         'ingresot_pn_imgcontainer
         '
         Me.ingresot_pn_imgcontainer.Controls.Add(Me.ingresot_lv_imagenes)
-        Me.ingresot_pn_imgcontainer.Location = New System.Drawing.Point(31, 336)
+        Me.ingresot_pn_imgcontainer.Location = New System.Drawing.Point(3, 6)
         Me.ingresot_pn_imgcontainer.Name = "ingresot_pn_imgcontainer"
         Me.ingresot_pn_imgcontainer.Size = New System.Drawing.Size(805, 248)
         Me.ingresot_pn_imgcontainer.TabIndex = 4
@@ -594,7 +604,7 @@ Partial Class form_ingreso
         '
         'ingresot_pic_saveimages
         '
-        Me.ingresot_pic_saveimages.Location = New System.Drawing.Point(343, 590)
+        Me.ingresot_pic_saveimages.Location = New System.Drawing.Point(343, 609)
         Me.ingresot_pic_saveimages.Name = "ingresot_pic_saveimages"
         Me.ingresot_pic_saveimages.Size = New System.Drawing.Size(137, 36)
         Me.ingresot_pic_saveimages.TabIndex = 24
@@ -615,7 +625,7 @@ Partial Class form_ingreso
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_lbl_commenotrserv)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_txt_commenotrc)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_pic_commenotitle)
-        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(852, 17)
+        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(352, 37)
         Me.ingreso_pn_comentarios.Name = "ingreso_pn_comentarios"
         Me.ingreso_pn_comentarios.Size = New System.Drawing.Size(561, 204)
         Me.ingreso_pn_comentarios.TabIndex = 32
@@ -680,15 +690,72 @@ Partial Class form_ingreso
         Me.ingreso_pic_commenotitle.TabIndex = 0
         Me.ingreso_pic_commenotitle.TabStop = False
         '
+        'ingreso_tp_atach
+        '
+        Me.ingreso_tp_atach.Controls.Add(Me.ingreso_pn_image)
+        Me.ingreso_tp_atach.Controls.Add(Me.ingreso_pn_docus)
+        Me.ingreso_tp_atach.Location = New System.Drawing.Point(31, 320)
+        Me.ingreso_tp_atach.Name = "ingreso_tp_atach"
+        Me.ingreso_tp_atach.SelectedIndex = 0
+        Me.ingreso_tp_atach.Size = New System.Drawing.Size(823, 283)
+        Me.ingreso_tp_atach.TabIndex = 33
+        '
+        'ingreso_pn_image
+        '
+        Me.ingreso_pn_image.Controls.Add(Me.ingresot_pn_imgcontainer)
+        Me.ingreso_pn_image.Location = New System.Drawing.Point(4, 22)
+        Me.ingreso_pn_image.Name = "ingreso_pn_image"
+        Me.ingreso_pn_image.Padding = New System.Windows.Forms.Padding(3)
+        Me.ingreso_pn_image.Size = New System.Drawing.Size(815, 257)
+        Me.ingreso_pn_image.TabIndex = 0
+        Me.ingreso_pn_image.Text = "IMAGENES"
+        Me.ingreso_pn_image.UseVisualStyleBackColor = True
+        '
+        'ingreso_pn_docus
+        '
+        Me.ingreso_pn_docus.Controls.Add(Me.ingreso_pic_docadd)
+        Me.ingreso_pn_docus.Controls.Add(Me.ingreso_lv_documentos)
+        Me.ingreso_pn_docus.Location = New System.Drawing.Point(4, 22)
+        Me.ingreso_pn_docus.Name = "ingreso_pn_docus"
+        Me.ingreso_pn_docus.Padding = New System.Windows.Forms.Padding(3)
+        Me.ingreso_pn_docus.Size = New System.Drawing.Size(815, 257)
+        Me.ingreso_pn_docus.TabIndex = 1
+        Me.ingreso_pn_docus.Text = "DOCUMENTOS"
+        Me.ingreso_pn_docus.UseVisualStyleBackColor = True
+        '
+        'ingreso_pic_docadd
+        '
+        Me.ingreso_pic_docadd.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ingreso_pic_docadd.Location = New System.Drawing.Point(3, 3)
+        Me.ingreso_pic_docadd.Name = "ingreso_pic_docadd"
+        Me.ingreso_pic_docadd.Size = New System.Drawing.Size(809, 251)
+        Me.ingreso_pic_docadd.TabIndex = 1
+        Me.ingreso_pic_docadd.TabStop = False
+        '
+        'ingreso_lv_documentos
+        '
+        Me.ingreso_lv_documentos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ingreso_lv_documentos.Location = New System.Drawing.Point(3, 3)
+        Me.ingreso_lv_documentos.Name = "ingreso_lv_documentos"
+        Me.ingreso_lv_documentos.Size = New System.Drawing.Size(809, 251)
+        Me.ingreso_lv_documentos.TabIndex = 0
+        Me.ingreso_lv_documentos.UseCompatibleStateImageBehavior = False
+        '
+        'ingreso_il_docuico
+        '
+        Me.ingreso_il_docuico.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ingreso_il_docuico.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ingreso_il_docuico.TransparentColor = System.Drawing.Color.Transparent
+        '
         'form_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(889, 638)
-        Me.Controls.Add(Me.ingreso_pn_comentarios)
+        Me.ClientSize = New System.Drawing.Size(889, 657)
         Me.Controls.Add(Me.ingresot_pic_saveimages)
-        Me.Controls.Add(Me.ingresot_pn_imgcontainer)
+        Me.Controls.Add(Me.ingreso_tp_atach)
+        Me.Controls.Add(Me.ingreso_pn_comentarios)
         Me.Controls.Add(Me.ingreso_txt_not)
         Me.Controls.Add(Me.ingresot_pic_ot)
         Me.Controls.Add(Me.ingresot_pic_title)
@@ -711,6 +778,10 @@ Partial Class form_ingreso
         CType(Me.ingreso_pic_commenotaccept, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ingreso_pic_commenotclose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ingreso_pic_commenotitle, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ingreso_tp_atach.ResumeLayout(False)
+        Me.ingreso_pn_image.ResumeLayout(False)
+        Me.ingreso_pn_docus.ResumeLayout(False)
+        CType(Me.ingreso_pic_docadd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -772,4 +843,10 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_lbl_agendamiento As System.Windows.Forms.Label
     Friend WithEvents ingreso_lbl_ireparable As System.Windows.Forms.Label
     Friend WithEvents ingreso_cmb_ireparable As System.Windows.Forms.ComboBox
+    Friend WithEvents ingreso_tp_atach As System.Windows.Forms.TabControl
+    Friend WithEvents ingreso_pn_image As System.Windows.Forms.TabPage
+    Friend WithEvents ingreso_pn_docus As System.Windows.Forms.TabPage
+    Friend WithEvents ingreso_lv_documentos As System.Windows.Forms.ListView
+    Friend WithEvents ingreso_pic_docadd As System.Windows.Forms.PictureBox
+    Friend WithEvents ingreso_il_docuico As System.Windows.Forms.ImageList
 End Class

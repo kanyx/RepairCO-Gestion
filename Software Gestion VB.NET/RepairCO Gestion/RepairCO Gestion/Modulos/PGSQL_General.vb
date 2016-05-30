@@ -31,6 +31,38 @@ Module PGSQL_General
             Return False
         End Try
     End Function
+    Public Function PGSQL_ExisteOT(ByVal NumeroOT As String) As Boolean
+        ' # FUNCION QUE COMPRUEBA SI EXISTE UNA ORDEN DE TRABAJO
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT notrabajo FROM ordenestrabajo WHERE notrabajo=@not"
+            PGSQLCommand.Parameters.AddWithValue("@not", NumeroOT)
+            rd = PGSQLCommand.ExecuteReader()
+            If rd.HasRows = True Then
+                PGSQLConex.Close()
+                Return True
+            Else
+                PGSQLConex.Close()
+                Return False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Ocurrió un error al comprobar la existencia de la OT en la base de datos, por favor contacte al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                         "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & ex.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                         MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
     Public Function PGSQL_GetNumeroOrdenNueva() As String
         ' # FUNCION PARA OBTENER EL NUMERO DE ORDEN SIGUENTE
         ' # NUMERO ACTUAL + 1

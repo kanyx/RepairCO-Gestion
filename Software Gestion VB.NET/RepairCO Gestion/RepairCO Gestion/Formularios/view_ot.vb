@@ -1,6 +1,7 @@
 ﻿Public Class view_ot
     Dim ImagesOrdenes As New ArrayList
     Public NumeroOrdenTrabajo As String
+    Private ArchivosLista As New Dictionary(Of String, String)
     Private Sub view_ot_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim DatosOT As New ArrayList
         Dim DatosPersonal As New ArrayList
@@ -25,6 +26,7 @@
         Me.viewot_cmb_prioridad.Items.Add("MEDIA")
         Me.viewot_cmb_prioridad.Items.Add("BAJA")
         ' # CARGA CONFIGURACION DE CONTROLES DEL FORMULARIO.
+        Me.viewot_il_documentos.ImageSize = New Size(48, 48)
         Me.viewot_lbl_ot.ForeColor = ColorTranslator.FromHtml("#b88d00")
         Me.viewot_pic_title.SizeMode = PictureBoxSizeMode.StretchImage
         Me.viewot_pic_close.SizeMode = PictureBoxSizeMode.StretchImage
@@ -33,9 +35,13 @@
         Me.viewot_pic_edit.SizeMode = PictureBoxSizeMode.StretchImage
         Me.viewot_pic_close.Cursor = Cursors.Hand
         Me.viewot_pic_save.Cursor = Cursors.Hand
+        Me.viewot_pic_pdf.Cursor = Cursors.Hand
+        Me.viewot_pic_edit.Cursor = Cursors.Hand
         Me.viewot_pic_save.Visible = False
         Me.viewot_lw_imagenes.Visible = False
         Me.viewot_dg_comentarios.EnableHeadersVisualStyles = False
+        Me.viewot_pic_edit.BackColor = Color.Transparent
+        Me.viewot_pic_pdf.BackColor = Color.Transparent
         ' # LLAMAMOS LOS DATOS DE LA ORDEN LA INTRODUCIMOS A UN ARRAY Y LLENAMOS LOS VALORES DEL FORMULARIO.
         DatosOT = PGSQL_CargaOT(NumeroOrdenTrabajo)
         DatosPersonal = PGSQL_GETPERSONALDATES(DatosOT(16).ToString)
@@ -169,6 +175,19 @@
         Me.viewot_dg_comentarios.Columns("hora").Width = 60
         Me.viewot_dg_comentarios.Columns("comentario").Width = 360
         Me.viewot_dg_comentarios.Columns("usuario").Width = 240
+        ' # CARGAMOS ICONOS AL IL DEL LECTOR DE DOCUMENTOS.
+        Me.viewot_il_documentos.Images.Add(0, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/pdf.png"))
+        ' # CARGAMOS LOS ARCHIVOS ADJUNTADOS A LA CARPETA DE TRABAJO.
+        ArchivosLista = MISC_READFOLDER_DOCUMENTOS(NumeroOrdenTrabajo, main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "/", "pdf")
+        If ArchivosLista.Count > 0 Then
+            Me.viewot_lv_documentos.View = View.LargeIcon
+            Me.viewot_lv_documentos.LargeImageList = Me.viewot_il_documentos
+            For Each Archivo In ArchivosLista
+                Dim ExNameFile As String() = Archivo.Value.Split("\")
+                Me.viewot_lv_documentos.Items.Add(ExNameFile.Last, 0)
+            Next
+            Me.viewot_lv_documentos.Refresh()
+        End If
     End Sub
     Private Sub viewot_pic_close_Click(sender As Object, e As EventArgs) Handles viewot_pic_close.Click
         Me.Close()
@@ -185,5 +204,15 @@
     End Sub
     Private Sub viewot_pic_pdf_Click(sender As Object, e As EventArgs) Handles viewot_pic_pdf.Click
         Call REPORTES_OPENOT(NumeroOrdenTrabajo)
+    End Sub
+    Private Sub viewot_pic_edit_Click(sender As Object, e As EventArgs) Handles viewot_pic_edit.Click
+        ' # HABILITAMOS EL FORMULARIO PARA SU EDICION.
+        Me.viewot_gb_datos.Enabled = True
+        Me.viewot_gb_tipoot.Enabled = True
+        viewot_txt_ringreso.ReadOnly = True
+
+    End Sub
+    Private Sub viewot_lv_documentos_DoubleClick(sender As Object, e As EventArgs) Handles viewot_lv_documentos.DoubleClick
+        Call MISC_EXECUTEFILE(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "\" & Me.viewot_lv_documentos.SelectedItems(0).Text)
     End Sub
 End Class
