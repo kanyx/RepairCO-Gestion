@@ -101,8 +101,11 @@ Module FUNC_MISC
         Try
             Dim elavateExecute As New UserImpersonation
             elavateExecute.impersonateUser(_globalSAMBAU, "", _globalSAMBAP)
-            If File.Exists(Archivo) = True Then
-                Process.Start(Archivo)
+            Dim CorrectedPath As String = Archivo.Replace("/", "\")
+            If File.Exists(CorrectedPath) = True Then
+                Dim infoFile As FileInfo = New FileInfo(CorrectedPath)
+                File.Copy(CorrectedPath, Application.StartupPath & "\Data\_temp\" & infoFile.Name)
+                Process.Start(Application.StartupPath & "\Data\_temp\" & infoFile.Name)
             Else
                 MessageBox.Show("No existe el archivo seleccionado en la carpeta de la OT.", Application.ProductName & " - " & Application.ProductVersion, _
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
