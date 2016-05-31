@@ -94,6 +94,8 @@ Partial Class mec_desarme_resumen_generic_ic
         Me.resultados_lbl_cd1 = New System.Windows.Forms.Label()
         Me.resultados_pic_comprobar = New System.Windows.Forms.PictureBox()
         Me.resultados_pn_page1 = New System.Windows.Forms.Panel()
+        Me.resultados_pic_left = New System.Windows.Forms.PictureBox()
+        Me.resultados_pic_right = New System.Windows.Forms.PictureBox()
         CType(Me.resultados_pic_adesgastetitle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.resultados_pic_ejezonarodamientostitle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.resultados_gb_adesgasteinfo.SuspendLayout()
@@ -104,6 +106,8 @@ Partial Class mec_desarme_resumen_generic_ic
         Me.GroupBox3.SuspendLayout()
         CType(Me.resultados_pic_comprobar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.resultados_pn_page1.SuspendLayout()
+        CType(Me.resultados_pic_left, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.resultados_pic_right, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'resultados_pic_adesgastetitle
@@ -798,10 +802,26 @@ Partial Class mec_desarme_resumen_generic_ic
         Me.resultados_pn_page1.Controls.Add(Me.GroupBox2)
         Me.resultados_pn_page1.Controls.Add(Me.GroupBox1)
         Me.resultados_pn_page1.Controls.Add(Me.resultados_pic_arodinterior)
-        Me.resultados_pn_page1.Location = New System.Drawing.Point(53, 20)
+        Me.resultados_pn_page1.Location = New System.Drawing.Point(61, 20)
         Me.resultados_pn_page1.Name = "resultados_pn_page1"
         Me.resultados_pn_page1.Size = New System.Drawing.Size(1236, 430)
         Me.resultados_pn_page1.TabIndex = 10
+        '
+        'resultados_pic_left
+        '
+        Me.resultados_pic_left.Location = New System.Drawing.Point(2, 20)
+        Me.resultados_pic_left.Name = "resultados_pic_left"
+        Me.resultados_pic_left.Size = New System.Drawing.Size(50, 430)
+        Me.resultados_pic_left.TabIndex = 11
+        Me.resultados_pic_left.TabStop = False
+        '
+        'resultados_pic_right
+        '
+        Me.resultados_pic_right.Location = New System.Drawing.Point(1309, 20)
+        Me.resultados_pic_right.Name = "resultados_pic_right"
+        Me.resultados_pic_right.Size = New System.Drawing.Size(50, 430)
+        Me.resultados_pic_right.TabIndex = 12
+        Me.resultados_pic_right.TabStop = False
         '
         'mec_desarme_resumen_generic_ic
         '
@@ -809,6 +829,8 @@ Partial Class mec_desarme_resumen_generic_ic
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1361, 506)
+        Me.Controls.Add(Me.resultados_pic_right)
+        Me.Controls.Add(Me.resultados_pic_left)
         Me.Controls.Add(Me.resultados_pic_comprobar)
         Me.Controls.Add(Me.resultados_pn_page1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -828,6 +850,8 @@ Partial Class mec_desarme_resumen_generic_ic
         Me.GroupBox3.PerformLayout()
         CType(Me.resultados_pic_comprobar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.resultados_pn_page1.ResumeLayout(False)
+        CType(Me.resultados_pic_left, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.resultados_pic_right, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -903,4 +927,6 @@ Partial Class mec_desarme_resumen_generic_ic
     Friend WithEvents resultados_lbl_cd1 As System.Windows.Forms.Label
     Friend WithEvents resultados_pic_comprobar As System.Windows.Forms.PictureBox
     Friend WithEvents resultados_pn_page1 As System.Windows.Forms.Panel
+    Friend WithEvents resultados_pic_left As System.Windows.Forms.PictureBox
+    Friend WithEvents resultados_pic_right As System.Windows.Forms.PictureBox
 End Class

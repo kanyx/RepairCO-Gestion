@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Clases\BarCode.vb" />
     <Compile Include="Clases\UserImpersonation.vb" />
     <Compile Include="Formularios\aboutme.Designer.vb">
       <DependentUpon>aboutme.vb</DependentUpon>

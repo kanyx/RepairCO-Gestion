@@ -6,7 +6,36 @@ S.G.O
 </name>
 </assembly>
 <members>
-<member name="P:RepairCO_Gestion.My.Resources.Resources.ResourceManager">
+<member name="M:RepairCO_Gestion.BarCode.EAN13CalcChecksum(System.String)">
+	<summary>
+ Esta función devuelve el dígito de control para un código EAN13
+ </summary>
+	<param name="_code">Código EAN de 12 *** DOCE *** números</param>
+	<returns>Se devuelve como un string el digito 13 que es el dígito de control</returns>
+	<remarks></remarks>
+</member><member name="M:RepairCO_Gestion.BarCode.CodeEAN13AutoGenerateChecksum(System.String,System.Boolean,System.Single,System.Boolean,System.Boolean)">
+	<summary>
+ Genera el código de barras EAN13 y auto-calcula el dígito de control
+ </summary>
+	<param name="_code">Código de 12 *** DOCE *** números</param>
+	<param name="GenerateChecksum"></param>
+	<param name="ChecksumText"></param>
+	<param name="Height"></param>
+	<param name="PrintTextInCode"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:RepairCO_Gestion.BarCode.CodeEAN13(System.String,System.Boolean,System.Single,System.Boolean,System.Boolean)">
+	<summary>
+ Genera el código de barras EAN13. No se verifica el checksum
+ </summary>
+	<param name="_code">Código de 13 *** TRECE *** números</param>
+	<param name="GenerateChecksum"></param>
+	<param name="ChecksumText"></param>
+	<param name="Height"></param>
+	<param name="PrintTextInCode"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:RepairCO_Gestion.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

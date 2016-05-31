@@ -1,10 +1,13 @@
 ﻿Imports System.IO
+Imports System.Drawing.Printing
+
 Public Class form_ingreso
     Public imagenes_cargar As New ArrayList
     Private OTguardada As Boolean = False
     Private ValueSource_Prioridad As New Dictionary(Of String, String)()
     Private ValueSource_Tipo As New Dictionary(Of String, String)()
     Private ArchivosLista As New ArrayList
+    Private BarCodeString As String = "hola mundo"
     Private Sub form_ingreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ValueSource_Clientes As New Dictionary(Of String, String)()
         ' # CARGA DE ELEMENTOS FORMULARIO PRINCIPAL
@@ -33,6 +36,7 @@ Public Class form_ingreso
         Me.ingreso_pic_comentarios.Cursor = Cursors.Hand
         Me.ingreso_pic_commenotclose.Cursor = Cursors.Hand
         Me.ingreso_pic_commenotaccept.Cursor = Cursors.Hand
+        Me.ingreso_pic_codebar.Cursor = Cursors.Hand
         Me.ingreso_txt_not.ReadOnly = True
         Me.ingresot_pn_imgcontainer.Cursor = Cursors.No
         Me.ingresot_pic_saveot.BackColor = Color.Transparent
@@ -95,6 +99,12 @@ Public Class form_ingreso
         Me.ingreso_cmb_cliente.ValueMember = "Key"
         Me.ingreso_cmb_cliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         Me.ingreso_cmb_cliente.AutoCompleteSource = AutoCompleteSource.ListItems
+        ' # GENERACION DE CODIGO DE BARRA.
+        Dim CodeBar As Bitmap = Nothing
+        CodeBar = BarCode.Code128("OT-000" & Me.ingreso_txt_not.Text, BarCode.Code128SubTypes.CODE128_UCC, True, Convert.ToSingle(38))
+        If Not IsNothing(CodeBar) Then
+            Me.ingreso_pic_codebar.Image = CodeBar
+        End If
     End Sub
     Private Sub ingreso_lbl_addcliente_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ingreso_lbl_addcliente.LinkClicked
         add_cliente.ShowDialog()
@@ -530,5 +540,48 @@ Public Class form_ingreso
     End Sub
     Private Sub ingreso_lv_documentos_DoubleClick(sender As Object, e As EventArgs) Handles ingreso_lv_documentos.DoubleClick
         Call MISC_EXECUTEFILE(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "/" & ingreso_lv_documentos.SelectedItems(0).Text)
+    End Sub
+    Private Sub ingreso_pic_codebar_Click(sender As Object, e As EventArgs) Handles ingreso_pic_codebar.Click
+        ' # AL PRESIONAR ESTE BOTON IMPRIMIR LOS CUADROS DE DIALOGOS.
+        If Me.ingreso_cmb_tipo.SelectedValue = "" Or Me.ingreso_cmb_marca.SelectedValue = "" Or Me.ingreso_cmb_modelo.SelectedValue = "" Then
+            MessageBox.Show("Para poder generar el código de barras debe seleccionar Tipo, marca y modelo del equipo.", Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        BarCodeString = Me.ingreso_cmb_tipo.Text & " " & Me.ingreso_cmb_marca.Text & " - " & Me.ingreso_cmb_modelo.Text
+        If MessageBox.Show("¿Desea imprimir el código de barra generado para esta orden de trabajo?", Application.ProductName & " - " & _
+                           Application.ProductVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Dim xCustomSize As New PaperSize("CodeBar", 390, 188)
+            Me.ingreso_print_dialogo.Document = Me.ingreso_print_documento
+            If Me.ingreso_print_dialogo.ShowDialog = Windows.Forms.DialogResult.OK Then
+                Me.ingreso_print_documento.DefaultPageSettings.PaperSize = xCustomSize
+                Me.ingreso_print_documento.Print()
+            Else
+                Exit Sub
+            End If
+        Else
+            Exit Sub
+        End If
+    End Sub
+    Private Sub ingreso_print_documento_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles ingreso_print_documento.PrintPage
+        ' # CONFIGURACION DE HOJA DE IMPRESION PARA EL CODIGO DE BARRAS.
+        Dim drawFont As New Font("Arial", 8, FontStyle.Bold)
+        Dim Lapiz As New Pen(Color.Black, 3)
+        Dim l1p1 As New Point(10, 43)
+        Dim l1p2 As New Point(380, 43)
+        Dim LogoRepairco As New PictureBox
+        LogoRepairco.Image = Image.FromFile(Application.StartupPath & "\Data\grafica\logo_barcode.png")
+        LogoRepairco.Size = New Size(120, 30)
+        LogoRepairco.SizeMode = PictureBoxSizeMode.StretchImage
+        e.Graphics.DrawImage(LogoRepairco.Image, 10, 10)
+        e.Graphics.DrawLine(Lapiz, l1p1, l1p2)
+        If BarCodeString.Length < 35 Then
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 80, 75)
+        ElseIf BarCodeString.Length > 34 And BarCodeString.Length < 60 Then
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 60, 75)
+        Else
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 10, 75)
+        End If
+        e.Graphics.DrawImage(Me.ingreso_pic_codebar.Image, 120, 90)
     End Sub
 End Class

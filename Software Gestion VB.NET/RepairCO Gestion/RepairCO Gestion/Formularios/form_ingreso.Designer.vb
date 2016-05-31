@@ -86,6 +86,9 @@ Partial Class form_ingreso
         Me.ingreso_pic_docadd = New System.Windows.Forms.PictureBox()
         Me.ingreso_lv_documentos = New System.Windows.Forms.ListView()
         Me.ingreso_il_docuico = New System.Windows.Forms.ImageList(Me.components)
+        Me.ingreso_pic_codebar = New System.Windows.Forms.PictureBox()
+        Me.ingreso_print_dialogo = New System.Windows.Forms.PrintDialog()
+        Me.ingreso_print_documento = New System.Drawing.Printing.PrintDocument()
         Me.ingreso_gp_datos.SuspendLayout()
         CType(Me.ingreso_pic_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ingresot_pic_saveot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,12 +105,14 @@ Partial Class form_ingreso
         Me.ingreso_pn_image.SuspendLayout()
         Me.ingreso_pn_docus.SuspendLayout()
         CType(Me.ingreso_pic_docadd, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ingreso_pic_codebar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ingreso_gp_datos
         '
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_cmb_ireparable)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_ireparable)
+        Me.ingreso_gp_datos.Controls.Add(Me.ingreso_pn_comentarios)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_txt_agendamiento)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_lbl_agendamiento)
         Me.ingreso_gp_datos.Controls.Add(Me.ingreso_pic_comentarios)
@@ -625,7 +630,7 @@ Partial Class form_ingreso
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_lbl_commenotrserv)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_txt_commenotrc)
         Me.ingreso_pn_comentarios.Controls.Add(Me.ingreso_pic_commenotitle)
-        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(352, 37)
+        Me.ingreso_pn_comentarios.Location = New System.Drawing.Point(304, 54)
         Me.ingreso_pn_comentarios.Name = "ingreso_pn_comentarios"
         Me.ingreso_pn_comentarios.Size = New System.Drawing.Size(561, 204)
         Me.ingreso_pn_comentarios.TabIndex = 32
@@ -747,15 +752,30 @@ Partial Class form_ingreso
         Me.ingreso_il_docuico.ImageSize = New System.Drawing.Size(16, 16)
         Me.ingreso_il_docuico.TransparentColor = System.Drawing.Color.Transparent
         '
+        'ingreso_pic_codebar
+        '
+        Me.ingreso_pic_codebar.Location = New System.Drawing.Point(318, 6)
+        Me.ingreso_pic_codebar.Name = "ingreso_pic_codebar"
+        Me.ingreso_pic_codebar.Size = New System.Drawing.Size(200, 50)
+        Me.ingreso_pic_codebar.TabIndex = 34
+        Me.ingreso_pic_codebar.TabStop = False
+        '
+        'ingreso_print_dialogo
+        '
+        Me.ingreso_print_dialogo.UseEXDialog = True
+        '
+        'ingreso_print_documento
+        '
+        '
         'form_ingreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(889, 657)
+        Me.Controls.Add(Me.ingreso_pic_codebar)
         Me.Controls.Add(Me.ingresot_pic_saveimages)
         Me.Controls.Add(Me.ingreso_tp_atach)
-        Me.Controls.Add(Me.ingreso_pn_comentarios)
         Me.Controls.Add(Me.ingreso_txt_not)
         Me.Controls.Add(Me.ingresot_pic_ot)
         Me.Controls.Add(Me.ingresot_pic_title)
@@ -782,6 +802,7 @@ Partial Class form_ingreso
         Me.ingreso_pn_image.ResumeLayout(False)
         Me.ingreso_pn_docus.ResumeLayout(False)
         CType(Me.ingreso_pic_docadd, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ingreso_pic_codebar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -849,4 +870,7 @@ Partial Class form_ingreso
     Friend WithEvents ingreso_lv_documentos As System.Windows.Forms.ListView
     Friend WithEvents ingreso_pic_docadd As System.Windows.Forms.PictureBox
     Friend WithEvents ingreso_il_docuico As System.Windows.Forms.ImageList
+    Friend WithEvents ingreso_pic_codebar As System.Windows.Forms.PictureBox
+    Friend WithEvents ingreso_print_dialogo As System.Windows.Forms.PrintDialog
+    Friend WithEvents ingreso_print_documento As System.Drawing.Printing.PrintDocument
 End Class

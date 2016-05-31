@@ -7,6 +7,8 @@
         Me.resultados_pic_arodinterior.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/alojamientorodamientoexterior_title.png")
         Me.resultados_pic_cdesgaste.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/generico_imp_cerrado/camisadesgaste_title.png")
         Me.resultados_pic_comprobar.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/comprobar_hover.png")
+        Me.resultados_pic_left.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/left.png")
+        Me.resultados_pic_right.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/resultados/right.png")
         ' # CARGA PARAMETRO DE CONTROLES.
         Me.resultados_lbl_ad1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
         Me.resultados_lbl_ad2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
@@ -66,6 +68,8 @@
         Me.resultados_txt_ejezrodacopla2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
         Me.resultados_txt_ejezrodacopla3.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
         Me.resultados_txt_ejezrodacoplastatus.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
+        Me.resultados_pic_left.BackColor = Color.Transparent
+        Me.resultados_pic_right.BackColor = Color.Transparent
         Me.resultados_txt_adp1.ReadOnly = True
         Me.resultados_txt_adp2.ReadOnly = True
         Me.resultados_txt_adp3.ReadOnly = True
@@ -102,6 +106,7 @@
         Me.resultados_txt_ejezrodlibre2.ReadOnly = True
         Me.resultados_txt_ejezrodlibre3.ReadOnly = True
         Me.resultados_txt_ejezrodlibrestatus.ReadOnly = True
+        Me.resultados_pic_right.Visible = False
     End Sub
     Private Sub resultados_pic_comprobar_Click(sender As Object, e As EventArgs) Handles resultados_pic_comprobar.Click
         ' # REALIZAMOS LA COMPILACION DE INFORMACION DE LOS FORMULARIOS Y LOS PARAMETROS DE LA BASE DE DATOS
