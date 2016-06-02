@@ -23,10 +23,11 @@ Partial Class main_menu_lateral
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("INGRESAR", 3, 3)
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("VER", 2, 2)
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("INGRESAR OT", 3, 3)
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("VER OT", 2, 2)
         Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("RECEPCION", 1, 1, New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("PLANIFICACION", 0, 0, New System.Windows.Forms.TreeNode() {TreeNode3})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ASIGNACION DE TAREAS", 4, 4)
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("PLANIFICACION", New System.Windows.Forms.TreeNode() {TreeNode4})
         Me.main_menu_logo = New System.Windows.Forms.PictureBox()
         Me.mainmenu_container = New System.Windows.Forms.TreeView()
         Me.mainmenu_iconlist = New System.Windows.Forms.ImageList(Me.components)
@@ -56,20 +57,23 @@ Partial Class main_menu_lateral
         TreeNode1.ImageIndex = 3
         TreeNode1.Name = "menu_recepcioningresar"
         TreeNode1.SelectedImageIndex = 3
-        TreeNode1.Text = "INGRESAR"
+        TreeNode1.Text = "INGRESAR OT"
         TreeNode2.ImageIndex = 2
         TreeNode2.Name = "menu_recepcioneslista"
         TreeNode2.SelectedImageIndex = 2
-        TreeNode2.Text = "VER"
+        TreeNode2.Text = "VER OT"
         TreeNode3.ImageIndex = 1
         TreeNode3.Name = "menu_recepcion"
         TreeNode3.SelectedImageIndex = 1
         TreeNode3.Text = "RECEPCION"
-        TreeNode4.ImageIndex = 0
-        TreeNode4.Name = "menu_planificacion"
-        TreeNode4.SelectedImageIndex = 0
-        TreeNode4.Text = "PLANIFICACION"
-        Me.mainmenu_container.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode4})
+        TreeNode4.ImageIndex = 4
+        TreeNode4.Name = "menu_planificacion_asignaciontareas"
+        TreeNode4.SelectedImageIndex = 4
+        TreeNode4.Text = "ASIGNACION DE TAREAS"
+        TreeNode5.ImageIndex = 0
+        TreeNode5.Name = "menu_planificacion"
+        TreeNode5.Text = "PLANIFICACION"
+        Me.mainmenu_container.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode5})
         Me.mainmenu_container.SelectedImageIndex = 0
         Me.mainmenu_container.Size = New System.Drawing.Size(235, 358)
         Me.mainmenu_container.TabIndex = 1

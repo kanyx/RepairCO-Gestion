@@ -7,6 +7,7 @@
         mainmenu_iconlist.Images.Add(1, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/recepcion.png"))
         mainmenu_iconlist.Images.Add(2, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/buscar.png"))
         mainmenu_iconlist.Images.Add(3, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/ingreso.png"))
+        mainmenu_iconlist.Images.Add(4, Image.FromFile(Application.StartupPath & "/Data/grafica/ico/atareas.png"))
     End Sub
     Private Sub mainmenu_container_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles mainmenu_container.AfterSelect
         If e.Node.Name = "menu_planificacion" Then
