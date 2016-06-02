@@ -542,7 +542,7 @@ Public Class form_ingreso
         Call MISC_EXECUTEFILE(main_loggin.ParametrosConfiguracion(5).ToString & Me.ingreso_txt_not.Text & "/" & ingreso_lv_documentos.SelectedItems(0).Text)
     End Sub
     Private Sub ingreso_pic_codebar_Click(sender As Object, e As EventArgs) Handles ingreso_pic_codebar.Click
-        ' # AL PRESIONAR ESTE BOTON IMPRIMIR LOS CUADROS DE DIALOGOS.
+        ' # AL PRESIONAR ESTE BOTON IMPRIMIR LA ETIQUETA Y ABRIR LOS CUADROS DE DIALOGOS.
         If Me.ingreso_cmb_tipo.SelectedValue = "" Or Me.ingreso_cmb_marca.SelectedValue = "" Or Me.ingreso_cmb_modelo.SelectedValue = "" Then
             MessageBox.Show("Para poder generar el código de barras debe seleccionar Tipo, marca y modelo del equipo.", Application.ProductName & " - " & Application.ProductVersion, _
                             MessageBoxButtons.OK, MessageBoxIcon.Warning)

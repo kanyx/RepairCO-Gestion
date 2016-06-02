@@ -1,7 +1,10 @@
-﻿Public Class view_ot
+﻿Imports System.Drawing.Printing
+
+Public Class view_ot
     Dim ImagesOrdenes As New ArrayList
     Public NumeroOrdenTrabajo As String
     Private ArchivosLista As New Dictionary(Of String, String)
+    Private BarCodeString As String = "Hola Mundo!"
     Private Sub view_ot_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim DatosOT As New ArrayList
         Dim DatosPersonal As New ArrayList
@@ -37,11 +40,13 @@
         Me.viewot_pic_save.Cursor = Cursors.Hand
         Me.viewot_pic_pdf.Cursor = Cursors.Hand
         Me.viewot_pic_edit.Cursor = Cursors.Hand
+        Me.viewot_pic_codebar.Cursor = Cursors.Hand
         Me.viewot_pic_save.Visible = False
         Me.viewot_lw_imagenes.Visible = False
         Me.viewot_dg_comentarios.EnableHeadersVisualStyles = False
         Me.viewot_pic_edit.BackColor = Color.Transparent
         Me.viewot_pic_pdf.BackColor = Color.Transparent
+        Me.viewot_pic_codebar.BackColor = Color.Transparent
         ' # LLAMAMOS LOS DATOS DE LA ORDEN LA INTRODUCIMOS A UN ARRAY Y LLENAMOS LOS VALORES DEL FORMULARIO.
         DatosOT = PGSQL_CargaOT(NumeroOrdenTrabajo)
         DatosPersonal = PGSQL_GETPERSONALDATES(DatosOT(16).ToString)
@@ -188,6 +193,12 @@
             Next
             Me.viewot_lv_documentos.Refresh()
         End If
+        ' # GENERACION DEL CODIGO DE BARRA ASOCIADO A LA ORDEN.
+        Dim CodeBar As Bitmap = Nothing
+        CodeBar = BarCode.Code128("OT-000" & Me.viewot_lbl_ot.Text, BarCode.Code128SubTypes.CODE128_UCC, True, Convert.ToSingle(38))
+        If Not IsNothing(CodeBar) Then
+            Me.viewot_pic_codebar.Image = CodeBar
+        End If
     End Sub
     Private Sub viewot_pic_close_Click(sender As Object, e As EventArgs) Handles viewot_pic_close.Click
         Me.Close()
@@ -214,5 +225,49 @@
     End Sub
     Private Sub viewot_lv_documentos_DoubleClick(sender As Object, e As EventArgs) Handles viewot_lv_documentos.DoubleClick
         Call MISC_EXECUTEFILE(main_loggin.ParametrosConfiguracion(5).ToString & NumeroOrdenTrabajo & "\" & Me.viewot_lv_documentos.SelectedItems(0).Text)
+    End Sub
+    Private Sub viewot_pic_codebar_Click(sender As Object, e As EventArgs) Handles viewot_pic_codebar.Click
+        ' # GENERAMOS EL INFORME PARA PODER IMPRIMIRLO.
+        ' # AL PRESIONAR ESTE BOTON IMPRIMIR LA ETIQUETA Y ABRIR LOS CUADROS DE DIALOGOS.
+        If Me.viewot_cmb_tipo.SelectedValue = "" Or Me.viewot_cmb_marca.SelectedValue = "" Or Me.viewot_cmb_modelo.SelectedValue = "" Then
+            MessageBox.Show("Para poder generar el código de barras debe seleccionar Tipo, marca y modelo del equipo.", Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        BarCodeString = Me.viewot_cmb_tipo.Text & " " & Me.viewot_cmb_marca.Text & " - " & Me.viewot_cmb_modelo.Text
+        If MessageBox.Show("¿Desea imprimir el código de barra generado para esta orden de trabajo?", Application.ProductName & " - " & _
+                           Application.ProductVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Dim xCustomSize As New PaperSize("CodeBar", 390, 188)
+            Me.viewot_print_dialogo.Document = Me.viewot_print_documento
+            If Me.viewot_print_dialogo.ShowDialog = Windows.Forms.DialogResult.OK Then
+                Me.viewot_print_documento.DefaultPageSettings.PaperSize = xCustomSize
+                Me.viewot_print_documento.Print()
+            Else
+                Exit Sub
+            End If
+        Else
+            Exit Sub
+        End If
+    End Sub
+    Private Sub viewot_print_documento_PrintPage(sender As Object, e As PrintPageEventArgs) Handles viewot_print_documento.PrintPage
+        ' # IMPRIMIMOS ETIQUETAS.
+        Dim drawFont As New Font("Arial", 8, FontStyle.Bold)
+        Dim Lapiz As New Pen(Color.Black, 3)
+        Dim l1p1 As New Point(10, 43)
+        Dim l1p2 As New Point(380, 43)
+        Dim LogoRepairco As New PictureBox
+        LogoRepairco.Image = Image.FromFile(Application.StartupPath & "\Data\grafica\logo_barcode.png")
+        LogoRepairco.Size = New Size(120, 30)
+        LogoRepairco.SizeMode = PictureBoxSizeMode.StretchImage
+        e.Graphics.DrawImage(LogoRepairco.Image, 10, 10)
+        e.Graphics.DrawLine(Lapiz, l1p1, l1p2)
+        If BarCodeString.Length < 35 Then
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 80, 75)
+        ElseIf BarCodeString.Length > 34 And BarCodeString.Length < 60 Then
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 60, 75)
+        Else
+            e.Graphics.DrawString(BarCodeString, drawFont, Brushes.Black, 10, 75)
+        End If
+        e.Graphics.DrawImage(Me.viewot_pic_codebar.Image, 120, 90)
     End Sub
 End Class

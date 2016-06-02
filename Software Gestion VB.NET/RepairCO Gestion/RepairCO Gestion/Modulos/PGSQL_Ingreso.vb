@@ -164,4 +164,150 @@ Module PGSQL_Ingreso
             Return False
         End Try
     End Function
+    Public Function PGSQL_ADDIVISUAL(ByVal OT As Integer, ByVal idComponente As Integer, ByVal Parametros As Dictionary(Of Integer, String)) As Boolean
+        ' ######################################################################### '
+        ' # FUNCION QUE AÑADE LAS INPECCIONES VISUALES AL SERVIDOR POSTGRESQL.    # '
+        ' # LA TABLA UTILIZADA PARA ESTA LABOR ES: ot_inspvisual.                 # '
+        ' ######################################################################### '
+        ' # DESCRIPCION Parametros generales.                                     # '
+        ' # 0= Limpieza | 1= Recuperar | 2= Cambiar.                              # '
+        ' ######################################################################### '
+        ' # DESCRIPCION DE ZONAS.                                                 # '
+        ' # z1 = EJE: cond. hilo de tuerca fijacion de rodamiento.                # '
+        ' # z2 = EJE: cond. chaveta y chavetero.                                  # '
+        ' # z3 = CARCASA: cond. de zona ajuste.                                   # '
+        ' # z4 = CARCASA: cond. de flange.                                        # '
+        ' # z5 = CARCASA: cond. patas de apoyo.                                   # '
+        ' # z6 = IMPULSOR: cond. Ø hilo interior                                  # '
+        ' # z7 = IMPULSOR: cond. chavetero impulsor.                              # '
+        ' # z8 = IMPULSOR: cond. alabes.                                          # '
+        ' # z9 = FRAME ADAPTER: cond. de caras frontales.                         # '
+        ' # z10 = FRAME ADAPTER: cond. de hilos y agujeros.                       # '
+        ' # z11 = FRAME ADAPTER: cond. de pestaña ajuste.                         # '
+        ' # z12 = FRAME ADAPTER: cond. de alojamiento laberinto.                  # '
+        ' # z13 = STAFIN BOX: cond. cara frontal.                                 # '
+        ' # z14 = STAFIN BOX: cond. de esparragos.                                # '
+        ' # z15 = STAFIN BOX: cond. de lineas de refrigeracion.                   # '
+        ' # z16 = CPO. ROD: cond. de hilo de amarre de frame.                     # '
+        ' # z17 = CPO. ROD: cond. de seguro rod. axial.                           # '
+        ' # z18 = CPO. ROD: cond. de seguro radia.                                # '
+        ' # z19 = SELLO MECANICO: cond. de caras de contacto.                     # '
+        ' # z20 = SELLO MECANICO: cond. de collarin.                              # '
+        ' # z21 = SELLO MECANICO: cond. de o'ring.                                # '
+        ' # z22 = SELLO MECANICO: tipo de sello.                                  # '
+        ' ######################################################################### '
+        Dim z1 As Integer = 0
+        Dim z2 As Integer = 0
+        Dim z3 As Integer = 0
+        Dim z4 As Integer = 0
+        Dim z5 As Integer = 0
+        Dim z6 As Integer = 0
+        Dim z7 As Integer = 0
+        Dim z8 As Integer = 0
+        Dim z9 As Integer = 0
+        Dim z10 As Integer = 0
+        Dim z11 As Integer = 0
+        Dim z12 As Integer = 0
+        Dim z13 As Integer = 0
+        Dim z14 As Integer = 0
+        Dim z15 As Integer = 0
+        Dim z16 As Integer = 0
+        Dim z17 As Integer = 0
+        Dim z18 As Integer = 0
+        Dim z19 As Integer = 0
+        Dim z20 As Integer = 0
+        Dim z21 As Integer = 0
+        Dim z22 As Integer = 0
+        If Parametros.ContainsKey(1) = True Then
+            z1 = 1
+        ElseIf Parametros.ContainsKey(2) = True Then
+            z2 = 1
+        ElseIf Parametros.ContainsKey(3) = True Then
+            z3 = 1
+        ElseIf Parametros.ContainsKey(4) = True Then
+            z4 = 1
+        ElseIf Parametros.ContainsKey(5) = True Then
+            z5 = 1
+        ElseIf Parametros.ContainsKey(6) = True Then
+            z6 = 1
+        ElseIf Parametros.ContainsKey(7) = True Then
+            z7 = 1
+        ElseIf Parametros.ContainsKey(8) = True Then
+            z8 = 1
+        ElseIf Parametros.ContainsKey(9) = True Then
+            z9 = 1
+        ElseIf Parametros.ContainsKey(10) = True Then
+            z10 = 1
+        ElseIf Parametros.ContainsKey(11) = True Then
+            z11 = 1
+        ElseIf Parametros.ContainsKey(12) = True Then
+            z12 = 1
+        ElseIf Parametros.ContainsKey(13) = True Then
+            z13 = 1
+        ElseIf Parametros.ContainsKey(14) = True Then
+            z14 = 1
+        ElseIf Parametros.ContainsKey(15) = True Then
+            z15 = 1
+        ElseIf Parametros.ContainsKey(16) = True Then
+            z16 = 1
+        ElseIf Parametros.ContainsKey(17) = True Then
+            z17 = 1
+        ElseIf Parametros.ContainsKey(18) = True Then
+            z18 = 1
+        ElseIf Parametros.ContainsKey(19) = True Then
+            z19 = 1
+        ElseIf Parametros.ContainsKey(20) = True Then
+            z20 = 1
+        ElseIf Parametros.ContainsKey(21) = True Then
+            z21 = 1
+        ElseIf Parametros.ContainsKey(22) = True Then
+            z22 = 1
+        End If
+        Try
+            ' # ORDEN DEL DICTIONARY (VALOR DE CADA CAMPO)
+
+            Dim ConexPGSQL As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            ConexPGSQL.Open()
+            Dim CommandPGSQL As New NpgsqlCommand
+            CommandPGSQL.Connection = ConexPGSQL
+            CommandPGSQL.CommandType = CommandType.Text
+            CommandPGSQL.CommandText = "INSERT INTO ot_inspvisual (idot, idcomponente, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19, z20, z21, z22) VALUES (@OT, @Componente, @z1, @z2, @z3, @z4, @z5, @z6, @z7, @z8, @z9, @z10, @z11, @z12, @z13, @z14, @z15, @z16, @z17, @z18, @z19, @z20, @z21, @z22)"
+            CommandPGSQL.Parameters.AddWithValue("@OT", Integer.Parse(OT))
+            CommandPGSQL.Parameters.AddWithValue("@Componente", Integer.Parse(idComponente))
+            CommandPGSQL.Parameters.AddWithValue("@z1", Integer.Parse(z1))
+            CommandPGSQL.Parameters.AddWithValue("@z2", Integer.Parse(z2))
+            CommandPGSQL.Parameters.AddWithValue("@z3", Integer.Parse(z3))
+            CommandPGSQL.Parameters.AddWithValue("@z4", Integer.Parse(z4))
+            CommandPGSQL.Parameters.AddWithValue("@z5", Integer.Parse(z5))
+            CommandPGSQL.Parameters.AddWithValue("@z6", Integer.Parse(z6))
+            CommandPGSQL.Parameters.AddWithValue("@z7", Integer.Parse(z7))
+            CommandPGSQL.Parameters.AddWithValue("@z8", Integer.Parse(z8))
+            CommandPGSQL.Parameters.AddWithValue("@z9", Integer.Parse(z9))
+            CommandPGSQL.Parameters.AddWithValue("@z10", Integer.Parse(z10))
+            CommandPGSQL.Parameters.AddWithValue("@z11", Integer.Parse(z11))
+            CommandPGSQL.Parameters.AddWithValue("@z12", Integer.Parse(z12))
+            CommandPGSQL.Parameters.AddWithValue("@z13", Integer.Parse(z13))
+            CommandPGSQL.Parameters.AddWithValue("@z14", Integer.Parse(z14))
+            CommandPGSQL.Parameters.AddWithValue("@z15", Integer.Parse(z15))
+            CommandPGSQL.Parameters.AddWithValue("@z16", Integer.Parse(z16))
+            CommandPGSQL.Parameters.AddWithValue("@z17", Integer.Parse(z17))
+            CommandPGSQL.Parameters.AddWithValue("@z18", Integer.Parse(z18))
+            CommandPGSQL.Parameters.AddWithValue("@z19", Integer.Parse(z19))
+            CommandPGSQL.Parameters.AddWithValue("@z20", Integer.Parse(z20))
+            CommandPGSQL.Parameters.AddWithValue("@z21", Integer.Parse(z21))
+            CommandPGSQL.Parameters.AddWithValue("@z22", Integer.Parse(z22))
+            CommandPGSQL.ExecuteNonQuery()
+            ConexPGSQL.Close()
+            Return True
+        Catch exex As Exception
+            MessageBox.Show("Ocurrió un error al ingresar la inspección visual del componente a la base de datos, contacte al equipo de desarrollo." & _
+                            vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & exex.ToString, Application.ProductName & _
+                            " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
 End Module

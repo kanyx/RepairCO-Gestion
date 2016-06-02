@@ -26,6 +26,8 @@ Partial Class view_ot
         Me.viewot_tab_ot = New System.Windows.Forms.TabControl()
         Me.viewot_tabpage_foto = New System.Windows.Forms.TabPage()
         Me.viewot_lw_imagenes = New System.Windows.Forms.ListView()
+        Me.viewot_tabpage_documentos = New System.Windows.Forms.TabPage()
+        Me.viewot_lv_documentos = New System.Windows.Forms.ListView()
         Me.viewot_tabpage_comentarios = New System.Windows.Forms.TabPage()
         Me.viewot_dg_comentarios = New System.Windows.Forms.DataGridView()
         Me.viewot_tabpage_historic = New System.Windows.Forms.TabPage()
@@ -71,11 +73,13 @@ Partial Class view_ot
         Me.viewot_il_imagelist = New System.Windows.Forms.ImageList(Me.components)
         Me.viewot_pic_edit = New System.Windows.Forms.PictureBox()
         Me.viewot_pic_pdf = New System.Windows.Forms.PictureBox()
-        Me.viewot_tabpage_documentos = New System.Windows.Forms.TabPage()
-        Me.viewot_lv_documentos = New System.Windows.Forms.ListView()
         Me.viewot_il_documentos = New System.Windows.Forms.ImageList(Me.components)
+        Me.viewot_pic_codebar = New System.Windows.Forms.PictureBox()
+        Me.viewot_print_dialogo = New System.Windows.Forms.PrintDialog()
+        Me.viewot_print_documento = New System.Drawing.Printing.PrintDocument()
         Me.viewot_tab_ot.SuspendLayout()
         Me.viewot_tabpage_foto.SuspendLayout()
+        Me.viewot_tabpage_documentos.SuspendLayout()
         Me.viewot_tabpage_comentarios.SuspendLayout()
         CType(Me.viewot_dg_comentarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.viewot_gb_datos.SuspendLayout()
@@ -86,7 +90,7 @@ Partial Class view_ot
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_edit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.viewot_pic_pdf, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.viewot_tabpage_documentos.SuspendLayout()
+        CType(Me.viewot_pic_codebar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'viewot_tab_ot
@@ -122,6 +126,25 @@ Partial Class view_ot
         Me.viewot_lw_imagenes.Size = New System.Drawing.Size(803, 231)
         Me.viewot_lw_imagenes.TabIndex = 0
         Me.viewot_lw_imagenes.UseCompatibleStateImageBehavior = False
+        '
+        'viewot_tabpage_documentos
+        '
+        Me.viewot_tabpage_documentos.Controls.Add(Me.viewot_lv_documentos)
+        Me.viewot_tabpage_documentos.Location = New System.Drawing.Point(4, 21)
+        Me.viewot_tabpage_documentos.Name = "viewot_tabpage_documentos"
+        Me.viewot_tabpage_documentos.Size = New System.Drawing.Size(809, 237)
+        Me.viewot_tabpage_documentos.TabIndex = 3
+        Me.viewot_tabpage_documentos.Text = "DOCUMENTOS"
+        Me.viewot_tabpage_documentos.UseVisualStyleBackColor = True
+        '
+        'viewot_lv_documentos
+        '
+        Me.viewot_lv_documentos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.viewot_lv_documentos.Location = New System.Drawing.Point(0, 0)
+        Me.viewot_lv_documentos.Name = "viewot_lv_documentos"
+        Me.viewot_lv_documentos.Size = New System.Drawing.Size(809, 237)
+        Me.viewot_lv_documentos.TabIndex = 0
+        Me.viewot_lv_documentos.UseCompatibleStateImageBehavior = False
         '
         'viewot_tabpage_comentarios
         '
@@ -573,30 +596,26 @@ Partial Class view_ot
         Me.viewot_pic_pdf.TabIndex = 8
         Me.viewot_pic_pdf.TabStop = False
         '
-        'viewot_tabpage_documentos
-        '
-        Me.viewot_tabpage_documentos.Controls.Add(Me.viewot_lv_documentos)
-        Me.viewot_tabpage_documentos.Location = New System.Drawing.Point(4, 21)
-        Me.viewot_tabpage_documentos.Name = "viewot_tabpage_documentos"
-        Me.viewot_tabpage_documentos.Size = New System.Drawing.Size(809, 237)
-        Me.viewot_tabpage_documentos.TabIndex = 3
-        Me.viewot_tabpage_documentos.Text = "DOCUMENTOS"
-        Me.viewot_tabpage_documentos.UseVisualStyleBackColor = True
-        '
-        'viewot_lv_documentos
-        '
-        Me.viewot_lv_documentos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.viewot_lv_documentos.Location = New System.Drawing.Point(0, 0)
-        Me.viewot_lv_documentos.Name = "viewot_lv_documentos"
-        Me.viewot_lv_documentos.Size = New System.Drawing.Size(809, 237)
-        Me.viewot_lv_documentos.TabIndex = 0
-        Me.viewot_lv_documentos.UseCompatibleStateImageBehavior = False
-        '
         'viewot_il_documentos
         '
         Me.viewot_il_documentos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.viewot_il_documentos.ImageSize = New System.Drawing.Size(16, 16)
         Me.viewot_il_documentos.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'viewot_pic_codebar
+        '
+        Me.viewot_pic_codebar.Location = New System.Drawing.Point(337, 10)
+        Me.viewot_pic_codebar.Name = "viewot_pic_codebar"
+        Me.viewot_pic_codebar.Size = New System.Drawing.Size(200, 50)
+        Me.viewot_pic_codebar.TabIndex = 35
+        Me.viewot_pic_codebar.TabStop = False
+        '
+        'viewot_print_dialogo
+        '
+        Me.viewot_print_dialogo.UseEXDialog = True
+        '
+        'viewot_print_documento
+        '
         '
         'view_ot
         '
@@ -604,6 +623,7 @@ Partial Class view_ot
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(842, 566)
+        Me.Controls.Add(Me.viewot_pic_codebar)
         Me.Controls.Add(Me.viewot_pic_pdf)
         Me.Controls.Add(Me.viewot_pic_edit)
         Me.Controls.Add(Me.viewot_pic_close)
@@ -618,6 +638,7 @@ Partial Class view_ot
         Me.Text = "view_ot"
         Me.viewot_tab_ot.ResumeLayout(False)
         Me.viewot_tabpage_foto.ResumeLayout(False)
+        Me.viewot_tabpage_documentos.ResumeLayout(False)
         Me.viewot_tabpage_comentarios.ResumeLayout(False)
         CType(Me.viewot_dg_comentarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.viewot_gb_datos.ResumeLayout(False)
@@ -630,7 +651,7 @@ Partial Class view_ot
         CType(Me.viewot_pic_close, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_edit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.viewot_pic_pdf, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.viewot_tabpage_documentos.ResumeLayout(False)
+        CType(Me.viewot_pic_codebar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -685,4 +706,7 @@ Partial Class view_ot
     Friend WithEvents viewot_tabpage_documentos As System.Windows.Forms.TabPage
     Friend WithEvents viewot_lv_documentos As System.Windows.Forms.ListView
     Friend WithEvents viewot_il_documentos As System.Windows.Forms.ImageList
+    Friend WithEvents viewot_pic_codebar As System.Windows.Forms.PictureBox
+    Friend WithEvents viewot_print_dialogo As System.Windows.Forms.PrintDialog
+    Friend WithEvents viewot_print_documento As System.Drawing.Printing.PrintDocument
 End Class

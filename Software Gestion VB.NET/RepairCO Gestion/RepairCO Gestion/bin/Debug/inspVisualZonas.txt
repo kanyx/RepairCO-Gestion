@@ -1,0 +1,31 @@
+id = identificador unico del registro visiual.
+idot = numero de orden de trabajo.
+idcomponente = id del componente al que esta enganchado el registro. (TABLA RELACIONAL CON "MED_COMPONENTES")
+####################################
+DESCRIPCION PARAMETROS:
+0= | 1= | 2=
+####################################
+DESCRIPCION DE ZONAS.
+z1 = EJE: cond. hilo de tuerca fijacion de rodamiento.
+z2 = EJE: cond. chaveta y chavetero.
+z3 = CARCASA: cond. de zona ajuste.
+z4 = CARCASA: cond. de flange.
+z5 = CARCASA: cond. patas de apoyo.
+z6 = IMPULSOR: cond. Ø hilo interior
+z7 = IMPULSOR: cond. chavetero impulsor.
+z8 = IMPULSOR: cond. alabes.
+z9 = FRAME ADAPTER: cond. de caras frontales.
+z10 = FRAME ADAPTER: cond. de hilos y agujeros.
+z11 = FRAME ADAPTER: cond. de pestaña ajuste.
+z12 = FRAME ADAPTER: cond. de alojamiento laberinto.
+z13 = STAFIN BOX: cond. cara frontal.
+z14 = STAFIN BOX: cond. de esparragos.
+z15 = STAFIN BOX: cond. de lineas de refrigeracion.
+z16 = CPO. ROD: cond. de hilo de amarre de frame.
+z17 = CPO. ROD: cond. de seguro rod. axial.
+z18 = CPO. ROD: cond. de seguro radia.
+z19 = SELLO MECANICO: cond. de caras de contacto.
+z20 = SELLO MECANICO: cond. de collarin.
+z21 = SELLO MECANICO: cond. de o'ring.
+z22 = SELLO MECANICO: tipo de sello.
+

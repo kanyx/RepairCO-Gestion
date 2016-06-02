@@ -13,6 +13,7 @@
         Me.eje_pic_z5.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/generico_imp_cerrado/z5.png")
         Me.eje_pic_z6.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/btn_flex.png")
         Me.eje_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/ejes/eje_impulsorcerrado_generic_title.png")
+        Me.eje_pic_visual.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/insvisual_normal.png")
         ' # ESTABLECEMOS PARAMETROS A LOS CONTROLES
         Me.eje_pn_vector.BackColor = Color.Transparent
         Me.eje_pic_z1.BackColor = Color.Transparent
