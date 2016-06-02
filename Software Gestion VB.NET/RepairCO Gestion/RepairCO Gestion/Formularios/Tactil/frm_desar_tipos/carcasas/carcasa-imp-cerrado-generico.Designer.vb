@@ -25,15 +25,18 @@ Partial Class carcasa_imp_cerrado_generico
         Me.carcasa_pic_vector = New System.Windows.Forms.PictureBox()
         Me.carcasa_pic_title = New System.Windows.Forms.PictureBox()
         Me.carcasa_gb_info = New System.Windows.Forms.GroupBox()
-        Me.carcasa_lbl_z1 = New System.Windows.Forms.Label()
-        Me.carcasa_lbl_z2 = New System.Windows.Forms.Label()
-        Me.carcasa_txt_z1 = New System.Windows.Forms.TextBox()
         Me.carcasa_txt_z2 = New System.Windows.Forms.TextBox()
+        Me.carcasa_txt_z1 = New System.Windows.Forms.TextBox()
+        Me.carcasa_lbl_z2 = New System.Windows.Forms.Label()
+        Me.carcasa_lbl_z1 = New System.Windows.Forms.Label()
         Me.carcasa_gb_visual = New System.Windows.Forms.GroupBox()
         Me.carcasa_pn_med = New System.Windows.Forms.Panel()
+        Me.carcasa_pic_visual = New System.Windows.Forms.PictureBox()
+        Me.carcasa_pn_visual = New System.Windows.Forms.Panel()
         CType(Me.carcasa_pic_vector, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.carcasa_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.carcasa_gb_info.SuspendLayout()
+        CType(Me.carcasa_pic_visual, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'carcasa_pic_vector
@@ -64,15 +67,21 @@ Partial Class carcasa_imp_cerrado_generico
         Me.carcasa_gb_info.TabIndex = 2
         Me.carcasa_gb_info.TabStop = False
         '
-        'carcasa_lbl_z1
+        'carcasa_txt_z2
         '
-        Me.carcasa_lbl_z1.AutoSize = True
-        Me.carcasa_lbl_z1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.carcasa_lbl_z1.Location = New System.Drawing.Point(15, 31)
-        Me.carcasa_lbl_z1.Name = "carcasa_lbl_z1"
-        Me.carcasa_lbl_z1.Size = New System.Drawing.Size(151, 15)
-        Me.carcasa_lbl_z1.TabIndex = 4
-        Me.carcasa_lbl_z1.Text = "Ø INTERIOR CARCASA"
+        Me.carcasa_txt_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.carcasa_txt_z2.Location = New System.Drawing.Point(348, 65)
+        Me.carcasa_txt_z2.Name = "carcasa_txt_z2"
+        Me.carcasa_txt_z2.Size = New System.Drawing.Size(53, 29)
+        Me.carcasa_txt_z2.TabIndex = 7
+        '
+        'carcasa_txt_z1
+        '
+        Me.carcasa_txt_z1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.carcasa_txt_z1.Location = New System.Drawing.Point(348, 22)
+        Me.carcasa_txt_z1.Name = "carcasa_txt_z1"
+        Me.carcasa_txt_z1.Size = New System.Drawing.Size(53, 29)
+        Me.carcasa_txt_z1.TabIndex = 6
         '
         'carcasa_lbl_z2
         '
@@ -84,21 +93,15 @@ Partial Class carcasa_imp_cerrado_generico
         Me.carcasa_lbl_z2.TabIndex = 5
         Me.carcasa_lbl_z2.Text = "Ø EXTERIOR DE ANILLO SUCCION IMPULSOR"
         '
-        'carcasa_txt_z1
+        'carcasa_lbl_z1
         '
-        Me.carcasa_txt_z1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.carcasa_txt_z1.Location = New System.Drawing.Point(348, 22)
-        Me.carcasa_txt_z1.Name = "carcasa_txt_z1"
-        Me.carcasa_txt_z1.Size = New System.Drawing.Size(53, 29)
-        Me.carcasa_txt_z1.TabIndex = 6
-        '
-        'carcasa_txt_z2
-        '
-        Me.carcasa_txt_z2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.carcasa_txt_z2.Location = New System.Drawing.Point(348, 65)
-        Me.carcasa_txt_z2.Name = "carcasa_txt_z2"
-        Me.carcasa_txt_z2.Size = New System.Drawing.Size(53, 29)
-        Me.carcasa_txt_z2.TabIndex = 7
+        Me.carcasa_lbl_z1.AutoSize = True
+        Me.carcasa_lbl_z1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.carcasa_lbl_z1.Location = New System.Drawing.Point(15, 31)
+        Me.carcasa_lbl_z1.Name = "carcasa_lbl_z1"
+        Me.carcasa_lbl_z1.Size = New System.Drawing.Size(151, 15)
+        Me.carcasa_lbl_z1.TabIndex = 4
+        Me.carcasa_lbl_z1.Text = "Ø INTERIOR CARCASA"
         '
         'carcasa_gb_visual
         '
@@ -115,12 +118,29 @@ Partial Class carcasa_imp_cerrado_generico
         Me.carcasa_pn_med.Size = New System.Drawing.Size(508, 229)
         Me.carcasa_pn_med.TabIndex = 4
         '
+        'carcasa_pic_visual
+        '
+        Me.carcasa_pic_visual.Location = New System.Drawing.Point(511, 416)
+        Me.carcasa_pic_visual.Name = "carcasa_pic_visual"
+        Me.carcasa_pic_visual.Size = New System.Drawing.Size(280, 53)
+        Me.carcasa_pic_visual.TabIndex = 8
+        Me.carcasa_pic_visual.TabStop = False
+        '
+        'carcasa_pn_visual
+        '
+        Me.carcasa_pn_visual.Location = New System.Drawing.Point(59, 158)
+        Me.carcasa_pn_visual.Name = "carcasa_pn_visual"
+        Me.carcasa_pn_visual.Size = New System.Drawing.Size(200, 100)
+        Me.carcasa_pn_visual.TabIndex = 9
+        '
         'carcasa_imp_cerrado_generico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1361, 506)
+        Me.Controls.Add(Me.carcasa_pn_visual)
+        Me.Controls.Add(Me.carcasa_pic_visual)
         Me.Controls.Add(Me.carcasa_pn_med)
         Me.Controls.Add(Me.carcasa_gb_visual)
         Me.Controls.Add(Me.carcasa_gb_info)
@@ -133,6 +153,7 @@ Partial Class carcasa_imp_cerrado_generico
         CType(Me.carcasa_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
         Me.carcasa_gb_info.ResumeLayout(False)
         Me.carcasa_gb_info.PerformLayout()
+        CType(Me.carcasa_pic_visual, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -145,4 +166,6 @@ Partial Class carcasa_imp_cerrado_generico
     Friend WithEvents carcasa_txt_z1 As System.Windows.Forms.TextBox
     Friend WithEvents carcasa_gb_visual As System.Windows.Forms.GroupBox
     Friend WithEvents carcasa_pn_med As System.Windows.Forms.Panel
+    Friend WithEvents carcasa_pic_visual As System.Windows.Forms.PictureBox
+    Friend WithEvents carcasa_pn_visual As System.Windows.Forms.Panel
 End Class

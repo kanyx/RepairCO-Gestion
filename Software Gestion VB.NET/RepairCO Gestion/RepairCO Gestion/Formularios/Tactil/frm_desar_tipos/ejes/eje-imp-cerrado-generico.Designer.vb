@@ -45,6 +45,7 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_pic_z6 = New System.Windows.Forms.PictureBox()
         Me.eje_pn_med = New System.Windows.Forms.Panel()
         Me.eje_pic_visual = New System.Windows.Forms.PictureBox()
+        Me.eje_pn_visual = New System.Windows.Forms.Panel()
         Me.eje_pn_vector.SuspendLayout()
         CType(Me.eje_pic_z5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.eje_pic_z4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -268,12 +269,20 @@ Partial Class eje_imp_cerrado_generico
         Me.eje_pic_visual.TabIndex = 7
         Me.eje_pic_visual.TabStop = False
         '
+        'eje_pn_visual
+        '
+        Me.eje_pn_visual.Location = New System.Drawing.Point(923, 12)
+        Me.eje_pn_visual.Name = "eje_pn_visual"
+        Me.eje_pn_visual.Size = New System.Drawing.Size(200, 100)
+        Me.eje_pn_visual.TabIndex = 8
+        '
         'eje_imp_cerrado_generico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1361, 506)
+        Me.Controls.Add(Me.eje_pn_visual)
         Me.Controls.Add(Me.eje_pic_visual)
         Me.Controls.Add(Me.eje_pn_med)
         Me.Controls.Add(Me.eje_pic_z6)
@@ -321,4 +330,5 @@ Partial Class eje_imp_cerrado_generico
     Friend WithEvents eje_pic_z6 As System.Windows.Forms.PictureBox
     Friend WithEvents eje_pn_med As System.Windows.Forms.Panel
     Friend WithEvents eje_pic_visual As System.Windows.Forms.PictureBox
+    Friend WithEvents eje_pn_visual As System.Windows.Forms.Panel
 End Class

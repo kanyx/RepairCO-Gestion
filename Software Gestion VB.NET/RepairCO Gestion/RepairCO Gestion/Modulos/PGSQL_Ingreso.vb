@@ -170,7 +170,7 @@ Module PGSQL_Ingreso
         ' # LA TABLA UTILIZADA PARA ESTA LABOR ES: ot_inspvisual.                 # '
         ' ######################################################################### '
         ' # DESCRIPCION Parametros generales.                                     # '
-        ' # 0= Limpieza | 1= Recuperar | 2= Cambiar.                              # '
+        ' # 1=Limpieza | 2=Recuperar | 3=Cambiar.                                 # '
         ' ######################################################################### '
         ' # DESCRIPCION DE ZONAS.                                                 # '
         ' # z1 = EJE: cond. hilo de tuerca fijacion de rodamiento.                # '

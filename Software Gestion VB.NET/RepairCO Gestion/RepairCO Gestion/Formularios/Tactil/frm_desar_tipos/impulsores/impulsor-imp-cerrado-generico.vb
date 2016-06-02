@@ -10,6 +10,7 @@
         Me.impulsor_pn_z2.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/impulsores/generico_imp_cerrado/z2_normal.png")
         Me.impulsor_pn_z3.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/impulsores/generico_imp_cerrado/z3_normal.png")
         Me.impulsor_pn_z4.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/impulsores/generico_imp_cerrado/z4_normal.png")
+        Me.impulsor_pic_visual.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/insvisual_normal.png")
         ' # CARGA PARAMETROS DE LOS CONTROLES.
         Me.impulsor_pn_med.Location = New Point(408, 43)
         Me.impulsor_pn_med.Visible = False
@@ -25,6 +26,7 @@
         Me.impulsor_txt_z2.ReadOnly = True
         Me.impulsor_txt_z3.ReadOnly = True
         Me.impulsor_txt_z4.ReadOnly = True
+        Me.impulsor_pn_visual.Visible = False
         Me.impulsor_pn_z1.BackColor = Color.Transparent
         Me.impulsor_pn_z2.BackColor = Color.Transparent
         Me.impulsor_pn_z3.BackColor = Color.Transparent
@@ -128,5 +130,19 @@
         frm_med_z4.ZoneImageError = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/impulsores/generico_imp_cerrado/z4_active.png")
         Me.impulsor_pn_med.Controls.Add(frm_med_z4)
         frm_med_z4.Show()
+    End Sub
+    Private Sub impulsor_pic_visual_Click(sender As Object, e As EventArgs) Handles impulsor_pic_visual.Click
+        Me.impulsor_pn_visual.Visible = True
+        Me.impulsor_pn_visual.Size = New Size(541, 409)
+        Me.impulsor_pn_visual.Location = New Point(378, 10)
+        Dim frm_med_visual As New impulsor_visual
+        frm_med_visual.TopLevel = False
+        frm_med_visual.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        frm_med_visual.Dock = DockStyle.Fill
+        frm_med_visual.VisualComponente = 5
+        frm_med_visual.VisualOT = Integer.Parse(MecOT)
+        frm_med_visual.PanelCarga = Me.impulsor_pn_visual
+        Me.impulsor_pn_visual.Controls.Add(frm_med_visual)
+        frm_med_visual.Show()
     End Sub
 End Class

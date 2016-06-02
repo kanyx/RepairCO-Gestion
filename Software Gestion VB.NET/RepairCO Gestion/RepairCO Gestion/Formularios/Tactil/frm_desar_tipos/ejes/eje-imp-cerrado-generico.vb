@@ -52,6 +52,7 @@
         Me.eje_txt_z5.ReadOnly = True
         Me.eje_txt_z6.ReadOnly = True
         Me.eje_pn_med.Visible = False
+        Me.eje_pn_visual.Visible = False
         ' # CARGAMOS VALORES A LOS CAMPOS PROMEDIADOS EN CASO QUE EXISTAN. (CALCULAR CUANTAS ZONAS POSEE EL ELEMENTO PARA PODER CARGAR CORRECTAMENTE LOS DATOS)
         ValoresAnteriores = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "1") ' # COMPONENTE ESTABLECIDO MANUALMENTE DEACUERDO L FORMULARIO.
         If ValoresAnteriores.ContainsKey("0") = False Then
@@ -206,5 +207,19 @@
         frm_med_flex.PanelCarga = Me.eje_pn_med
         Me.eje_pn_med.Controls.Add(frm_med_flex)
         frm_med_flex.Show()
+    End Sub
+    Private Sub eje_pic_visual_Click(sender As Object, e As EventArgs) Handles eje_pic_visual.Click
+        Me.eje_pn_visual.Visible = True
+        Me.eje_pn_visual.Size = New Size(541, 409)
+        Me.eje_pn_visual.Location = New Point(378, 10)
+        Dim frm_med_visual As New eje_visual
+        frm_med_visual.TopLevel = False
+        frm_med_visual.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        frm_med_visual.Dock = DockStyle.Fill
+        frm_med_visual.VisualComponente = 1
+        frm_med_visual.VisualOT = Integer.Parse(MecOT)
+        frm_med_visual.PanelCarga = Me.eje_pn_visual
+        Me.eje_pn_visual.Controls.Add(frm_med_visual)
+        frm_med_visual.Show()
     End Sub
 End Class

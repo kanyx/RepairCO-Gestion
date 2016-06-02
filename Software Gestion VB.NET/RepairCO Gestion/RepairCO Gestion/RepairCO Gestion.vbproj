@@ -164,10 +164,22 @@
     <Compile Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa-imp-cerrado-generico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa_visual.Designer.vb">
+      <DependentUpon>carcasa_visual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa_visual.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.Designer.vb">
       <DependentUpon>cporod-imp-cerrado-generico.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod_visual.Designer.vb">
+      <DependentUpon>cporod_visual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod_visual.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.Designer.vb">
@@ -192,6 +204,12 @@
       <DependentUpon>impulsor-imp-cerrado-generico.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor-imp-cerrado-generico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor_visual.Designer.vb">
+      <DependentUpon>impulsor_visual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor_visual.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Tactil\frm_desar_tipos\mec_desarme_resumen_generic_ic.Designer.vb">
@@ -322,8 +340,14 @@
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa-imp-cerrado-generico.resx">
       <DependentUpon>carcasa-imp-cerrado-generico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\carcasas\carcasa_visual.resx">
+      <DependentUpon>carcasa_visual.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod-imp-cerrado-generico.resx">
       <DependentUpon>cporod-imp-cerrado-generico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\cpos. rods\cporod_visual.resx">
+      <DependentUpon>cporod_visual.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\ejes\eje-imp-cerrado-generico.resx">
       <DependentUpon>eje-imp-cerrado-generico.vb</DependentUpon>
@@ -336,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor-imp-cerrado-generico.resx">
       <DependentUpon>impulsor-imp-cerrado-generico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\impulsores\impulsor_visual.resx">
+      <DependentUpon>impulsor_visual.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tactil\frm_desar_tipos\mec_desarme_resumen_generic_ic.resx">
       <DependentUpon>mec_desarme_resumen_generic_ic.vb</DependentUpon>

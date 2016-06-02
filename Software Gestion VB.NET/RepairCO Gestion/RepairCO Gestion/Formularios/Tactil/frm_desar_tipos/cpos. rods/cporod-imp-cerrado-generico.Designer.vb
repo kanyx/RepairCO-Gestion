@@ -32,9 +32,12 @@ Partial Class cporod_imp_cerrado_generico
         Me.cporod_lbl_z2 = New System.Windows.Forms.Label()
         Me.cporod_lbl_z1 = New System.Windows.Forms.Label()
         Me.cporod_pn_med = New System.Windows.Forms.Panel()
+        Me.cporod_pic_visual = New System.Windows.Forms.PictureBox()
+        Me.cporod_pn_visual = New System.Windows.Forms.Panel()
         Me.cporod_pn_vector.SuspendLayout()
         CType(Me.cporod_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.cporod_pic_visual, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cporod_pn_vector
@@ -123,12 +126,29 @@ Partial Class cporod_imp_cerrado_generico
         Me.cporod_pn_med.Size = New System.Drawing.Size(504, 319)
         Me.cporod_pn_med.TabIndex = 7
         '
+        'cporod_pic_visual
+        '
+        Me.cporod_pic_visual.Location = New System.Drawing.Point(524, 426)
+        Me.cporod_pic_visual.Name = "cporod_pic_visual"
+        Me.cporod_pic_visual.Size = New System.Drawing.Size(280, 53)
+        Me.cporod_pic_visual.TabIndex = 11
+        Me.cporod_pic_visual.TabStop = False
+        '
+        'cporod_pn_visual
+        '
+        Me.cporod_pn_visual.Location = New System.Drawing.Point(102, 12)
+        Me.cporod_pn_visual.Name = "cporod_pn_visual"
+        Me.cporod_pn_visual.Size = New System.Drawing.Size(200, 100)
+        Me.cporod_pn_visual.TabIndex = 12
+        '
         'cporod_imp_cerrado_generico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1361, 506)
+        Me.Controls.Add(Me.cporod_pn_visual)
+        Me.Controls.Add(Me.cporod_pic_visual)
         Me.Controls.Add(Me.cporod_pn_med)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cporod_pic_title)
@@ -140,6 +160,7 @@ Partial Class cporod_imp_cerrado_generico
         CType(Me.cporod_pic_title, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.cporod_pic_visual, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -153,4 +174,6 @@ Partial Class cporod_imp_cerrado_generico
     Friend WithEvents cporod_txt_z2 As System.Windows.Forms.TextBox
     Friend WithEvents cporod_txt_z1 As System.Windows.Forms.TextBox
     Friend WithEvents cporod_pn_med As System.Windows.Forms.Panel
+    Friend WithEvents cporod_pic_visual As System.Windows.Forms.PictureBox
+    Friend WithEvents cporod_pn_visual As System.Windows.Forms.Panel
 End Class

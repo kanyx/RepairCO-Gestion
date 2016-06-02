@@ -38,9 +38,12 @@ Partial Class impulsor_imp_cerrado_generico
         Me.impulsor_pn_z2 = New System.Windows.Forms.Panel()
         Me.impulsor_pn_z1 = New System.Windows.Forms.Panel()
         Me.impulsor_pn_med = New System.Windows.Forms.Panel()
+        Me.impulsor_pn_visual = New System.Windows.Forms.Panel()
+        Me.impulsor_pic_visual = New System.Windows.Forms.PictureBox()
         CType(Me.impulsor_pic_title, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.impulsor_gb_info.SuspendLayout()
         Me.impulsor_pn_vector.SuspendLayout()
+        CType(Me.impulsor_pic_visual, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'impulsor_pic_title
@@ -185,12 +188,29 @@ Partial Class impulsor_imp_cerrado_generico
         Me.impulsor_pn_med.Size = New System.Drawing.Size(504, 319)
         Me.impulsor_pn_med.TabIndex = 8
         '
+        'impulsor_pn_visual
+        '
+        Me.impulsor_pn_visual.Location = New System.Drawing.Point(376, 29)
+        Me.impulsor_pn_visual.Name = "impulsor_pn_visual"
+        Me.impulsor_pn_visual.Size = New System.Drawing.Size(200, 100)
+        Me.impulsor_pn_visual.TabIndex = 9
+        '
+        'impulsor_pic_visual
+        '
+        Me.impulsor_pic_visual.Location = New System.Drawing.Point(514, 409)
+        Me.impulsor_pic_visual.Name = "impulsor_pic_visual"
+        Me.impulsor_pic_visual.Size = New System.Drawing.Size(280, 53)
+        Me.impulsor_pic_visual.TabIndex = 10
+        Me.impulsor_pic_visual.TabStop = False
+        '
         'impulsor_imp_cerrado_generico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1361, 506)
+        Me.Controls.Add(Me.impulsor_pic_visual)
+        Me.Controls.Add(Me.impulsor_pn_visual)
         Me.Controls.Add(Me.impulsor_pn_med)
         Me.Controls.Add(Me.impulsor_pn_vector)
         Me.Controls.Add(Me.impulsor_gb_info)
@@ -202,6 +222,7 @@ Partial Class impulsor_imp_cerrado_generico
         Me.impulsor_gb_info.ResumeLayout(False)
         Me.impulsor_gb_info.PerformLayout()
         Me.impulsor_pn_vector.ResumeLayout(False)
+        CType(Me.impulsor_pic_visual, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -221,4 +242,6 @@ Partial Class impulsor_imp_cerrado_generico
     Friend WithEvents impulsor_pn_z1 As System.Windows.Forms.Panel
     Friend WithEvents impulsor_pn_z3 As System.Windows.Forms.Panel
     Friend WithEvents impulsor_pn_z4 As System.Windows.Forms.Panel
+    Friend WithEvents impulsor_pn_visual As System.Windows.Forms.Panel
+    Friend WithEvents impulsor_pic_visual As System.Windows.Forms.PictureBox
 End Class

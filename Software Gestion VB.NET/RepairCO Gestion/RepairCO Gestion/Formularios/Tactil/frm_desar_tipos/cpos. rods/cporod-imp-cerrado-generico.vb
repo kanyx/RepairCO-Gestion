@@ -8,6 +8,7 @@
         Me.cporod_pn_vector.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/vector.png")
         Me.cporod_pn_z1.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/z1_normal.png")
         Me.cporod_pn_z2.BackgroundImage = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/z2_normal.png")
+        Me.cporod_pic_visual.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/insvisual_normal.png")
         ' # ESTABLECEMOS PARAMETROS A LOS CONTROLES.
         Me.cporod_pn_med.Visible = False
         Me.cporod_lbl_z1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
@@ -20,6 +21,7 @@
         Me.cporod_pn_z2.Location = New Point(300, -31)
         Me.cporod_txt_z1.ReadOnly = True
         Me.cporod_txt_z2.ReadOnly = True
+        Me.cporod_pn_visual.Visible = False
         ' # CARGAMOS LOS VALORES DESDE LA BASE DE DATOS.
         ValoresAnteriores = PGSQL_TACTIL_MEDPROMLOAD(MecOT, "4") ' # COMPONENTE ESTABLECIDO MANUALMENTE DEACUERDO L FORMULARIO.
         If ValoresAnteriores.ContainsKey("0") = False Then
@@ -73,5 +75,19 @@
         frm_med_z2.ZoneImageError = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/cpos_rods/generico_imp_cerrado/z2_active.png")
         Me.cporod_pn_med.Controls.Add(frm_med_z2)
         frm_med_z2.Show()
+    End Sub
+    Private Sub cporod_pic_visual_Click(sender As Object, e As EventArgs) Handles cporod_pic_visual.Click
+        Me.cporod_pn_visual.Visible = True
+        Me.cporod_pn_visual.Size = New Size(541, 409)
+        Me.cporod_pn_visual.Location = New Point(378, 10)
+        Dim frm_med_visual As New cporod_visual
+        frm_med_visual.TopLevel = False
+        frm_med_visual.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        frm_med_visual.Dock = DockStyle.Fill
+        frm_med_visual.VisualComponente = 4
+        frm_med_visual.VisualOT = Integer.Parse(MecOT)
+        frm_med_visual.PanelCarga = Me.cporod_pn_visual
+        Me.cporod_pn_visual.Controls.Add(frm_med_visual)
+        frm_med_visual.Show()
     End Sub
 End Class

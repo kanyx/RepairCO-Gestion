@@ -6,12 +6,15 @@
         ' # CARGA ELEMENTOS GRAFICOS DE LA APLICACION.
         Me.carcasa_pic_title.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/carcasas/carcasa_impulsorcerrado_generic_title.png")
         Me.carcasa_pic_vector.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/vectores/carcasas/generico_imp_cerrado/vector_paint.png")
+        Me.carcasa_pic_visual.Image = Image.FromFile(Application.StartupPath & "/Data/grafica/botones/insvisual_normal.png")
         ' # ESTABLECEMOS PARAMETROS DE LA APLICACION.
         Me.carcasa_pn_med.Visible = False
         Me.carcasa_pic_vector.BackColor = Color.Transparent
         Me.carcasa_pic_title.BackColor = Color.Transparent
         Me.carcasa_txt_z1.ReadOnly = True
         Me.carcasa_txt_z2.ReadOnly = True
+        Me.carcasa_pn_med.Visible = False
+        Me.carcasa_pn_visual.Visible = False
         Me.carcasa_lbl_z1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
         Me.carcasa_lbl_z2.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
         Me.carcasa_txt_z1.ForeColor = ColorTranslator.FromHtml("#5b5b5b")
@@ -59,5 +62,20 @@
         frm_med_z2.PanelCarga = Me.carcasa_pn_med
         Me.carcasa_pn_med.Controls.Add(frm_med_z2)
         frm_med_z2.Show()
+    End Sub
+
+    Private Sub carcasa_pic_visual_Click(sender As Object, e As EventArgs) Handles carcasa_pic_visual.Click
+        Me.carcasa_pn_visual.Visible = True
+        Me.carcasa_pn_visual.Size = New Size(541, 409)
+        Me.carcasa_pn_visual.Location = New Point(378, 10)
+        Dim frm_med_visual As New carcasa_visual
+        frm_med_visual.TopLevel = False
+        frm_med_visual.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        frm_med_visual.Dock = DockStyle.Fill
+        frm_med_visual.VisualComponente = 2
+        frm_med_visual.VisualOT = Integer.Parse(MecOT)
+        frm_med_visual.PanelCarga = Me.carcasa_pn_visual
+        Me.carcasa_pn_visual.Controls.Add(frm_med_visual)
+        frm_med_visual.Show()
     End Sub
 End Class

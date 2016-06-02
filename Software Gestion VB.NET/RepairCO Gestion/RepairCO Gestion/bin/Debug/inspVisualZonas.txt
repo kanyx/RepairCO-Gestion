@@ -3,7 +3,7 @@ idot = numero de orden de trabajo.
 idcomponente = id del componente al que esta enganchado el registro. (TABLA RELACIONAL CON "MED_COMPONENTES")
 ####################################
 DESCRIPCION PARAMETROS:
-0= | 1= | 2=
+1= | 1= | 2=
 ####################################
 DESCRIPCION DE ZONAS.
 z1 = EJE: cond. hilo de tuerca fijacion de rodamiento.
