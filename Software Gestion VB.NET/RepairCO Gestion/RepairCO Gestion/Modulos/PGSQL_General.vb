@@ -1,9 +1,11 @@
 ﻿Imports Npgsql
+Imports System.Collections.Generic
 Module PGSQL_General
     ' # Modulo de funciones generales para realizar comprobaciones e interactuar de forma basica con el servidor PostgreSQL
     Dim ConextionString As String = "" ' # Cadena de conexion para PostgreSQL.
     Private ConnectorPGSQL As NpgsqlConnection
     Private CommandPGSQL As NpgsqlCommand
+#Region "PostgreSQL Utils"
     Function PGSQL_ProbarConexion(ByVal Server As String, ByVal Port As String, ByVal Username As String, _
                                   ByVal Password As String, ByVal NameBD As String) As Boolean
         Try
@@ -31,6 +33,8 @@ Module PGSQL_General
             Return False
         End Try
     End Function
+#End Region
+#Region "PostgreSQL INGRESO OT"
     Public Function PGSQL_ExisteOT(ByVal NumeroOT As String) As Boolean
         ' # FUNCION QUE COMPRUEBA SI EXISTE UNA ORDEN DE TRABAJO
         Try
@@ -279,6 +283,8 @@ Module PGSQL_General
                             Application.ProductName & " - " & Application.ProductVersion, MessageBoxButtons.OK)
         End Try
     End Sub
+#End Region
+#Region "VISOR OT"
     Public Function PGSQL_CargaComentariosOT(ByVal NumeroOT As String) As String
         ' # CARGA LOS COMENTARIOS DE LA ORDEN DE TRABAJO DESDE LA BASE DE DATOS.
         Dim Comentario As String = ""
@@ -787,4 +793,284 @@ Module PGSQL_General
                          MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+#End Region
+#Region "PLANIFICACION: ASIGNACION DE TAREAS"
+    Public Sub PGSQL_PLANIFICACION_LOADOT(ByVal DGV As DataGridView)
+        ' ########################################################################## '
+        ' ######### FUNCION ENCARGA DE RELLENAR DGV EN ASIGNACION DE TAREAS ######## '
+        ' ########################################################################## '
+        ' # CONSULTA A LA BASE DE DATOS POR EL LISTADO DE TODAS LAS OT Y EL ESTADO # '
+        ' # DE ESTAS, SI EL ESTADO ES = CERRADA OR TERMINADA NO LAS DESPLIEGA.     # '
+        ' ########################################################################## '
+        ' # DESARME
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                               ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                               ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                               ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                               ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, nserie, prioridad, fecha_ingreso, fecha_cierre, idmechanicstation, idestado FROM view_ot_planificacion WHERE fecha_cierre is null AND idmechanicstation!=0 ORDER BY notrabajo DESC"
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                PGSQLConex.Close()
+                Exit Sub
+            End If
+            PGSQLDataTable.Load(rd)
+            PGSQLDataTable.Columns.Add("DESARME")
+            PGSQLDataTable.Columns.Add("REGISTRO FOTOGRAFICO DESARME")
+            PGSQLDataTable.Columns.Add("CONTROL METROLÓGICO DESARME")
+            PGSQLDataTable.Columns.Add("COMENTARIOS DESARME")
+            PGSQLDataTable.Columns.Add("EVALUACIÓN COMPONENTES DESARME")
+            PGSQLDataTable.Columns.Add("PRUEBAS DE PLANITUD, PARALELISMO Y CENTRICIDAD DESARME")
+            PGSQLDataTable.Columns.Add("DIAGNOSTICO")
+            PGSQLDataTable.Columns.Add("COTIZAR")
+            PGSQLDataTable.Columns.Add("OC")
+            PGSQLDataTable.Columns.Add("REPUESTOS")
+            PGSQLDataTable.Columns.Add("ARMADO")
+            PGSQLDataTable.Columns.Add("CONTROL METROLÓGICO ARMADO")
+            PGSQLDataTable.Columns.Add("EVALUACIÓN COMPONENTES ARMADO")
+            PGSQLDataTable.Columns.Add("REGISTRO FOTOGRÁFICO ARMADO")
+            PGSQLDataTable.Columns.Add("REGISTRO DE AJUSTES ARMADO")
+            PGSQLDataTable.Columns.Add("PRUEBAS FINALES ARMADO")
+            PGSQLDataTable.Columns.Add("DESPACHO")
+            PGSQLDataTable.Columns.Add("EN RUTA")
+            DGV.DataSource = PGSQLDataTable
+            DGV.Columns(1).Visible = False
+            DGV.Columns(2).Visible = False
+            DGV.Columns(3).Visible = False
+            DGV.Columns(4).Visible = False
+            DGV.Columns(5).Visible = False
+            DGV.Columns(6).Visible = False
+            DGV.Columns(7).Visible = False
+            DGV.Columns(8).Visible = False
+            DGV.Columns(9).Visible = False
+            DGV.Columns(10).Visible = False
+            DGV.Columns(11).Visible = False
+            DGV.Columns(17).Visible = False
+            PGSQLConex.Close()
+            Exit Sub
+        Catch err As Exception
+            MessageBox.Show("Ocurrio un error al obtener las ordenes de trabajo desde la base de datos." & err.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+    End Sub
+    Public Sub PGSQL_PLANIFICACION_LOADOT_NOASIGNADA(ByVal DGV As DataGridView)
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT notrabajo, nguiadespacho, idcliente, idtipo, idmarca, idmodelo, nserie, prioridad, fecha_ingreso, fecha_cierre, idmechanicstation, idestado, idsmecs, tiponombre, marcanombre, modelonombre FROM view_ot_planificacion WHERE fecha_cierre is null AND idmechanicstation=0 AND idsmecs !='' ORDER BY notrabajo DESC"
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                PGSQLConex.Close()
+                Exit Sub
+            End If
+            PGSQLDataTable.Load(rd)
+            DGV.DataSource = PGSQLDataTable
+            DGV.Columns(1).Visible = False
+            DGV.Columns(2).Visible = False
+            DGV.Columns(3).Visible = False
+            DGV.Columns(4).Visible = False
+            DGV.Columns(5).Visible = False
+            DGV.Columns(6).Visible = False
+            DGV.Columns(9).Visible = False
+            DGV.Columns(10).Visible = False
+            DGV.Columns(11).Visible = False
+            DGV.Columns(12).Visible = False
+            PGSQLConex.Close()
+            Exit Sub
+        Catch err As Exception
+            MessageBox.Show("Ocurrió un error al intentar obtener la información desde el servidor de base de datos PostgreSQL, por favor contactar al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & err.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+    End Sub
+#End Region
+#Region "Asignacion de Personal (PLANIFICACION)"
+    Public Sub PGSQL_PLANIFICACION_LOADMEC_NOASIGNADO(ByVal DGV As DataGridView)
+        ' # FUNCION ENCARGADA DE RELLENAR LOS DATOS DEL DATAGRID VIEW Y COMPLETARLOS.
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                              ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                              ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                              ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                              ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim PGSQLDataTable As DataTable = New DataTable
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT concat(nombres, ' ', apellido_p, ' ', apellido_m) AS mecanico, rut, idspec, id FROM view_mecanicos WHERE mecasig=0"
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                PGSQLConex.Close()
+                Exit Sub
+            End If
+            PGSQLDataTable.Load(rd)
+            PGSQLDataTable.Columns.Add("ESPECIALIDAD")
+            DGV.DataSource = PGSQLDataTable
+            PGSQLConex.Close()
+            For Each Meca As DataGridViewRow In DGV.Rows
+                If Meca.Cells(2).Value <> "" Then
+                    Dim Especialidades As String = ""
+                    Dim ExIDS As String() = Meca.Cells(2).Value.ToString.Split(",")
+                    For Each idspec As String In ExIDS
+                        If Especialidades = "" Then
+                            Especialidades = PGSQL_MECGETSPEC(idspec).ToUpper
+                        Else
+                            Especialidades = Especialidades & " / " & PGSQL_MECGETSPEC(idspec).ToUpper
+                        End If
+                    Next
+                    Meca.Cells(4).Value = Especialidades
+                End If
+            Next
+            DGV.Columns(2).Visible = False
+            DGV.Columns(3).Visible = False
+            Exit Sub
+        Catch err As Exception
+            MessageBox.Show("Ocurrió un error al intentar obtener la información desde el servidor de base de datos PostgreSQL, por favor contactar al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & err.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+    End Sub
+    Public Function PGSQL_MECGETSPEC(ByVal idSpec As String) As String
+        ' # FUNCION QUE RETORNO EL NOMBRE DE LA ESPECIALIDAD (RETORNO COMO STRING)
+        Dim ReturnValue As String = ""
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                             ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                             ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                             ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                             ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, nombre FROM especialidades WHERE id=@id LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@id", Integer.Parse(idSpec))
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                PGSQLConex.Close()
+                Return "ID NO EXISTE!"
+            End If
+            rd.Read()
+            ReturnValue = rd(1).ToString
+            PGSQLConex.Close()
+            Return ReturnValue
+        Catch err As Exception
+            MessageBox.Show("Ocurrió un error al intentar obtener la información desde el servidor de base de datos PostgreSQL, por favor contactar al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & err.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return "ERROR"
+        End Try
+    End Function
+    Public Function PGSQL_MECGETOTASIGACTIVE(ByVal idMeca As String) As ArrayList
+        Dim VarReturn As New ArrayList
+        Try
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                            ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                            ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                            ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                            ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, notrabajo, idsmecs, fecha_cierre FROM ordenestrabajo WHERE idsmecs!='0' AND fecha_cierre is null"
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                PGSQLConex.Close()
+                VarReturn.Add("")
+                Return VarReturn
+            End If
+            While rd.Read
+                Dim ExplodeIdMeca As String() = rd(2).ToString.Split(",")
+                For Each MecIDDB In ExplodeIdMeca
+                    If Trim(idMeca) = Trim(MecIDDB) Then
+                        VarReturn.Add(Trim(rd(1).ToString))
+                    End If
+                Next
+            End While
+            PGSQLConex.Close()
+            Return VarReturn
+        Catch err As Exception
+            MessageBox.Show("Ocurrió un error al intentar obtener la información desde el servidor de base de datos PostgreSQL, por favor contactar al equipo de desarrollo." & vbNewLine & vbNewLine & _
+                            "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & err.ToString, Application.ProductName & " - " & Application.ProductVersion, _
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            VarReturn.Add("ERROR")
+            Return VarReturn
+        End Try
+    End Function
+    Public Function PGSQL_MECASIGNOT(ByVal idMec As String, ByVal OT As String) As Boolean
+        Try
+            Dim AllMEC As String = ""
+            If idMec = "" Then
+                Return False
+            End If
+            Dim PGSQLConex As New NpgsqlConnection("Host=" & main_loggin.ParametrosConfiguracion(0).ToString & _
+                                          ";Port=" & main_loggin.ParametrosConfiguracion(1).ToString & _
+                                          ";Username=" & main_loggin.ParametrosConfiguracion(2).ToString & _
+                                          ";Password=" & main_loggin.ParametrosConfiguracion(3).ToString & _
+                                          ";Database=" & main_loggin.ParametrosConfiguracion(4).ToString)
+            Dim rd As NpgsqlDataReader
+            Dim PGSQLCommand As NpgsqlCommand
+            PGSQLConex.Open()
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "SELECT id, notrabajo, idsmecs FROM ordenestrabajo WHERE notrabajo=@OT LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@OT", OT)
+            rd = PGSQLCommand.ExecuteReader
+            If rd.HasRows = False Then
+                Return False
+            End If
+            rd.Read()
+            AllMEC = rd(2).ToString
+            If AllMEC = "" Then
+                AllMEC = idMec
+            Else
+                AllMEC = AllMEC & "," & OT
+            End If
+            PGSQLCommand = New NpgsqlCommand
+            PGSQLCommand.Connection = PGSQLConex
+            PGSQLCommand.CommandType = CommandType.Text
+            PGSQLCommand.CommandText = "UPDATE ordenestrabajo SET idsmecs=@Mecs WHERE notrabajo=@OT LIMIT 1"
+            PGSQLCommand.Parameters.AddWithValue("@OT", OT)
+            PGSQLCommand.Parameters.AddWithValue("@Mecs", AllMEC)
+            PGSQLCommand.ExecuteNonQuery()
+            PGSQLConex.Close()
+            Return True
+        Catch err As Exception
+            MessageBox.Show("Ocurrió un error al realizar la operación solicitada, el detalle del error se muestra a continuación: " & _
+                            vbNewLine & vbNewLine & "[DETALLE DEL ERROR]" & vbNewLine & vbNewLine & err.ToString, Application.ProductName & _
+                            " - " & Application.ProductVersion, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1)
+            Return False
+        End Try
+    End Function
+#End Region
 End Module

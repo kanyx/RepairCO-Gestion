@@ -70,8 +70,8 @@ Public Class main_loggin
             ' CARGAMOS INTERFACE PARA ESTACION MECANICA.
             Me.Hide()
             Dim frm_mecloggin As New mec_loggin
-            'frm_mecloggin.Show()
-            mec_dashboard.Show()
+            frm_mecloggin.Show()
+            'mec_dashboard.Show()
         End If
     End Sub
     Private Sub loggin_password_txt_KeyDown(sender As Object, e As KeyEventArgs) Handles loggin_password_txt.KeyDown

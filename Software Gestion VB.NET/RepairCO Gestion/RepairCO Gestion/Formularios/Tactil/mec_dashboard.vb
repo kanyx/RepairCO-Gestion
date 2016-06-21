@@ -1,8 +1,8 @@
 ﻿Public Class mec_dashboard
     Public MecUserInfo As ArrayList
-    Public MecUserID As String = "4" ' # Valor de prueba "4" default.""
-    Public MecStation As String = "MC1" '# Valor de prueba "MC1" default.""
-    Public MecStationID As String = "1" ' # Valor de prueba "1" default.""
+    Public MecUserID As String = "" ' # Valor de prueba "4" default.""
+    Public MecStation As String = "" '# Valor de prueba "MC1" default.""
+    Public MecStationID As String = "" ' # Valor de prueba "1" default.""
     Private MecAuthClose As Boolean = False
     Private Sub mec_dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' # CARGAMOS VALORES PRINCIPALES DE INFORMACION DESDE LA BASE DE DATOS.

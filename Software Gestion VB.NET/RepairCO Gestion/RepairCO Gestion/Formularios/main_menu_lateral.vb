@@ -42,6 +42,19 @@
             Frm_RecepcionIngreso.Height = main_application.ClientSize.Height * 0.929
             Frm_RecepcionIngreso.Width = main_application.ClientSize.Width * 0.8
             Frm_RecepcionIngreso.Show()
+        ElseIf e.Node.Name = "menu_planificacion_asignaciontareas" Then
+            CloseForms(planificacion_atareas)
+            If CheckForm(planificacion_atareas) = True Then
+                Exit Sub
+            End If
+            Dim Frm_PlanificacionAtareas As New planificacion_atareas
+            Frm_PlanificacionAtareas.MdiParent = main_application
+            Frm_PlanificacionAtareas.ShowInTaskbar = False
+            Frm_PlanificacionAtareas.StartPosition = FormStartPosition.Manual
+            Frm_PlanificacionAtareas.Left += 260
+            Frm_PlanificacionAtareas.Height = main_application.ClientSize.Height * 0.929
+            Frm_PlanificacionAtareas.Width = main_application.ClientSize.Width * 0.8
+            Frm_PlanificacionAtareas.Show()
         End If
     End Sub
     ' # Funcion que comprueba si un formulario ya se encuentra abierto.
